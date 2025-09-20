@@ -4,6 +4,7 @@ In dieser Datei werden alle offenen und erledigten Aufgaben für das technische 
 
 ## Offene Aufgaben
 
+- [ ] Erfasste Anforderungen aus Miro übernehmen
 - [ ] Text für Kapitel 2: Systemübersicht verfassen
 - [ ] Text für Kapitel 3.1: Benutzermanagement verfassen
 - [ ] Text für Kapitel 3.2: Contentmanagement verfassen

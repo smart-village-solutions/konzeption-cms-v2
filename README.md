@@ -3,14 +3,15 @@
 ## Inhaltsverzeichnis
 
 1. [Einleitung](01_Einleitung/Einleitung.md)
-   - Zielsetzung
-   - Zielgruppen
-   - Abgrenzung und Kontext
-2. Systemübersicht
+2. Anforderungen
+  2.1 [Funktionale Anforderungen](02_Anforderungen/Funktional.md)
+  2.2 [Nicht-funktionale Anforderungen](02_Anforderungen/Nicht-funktional.md)
+
+3. Systemübersicht
    - Architekturmodell
    - Plattformstrategie
    - Technologiestack (optional)
-3. Funktionsbereiche
+4. Funktionsbereiche
    - 3.1 Benutzermanagement
      - Rollen & Rechte
      - Registrierungs- & Login-Mechanismen
@@ -40,15 +41,15 @@
      - Staging- & Produktionsumgebungen
      - Veröffentlichung in App Stores
      - Release Notes & Update-Strategie
-4. Betriebs- & Sicherheitskonzept
+5. Betriebs- & Sicherheitskonzept
    - Supportmodell
    - Sicherheit
    - Backup & Recovery
-5. Roadmap & Einführung
+6. Roadmap & Einführung
    - MVP-Umfang
    - Rollout-Plan
    - Schulungen & Change-Management
-6. Anhang
+7. Anhang
    - Glossar
    - Beispiel-Architekturdiagramme
    - Mockups/Designskizzen (optional)
