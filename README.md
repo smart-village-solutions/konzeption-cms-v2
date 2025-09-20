@@ -52,3 +52,7 @@
     1. Glossar
     2. Beispiel-Architekturdiagramme
     3. Mockups/Designskizzen (optional)
+
+## Arbeitspakete
+
+Alle während der Konzeptionsphase erkennbaren Arbeitspakete werden strukturierte unter [Arbeitspakete.yml](Arbeitspakete.yml) erfasst.

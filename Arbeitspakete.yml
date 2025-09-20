@@ -1,0 +1,134 @@
+meta:
+  project: "CMS 2.0"
+  version: 1
+  last_updated: 2025-09-20
+  conventions:
+    effort_unit: "PT" # Personentage
+    status_values: ["idea","draft","ready","in_progress","done","on_hold"]
+
+work_packages:
+  - id: WP-001
+    title: "Performance-Optimierung"
+    description: "Analyse und Optimierung der Systemperformance. Ziel ist, dass Inhalte schnell geladen werden, Redaktionsvorgänge ohne merkliche Verzögerung ablaufen und das System auch bei Lastspitzen stabil bleibt. Dazu gehören Code-Optimierungen, Caching-Strategien, Datenbank-Tuning sowie die Einführung von Monitoring-Tools zur kontinuierlichen Überwachung."
+    deliverables: "Performance-Analysebericht, implementierte Optimierungen (Code, DB, Caching), automatisierte Performance-Tests, Monitoring-Dashboard mit Kennzahlen"
+    deps: []
+    cluster: "Qualität"
+    status: "draft"
+    acceptance: "95% der Anfragen werden in <500 ms beantwortet; Frontend-Seitenaufbau <2 Sekunden; Performance-Testberichte dokumentieren die Ergebnisse."
+
+  - id: WP-002
+    title: "Verfügbarkeit & Ausfallsicherheit"
+    description: "Entwicklung und Umsetzung eines Konzepts für Hochverfügbarkeit und Ausfallsicherheit. Dazu zählen redundante Systeme, Failover-Mechanismen, Backups, Disaster-Recovery-Strategien sowie ein proaktives Monitoring mit Alarmierung. Ziel ist, dass Redakteure und Nutzer:innen jederzeit zuverlässig arbeiten können."
+    deliverables: "Architektur- und Betriebskonzept für Hochverfügbarkeit, implementierte Failover-Mechanismen, Backup- und Recovery-Dokumentation, Monitoring- und Alarmierungs-Setup"
+    deps: []
+    cluster: "Qualität"
+    status: "draft"
+    acceptance: "System erreicht ≥99,5% Jahresverfügbarkeit; erfolgreiche Simulation von Ausfallszenarien (Failover <4h)."
+
+  - id: WP-003
+    title: "Skalierbarkeit"
+    description: "Sicherstellung, dass das System mit wachsenden Nutzerzahlen und Datenvolumen umgehen kann. Last- und Stresstests prüfen, wie das CMS bei paralleler Nutzung durch viele Redakteur:innen sowie beim Betrieb mit umfangreichen Datenmengen funktioniert. Dokumentation und Maßnahmenplan für horizontale und vertikale Skalierung."
+    deliverables: "Lasttest-Szenarien und -Protokolle, Maßnahmenkatalog zur Skalierung (z. B. Sharding, Load Balancing), aktualisierte Architektur-Dokumentation"
+    deps: ["WP-001"]
+    cluster: "Qualität"
+    status: "draft"
+    acceptance: "System unterstützt mindestens 1.000 gleichzeitige Nutzer:innen und 500.000 Inhaltsobjekte ohne signifikanten Performance-Einbruch."
+
+  - id: WP-004
+    title: "Wartbarkeit & Erweiterbarkeit"
+    description: "Definition und Umsetzung von Architekturprinzipien, Coding-Guidelines und modularer Erweiterbarkeit. Ziel ist eine nachhaltige und saubere Codebasis, die leicht gepflegt und erweitert werden kann. Das Paket umfasst eine Referenzimplementierung für ein Modul sowie klare Vorgaben für API-first-Entwicklung."
+    deliverables: "Architektur- und Coding-Guidelines, Beispiel-Plugin als Referenz, dokumentierte Schnittstellen (OpenAPI/GraphQL), Developer-Handbuch"
+    deps: []
+    cluster: "Betrieb"
+    status: "draft"
+    acceptance: "Architektur-Review erfolgreich abgeschlossen; neue Module können ohne Anpassungen am Core integriert werden."
+
+  - id: WP-005
+    title: "Deployment & Installation"
+    description: "Bereitstellung standardisierter Installations- und Betriebsverfahren, die sowohl für kleine Kommunen als auch für professionelle Hosting-Dienstleister geeignet sind. Dazu gehören Containerisierung, automatisierte Deployments, Selfhosting-Optionen und Dokumentation für Betrieb und Updates."
+    deliverables: "Docker-Compose-Setup, Kubernetes-Helm-Chart, Installations- und Betriebshandbuch, CI/CD-Pipeline für Deployments"
+    deps: ["WP-004"]
+    cluster: "Betrieb"
+    status: "draft"
+    acceptance: "Standardinstallation auf einer VM in <2 Stunden möglich; Dokumentation deckt Installation, Betrieb und Updates ab."
+
+  - id: WP-006
+    title: "IT-Sicherheit"
+    description: "Entwicklung und Umsetzung eines Sicherheitskonzepts auf Basis von BSI-Grundschutz und FITKO-Leitlinien. Beinhaltet sichere Konfigurationen, Verschlüsselung, Härtung von Servern, Zugriffskontrollen sowie regelmäßige Penetrationstests. Ziel ist, Sicherheitslücken frühzeitig zu erkennen und Risiken zu minimieren."
+    deliverables: "IT-Sicherheitskonzept, implementierte Maßnahmen (z. B. TLS, Härtung), Bericht eines externen Pentests, kontinuierliches Monitoring"
+    deps: []
+    cluster: "Sicherheit"
+    status: "draft"
+    acceptance: "Externer Pentest ohne kritische Findings; Sicherheitskonzept ist dokumentiert und freigegeben."
+
+  - id: WP-007
+    title: "Datenschutz & DSGVO"
+    description: "Sicherstellung der DSGVO-Konformität, insbesondere durch Audit-Logs, Löschkonzepte, Hosting in Deutschland und Dokumentation einer Datenschutzfolgeabschätzung (DSFA). Ziel ist die rechtssichere Verarbeitung personenbezogener Daten und der Nachweis von Compliance."
+    deliverables: "DSFA-Dokumentation, Audit-Log-System, Lösch- und Archivierungskonzept, Hosting-Nachweise"
+    deps: ["WP-006"]
+    cluster: "Sicherheit"
+    status: "draft"
+    acceptance: "Audit-Logs werden für mindestens 6 Monate gespeichert; DSFA abgeschlossen; Löschkonzept implementiert und getestet."
+
+  - id: WP-008
+    title: "Testautomatisierung"
+    description: "Einführung einer durchgängigen Teststrategie mit automatisierten Unit-, Integrations- und End-to-End-Tests. Einrichtung einer CI/CD-Pipeline, die Tests automatisch ausführt und Ergebnisse transparent macht. Ziel ist ein hoher Qualitätsstandard mit geringer Fehleranfälligkeit."
+    deliverables: "Teststrategie-Dokument, Testframework, automatisierte Tests für Kernmodule, CI/CD-Pipeline"
+    deps: ["WP-004"]
+    cluster: "Sicherheit"
+    status: "draft"
+    acceptance: "≥80% Testabdeckung erreicht, 100% für kritische Funktionen; CI/CD-Pipeline läuft stabil."
+
+  - id: WP-009
+    title: "Usability & Editor"
+    description: "Konzeption, Umsetzung und Test einer modernen und intuitiven Benutzeroberfläche. Schwerpunkt ist ein Editor, mit dem Redakteur:innen Inhalte einfach erstellen und verwalten können. Nutzertests stellen sicher, dass die Oberfläche auch für Ehrenamtliche und Gelegenheitsnutzer:innen leicht verständlich ist."
+    deliverables: "UX-Prototypen, implementierter Editor, Ergebnisse aus Usability-Tests, Schulungsmaterial"
+    deps: []
+    cluster: "Nutzerfreundlichkeit"
+    status: "draft"
+    acceptance: "System erreicht in Nutzertests einen SUS-Score ≥75; mindestens 80% der Tester bewerten den Editor als einfach zu bedienen."
+
+  - id: WP-010
+    title: "Barrierefreiheit"
+    description: "Sicherstellung, dass CMS 2.0 vollständig BITV- und WCAG-konform ist. Dazu gehören barrierefreie Templates, Oberflächen und Redaktionswerkzeuge sowie Tests mit realen Nutzer:innen. Ziel ist die volle Teilhabe aller Bevölkerungsgruppen."
+    deliverables: "Barrierefreie Templates, BITV-Testbericht, Umsetzung identifizierter Verbesserungen"
+    deps: ["WP-009"]
+    cluster: "Nutzerfreundlichkeit"
+    status: "draft"
+    acceptance: "BITV-Selbstbewertung erreicht ≥90/100 Punkte; alle kritischen Mängel aus Tests behoben."
+
+  - id: WP-011
+    title: "Lokalisierung"
+    description: "Erweiterung des Systems um Mehrsprachigkeit und regionale Anpassungen. Backend und UI sollen einfach übersetzbar sein. Ziel ist die einfache Nutzung des CMS in unterschiedlichen Sprach- und Kulturkontexten."
+    deliverables: "Internationalisierungskonzept, Sprachdateien (Deutsch, Englisch), Übersetzungsworkflow, Tests"
+    deps: ["WP-009"]
+    cluster: "Nutzerfreundlichkeit"
+    status: "draft"
+    acceptance: "UI vollständig auf Deutsch und Englisch verfügbar; Inhalte können sprachabhängig gepflegt werden."
+
+  - id: WP-012
+    title: "Interoperabilität & Schnittstellen"
+    description: "Definition und Umsetzung offener Schnittstellen zur Integration externer Systeme (Tourismusplattformen, urbane Datenplattformen, Fachverfahren). Ziel ist die Interoperabilität auf Basis offener Standards und die einfache Anbindung neuer Systeme."
+    deliverables: "API-Dokumentation (OpenAPI/Swagger), Referenzimplementierungen, Integrationstest mit externen Systemen"
+    deps: ["WP-004"]
+    cluster: "Integration"
+    status: "draft"
+    acceptance: "Mindestens 2 externe Systeme erfolgreich angebunden; Schnittstellen dokumentiert und versioniert."
+
+  - id: WP-013
+    title: "Open Source & Governance"
+    description: "Etablierung von Strukturen für ein echtes Open-Source-Projekt. Dazu gehören Lizenzwahl, öffentliche Repositories, Contribution-Guidelines, Governance-Modelle und Community-Prozesse. Ziel ist Transparenz, Nachhaltigkeit und aktive Mitgestaltung durch die Anwendergemeinschaft."
+    deliverables: "Governance-Dokument, öffentliches Repository (GitHub/GitLab), Lizenzdokumentation, Contribution-Guidelines"
+    deps: []
+    cluster: "Governance"
+    status: "draft"
+    acceptance: "Code öffentlich verfügbar, Lizenz klar definiert, erste externe Beiträge dokumentiert."
+
+  - id: WP-014
+    title: "Dokumentation & Schulung"
+    description: "Erstellung umfassender Dokumentationen und Schulungsmaterialien für verschiedene Zielgruppen (Admins, Redakteur:innen, Entwickler:innen). Ziel ist, dass Nutzer:innen das CMS schnell verstehen und selbstständig anwenden können."
+    deliverables: "User-Handbuch, Admin-Dokumentation, Entwickler-Dokumentation, Video-Tutorials, Schulungsunterlagen"
+    deps: ["WP-004","WP-009"]
+    cluster: "Governance"
+    status: "draft"
+    acceptance: "Alle Handbücher sind vollständig; mindestens 2 Schulungen durchgeführt; Tutorials online verfügbar."
