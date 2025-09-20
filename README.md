@@ -13,9 +13,9 @@
             1. [Events](Anforderungen/Funktional/Module/Events.md)
             1. ... alle weitere Module
         1. [App-Design](Anforderungen/Funktional/App-Design.md)
-        1. [Schnittstellen und Integrationen](Anforderungen/Funktional/Module/Schnittstellen.md)
-        1. [Monitoring/Logging/Versionisierung](Anforderungen/Funktional/Module/Monitoring.md)
-        1. [App-Veröffentlichung](Anforderungen/Funktional/Module/Releases.md)
+        1. [Schnittstellen und Integrationen](Anforderungen/Funktional/Schnittstellen.md)
+        1. [Monitoring/Logging/Versionisierung](Anforderungen/Funktional/Monitoring.md)
+        1. [App-Veröffentlichung](Anforderungen/Funktional/Releases.md)
     2. [Nicht-funktionale Anforderungen](Anforderungen/Nicht-funktional.md)
 3. Systemübersicht
     1. Architekturmodell
