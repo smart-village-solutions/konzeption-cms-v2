@@ -2,10 +2,21 @@
 
 ## Inhaltsverzeichnis
 
-1. [Einleitung](01_Einleitung/Einleitung.md)
+1. [Einleitung](Einleitung/Einleitung.md)
 2. Anforderungen
-    1. [Funktionale Anforderungen](02_Anforderungen/Funktional.md)
-    2. [Nicht-funktionale Anforderungen](02_Anforderungen/Nicht-funktional.md)
+    1. Funktionale Anforderungen
+        1. [Benutzer- und Rechteverwaltung](Anforderungen/Funktional/Benutzer.md)
+        1. [Content-und Medien-Management allgemein](Anforderungen/Funktional/CMS.md)
+        1. Modulmanagement (jeweils die Anforderungen zur Bearbeitung der Inhalte und zur Verwaltung des Moduls selbst)
+            1. [Modulmanagement allg.](Anforderungen/Funktional/Module/allgemein.md)
+            1. [News](Anforderungen/Funktional/Module/News.md)
+            1. [Events](Anforderungen/Funktional/Module/Events.md)
+            1. ... alle weitere Module
+        1. [App-Design](Anforderungen/Funktional/App-Design.md)
+        1. [Schnittstellen und Integrationen](Anforderungen/Funktional/Module/Schnittstellen.md)
+        1. [Monitoring/Logging/Versionisierung](Anforderungen/Funktional/Module/Monitoring.md)
+        1. [App-Veröffentlichung](Anforderungen/Funktional/Module/Releases.md)
+    2. [Nicht-funktionale Anforderungen](Anforderungen/Nicht-funktional.md)
 3. Systemübersicht
     1. Architekturmodell
     2. Plattformstrategie
