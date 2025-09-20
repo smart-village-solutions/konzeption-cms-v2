@@ -2,9 +2,11 @@
 
 Mit dem Projekt „CMS 2.0“ modernisieren wir das Redaktionssystem der Smart Village App grundlegend. Ziel ist eine integrierte Plattform, die Content-Management, Benutzerverwaltung, App-Design, Module und Schnittstellen in einem nutzerfreundlichen, sicheren und erweiterbaren System vereint.
 
+Die Bereiche zu Benutzerverwaltung und Content-Management sollen so versatil sein, dass es auch als grundlegendes Stadt-CMS oder Content-Hub für andere System (Websites, Stelen, Fachsoftware, ...) dienen kann. Anders als bei üblichen Urbanen Datenplattformen liegt der Schwerpunkt nicht auf Sensordaten oder statistischen Time-Series-Daten, sondern auf der Sammlung und Bearbeitung von "strukturierten Dokumenten" wie z.B. Pressemitteilungen, Events, POI, Verwaltungsleistunfen, Baustellen, Stellenanzeigen, ... Gleichzeitig soll das System aber auch so gestaltet sein, dass das Content-Management in externen Systemen erfolgt.
+
 Das vorliegende Konzept beschreibt die funktionalen und nicht-funktionalen Anforderungen sowie die allgemeine Systemarchitektur. Es dient als Grundlage, das Gesamtprojekt in klar abgegrenzte Arbeitspakete zu gliedern, die eigenständig beauftragt werden können und zugleich einen erkennbaren Beitrag zum gemeinsamen Ziel leisten.
 
-## Zielsetzung
+## Hintergrund und Zielsetzung
 
 Das aktuelle Redaktionssystem stößt zunehmend an seine Grenzen: Redaktionsprozesse sind umständlich, Konfigurationsmöglichkeiten eingeschränkt, Erweiterungen nur schwer möglich, während Anforderungen an Datenschutz, Integration und Benutzerfreundlichkeit steigen.
 
