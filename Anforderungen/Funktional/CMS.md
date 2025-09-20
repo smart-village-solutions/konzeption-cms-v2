@@ -5,7 +5,8 @@ Dieses Kapitel beschreibt die allgemeinen Anforderungen an das CMS 2.0, die unab
 ## Suche und Navigation
 
 * Eine **klare Navigationsstruktur** unterstützt Redakteur\:innen, sich schnell zurechtzufinden. Dazu gehören übersichtliche Menüs, Breadcrumbs, eine konsistente Anordnung der Module und eine Suchleiste, die jederzeit erreichbar ist.
-* Das CMS muss eine **komfortable Suchfunktion** bereitstellen, mit der Inhalte schnell gefunden werden können – auch über verschiedene Module hinweg. Dies umfasst sowohl eine Volltextsuche als auch die Möglichkeit, gezielt nach bestimmten Feldern wie Titel, Autor oder Veröffentlichungsdatum zu suchen.
+* Ein zentrales **Dashboard** verschafft einen schnellen Überblick zu den zentralen Möglichkeiten des CMS.
+* Das CMS muss eine **komfortable Such- und Filterfunktion** bereitstellen, mit der Inhalte schnell gefunden werden können – auch über verschiedene Module hinweg. Dies umfasst sowohl eine Volltextsuche als auch die Möglichkeit, gezielt nach bestimmten Feldern wie Titel, Autor oder Veröffentlichungsdatum zu suchen.
 * Suchergebnisse sollen **gefiltert und sortiert** werden können, zum Beispiel nach Datum, Relevanz, Modul oder Status (Entwurf, veröffentlicht, archiviert). Filterungen nach Kommunen, Themen oder Zeiträumen müssen ebenfalls möglich sein.
 * Für die Suche nach geographisch zugeordneten Inhalten soll es ein **Kartentool** geben, das App-Inhalte auf einer Karte darstellt und die Ansteuerung der jeweiligen Bearbeitungsmaske aus der Karte erlaubt.
 
@@ -47,6 +48,7 @@ Dieses Kapitel beschreibt die allgemeinen Anforderungen an das CMS 2.0, die unab
 * Die Dokumentation muss **leicht verständlich und praxisnah** formuliert sein, sodass auch Gelegenheitsnutzer\:innen schnell Antworten finden.
 * Neben Texten sollen auch **Screenshots, Beispiele oder kurze Videos** eingebunden werden können, um die Nutzung anschaulich zu erklären.
 * Ergänzend zur eingebauten Hilfe soll es einen **umfassenden Hilfebereich** mit Dokumentation, FAQ und Tutorials geben.
+* Ein ggf. vorhandenes **Ticketsystem** eines externen Dienstleisters soll aus dem CMS erreichbar sein.
 
 ## Anpassbarkeit von Datenstrukturen
 

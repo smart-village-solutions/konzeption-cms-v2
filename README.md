@@ -12,7 +12,7 @@
             1. [News](Anforderungen/Funktional/Module/News.md)
             1. [Events](Anforderungen/Funktional/Module/Events.md)
             1. ... alle weitere Module
-        1. [App-Design](Anforderungen/Funktional/App-Design.md)
+        1. [App-Design und Instanzverwaltung](Anforderungen/Funktional/App-Design.md)
         1. [Schnittstellen und Integrationen](Anforderungen/Funktional/Schnittstellen.md)
         1. [Monitoring/Logging/Versionisierung](Anforderungen/Funktional/Monitoring.md)
         1. [App-Veröffentlichung](Anforderungen/Funktional/Releases.md)
