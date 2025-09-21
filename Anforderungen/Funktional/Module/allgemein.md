@@ -5,6 +5,23 @@ Dieses Kapitel beschreibt die allgemeinen Anforderungen an die Verwaltung der Ap
 ## Modulliste und Übersicht
 
 * Das CMS muss eine **übersichtliche Modulliste** bieten, in der alle verfügbaren Module angezeigt werden.
+* Zu jedem Modul brauchen wir diese Infos:
+  * Auswahloption für Bulk-Aktionen
+  * Bild/Logo/Icon
+  * Name
+  * Beschreibung
+  * Link zu den Modul-Einstellungen (optional)
+  * Link zu den Textvarianten/Sprachen (optional)
+  * Link zu den Modul-Inhalten (optional)
+  * Button zum (De)Aktivieren des Moduls => ggf. mit Popup zur Darstellung und Bestätigung von Kosten
+  * Link zu einer Hilfe-Seite (optional)
+  * Link zu einer Info-Seite (optional)
+  * Link zu einer Support-Seite (optional)
+  * Link zu einer Lizenz-Seite (optional)
+  * Darstellung der Version
+    * Aktuell installiert (Nummer und Release-Datum)
+    * Als Update verfügbar (Nummer und Release-Datum, Kompatibilität zum aktuellen Core-System)
+  * Anzeige der aktiven Installationen
 * Für jedes Modul soll erkennbar sein, ob es **aktiviert oder deaktiviert** ist.
 * Zusätzliche Informationen wie Version, Anbieter, Status und kurze Beschreibung sollen leicht zugänglich sein.
 
@@ -43,3 +60,8 @@ Dieses Kapitel beschreibt die allgemeinen Anforderungen an die Verwaltung der Ap
 * Jede Änderung am Modulstatus (z. B. Aktivierung, Deaktivierung, Konfiguration) muss **protokolliert** werden.
 * Pro Instanz soll eine **historische Übersicht** über alle Moduländerungen vorhanden sein.
 * Nutzer\:innen mit entsprechenden Rechten sollen jederzeit nachvollziehen können, wann und von wem eine Änderung durchgeführt wurde.
+
+## Mehrsprachigkeit
+
+* Alle Module sollen in Zukunft mehrsprachig sein. Dafür braucht es bei jedem Modul die Möglichkeit, Standardtexte in verschiedenen Sprachen zu erstellen.  (Bsp. für den Button "Alle Nachrichten anzeigen")
+* Auch die dynamischen Texte innerhalb der Module sollen auf Mehrsprachigkeit angelegt sein.
