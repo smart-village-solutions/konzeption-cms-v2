@@ -65,6 +65,13 @@ Die Qualität und Nachhaltigkeit von CMS 2.0 wird maßgeblich durch nicht-funkti
 
 ## 4. Nutzerfreundlichkeit
 
+* **Gestaltung**
+
+  * Light and Dark Mode
+  * Anpassbares Logo basierend auf dem App-Icon
+  * 
+  
+
 * **Usability**
 
   * Intuitive und leicht erlernbare Bedienung.
