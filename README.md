@@ -2,7 +2,7 @@
 
 ## Inhaltsverzeichnis
 
-1. [Einleitung](Einleitung/Einleitung.md)
+1. [Einleitung](01_Einleitung/Einleitung.md)
 2. Anforderungen
     1. Funktionale Anforderungen
         1. [Benutzer- und Rechteverwaltung](Anforderungen/Funktional/Benutzer.md)
@@ -66,4 +66,4 @@
 
 ## Arbeitspakete
 
-Alle während der Konzeptionsphase erkennbaren Arbeitspakete werden strukturierte unter [Arbeitspakete.yml](Arbeitspakete.yml) erfasst.
+Alle während der Konzeptionsphase erkennbaren Arbeitspakete werden strukturiert unter [Arbeitspakete.yml](Arbeitspakete.yml) erfasst.

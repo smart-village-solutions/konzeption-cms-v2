@@ -2,7 +2,7 @@
 
 Mit dem Projekt „CMS 2.0“ modernisieren wir das Redaktionssystem der Smart Village App grundlegend. Ziel ist eine integrierte Plattform, die Content-Management, Benutzerverwaltung, App-Design, Module und Schnittstellen in einem nutzerfreundlichen, sicheren und erweiterbaren System vereint.
 
-Die Bereiche zu Benutzerverwaltung und Content-Management sollen so versatil sein, dass es auch als grundlegendes Stadt-CMS oder Content-Hub für andere System (Websites, Stelen, Fachsoftware, ...) dienen kann. Anders als bei üblichen Urbanen Datenplattformen liegt der Schwerpunkt nicht auf Sensordaten oder statistischen Time-Series-Daten, sondern auf der Sammlung und Bearbeitung von "strukturierten Dokumenten" wie z.B. Pressemitteilungen, Events, POI, Verwaltungsleistunfen, Baustellen, Stellenanzeigen, ... Gleichzeitig soll das System aber auch so gestaltet sein, dass das Content-Management in externen Systemen erfolgt.
+Die Bereiche zu Benutzerverwaltung und Content-Management sollen so versatil sein, dass es auch als grundlegendes Stadt-CMS oder Content-Hub für andere Systeme (Websites, Stelen, Fachsoftware, ...) dienen kann. Anders als bei üblichen Urbanen Datenplattformen liegt der Schwerpunkt nicht auf Sensordaten oder statistischen Time-Series-Daten, sondern auf der Sammlung und Bearbeitung von "strukturierten Dokumenten" wie z.B. Pressemitteilungen, Events, POI, Verwaltungsleistungen, Baustellen, Stellenanzeigen, ... Gleichzeitig soll das System aber auch so gestaltet sein, dass das Content-Management in externen Systemen erfolgt.
 
 Das vorliegende Konzept beschreibt die funktionalen und nicht-funktionalen Anforderungen sowie die allgemeine Systemarchitektur. Es dient als Grundlage, das Gesamtprojekt in klar abgegrenzte Arbeitspakete zu gliedern, die eigenständig beauftragt werden können und zugleich einen erkennbaren Beitrag zum gemeinsamen Ziel leisten.
 
@@ -12,11 +12,11 @@ Das aktuelle Redaktionssystem stößt zunehmend an seine Grenzen: Redaktionsproz
 
 CMS 2.0 setzt hier an und schafft **nachhaltigen Mehrwert** für die Kommunen:
 
-* **Einfachere tägliche Arbeitsabläufe** für Verwaltung und Ehrenamt,
-* **individuelle Gestaltungsmöglichkeiten** für Design und Module,
-* eine **modulare Architektur** für zukünftige Erweiterungen,
-* **DSGVO-konforme Datenspeicherung** und
-* eine **verbesserte Integration** in kommunale Systeme.
+- **Einfachere tägliche Arbeitsabläufe** für Verwaltung und Ehrenamt,
+- **individuelle Gestaltungsmöglichkeiten** für Design und Module,
+- eine **modulare Architektur** für zukünftige Erweiterungen,
+- **DSGVO-konforme Datenspeicherung** und
+- eine **verbesserte Integration** in kommunale Systeme.
 
 Damit fördert das Projekt Beteiligung, Innovation und vor allem die **digitale Souveränität der Kommunen**.
 
@@ -24,16 +24,15 @@ Damit fördert das Projekt Beteiligung, Innovation und vor allem die **digitale 
 
 Das Projekt gilt als erfolgreich, wenn:
 
-1. **Anwender\:innen** ihre tägliche Arbeit spürbar einfacher, schneller und sicherer erledigen können und das System durch verständliche Dokumentation und Schulungsmaterialien leicht zugänglich ist.
+1. **Anwender:innen** ihre tägliche Arbeit spürbar einfacher, schneller und sicherer erledigen können und das System durch verständliche Dokumentation und Schulungsmaterialien leicht zugänglich ist.
 2. **Technisch** eine stabile, sichere und erweiterbare Architektur entsteht, die zukünftige Module, Schnittstellen und Drittanbieter-Integrationen ermöglicht.
 3. **Community und Kommunen** sich mit dem Ergebnis identifizieren, weil sie im Prozess wirksam eingebunden waren – durch Ideen, Tests oder finanzielle Beiträge.
 
 Darüber hinaus trägt CMS 2.0 dazu bei, den **Betrieb und die Skalierbarkeit der Smart Village App langfristig zu sichern**: durch geringere laufende Aufwände, mehr Unabhängigkeit und bessere Voraussetzungen für eine Nachnutzung durch weitere Kommunen.
 
-
 ## Zielgruppen
 
-Das neue Redaktionssystem der Smart Village App soll die Bedürfnisse und Anforderungen eine Vielzahl unterschiedlicher Stakeholder:innen erfüllen. Auch wenn im praktischen Alltag die Rollen gerade in kleinen Kommunen häufig gebündelt werden, führen wir sie hier zunächst getrennt auf.
+Das neue Redaktionssystem der Smart Village App soll die Bedürfnisse und Anforderungen einer Vielzahl unterschiedlicher Stakeholder:innen erfüllen. Auch wenn im praktischen Alltag die Rollen gerade in kleinen Kommunen häufig gebündelt werden, führen wir sie hier zunächst getrennt auf.
 
 ### System-Administrator:innen
 
@@ -182,7 +181,7 @@ Wesentlich ist zudem die Berücksichtigung externer Anforderungen. Dazu gehören
 - die [Föderalen IT-Architekturrichtlinien](https://docs.fitko.de/fit/policies/foederale-it-architekturrichtlinien/)
 - die [Datenschutzgrundverordnung (DSGVO)](https://dsgvo-gesetz.de/)
 - die [Vorgaben zu Open Source in den Modellprojekten Smart Cities](https://www.smart-city-dialog.de/regelungen-zu-open-source-fuer-modellprojekte-smart-cities)
-- die Einhaltung und Kompatibilit zu externen Datenstandards (xZuFi, OParl, Open311, schema.org, ...)
+- die Einhaltung und Kompatibilität zu externen Datenstandards (xZuFi, OParl, Open311, schema.org, ...)
 
 Das Projekt folgt dem Anspruch, ein „echtes Open-Source-Projekt“ zu sein. Dies bedeutet:
 
