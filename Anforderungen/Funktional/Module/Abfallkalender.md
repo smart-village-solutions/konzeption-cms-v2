@@ -1,6 +1,13 @@
 # Modul: Abfallkalender
 
 ## Zweck und Mehrwert
+
+Das Modul ermöglicht den App-Nutzenden zunächst die Auswahl einer Adresse über die Schritte Ortsauswahl, Straßenauswahl und Hausnummer, wobei es jeder optional ist. Erfolgt die Auswahl über mehrere Ebenen, richtet sich die Auswahlliste der nachfolgenden Optionen nach der vorherigen Auswahl.
+
+Ist die Adresse ausgewählt, kann der Nutzer verschiedene Müllsorten zur Anzeige im Kalenderauswählen. Und entscheiden, zu welchen Müllsorten eine Pushnachricht verschickt werden soll. Der zeitliche Vorlauf der Push kann eingestellt werden.
+
+Alle Einstellungen werden lokal gespeichert. Serverseitig wird eine Aufgabe zum Pushversand angelegt. Vorherige Nachrichten an das Gerät werden gelöscht.
+
 - Welche Herausforderungen adressiert das Modul?
 - Welchen konkreten Nutzen bringt es für Kommunen und Endanwender:innen?
 
