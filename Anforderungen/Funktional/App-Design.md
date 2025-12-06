@@ -118,7 +118,122 @@ Dieses Kapitel beschreibt die Anforderungen an die Gestaltung und Navigation der
 
 ## Navigation und Struktur
 
-### 7. Tabbar-Konfiguration
+### 7. Listenansichten-Verwaltung
+
+* **Zentrale Konfiguration von Listenansichten**:
+  * Definition, wie Inhalte in Listen dargestellt werden (News, Events, POIs, etc.)
+  * Gilt für alle Module, die Listen anzeigen
+  * Separate Konfiguration pro Inhaltstyp möglich
+
+#### 7.1 Darstellungsformen für Listen
+
+* **Verfügbare Listenansichten**:
+  * **Einfache Liste**:
+    - Text-only oder mit kleinem Icon
+    - Kompakt, viele Einträge sichtbar
+    - Ideal für: Nachrichten, einfache Auflistungen
+  * **Liste mit Vorschaubild**:
+    - Bild links/rechts, Titel und Kurzbeschreibung
+    - Standard-Layout für News, Events
+    - Konfigurierbar: Bildgröße (klein, mittel, groß)
+  * **Karten-Layout (Cards)**:
+    - Boxen mit Bild oben, Text unten
+    - Abgerundete Ecken, Schatten
+    - Ideal für: Events, POIs, Angebote
+  * **Grid-Ansicht**:
+    - 2 oder 3 Spalten nebeneinander
+    - Quadratische Bilder
+    - Ideal für: Bildergalerien, Kategorien
+  * **Große Kacheln**:
+    - Vollbreite Kacheln mit großem Bild
+    - Viel Text sichtbar
+    - Ideal für: Feature-Artikel, Highlights
+  * **Timeline-Ansicht**:
+    - Chronologische Darstellung mit Zeitachse
+    - Ideal für: Chroniken, Historie, Events
+  * **Magazin-Layout**:
+    - Erstes Element groß, weitere klein
+    - Editorial-Look
+    - Ideal für: News-Übersichten
+
+#### 7.2 Konfiguration pro Inhaltstyp
+
+* **Standard-Darstellung festlegen**:
+  * Administrator:innen wählen Default-Ansicht pro Inhaltstyp
+  * Beispiel: News = Liste mit Vorschaubild, Events = Karten-Layout
+  * Global oder pro Modul konfigurierbar
+* **Nutzer-Wahlmöglichkeit**:
+  * Option: "Nutzer kann Ansicht selbst wählen"
+  * Umschalter in der App (Icon-Buttons: Liste/Karten/Grid)
+  * Präferenz wird lokal gespeichert
+  * Administrator:in kann Wahlmöglichkeit deaktivieren (nur Default)
+* **Responsive Anpassung**:
+  * Unterschiedliche Ansichten für Smartphone und Tablet
+  * Beispiel: Smartphone = 1 Spalte, Tablet = 2 Spalten Grid
+  * Automatische Anpassung basierend auf Bildschirmbreite
+
+#### 7.3 Listenelemente konfigurieren
+
+* **Angezeigte Felder auswählen**:
+  * Welche Felder werden in der Liste angezeigt?
+  * Beispiel News: Titel, Vorschaubild, Datum, Kategorie, Anzahl Likes
+  * Drag-and-Drop-Reihenfolge der Felder
+  * Pflichtfelder und optionale Felder
+* **Bild-Einstellungen**:
+  * Seitenverhältnis (16:9, 4:3, 1:1, Original)
+  * Bildgröße (Thumbnail, Klein, Mittel, Groß)
+  * Platzhalter-Bild bei fehlendem Bild
+  * Lazy Loading aktivieren/deaktivieren
+* **Text-Einstellungen**:
+  * Maximale Zeichenlänge für Titel (z.B. 50 Zeichen, dann "...")
+  * Vorschautext anzeigen (Ja/Nein, max. Länge)
+  * Metadaten anzeigen (Datum, Autor, Kategorie, Tags)
+* **Interaktions-Elemente**:
+  * Favoriten-Icon in Liste anzeigen
+  * Teilen-Button in Liste
+  * Schnell-Aktionen (Swipe-Gesten: Links = Favorit, Rechts = Teilen)
+  * Kontextmenü bei langem Druck (Optionen-Menü)
+
+#### 7.4 Sortierung und Filterung
+
+* **Standard-Sortierung**:
+  * Nach Datum (Neueste zuerst / Älteste zuerst)
+  * Alphabetisch (A-Z / Z-A)
+  * Nach Relevanz (bei Suche)
+  * Nach Beliebtheit (Views, Likes)
+  * Nach Entfernung (bei POIs mit Standort)
+* **Nutzer-Sortierung**:
+  * Sortier-Dropdown in der App
+  * Letzte Sortierung speichern
+* **Filter-Leiste**:
+  * Filter nach Kategorie, Datum, Ort anzeigen
+  * Chip-basierte Filter (anklickbar, kombinierbar)
+  * "Filter zurücksetzen"-Button
+
+#### 7.5 Pagination und Lazy Loading
+
+* **Listenende-Verhalten**:
+  * **Pagination mit Seitenzahlen** (1, 2, 3, ...)
+  * **"Mehr laden"-Button** am Listenende
+  * **Infinite Scroll** (automatisches Nachladen beim Scrollen)
+  * **Load More + Counter** ("20 von 157 angezeigt, weitere laden")
+* **Performance-Einstellungen**:
+  * Anzahl initial geladener Elemente (z.B. 20, 50, 100)
+  * Anzahl nachgeladener Elemente (z.B. 20 pro Request)
+  * Preloading aktivieren (nächste Seite vorab laden)
+
+#### 7.6 Leere Listen und Fehlerzustände
+
+* **Konfiguration bei leeren Listen**:
+  * Platzhalter-Text ("Keine News vorhanden")
+  * Platzhalter-Grafik/Icon
+  * Call-to-Action ("Ersten Beitrag erstellen" für Admin)
+* **Fehlerzustände**:
+  * Offline-Modus: "Keine Verbindung, zeige gecachte Inhalte"
+  * Ladefehler: "Inhalte konnten nicht geladen werden" + Retry-Button
+  * Timeout: "Anfrage dauert zu lange" + Abbrechen/Wiederholen
+
+### 8. Tabbar-Konfiguration
 
 * **Tabbar bearbeiten**:
   * Anzahl der Tabs festlegen (3-5 Tabs empfohlen)
@@ -148,7 +263,124 @@ Dieses Kapitel beschreibt die Anforderungen an die Gestaltung und Navigation der
   * Zusätzliche Buttons im Header (z. B. Favoriten, QR-Code-Scanner)
   * Position der Aktionen (links, rechts, zentriert)
 
-### 9. Drawer-Navigation
+### 9. In-App-Navigation und Navigations-Varianten
+
+* **Wahl des Navigationsmodells**:
+  * Administrator:innen wählen primäres Navigationsmodell für die App
+  * Verschiedene Varianten für unterschiedliche Anwendungsfälle
+  * Kombination mehrerer Varianten möglich
+
+#### 9.1 Navigations-Varianten
+
+* **Tabbar-Navigation (Bottom Navigation)**:
+  * Feste Leiste am unteren Bildschirmrand (iOS/Android Standard)
+  * 3-5 Hauptbereiche direkt erreichbar
+  * Icons + Labels (oder nur Icons)
+  * Aktiver Tab farblich hervorgehoben
+  * Ideal für: Flache Hierarchien, häufig genutzte Bereiche
+  * **Konfiguration**: Siehe Abschnitt "Tabbar-Konfiguration"
+* **Drawer-Navigation (Hamburger-Menü)**:
+  * Seitliches Slide-in-Menü (von links)
+  * Unbegrenzte Anzahl Menüpunkte
+  * Gruppierung möglich (Kategorien)
+  * Header mit Logo/Profil, Footer mit Links
+  * Ideal für: Tiefe Hierarchien, viele Bereiche
+  * **Konfiguration**: Siehe Abschnitt "Drawer-Navigation"
+* **Top-Navigation (Tabs oben)**:
+  * Horizontale Tab-Leiste unter dem Header
+  * Wischbare Tabs (Swipe zwischen Bereichen)
+  * 2-6 Bereiche, scrollbar bei mehr
+  * Ideal für: Inhaltliche Kategorien, Filter-Navigation
+* **Dashboard-Navigation (Kachel-Startseite)**:
+  * Startseite mit Kacheln für alle Bereiche
+  * Visuell ansprechend mit Icons/Bildern
+  * Gruppierung nach Themen
+  * Ideal für: Viele gleichwertige Bereiche, Entdeckung
+* **Hybrid-Navigation**:
+  * Kombination mehrerer Varianten
+  * Beispiel 1: Tabbar + Drawer (Hauptbereiche in Tabbar, weitere im Drawer)
+  * Beispiel 2: Dashboard + Tabbar (Dashboard als Startseite, Tabbar für schnellen Zugriff)
+  * Beispiel 3: Top-Tabs + Tabbar (Kategorien oben, Hauptbereiche unten)
+* **Breadcrumb-Navigation**:
+  * Pfadanzeige für tiefe Hierarchien
+  * Klickbare Breadcrumbs zum Zurücknavigieren
+  * Besonders wichtig bei Web-Ansicht oder Tablet
+
+#### 9.2 Navigations-Konfiguration
+
+* **Primäre Navigation wählen**:
+  * Radio-Button-Auswahl: Tabbar / Drawer / Top-Navigation / Dashboard / Hybrid
+  * Preview der gewählten Variante
+  * Empfehlungen basierend auf App-Struktur (KI-gestützt)
+* **Sekundäre Navigation hinzufügen**:
+  * Falls Hybrid-Modus gewählt: Sekundäre Navigation konfigurieren
+  * Zuordnung: Welche Bereiche in primärer, welche in sekundärer Navigation?
+* **Navigations-Verhalten**:
+  * **Zurück-Button-Verhalten**:
+    - Android: Hardware-/System-Zurück-Button
+    - iOS: Swipe-Geste von links
+    - Verhalten konfigurieren: Zur vorherigen Seite, zur Startseite, App schließen
+  * **Deep-Linking**:
+    - Direkte Links zu Inhalten (z.B. aus Push-Notifications)
+    - URL-Schema definieren (z.B. `myapp://news/123`)
+    - Handling von externen Links
+  * **Navigation-History**:
+    - Historie speichern (Back-Button-Stack)
+    - Max. Anzahl History-Einträge
+    - "Zur Startseite"-Shortcut bei tiefer Navigation
+* **Navigations-Transition**:
+  * Animationen zwischen Seiten:
+    - Slide (von rechts)
+    - Fade (Ein-/Ausblenden)
+    - Scale (Zoom-Effekt)
+    - None (Keine Animation)
+  * Animationsgeschwindigkeit (Schnell, Normal, Langsam)
+  * Plattform-spezifische Defaults (iOS-Style vs. Material Design)
+
+#### 9.3 Kontext-Navigation
+
+* **Floating Action Button (FAB)**:
+  * Runder Button über dem Content (meist rechts unten)
+  * Primäre Aktion der aktuellen Seite (z.B. "Neuen Eintrag erstellen")
+  * Icon und Farbe konfigurierbar
+  * Sichtbarkeit pro Seite/Modul
+* **Tab-spezifische Actions**:
+  * Aktionen im Header, die sich je nach Tab ändern
+  * Beispiel: Filter-Icon bei News, Karte-Icon bei Events
+* **Schnellzugriff (Quick Actions)**:
+  * 3D Touch / Long Press auf App-Icon (Home-Screen)
+  - Vordefinierte Aktionen (z.B. "Neues Event erstellen", "Zur Karte")
+  * Im CMS konfigurierbar (bis zu 4 Quick Actions)
+
+#### 9.4 Accessibility bei Navigation
+
+* **Screen-Reader-Unterstützung**:
+  * Alle Navigations-Elemente mit Accessibility-Labels
+  * Logische Tab-Reihenfolge
+  * Ankündigung des aktuellen Bereichs
+* **Tastatur-Navigation**:
+  * Tab-Navigation für externe Tastaturen (iPad, Android-Tablets)
+  * Shortcuts für Hauptbereiche (z.B. Cmd+1, Cmd+2, ...)
+* **Größe der Touch-Targets**:
+  * Mindestens 44x44 pt (iOS), 48x48 dp (Android)
+  * Konfigurierbar: Standard, Groß, Extra-Groß
+* **Visuelle Hilfen**:
+  * Aktiver Tab deutlich hervorgehoben
+  * Fokus-Indikator bei Tastatur-Navigation
+  * Breadcrumbs für Orientierung
+
+#### 9.5 Navigation und Onboarding
+
+* **Erste Schritte (Onboarding-Tour)**:
+  * Highlight-Overlay für Navigation beim ersten App-Start
+  * "So funktioniert die Navigation"-Tutorial
+  * Überspringbar, später wiederholbar in Einstellungen
+* **Navigation-Hinweise**:
+  * Tooltips bei neuen Bereichen
+  * "Neu"-Badge bei hinzugefügten Menüpunkten
+  * Pulsierender Indicator bei wichtigen Updates
+
+### 10. Drawer-Navigation
 
 * **Drawer-Menü konfigurieren**:
   * Menüpunkte hinzufügen, bearbeiten, löschen
