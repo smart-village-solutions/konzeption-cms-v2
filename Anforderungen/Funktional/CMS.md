@@ -10,6 +10,22 @@ Dieses Kapitel beschreibt die allgemeinen Anforderungen an das CMS 2.0, die unab
 * Suchergebnisse sollen **gefiltert und sortiert** werden können, zum Beispiel nach Datum, Relevanz, Modul oder Status (Entwurf, veröffentlicht, archiviert). Filterungen nach Kommunen, Themen oder Zeiträumen müssen ebenfalls möglich sein.
 * Für die Suche nach geographisch zugeordneten Inhalten soll es ein **Kartentool** geben, das App-Inhalte auf einer Karte darstellt und die Ansteuerung der jeweiligen Bearbeitungsmaske aus der Karte erlaubt.
 
+### Standard-Filterkriterien für alle Tabellen
+
+* **Alle Tabellen und Übersichtslisten** im CMS müssen über einheitliche Filterkriterien verfügen:
+  * **Kategorie**: Filterung nach zugewiesenen Kategorien oder Tags
+  * **Räumliche Zuordnung**: Filter nach Ort, Stadtteil, Kommune, PLZ-Bereich oder geografischen Koordinaten (wo zutreffend)
+  * **Erstellungsdatum**: Filterung nach Zeitraum der Erstellung (z.B. "Letzte 7 Tage", "Letzter Monat", "Benutzerdefiniert")
+  * **Bearbeitungsdatum**: Filterung nach letzter Änderung (z.B. "Heute geändert", "Diese Woche geändert")
+  * **Veröffentlichungsdatum**: Filterung nach Zeitpunkt der Veröffentlichung (oder geplanter Veröffentlichung)
+* Filter sollen **kombinierbar** sein (z.B. "Kategorie: Events UND Ort: Berlin UND Erstellungsdatum: Letzte 30 Tage")
+* **Datumsbereiche** sollen flexibel wählbar sein:
+  * Vordefinierte Bereiche (Heute, Gestern, Letzte 7 Tage, Letzter Monat, Dieses Jahr)
+  * Benutzerdefinierte Bereiche mit Start- und Enddatum (Date-Picker)
+* **Gespeicherte Filter**: Häufig verwendete Filterkombinationen sollen gespeichert und wiederverwendet werden können
+* **Filter-Status anzeigen**: Aktive Filter sollen deutlich sichtbar sein und einzeln oder alle zusammen entfernt werden können
+* **Export mit Filtern**: Beim Datenexport sollen die aktiven Filter berücksichtigt werden
+
 ## Mehrsprachigkeit
 
 * Das CMS soll die **Pflege von Inhalten in mehreren Sprachen** ermöglichen, damit Kommunen ihre Angebote auch für Menschen mit unterschiedlichem sprachlichen Hintergrund zugänglich machen können. Dabei muss sichergestellt sein, dass jede Sprachversion unabhängig gepflegt werden kann.
@@ -282,7 +298,7 @@ Das CMS muss umfassende Vorschau-Möglichkeiten bieten, damit Redakteur:innen In
   * Warnung bei Überschreitung eines Limits (z.B. > 50 MB)
   * Übersicht im CMS: "Aktuelle Offline-Inhalte belegen X MB"
   * Möglichkeit, große Medien von Offline-Speicherung auszuschließen
-* **Sync-Strategie**: 
+* **Sync-Strategie**:
   * Notfallinhalte werden automatisch aktualisiert, wenn sich der Inhalt ändert
   * App prüft bei Verbindung, ob neue Versionen von Notfallinhalten verfügbar sind
   * Administrator:innen können **Sync-Intervalle** konfigurieren (z.B. täglich, wöchentlich)
