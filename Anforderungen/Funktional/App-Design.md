@@ -339,18 +339,6 @@ Dieses Kapitel beschreibt die Anforderungen an die Gestaltung und Navigation der
 
 ## Offene Fragen
 
-* Sollen mehrere Design-Varianten gleichzeitig verwaltet werden können (z. B. für verschiedene Mandanten)?
 * Sollen Design-Änderungen ohne App-Update möglich sein (Over-the-Air-Updates für Farben/Icons)?
-* Sollen Nutzer:innen eigene Design-Präferenzen speichern können (z. B. individuelle Farben)?
 * Soll es Design-Templates geben, die als Startpunkt dienen (z. B. "Moderne Kommune", "Traditionelle Verwaltung")?
 * Sollen saisonale Designs unterstützt werden (z. B. Weihnachten, Sommer)?
-
----
-
-## Notizen aus Vorarbeit
-
-* Das Modul war zunächst nicht geplant, wird aber aufgrund der Anforderungen aus der Praxis nun als wichtiger Bestandteil betrachtet
-* Bisherige Design-Änderungen erforderten Entwickler:innen und App-Updates (zeitaufwändig, teuer)
-* Kommunen möchten eigenständig und schnell Design-Anpassungen vornehmen können
-* KI-gestützte Design-Übernahme aus Webseite ist innovatives Feature, das Einrichtungszeit deutlich verkürzt
-* CI/CD-Integration muss stabil und zuverlässig sein, um frustfreie Design-Änderungen zu ermöglichen
