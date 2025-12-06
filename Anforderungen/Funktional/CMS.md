@@ -19,11 +19,66 @@ Dieses Kapitel beschreibt die allgemeinen Anforderungen an das CMS 2.0, die unab
 
 ## Medienverwaltung
 
-* Das System benötigt eine **zentrale Verwaltung für Bilder, Dokumente und andere Dateien**, sodass Medien leicht auffindbar, durchsuchbar und wiederverwendbar sind.
-* Hochgeladene Medien sollen automatisch **optimiert** werden, etwa durch Anpassung der Bildgröße, Komprimierung oder Generierung von Vorschaubildern in verschiedenen Formaten. Damit wird die Performance verbessert und die Arbeit für Redakteur\:innen erleichtert.
-* Es muss möglich sein, Medien **mehrfach zu verwenden**, ohne dass sie jedes Mal neu hochgeladen werden müssen. Ein Bild oder Dokument soll in verschiedenen Modulen oder Beiträgen referenziert werden können.
-* Metadaten wie Titel, Beschreibung, Copyright, Quelle oder Lizenzinformationen können gepflegt werden, um eine **rechtssichere Nutzung** zu unterstützen. Zusätzlich sollen Schlagwörter und Kategorien vergeben werden können, um die Medienbibliothek besser zu strukturieren.
-* Medienobjekte sollen ebenfalls eine **Versionierung** erhalten und durch **Tagging** besser auffindbar sein.
+* Das System benötigt eine **zentrale Medienbibliothek** nach dem Vorbild moderner CMS (z. B. WordPress), die Bilder, Dokumente, Videos, Audio-Dateien und andere Medien verwaltet.
+* Medien sollen **durchsuchbar, filterbar und wiederverwendbar** sein – mit Suche nach Dateinamen, Metadaten, Tags oder Verwendungsorten.
+
+### Upload und Autooptimierung
+
+* Beim Upload von Bildern soll das System **automatisch verschiedene Auflösungen** generieren (z. B. Thumbnail, Medium, Large, Original), um unterschiedliche Anwendungsfälle abzudecken (App, Web, Vorschau).
+* Bilder werden **automatisch komprimiert**, um Speicherplatz zu sparen und Ladezeiten zu verbessern – ohne sichtbare Qualitätsverluste (z. B. WebP, AVIF, progressive JPEG).
+* Das CMS soll **responsive Bildvarianten** bereitstellen, damit je nach Endgerät (Smartphone, Tablet, Desktop) die passende Auflösung ausgeliefert wird.
+* Für Videos und Audio-Dateien sollen ebenfalls **Vorschaubilder und Transkodierungen** automatisch erstellt werden (z. B. verschiedene Bitraten, Formate).
+
+### Bildbearbeitung
+
+* Direkt im CMS soll eine **integrierte Bildbearbeitung** verfügbar sein, um einfache Anpassungen vorzunehmen, ohne externe Tools nutzen zu müssen:
+  * **Zuschneiden** (Crop) mit vordefinierten Seitenverhältnissen (16:9, 4:3, 1:1, frei wählbar)
+  * **Drehen und Spiegeln**
+  * **Filter und Effekte** (z. B. Helligkeit, Kontrast, Sättigung, Schärfe)
+  * **Wasserzeichen** einfügen (optional, konfigurierbar)
+  * **Fokuspunkt setzen**, damit bei automatischen Zuschnitten der wichtigste Bildbereich erhalten bleibt
+* Bearbeitungen sollen **nicht-destruktiv** sein, das heißt, das Original bleibt erhalten und kann jederzeit wiederhergestellt werden.
+
+### Metadaten und Rechteverwaltung
+
+* Zu jedem Medium sollen **Metadaten** gepflegt werden können:
+  * **Titel, Beschreibung, Alt-Text** (wichtig für Barrierefreiheit und SEO)
+  * **Copyright, Quelle, Lizenzinformationen** (z. B. CC-Lizenzen, Fotografen-Credits)
+  * **Autor:in, Aufnahmedatum, Aufnahmeort**
+* Das System soll **EXIF- und IPTC-Daten** aus Bildern automatisch auslesen und bei Bedarf in die Metadaten übernehmen.
+* Medien sollen durch **Tags und Kategorien** organisiert werden können, um die Medienbibliothek übersichtlich zu halten und Inhalte schnell zu finden.
+
+### Versionierung
+
+* Jede Änderung an einem Medium (Upload einer neuen Version, Bildbearbeitung, Metadaten-Anpassung) soll **versioniert** werden.
+* Nutzer:innen können **frühere Versionen wiederherstellen**, falls eine Änderung rückgängig gemacht werden muss.
+* Das System zeigt an, **wer wann welche Änderung** vorgenommen hat (Änderungshistorie).
+
+### Verwendungsnachweis
+
+* Für jedes Medium soll einsehbar sein, **wo es gerade verwendet wird** (in welchen Modulen, Beiträgen, Seiten).
+* Vor dem Löschen eines Mediums wird gewarnt, **falls es noch in Verwendung ist**, um Fehler in der App oder auf Webseiten zu vermeiden.
+* Es soll möglich sein, ein Medium durch ein anderes zu **ersetzen**, wobei alle Verwendungsstellen automatisch aktualisiert werden.
+
+### Ordnerstruktur und Organisation
+
+* Medien sollen in **Ordnern** organisiert werden können, um große Medienbibliotheken übersichtlich zu halten.
+* Ordner können verschachtelt sein und **Berechtigungen** erhalten, sodass bestimmte Teams nur auf ihre eigenen Medien zugreifen können.
+* Es soll eine **Favoritenliste** geben, um häufig genutzte Medien schnell wiederzufinden.
+
+### Bulk-Operationen
+
+* Mehrere Medien sollen gleichzeitig bearbeitet werden können:
+  * **Massenupload** (Drag & Drop mehrerer Dateien)
+  * **Massen-Tagging** (Tags für mehrere Dateien gleichzeitig setzen)
+  * **Massenbearbeitung von Metadaten** (z. B. Copyright für eine ganze Bilderserie setzen)
+  * **Massenlöschen** (mit Warnung bei Verwendung)
+
+### Externe Medienverwaltung und CDN
+
+* Das CMS soll optional **externe Medienspeicher** unterstützen (z. B. S3, Azure Blob Storage, Cloudinary), um große Datenmengen auszulagern.
+* Medien sollen über ein **Content Delivery Network (CDN)** ausgeliefert werden können, um weltweite Performance zu verbessern.
+* Es soll möglich sein, Medien aus **externen Quellen** zu referenzieren (z. B. YouTube-Videos, Vimeo, externe Bild-URLs), ohne sie ins CMS hochzuladen.
 
 ## Inhalte und Versionierung
 
@@ -41,14 +96,17 @@ Dieses Kapitel beschreibt die allgemeinen Anforderungen an das CMS 2.0, die unab
 * Rollenabhängig können Inhalte direkt veröffentlicht oder müssen zunächst zur **Prüfung eingereicht** werden. Dies ermöglicht es, unterschiedliche Arbeitsweisen in Kommunen abzubilden: Während in kleinen Teams kurze Wege bevorzugt werden, können größere Verwaltungen mit mehrstufigen Freigaben arbeiten.
 * Es soll möglich sein, **Inhalte nach Status zu filtern**, damit Redakteur\:innen schnell erkennen können, welche Inhalte noch geprüft und freigeschaltet werden müssen. Alternativ stellen Benachrichtigungen und Aufgabenlisten sicher, dass Beteiligte jederzeit den Überblick über ausstehende Prüfungen und Freigaben behalten.
 
-## Eingebaute Dokumentation und Hilfebereich
+## Hilfe- und Support-System
 
-* Für **Erstnutzer\:innen** soll es eine geführte **CMS-Einführung** geben, die den Einstieg erleichtert.
-* Zu jedem Bereich des CMS soll eine **eingebaute Dokumentation** vorhanden sein, die direkt im System abrufbar ist. Diese kontextbezogene Hilfe erklärt Funktionen und Arbeitsabläufe genau dort, wo sie benötigt werden.
-* Die Dokumentation muss **leicht verständlich und praxisnah** formuliert sein, sodass auch Gelegenheitsnutzer\:innen schnell Antworten finden.
-* Neben Texten sollen auch **Screenshots, Beispiele oder kurze Videos** eingebunden werden können, um die Nutzung anschaulich zu erklären.
-* Ergänzend zur eingebauten Hilfe soll es einen **umfassenden Hilfebereich** mit Dokumentation, FAQ und Tutorials geben.
-* Ein ggf. vorhandenes **Ticketsystem** eines externen Dienstleisters soll aus dem CMS erreichbar sein.
+Das CMS benötigt ein umfassendes Hilfe- und Support-System, das Nutzer:innen bei der täglichen Arbeit unterstützt. Die detaillierten Anforderungen an das Hilfe-System sind im Kapitel **[Hilfe- und Support-System](Hilfe.md)** beschrieben und umfassen:
+
+* Community-getriebene Hilfeartikel aus GitHub
+* Integriertes Ticketsystem für Support-Anfragen
+* Interaktive CMS-Einführung für Erst-User
+* Volltextsuche über alle Hilfeinhalte
+* Release Notes & Changelog
+* Mehrsprachigkeit und Barrierefreiheit
+* Feedback-System für kontinuierliche Verbesserung
 
 ## Anpassbarkeit von Datenstrukturen
 
@@ -62,5 +120,7 @@ Dieses Kapitel beschreibt die allgemeinen Anforderungen an das CMS 2.0, die unab
 * Das CMS soll eine **Steuerung offline-fähiger Inhalte** ermöglichen, sodass bestimmte Inhalte in der App dann auch ohne Internetverbindung enthalten sind. Für besondere Fälle sollen **Caching-Strategien** verfügbar sein, damit wichtige Inhalte auch in Notfällen oder bei schlechter Verbindung schnell zugänglich bleiben.
 * Es soll ein **Export von Inhalten und Daten** in gängigen Formaten wie CSV oder JSON möglich sein.
 * Ein **Daten-Löschkonzept** muss gewährleistet sein, sodass Inhalte und personenbezogene Daten zuverlässig entfernt werden können.
-* Das CMS soll **QR-Codes** generieren, die dann entweder auf die App- oder Webversion eines bestimmten Datenobjekts verlinkt. Die Base-URL muss zur Instanz passen.
+* Das CMS soll die Möglichkeit bieten, **mehrere Basis-URLs** zu definieren (z. B. für verschiedene Domains, Mandanten oder Ausgabekanäle wie App und Web).
+* Für jeden Inhalt sollen automatisch **Short-URLs** generiert werden, die auf Basis der konfigurierten Basis-URLs erstellt werden. Diese Short-URLs sollen sowohl als **Text** (zum Kopieren und Teilen) als auch als **QR-Code-Grafik** (zum Drucken oder Anzeigen) verfügbar sein.
+* Die Short-URLs und QR-Codes verlinken direkt auf die App- oder Webversion eines bestimmten Datenobjekts. Administrator:innen können konfigurieren, welche Basis-URL für welchen Zweck verwendet wird (z. B. unterschiedliche URLs für interne Vorschau, öffentliche App, Web-Portal).
 * Das CMS soll langfristig die Integration von **KI-gestützten Interfaces** ermöglichen, etwa für Vorschläge, Automatisierungen oder inhaltliche Unterstützung. Auch die Nutzung von MCP ist gewünscht.
