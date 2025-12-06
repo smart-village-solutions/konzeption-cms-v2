@@ -44,4 +44,10 @@ Open Source, zeitgemäße Architektur und Design-Standards.
 
 ## 7. [Föderale IT-Architekturrichtlinien (FIT)](FIT-Architekturrichtlinien.md)
 
-Systemarchitektur, Interoperabilität, Datenmanagement, Datensouveränität, Wirtschaftlichkeit und Cloud-Fähigkeit gemäß föderalen Vorgaben.
+Modulare Bauweise, offene Schnittstellen, digitale Souveränität und Cloud-Fähigkeit gemäß föderalen Vorgaben.
+
+---
+
+## 8. [Secure Software Lifecycle (BSI TR-03185-2)](Software-Lifecycle-BSI.md)
+
+Governance, rechtliche Anforderungen, sichere Entwicklung und Supply-Chain-Sicherheit für Open-Source-Software.
