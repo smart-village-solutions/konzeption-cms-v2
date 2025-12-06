@@ -260,6 +260,115 @@ Dieses Kapitel beschreibt die allgemeinen Anforderungen an die Verwaltung der Ap
   * Lizenzschlüssel-Verwaltung
   * Rechnungs-Download
 
+### Buchungsinterface für kostenpflichtige Module und Dienstleistungen
+
+**Anforderungen:**
+* **Buchungs-Workflow**:
+  * Klick auf "Buchen" oder "Aktivieren" bei kostenpflichtigem Modul öffnet Buchungs-Dialog
+  * Mehrstufiger Checkout-Prozess (4 Schritte):
+    1. **Modul-Auswahl und Konfiguration**:
+       - Modul-Details anzeigen (Name, Beschreibung, Features)
+       - Lizenzmodell auswählen (Einmalig, Monatlich, Jährlich, Nutzungsbasiert)
+       - Anzahl Lizenzen/Nutzer:innen auswählen (falls zutreffend)
+       - Add-Ons/Erweiterungen optional hinzufügen
+       - Testversion-Option: "14 Tage kostenlos testen" (falls verfügbar)
+    2. **Preis und Zusammenfassung**:
+       - Preis-Breakdown: Modul-Kosten, Add-Ons, MwSt., Gesamtpreis
+       - Rabatte anzeigen (z.B. "10% bei jährlicher Zahlung")
+       - Testversion-Hinweis: "Nach 14 Tagen automatisch 29€/Monat"
+       - AGB und Datenschutzerklärung (Links, Checkbox zum Akzeptieren)
+       - Widerrufsbelehrung (bei Verbrauchern)
+    3. **Zahlungsinformationen**:
+       - Zahlungsmethode auswählen (Kreditkarte, SEPA-Lastschrift, PayPal, Rechnung, Überweisung)
+       - Zahlungsdaten eingeben (sicher, PCI-DSS-konform)
+       - Gespeicherte Zahlungsmethoden nutzen (falls vorhanden)
+       - Rechnungsadresse eingeben/bestätigen
+       - Abweichende Lieferadresse (optional, falls physische Komponenten)
+    4. **Bestätigung und Abschluss**:
+       - Zusammenfassung aller Angaben
+       - "Zahlungspflichtig buchen"-Button (prominent, klar beschriftet)
+       - Bestätigungs-E-Mail nach erfolgreicher Buchung
+       - Rechnung als PDF-Download und per E-Mail
+       - Automatische Aktivierung des Moduls (oder nach Zahlungseingang)
+* **Zahlungsabwicklung**:
+  * Integration von Payment-Providern:
+    - Stripe (Kreditkarte, SEPA, PayPal, Apple Pay, Google Pay)
+    - Mollie (weitere Zahlungsmethoden)
+    - PayPal direkt
+    - Rechnung (für Behörden, B2B)
+  * PCI-DSS-konforme Zahlungsdaten-Verarbeitung
+  * 3D-Secure für Kreditkarten
+  * SEPA-Lastschrift-Mandat elektronisch einholen
+  * Zahlungs-Status: Ausstehend, Erfolgreich, Fehlgeschlagen, Rückbuchung
+  * Automatische Retry bei fehlgeschlagenen Zahlungen (3 Versuche)
+* **Rechnungs- und Vertragsmanagement**:
+  * Automatische Rechnungserstellung nach Buchung
+  * Rechnungsnummer fortlaufend (konfigurierbar)
+  * Rechnungs-PDF mit Logo und Firmendaten
+  * Stornierungs-/Rechnungskorrektur-Funktion
+  * Gutschriften bei Stornierung oder Rückbuchung
+  * Vertragsdokumente (Lizenzvereinbarung) als PDF zum Download
+  * Digitale Signatur für Verträge (optional)
+* **Abonnement-Verwaltung**:
+  * Übersicht aller aktiven Abonnements im Admin-Panel
+  * Informationen: Modul-Name, Preis, Laufzeit, nächste Zahlung, Status
+  * Abonnement pausieren (falls vom Anbieter unterstützt)
+  * Abonnement kündigen:
+    - Kündigungs-Dialog mit Begründung (optional, zur Verbesserung)
+    - Kündigungsbestätigung per E-Mail
+    - Laufzeit bis Vertragsende (z.B. "Aktiv bis 31.12.2025")
+    - Option: Sofort kündigen (mit anteiliger Rückerstattung) oder zum Vertragsende
+  * Abonnement upgraden/downgraden:
+    - Wechsel von Monatlich zu Jährlich (mit Rabatt)
+    - Mehr/weniger Lizenzen buchen
+    - Anteilige Verrechnung bei Upgrade/Downgrade
+  * Automatische Verlängerung (Standard, deaktivierbar)
+  * Erinnerung 7 Tage vor Verlängerung
+* **Testversionen und Freemium**:
+  * Testversion automatisch aktivieren (keine Zahlungsdaten erforderlich)
+  * Countdown in der Modulübersicht: "Noch 7 Tage Testversion"
+  * Erinnerungs-E-Mails: 3 Tage vor Ablauf, 1 Tag vor Ablauf
+  * Upgrade-Aufforderung: "Testversion endet morgen, jetzt buchen"
+  * Automatische Deaktivierung nach Test-Ablauf (falls nicht gebucht)
+  * Freemium-Modelle: Basis-Version kostenlos, Premium-Features kostenpflichtig
+* **Rechnungs-Übersicht und -Historie**:
+  * Zentrale Rechnungs-Übersicht im Admin-Panel
+  * Tabelle mit: Rechnungsnummer, Datum, Betrag, Status, Zahlungsmethode, Download
+  * Filter nach Zeitraum, Status, Modul
+  * Export als CSV für Buchhaltung
+  * Rechnungs-Download als PDF (jederzeit)
+  * Zahlungserinnerungen bei offenen Rechnungen (automatisch nach 7, 14, 21 Tagen)
+* **Budgetverwaltung**:
+  * Budget-Limit für Modul-Buchungen festlegen (optional)
+  * Warnung bei Überschreitung: "Budget von 500€/Monat erreicht"
+  * Genehmigungs-Workflow: Buchungen über X€ müssen genehmigt werden
+  * Budget-Dashboard: Ausgaben diesen Monat, Vergleich zu Vormonat, Prognose
+* **Multi-Währung und Lokalisierung**:
+  * Preise in mehreren Währungen (EUR, USD, CHF, GBP)
+  * Automatische Währungserkennung basierend auf Land
+  * MwSt.-Berechnung nach Land (EU-Reverse-Charge bei B2B, 19%/7% in DE)
+  * Lokalisierte Rechnungen (Sprache, Format)
+  * Umrechnungskurs-Anzeige bei Nicht-EUR-Zahlungen
+* **Sicherheit und Compliance**:
+  * PCI-DSS Level 1 konform (bei Kreditkarten-Zahlungen)
+  * DSGVO-konform: Zahlungsdaten verschlüsselt, Löschung auf Anfrage
+  * SSL/TLS für alle Zahlungsseiten (HTTPS)
+  * Tokenisierung von Kreditkarten-Daten (keine Klartext-Speicherung)
+  * Fraud-Detection: Verdächtige Transaktionen blockieren
+  * Audit-Log für alle Buchungen und Zahlungen
+
+**Messkriterium:**
+* Buchungs-Prozess in < 5 Minuten abschließbar (für Standard-Szenarien)
+* Mindestens 3 Zahlungsmethoden verfügbar (Kreditkarte, SEPA, PayPal)
+* PCI-DSS-Zertifizierung vorhanden oder Payment-Provider mit Zertifizierung
+* Automatische Rechnungserstellung innerhalb von 5 Minuten nach Zahlung
+* Rechnungen DSGVO-konform archiviert (10 Jahre Aufbewahrungspflicht)
+* Abonnement-Kündigung jederzeit möglich (max. 3 Klicks)
+* 100% aller Zahlungen im Audit-Log erfasst
+* Multi-Währung mit automatischer MwSt.-Berechnung nach EU-Richtlinien
+* Testversionen ohne Zahlungsdaten-Eingabe aktivierbar
+* Budget-Überwachung in Echtzeit (Warnung innerhalb 1 Minute)
+
 ## Konfiguration von Modulen
 
 * Jedes Modul muss über eine **eigene Konfigurationsoberfläche** verfügen, in der spezifische Einstellungen vorgenommen werden können.
