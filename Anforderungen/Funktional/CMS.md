@@ -24,7 +24,54 @@ Dieses Kapitel beschreibt die allgemeinen Anforderungen an das CMS 2.0, die unab
   * Benutzerdefinierte Bereiche mit Start- und Enddatum (Date-Picker)
 * **Gespeicherte Filter**: Häufig verwendete Filterkombinationen sollen gespeichert und wiederverwendet werden können
 * **Filter-Status anzeigen**: Aktive Filter sollen deutlich sichtbar sein und einzeln oder alle zusammen entfernt werden können
-* **Export mit Filtern**: Beim Datenexport sollen die aktiven Filter berücksichtigt werden
+
+### Export-Funktionen für alle Tabellen
+
+* **Alle Tabellen und Übersichtslisten** müssen Export-Funktionen bereitstellen:
+  * **CSV-Export**: Tabellarische Daten als Comma-Separated Values
+  * **JSON-Export**: Strukturierte Daten im JSON-Format (inkl. verschachtelter Objekte und Arrays)
+  * Optional: **Excel-Export** (XLSX) für erweiterte Tabellenformate
+  * Optional: **PDF-Export** für druckoptimierte Listen
+* **Export mit aktiven Filtern**:
+  * Der Export berücksichtigt alle aktiven Filter (Kategorie, Datum, räumliche Zuordnung, etc.)
+  * Anzeige der Anzahl zu exportierender Datensätze vor dem Export (z.B. "427 Datensätze exportieren")
+  * Warnung bei sehr großen Exporten (z.B. >10.000 Datensätze)
+* **Spaltenauswahl**:
+  * Auswahl, welche Spalten/Felder exportiert werden sollen
+  * Vorschlag: Standardmäßig alle sichtbaren Spalten
+  * Option "Alle Felder" für vollständigen Export inkl. Metadaten
+* **Export-Optionen**:
+  * **CSV-Optionen**:
+    * Trennzeichen wählbar (Komma, Semikolon, Tab)
+    * Encoding-Optionen (UTF-8, UTF-8 BOM, ISO-8859-1)
+    * Kopfzeile mit Spaltennamen (aktivierbar/deaktivierbar)
+  * **JSON-Optionen**:
+    * Pretty Print (formatiert) oder kompakt
+    * Einzelnes Array oder Line-Delimited JSON (NDJSON)
+    * Verschachtelungstiefe konfigurierbar (z.B. nur Top-Level oder inkl. Relationen)
+* **Zeitstempel und Metadaten im Export**:
+  * Export-Dateiname enthält Datum/Uhrzeit (z.B. `events_export_2025-12-06_14-30.csv`)
+  * Optional: Metadaten-Zeile im Export (Exportdatum, aktive Filter, Anzahl Datensätze)
+* **Große Datenmengen**:
+  * Bei >1000 Datensätzen: Hinweis auf mögliche Wartezeit
+  * Bei >10.000 Datensätzen: Export als asynchroner Job mit Download-Link per E-Mail
+  * Fortschrittsanzeige bei großen Exporten
+  * Möglichkeit, Export abzubrechen
+* **Berechtigungen**:
+  * Export nur für Datensätze, auf die Nutzer:in Lesezugriff hat
+  * Export-Berechtigung kann pro Rolle/Nutzer eingeschränkt werden
+  * Audit-Log: Alle Exporte werden protokolliert (wer, wann, welche Daten)
+* **Geografische Daten**:
+  * Bei Tabellen mit Geo-Koordinaten: Zusätzliche Export-Option **GeoJSON**
+  * Koordinaten in CSV wahlweise als getrennte Spalten (Lat, Lon) oder kombiniert
+  * Export direkt aus Kartenansicht berücksichtigt geografische Filter (Umkreis, Bounding Box)
+
+**Messkriterium:**
+* CSV- und JSON-Export in allen Tabellen verfügbar
+* Export mit aktiven Filtern funktioniert korrekt
+* Spaltenauswahl für Export vorhanden
+* Export von bis zu 10.000 Datensätzen in <10 Sekunden
+* Alle Exporte im Audit-Log protokolliert
 
 ### Karten-Darstellung für geografische Inhalte
 
