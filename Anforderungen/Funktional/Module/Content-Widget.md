@@ -2,33 +2,50 @@
 
 ## Zweck und Mehrwert
 
-Das Content-Widget ist ein flexibles Widget, das beliebige Inhalte auf dem Dashboard oder anderen Seiten anzeigen kann. Es dient als universeller Container für redaktionelle Inhalte wie Texte, Bilder, Videos, Links oder Call-to-Actions. Das Widget ermöglicht es Redakteur:innen, individuelle Inhalte prominent zu platzieren, ohne ein spezialisiertes Modul entwickeln zu müssen.
+Das Content-Widget ist ein flexibles Widget-Modul im CMS, mit dem Redakteur:innen beliebige Inhalte für das Dashboard oder andere Seiten erstellen und konfigurieren können. Es dient als universeller Container für redaktionelle Inhalte wie Texte, Bilder, Videos, Links oder Call-to-Actions. Das CMS muss eine intuitive Verwaltungsoberfläche bieten, damit Redakteur:innen ohne technische Kenntnisse individuelle Widgets erstellen können.
 
 ## Zielgruppen und Nutzer:innen
 
-* **Redakteur:innen**: Möchten flexible Inhalte auf dem Dashboard platzieren (z. B. Hinweise, Ankündigungen, Werbung)
-* **Bürger:innen**: Sehen wichtige Informationen oder Aktionen direkt auf dem Dashboard
-* **Marketing-Verantwortliche**: Nutzen das Widget für Kampagnen und Promotion
-* **Administrator:innen**: Konfigurieren Layout und Platzierung der Widgets
+* **Redakteur:innen**: Erstellen und verwalten Content-Widgets im CMS
+* **Marketing-Verantwortliche**: Nutzen das CMS zur Erstellung von Kampagnen-Widgets
+* **Administrator:innen**: Konfigurieren globale Widget-Einstellungen und Berechtigungen
 
 ## Funktionsumfang
 
-* **Flexible Inhaltstypen**:
-  * **Text**: Überschrift, Fließtext, formatiert (Markdown/HTML)
-  * **Bilder**: Einzelbild oder Bildergalerie
-  * **Videos**: Eingebettete Videos (YouTube, Vimeo) oder selbst gehostet
-  * **Links**: Call-to-Action-Buttons (z. B. "Jetzt anmelden", "Mehr erfahren")
-  * **HTML/Embed**: Beliebige eingebettete Inhalte (iframes, externe Widgets)
-* **Layout-Optionen**:
-  * Kompakt (nur Text oder Bild)
-  * Standard (Text + Bild nebeneinander)
-  * Hero (großes Bild mit Text-Overlay)
-  * Card (Kachel mit Bild, Text und Button)
-* **Interaktion**:
-  * Klick/Tap auf Widget führt zu konfigurierter Zielseite (intern oder extern)
-  * Optional: Widget kann mehrere Links/Buttons enthalten
-* **Styling**: Farben, Schriftarten und Abstände sind konfigurierbar
-* **Zeitsteuerung**: Widget kann zeitlich begrenzt angezeigt werden (Start- und Enddatum)
+### Content-Widget-Verwaltung im CMS
+
+* **Widget erstellen und bearbeiten**:
+  * WYSIWYG-Editor für Texteingabe mit Formatierungsoptionen (Überschrift, Fließtext, Listen, Links)
+  * Markdown- und HTML-Unterstützung für fortgeschrittene Nutzer:innen
+  * Bild-Upload oder Auswahl aus Medienbibliothek (Einzelbild oder Galerie)
+  * Video-Einbettung über URL (YouTube, Vimeo) oder Upload eigener Videos
+  * Link-Konfiguration (interne App-Seiten oder externe URLs)
+  * HTML/Embed-Code-Eingabe für externe Widgets oder iframes
+* **Layout-Konfiguration**:
+  * Auswahl aus vorgefertigten Layout-Templates:
+    * **Kompakt**: Nur Text oder nur Bild
+    * **Standard**: Text und Bild nebeneinander
+    * **Hero**: Großes Hintergrundbild mit Text-Overlay
+    * **Card**: Kachel-Design mit Bild, Text und Button
+  * Anpassung von Farben (Hintergrund, Text, Button)
+  * Schriftgröße und Abstände konfigurieren
+  * Aspekt-Ratio für Bilder festlegen
+* **Platzierung und Sichtbarkeit**:
+  * Auswahl der Zielseite(n) (Dashboard, Startseite, Kategorieseiten)
+  * Position auf Seite festlegen (oben, mitte, unten, Seitenleiste)
+  * Widget-Größe definieren (klein, mittel, groß, volle Breite)
+  * Sortierreihenfolge bei mehreren Widgets
+* **Zeitsteuerung**:
+  * Start- und Enddatum festlegen (Widget wird automatisch aktiviert/deaktiviert)
+  * Uhrzeiten für Veröffentlichung konfigurieren
+  * Wiederkehrende Zeitfenster (z. B. jeden Montag 9-17 Uhr)
+* **Berechtigungen und Zielgruppen**:
+  * Sichtbarkeit festlegen (öffentlich, nur angemeldete Nutzer:innen, bestimmte Rollen)
+  * Mandantenfähigkeit (Widget nur für bestimmte Kommunen/Instanzen)
+* **Vorschau und Testing**:
+  * Live-Vorschau im CMS (wie wird Widget in der App aussehen?)
+  * Responsive Vorschau (Smartphone, Tablet, Desktop)
+  * A/B-Testing: Mehrere Varianten erstellen und Performance vergleichen
 
 ## Inhalte und Daten
 
@@ -45,18 +62,88 @@ Das Content-Widget ist ein flexibles Widget, das beliebige Inhalte auf dem Dashb
 
 ## Konfiguration im CMS
 
-* **Widget-Erstellung**:
-  * WYSIWYG-Editor für Text und Formatierung
-  * Bild-Upload oder Auswahl aus Medienbibliothek
-  * Video-Embed (URL-Eingabe)
-  * Link-Konfiguration (Ziel-URL, Button-Text)
-* **Layout-Einstellungen**:
-  * Layout-Typ wählen (Dropdown)
-  * Farben (Hintergrund, Text, Button) anpassen
-  * Schriftgröße und Abstände konfigurieren
-* **Platzierung**: Widget kann auf beliebigen Seiten platziert werden (Dashboard, Startseite, Kategorieseiten)
-* **Zeitsteuerung**: Start- und Enddatum festlegen (optional)
-* **A/B-Testing**: Optional mehrere Varianten erstellen und testen
+### Widget-Editor
+
+* **Basis-Informationen**:
+  * Widget-Name (intern, nicht in App sichtbar)
+  * Widget-Titel (in App sichtbar, optional)
+  * Widget-Beschreibung (optional, für SEO und Barrierefreiheit)
+  * Kategorie/Tags für Organisation
+* **Inhalts-Editor**:
+  * WYSIWYG-Editor mit Toolbar:
+    * Formatierung: Fett, Kursiv, Unterstrichen, Durchgestrichen
+    * Überschriften (H1-H6)
+    * Listen (nummeriert, unnummeriert)
+    * Links einfügen (mit Link-Picker für interne Seiten)
+    * Bilder einfügen (Upload-Button oder Medienbibliothek-Browser)
+    * Videos einbetten (URL-Eingabe mit Auto-Embed)
+    * Tabellen einfügen
+    * Code-Blöcke (für Markdown/HTML-Modus)
+  * Umschalten zwischen WYSIWYG, Markdown und HTML-Modus
+* **Medien-Verwaltung**:
+  * Drag & Drop für Bilder und Videos
+  * Integration mit zentraler Medienbibliothek
+  * Bildbearbeitung: Zuschnitt, Filter, Alt-Text, Bildunterschrift
+  * Video-Vorschau mit Play-Button
+* **Layout-Auswahl**:
+  * Dropdown mit Layout-Templates (mit visueller Vorschau)
+  * Farb-Picker für Hintergrund, Text, Buttons (mit Hex-, RGB-, HSL-Eingabe)
+  * Slider für Schriftgröße (12px - 24px)
+  * Slider für Abstände (Padding, Margin)
+  * Aspekt-Ratio für Bilder (16:9, 4:3, 1:1, frei)
+* **Link-Konfiguration**:
+  * Link-Ziel: Interne Seite (Dropdown mit allen Seiten) oder externe URL
+  * Button-Text eingeben
+  * Button-Style (Primär, Sekundär, Outline, Text)
+  * Link in neuem Tab öffnen (Checkbox)
+* **Platzierungs-Einstellungen**:
+  * Seiten-Auswahl (Multi-Select: Dashboard, Startseite, Events, News, etc.)
+  * Position auf Seite (Radio-Buttons: Oben, Mitte, Unten, Seitenleiste)
+  * Widget-Größe (Radio-Buttons: Klein, Mittel, Groß, Volle Breite)
+  * Sortierreihenfolge (Zahl eingeben, z. B. 1 = ganz oben)
+* **Zeitsteuerung**:
+  * Start-Datum und -Uhrzeit (Date-Picker)
+  * End-Datum und -Uhrzeit (Date-Picker)
+  * Wiederkehrende Veröffentlichung (Checkbox + Wochentage + Uhrzeiten)
+  * Zeitzone auswählen (Dropdown)
+* **Sichtbarkeits-Einstellungen**:
+  * Berechtigungen (Radio-Buttons: Öffentlich, Nur angemeldet, Bestimmte Rollen)
+  * Rollen-Auswahl (Multi-Select bei "Bestimmte Rollen")
+  * Mandanten-Filter (bei Multi-Tenant-Setup)
+* **A/B-Testing** (optional):
+  * Variante A/B erstellen (Duplicate-Button)
+  * Traffic-Split festlegen (Slider: 50/50, 70/30, etc.)
+  * Test-Zeitraum definieren
+  * Performance-Metriken wählen (Klickrate, Conversion, Verweildauer)
+
+### Widget-Übersicht
+
+* **Listen-Ansicht**:
+  * Tabelle mit allen Widgets (Name, Status, Platzierung, Zeitraum, Erstellt von, Letzte Änderung)
+  * Sortier- und Filterfunktionen (nach Status, Platzierung, Ersteller)
+  * Suche nach Widget-Name
+  * Bulk-Aktionen (Mehrere Widgets gleichzeitig aktivieren/deaktivieren/löschen)
+* **Status-Anzeige**:
+  * Entwurf (grau)
+  * Geplant (blau)
+  * Aktiv (grün)
+  * Abgelaufen (orange)
+  * Archiviert (grau)
+* **Schnellaktionen**:
+  * Bearbeiten, Duplizieren, Vorschau, Löschen
+  * Status ändern (Aktivieren/Deaktivieren)
+  * Statistiken anzeigen
+
+### Widget-Templates
+
+* **Vorgefertigte Templates**:
+  * Standard-Templates (Text, Bild, Text+Bild, Hero, Card)
+  * Branchen-Templates (Veranstaltungshinweis, Wichtige Mitteilung, Call-to-Action)
+  * Custom Templates von Administrator:innen erstellt
+* **Template-Verwaltung**:
+  * Administrator:innen können eigene Templates erstellen und speichern
+  * Templates können organisationsweit geteilt werden
+  * Templates sind duplizierfähig und anpassbar
 
 ## Integrationen und Schnittstellen
 
@@ -74,25 +161,30 @@ Das Content-Widget ist ein flexibles Widget, das beliebige Inhalte auf dem Dashb
 
 ## Monitoring und KPIs
 
-* **Widget-Nutzung**: Wie oft wird das Widget angezeigt?
-* **Klickrate**: Wie viele Nutzer:innen klicken auf Links/Buttons im Widget?
-* **Conversion**: Wie viele Nutzer:innen führen gewünschte Aktionen aus?
-* **A/B-Test-Ergebnisse**: Welche Widget-Variante performt besser?
+### Analytics-Dashboard im CMS
+
+* **Widget-Performance-Übersicht**:
+  * Impressions (Anzahl der Anzeigen)
+  * Unique Views (Anzahl unterschiedlicher Nutzer:innen)
+  * Klickrate (CTR) auf Links/Buttons
+  * Durchschnittliche Verweildauer
+  * Conversion-Rate (falls Ziel-URL definiert)
+* **Zeitlicher Verlauf**:
+  * Diagramme mit Tages-, Wochen-, Monatsansicht
+  * Vergleich mehrerer Widgets
+  * Export als CSV/PDF
+* **A/B-Test-Auswertung**:
+  * Vergleich der Performance von Varianten A und B
+  * Statistische Signifikanz anzeigen
+  * Empfehlung aussprechen (Gewinner-Variante)
+* **Benachrichtigungen**:
+  * Warnung bei niedriger Performance (< X Klicks pro Tag)
+  * Alert bei abgelaufenen Widgets, die noch aktiv sind
+  * Erinnerung an bevorstehende End-Daten
 
 ## Abhängigkeiten
 
 * **Dashboard-Modul**: Widget muss in Dashboard-System integrierbar sein
 * **Medienverwaltung**: Für Bilder und Videos
-* **Widget-Store**: Widget muss im Widget-Store verfügbar und konfigurierbar sein
+* **Modul-Store**: Widget muss im Modul-Store verfügbar und konfigurierbar sein
 * **Analytics-System**: Für Tracking (optional)
-
-## Offene Fragen
-
-* Sollen Nutzer:innen Widgets selbst erstellen und teilen können (Community-Widgets)?
-* Sollen Widgets responsive Breakpoints für unterschiedliche Layouts haben?
-* Sollen Widgets animiert werden können (z. B. Fade-in, Slide-in)?
-* Soll es Widget-Templates geben, die Redakteur:innen als Startpunkt nutzen können?
-
-## Notizen aus Vorarbeit
-
-_(Hier können vorhandene Notizen aus Miro oder anderen Quellen eingefügt werden)_
