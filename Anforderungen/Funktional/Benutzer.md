@@ -23,6 +23,9 @@ Dieses Kapitel beschreibt die Anforderungen an die Benutzer- und Rechteverwaltun
 * Für Kommunen mit bestehender Identity-Infrastruktur muss das System **Single-Sign-on via SAML/OIDC** unterstützen (z. B. Kommunal-AD, BundID, Servicekonto).
 * Es gelten verbindliche **Passwort- und Passkey-Richtlinien** (Mindestlänge, Rotation, gesperrte Wiederverwendung). Self-Service-Reset und Fallback-Codes müssen revisionssicher dokumentiert werden.
 * Sicherheitsrelevante Ereignisse (fehlgeschlagene Logins, Gerätewechsel, Policy-Verstöße) lösen **konfigurierbare Alerts** aus und können an SIEM-Systeme angebunden werden.
+* Bei Login aus **unbekannter Quelle** (neues Gerät, neue IP-Adresse, unbekannter Browser) muss eine **Benachrichtigung** an die E-Mail-Adresse des Nutzers gesendet werden. Optional: Zusätzliche Verifizierung erforderlich (z. B. Bestätigungscode per E-Mail).
+* Nach einer konfigurierbaren **Inaktivitätszeit** (z. B. 30 Minuten) soll ein **automatischer Logout** erfolgen, um unbefugten Zugriff zu verhindern. Nutzer:innen werden vorher gewarnt (z. B. "Sie werden in 2 Minuten abgemeldet").
+* Ein **Brute-Force-Schutz** muss implementiert sein: Nach einer konfigurierbaren Anzahl fehlgeschlagener Login-Versuche (z. B. 5 Versuche) wird der Account temporär gesperrt (z. B. für 15 Minuten). Administrator:innen erhalten eine Benachrichtigung bei wiederholten Sperren.
 * **Inaktive Konten** sollen nach einer definierten Zeitspanne automatisch gesperrt werden, um Missbrauch vorzubeugen.
 
 ---
