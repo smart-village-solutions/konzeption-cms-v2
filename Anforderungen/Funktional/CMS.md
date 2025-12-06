@@ -26,6 +26,56 @@ Dieses Kapitel beschreibt die allgemeinen Anforderungen an das CMS 2.0, die unab
 * **Filter-Status anzeigen**: Aktive Filter sollen deutlich sichtbar sein und einzeln oder alle zusammen entfernt werden können
 * **Export mit Filtern**: Beim Datenexport sollen die aktiven Filter berücksichtigt werden
 
+### Karten-Darstellung für geografische Inhalte
+
+* **Tabellen mit Geo-Koordinaten** sollen neben der tabellarischen Darstellung auch als **Karte visualisiert** werden können:
+  * **Umschalter Tabelle/Karte**: Toggle oder Tab-Navigation zwischen Tabellenansicht und Kartenansicht
+  * **Hybrid-Ansicht**: Optional Karte und Tabelle gleichzeitig anzeigen (Split-Screen)
+  * **Marker auf Karte**: Jeder Inhalt mit Geo-Koordinaten wird als Marker/Pin auf der Karte dargestellt
+  * **Marker-Clustering**: Bei vielen Inhalten in einem Bereich werden Marker zu Clustern zusammengefasst (mit Anzahl-Anzeige)
+  * **Interaktive Marker**: Klick auf Marker öffnet Popup mit Kurzinfo (Titel, Bild, Link zum Bearbeitungsmodus)
+* **Kartenbasierte Navigation**:
+  * Klick auf Marker öffnet direkt die Bearbeitungsmaske des jeweiligen Inhalts
+  * "In Tabelle zeigen"-Button im Marker-Popup, um zum entsprechenden Tabelleneintrag zu springen
+  * Mehrfachauswahl über Karte (z.B. Shift+Click oder Aufziehen eines Rechtecks für Bulk-Operationen)
+* **Geografische Filterung**:
+  * **Umkreissuche**: Filterung nach Radius um einen bestimmten Punkt
+    * Eingabe: Adresse/Ort + Radius in km (z.B. "Berlin, 10 km")
+    * Visuelle Darstellung: Kreis auf der Karte zeigt Suchradius
+    * Vordefinierte Radien: 5 km, 10 km, 25 km, 50 km, benutzerdefiniert
+  * **Administrativer Bereich**: Filter nach Stadt, Landkreis, Bundesland, PLZ-Gebiet
+  * **Bounding Box**: Filterung nach aktuell sichtbarem Kartenausschnitt ("Nur Inhalte im sichtbaren Bereich anzeigen")
+* **Kartenfunktionen**:
+  * **Zoom und Pan**: Karte soll frei zoombar und verschiebbar sein
+  * **Geolocation**: "Mein Standort"-Button, um Karte auf aktuelle Position zu zentrieren
+  * **Layer-Steuerung**: Verschiedene Kartenansichten (Straßenkarte, Satellitenbild, Topografisch)
+  * **Heatmap-Modus**: Optional Dichte-Darstellung bei vielen Inhalten
+  * **Route/Entfernung messen**: Tool zum Messen von Entfernungen auf der Karte
+* **Filter-Integration**:
+  * Geografische Filter kombinierbar mit allen anderen Filtern (Kategorie, Datum, etc.)
+  * **"Nur mit Geo-Koordinaten"-Filter**: Inhalte ohne Koordinaten ausblenden
+  * Aktive geografische Filter in Karte visuell dargestellt (z.B. Kreis bei Umkreissuche)
+  * Filter aus Karteninteraktion automatisch übernommen (z.B. Zoom setzt Bounding Box Filter)
+* **Performance und Skalierung**:
+  * **Lazy Loading**: Marker werden nur für sichtbaren Bereich geladen
+  * **Pagination auf Karte**: Bei sehr vielen Inhalten (>1000) nur Top-N oder geclusterte Darstellung
+  * **Caching**: Häufig aufgerufene Kartenbereiche gecacht
+* **Export und Sharing**:
+  * Export der Karte als Bild (PNG, JPEG)
+  * Export der gefilterten Geo-Daten (GeoJSON, KML, GPX)
+  * Teilbarer Link zur Karte mit aktiven Filtern und Ansicht
+* **Barrierefreiheit**:
+  * Tastaturnavigation für Karte (Zoom, Pan)
+  * Alternativtext für Marker
+  * Listenansicht als Alternative zur visuellen Karte (für Screenreader-Nutzer)
+
+**Messkriterium:**
+* Umschalter Tabelle/Karte in allen geografischen Listen verfügbar
+* Umkreissuche funktioniert mit Genauigkeit ±100m
+* Marker-Clustering ab >50 Inhalten im Bereich aktiv
+* Kartenperformance: Ladezeit <2 Sekunden für bis zu 1000 Marker
+* Alle Filter in Tabelle und Karte synchronisiert
+
 ## Mehrsprachigkeit
 
 * Das CMS soll die **Pflege von Inhalten in mehreren Sprachen** ermöglichen, damit Kommunen ihre Angebote auch für Menschen mit unterschiedlichem sprachlichen Hintergrund zugänglich machen können. Dabei muss sichergestellt sein, dass jede Sprachversion unabhängig gepflegt werden kann.
