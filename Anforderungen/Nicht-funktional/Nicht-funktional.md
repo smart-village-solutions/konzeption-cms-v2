@@ -39,3 +39,9 @@ Offene Standards, Kompatibilität mit externen Systemen und nahtlose Integration
 ## 6. [Governance und Nachhaltigkeit](Governance-Nachhaltigkeit.md)
 
 Open Source, zeitgemäße Architektur und Design-Standards.
+
+---
+
+## 7. [Föderale IT-Architekturrichtlinien (FIT)](FIT-Architekturrichtlinien.md)
+
+Systemarchitektur, Interoperabilität, Datenmanagement, Datensouveränität, Wirtschaftlichkeit und Cloud-Fähigkeit gemäß föderalen Vorgaben.
