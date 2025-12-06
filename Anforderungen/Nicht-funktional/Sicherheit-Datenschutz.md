@@ -4,48 +4,47 @@ Die Sicherheit und der Datenschutz sind zentrale Anforderungen für den Betrieb 
 
 ---
 
-## 1. Informationssicherheits-Management-System (ISMS)
+## 1. Sicherheitskonzept und Dokumentation
 
-Das CMS muss in ein umfassendes ISMS eingebettet werden, das Prozesse und Verantwortlichkeiten festlegt.
+Das CMS muss technische Grundlagen für ein ISMS bereitstellen.
 
 **Anforderungen:**
-- Formelles ISMS nach ISO/IEC 27001 oder BSI-Standard 200-2
-- Benennung eines Informationssicherheitsbeauftragten (ISB)
-- Dokumentierte Sicherheitsleitlinie für das CMS
-- Regelmäßige Sicherheitsaudits (mindestens jährlich)
-- Risikomanagement-Prozess etabliert
-- Sicherheitsvorfälle werden dokumentiert und analysiert
-- Kontinuierliche Verbesserung der Informationssicherheit (PDCA-Zyklus)
+
+- Sicherheitsdokumentation für Administratoren verfügbar (Hardening-Guide, Best Practices)
+- Sicherheitsrelevante Konfigurationsoptionen dokumentiert
+- Security-Checkliste für Installation und Betrieb
+- Template für Sicherheitsrichtlinien als Markdown/PDF
+- Beispiel-Konfigurationen für gängige Sicherheitsszenarien
 
 **Messkriterium:**
-- ISMS-Dokumentation vollständig und aktuell
-- ISB benannt und geschult
-- Jährliches Sicherheitsaudit durchgeführt
-- Risikobewertung für alle kritischen Assets vorhanden
+
+- Sicherheitsdokumentation vollständig verfügbar
+- Hardening-Guide mit konkreten Schritten
+- Security-Checkliste mit mindestens 20 Punkten
+- Beispiel-Konfigurationen für 3 Sicherheitslevel (Basic, Standard, High)
 
 ---
 
-## 2. Schutzbedarfsklassifizierung
+## 2. Datenklassifizierung und Schutzmaßnahmen
 
-Sensible Daten und kritische Prozesse müssen identifiziert und ihr Schutzbedarf (Vertraulichkeit, Integrität, Verfügbarkeit) nach BSI-Grundschutz klassifiziert werden.
+Das CMS muss verschiedene Schutzlevel für unterschiedliche Datenarten unterstützen.
 
 **Anforderungen:**
-- Schutzbedarfsfeststellung für alle Informationen und Prozesse
-- Klassifizierung nach BSI-Kategorien:
-  - **Normal**: Geringe bis mittlere Auswirkungen bei Sicherheitsverletzung
-  - **Hoch**: Erhebliche Auswirkungen (z.B. personenbezogene Daten)
-  - **Sehr hoch**: Existenzbedrohende Auswirkungen (z.B. kritische Infrastruktur)
-- Unterschiedliche Schutzmaßnahmen je nach Schutzbedarfsklasse
-- Dokumentation der Schutzbedarfsfeststellung
-- Regelmäßige Überprüfung und Aktualisierung
+- Konfigurierbare Sicherheitslevel pro Content-Typ/Datenfeld
+- Automatische Anwendung von Schutzmaßnahmen basierend auf Klassifizierung:
+  - **Öffentlich**: Standard-Schutz, caching erlaubt
+  - **Intern**: Zugriffsschutz, verschlüsselte Speicherung
+  - **Vertraulich**: Verschlüsselung, Audit-Logging, MFA-Pflicht
+- Vorkonfigurierte Profile für typische Datenarten (personenbezogen, Zugangsdaten, etc.)
+- Admin-UI zur Verwaltung der Klassifizierungen
+- Warnung bei unklassifizierten sensiblen Daten
 
 **Messkriterium:**
-- Schutzbedarfsfeststellung dokumentiert für alle Datenarten
-- Mindestens folgende Daten als "hoch" klassifiziert:
-  - Personenbezogene Daten von Bürgern
-  - Zugangsdaten (Passwörter, API-Keys)
-  - Interne Verwaltungsdaten
-- Entsprechende Schutzmaßnahmen implementiert
+- 3 Sicherheitslevel konfigurierbar
+- Automatische Verschlüsselung für "Vertraulich"-Daten
+- Vordefinierte Profile für 5 Datenarten
+- Admin-UI zur Klassifizierung vorhanden
+- Automatische Erkennung sensibler Felder (Email, Telefon, etc.)
 
 ---
 
@@ -94,43 +93,37 @@ Implementierung der BSI IT-Grundschutz-Kataloge zur Gewährleistung eines angeme
 - Automatische Alarmierung bei Sicherheitsvorfällen
 
 **Schwachstellen-Management:**
-- Regelmäßige Penetrationstests (mindestens jährlich)
-- Vulnerability Scanning (wöchentlich)
-- Zeitnahes Einspielen von Sicherheitsupdates (kritische Patches innerhalb 48h)
-- Bug Bounty-Programm (optional)
-- Security Advisories veröffentlichen
+- Automatische Dependency-Checks (npm audit, Dependabot)
+- Integrierte Vulnerability-Scanner für Container-Images
+- Security-Update-Benachrichtigungen im Admin-Interface
+- CLI-Tool für Security-Checks
+- Security Advisories im Repository veröffentlichen
 
-### 3.2 Organisatorische Maßnahmen
+### 3.2 Backup und Recovery
 
-**Notfallmanagement:**
-- Notfallplan für IT-Sicherheitsvorfälle
-- Business Continuity Plan (BCP)
-- Disaster Recovery Plan (DRP)
-- Regelmäßige Tests der Notfallpläne (mindestens jährlich)
-- Backup-Strategie: 3-2-1-Regel (3 Kopien, 2 Medien, 1 Off-Site)
-- Recovery Time Objective (RTO) < 4 Stunden
-- Recovery Point Objective (RPO) < 1 Stunde
+**Backup-Funktionen:**
+- Automatisches Backup-System mit konfigurierbaren Intervallen
+- Unterstützung verschiedener Backup-Strategien (Full, Incremental, Differential)
+- Verschlüsselte Backups (AES-256)
+- Backup-Verifizierung (Integritätsprüfung)
+- Point-in-Time-Recovery möglich
+- Export/Import-Funktionen für manuelle Backups
+- Backup auf verschiedene Ziele (Lokal, S3, NFS, etc.)
 
-**Awareness-Schulungen:**
-- Verpflichtende Sicherheitsschulungen für alle Mitarbeiter (jährlich)
-- Spezialschulungen für Administratoren und Entwickler
-- Phishing-Simulationen
-- Sicherheitsrichtlinien dokumentiert und zugänglich
-- Meldewege für Sicherheitsvorfälle bekannt
-
-**Change Management:**
-- Dokumentierte Change-Prozesse
-- Vier-Augen-Prinzip bei kritischen Änderungen
-- Testing vor Produktiv-Deployment
-- Rollback-Pläne für alle Changes
+**Recovery-Funktionen:**
+- One-Click-Restore für vollständige Wiederherstellung
+- Selektives Restore einzelner Content-Typen
+- Disaster-Recovery-Dokumentation mit Schritt-für-Schritt-Anleitung
+- CLI-Tools für Recovery-Operationen
+- Health-Check nach Recovery
 
 **Messkriterium:**
-- Alle BSI IT-Grundschutz-Bausteine für Webanwendungen implementiert
-- Penetrationstest erfolgreich bestanden (keine kritischen Findings)
+- Automatisches Backup konfigurierbar (täglich, wöchentlich, monatlich)
+- Backup-Verschlüsselung aktiv
+- Point-in-Time-Recovery innerhalb 1 Stunde möglich
+- Restore-Test erfolgreich durchgeführt
 - Verschlüsselung: TLS 1.3, AES-256 für Datenbank
-- MFA für alle Admin-Accounts aktiviert
-- Notfallübung jährlich durchgeführt und dokumentiert
-- Sicherheitsschulungen zu 100% absolviert
+- MFA für Admin-Accounts verfügbar
 
 ---
 
@@ -199,16 +192,18 @@ Feingranulares Rollen- und Rechtesystem zur Sicherstellung, dass nur autorisiert
 - Unveränderlichkeit der Audit-Logs
 
 **Berechtigungsprüfung:**
-- Automatische regelmäßige Überprüfung von Berechtigungen (Access Reviews)
-- Benachrichtigung bei ungewöhnlichen Zugriffsmustern
-- Entfernung inaktiver Accounts nach 90 Tagen
+- Admin-Report über Berechtigungen pro Nutzer/Rolle
+- Benachrichtigung bei ungewöhnlichen Zugriffsmustern (anomaly detection)
+- Automatische Deaktivierung inaktiver Accounts (konfigurierbar)
+- Ablaufdatum für Berechtigungen (z.B. temporärer Admin-Zugang)
 
 **Messkriterium:**
 - RBAC mit mindestens 5 vordefinierten Rollen
 - ABAC für mandantenfähige Umgebungen
 - 100% der Zugriffe auf personenbezogene Daten werden geloggt
-- Vierteljährliche Access Reviews durchgeführt
+- Berechtigungs-Report verfügbar
 - Audit-Logs unveränderlich gespeichert
+- Automatische Account-Deaktivierung nach konfigurierbarer Inaktivitätsdauer
 
 ---
 
@@ -217,8 +212,8 @@ Feingranulares Rollen- und Rechtesystem zur Sicherstellung, dass nur autorisiert
 Die Verarbeitungsvorgänge müssen dokumentiert werden können.
 
 **Anforderungen:**
-- Automatische Generierung eines Verfahrensverzeichnisses
-- Dokumentation für jede Verarbeitungstätigkeit:
+- Automatische Generierung eines Verfahrensverzeichnisses basierend auf System-Konfiguration
+- Admin-UI zur Pflege von Verarbeitungstätigkeiten mit Feldern:
   - Name und Kontaktdaten des Verantwortlichen
   - Zwecke der Verarbeitung
   - Kategorien betroffener Personen
@@ -227,14 +222,16 @@ Die Verarbeitungsvorgänge müssen dokumentiert werden können.
   - Drittlandtransfers (falls vorhanden)
   - Löschfristen
   - Technische und organisatorische Maßnahmen (TOM)
-- Export-Funktion für Verfahrensverzeichnis (PDF, DOCX)
-- Regelmäßige Aktualisierung (bei Änderungen)
+- Export-Funktion für Verfahrensverzeichnis (PDF, DOCX, JSON)
+- Versionierung des Verfahrensverzeichnisses
+- Template-System für Standard-Verarbeitungstätigkeiten
 
 **Messkriterium:**
-- Verfahrensverzeichnis vollständig und aktuell
-- Alle DSGVO-Pflichtangaben enthalten
-- Export-Funktion verfügbar
-- Jährliche Überprüfung und Aktualisierung
+- Admin-UI für Verfahrensverzeichnis vorhanden
+- Alle DSGVO-Pflichtfelder als Formular verfügbar
+- Export in 3 Formaten (PDF, DOCX, JSON)
+- Versionierung mit Änderungshistorie
+- 5 vordefinierte Templates
 
 ---
 
@@ -297,32 +294,42 @@ Automatische Mechanismen zur Einhaltung von Löschfristen und zur Umsetzung von 
 
 ## 8. Zusammenfassung der Anforderungen
 
-**ISMS:**
-- Formelles ISMS nach ISO/IEC 27001 oder BSI-Standard 200-2
-- ISB benannt, regelmäßige Audits
+**Sicherheitskonzept:**
+- Vollständige Sicherheitsdokumentation (Hardening-Guide, Best Practices)
+- Security-Checkliste und Beispiel-Konfigurationen
 
-**Schutzbedarfsklassifizierung:**
-- Alle Daten und Prozesse klassifiziert (normal, hoch, sehr hoch)
-- Entsprechende Schutzmaßnahmen implementiert
+**Datenklassifizierung:**
+- 3 konfigurierbare Sicherheitslevel (Öffentlich, Intern, Vertraulich)
+- Automatische Schutzmaßnahmen basierend auf Klassifizierung
 
-**BSI IT-Grundschutz:**
-- Technische Maßnahmen: Sichere Konfiguration, Verschlüsselung, Zugriffskontrollen, Logging
-- Organisatorische Maßnahmen: Notfallmanagement, Awareness-Schulungen, Change Management
+**BSI IT-Grundschutz (Technisch):**
+- Sichere Konfiguration, TLS 1.3, AES-256 Verschlüsselung
+- MFA, RBAC/ABAC, Session-Management, Account-Lockout
+- WAF-Integration, Rate Limiting, CORS
+- SIEM-Integration, Audit-Logging, Log-Retention
+- Automatische Security-Checks, Dependency-Scanning
+
+**Backup und Recovery:**
+- Automatisches verschlüsseltes Backup-System
+- Point-in-Time-Recovery, selektives Restore
+- Disaster-Recovery-Dokumentation
 
 **Privacy by Design/Default:**
 - Datenminimierung, Zweckbindung, Transparenz
+- Privacy Dashboard, Consent Management
 - Strengste Datenschutz-Einstellungen als Default
 
 **Zugriffskontrolle:**
-- RBAC + ABAC
+- RBAC + ABAC mit mindestens 5 vordefinierten Rollen
 - Audit-Trail für alle Zugriffe auf personenbezogene Daten
-- Regelmäßige Access Reviews
+- Automatische Account-Deaktivierung bei Inaktivität
 
 **Verfahrensverzeichnis:**
+- Admin-UI zur Pflege von Verarbeitungstätigkeiten
 - Automatische Generierung gemäß Art. 30 DSGVO
-- Export-Funktion, jährliche Aktualisierung
+- Export-Funktion (PDF, DOCX, JSON), Versionierung
 
-**Löschkonzepte:**
+**Löschkonzepte und Betroffenenrechte:**
 - Automatische Löschung nach konfigurierbaren Fristen
-- Umsetzung aller DSGVO-Betroffenenrechte (Art. 15-21)
-- Self-Service-Portal für Nutzer
+- Self-Service-Portal für alle DSGVO-Betroffenenrechte (Art. 15-21)
+- Datenexport in 3 Formaten, Account-Löschung innerhalb 48h
