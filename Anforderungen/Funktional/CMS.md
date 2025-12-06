@@ -92,9 +92,103 @@ Dieses Kapitel beschreibt die allgemeinen Anforderungen an das CMS 2.0, die unab
 
 ## Workflows und Freigaben
 
-* Für bestimmte Inhalte sollen **Freigabeprozesse** eingerichtet werden können. Damit wird sichergestellt, dass Veröffentlichungen intern abgestimmt und geprüft werden, bevor sie live gehen.
-* Rollenabhängig können Inhalte direkt veröffentlicht oder müssen zunächst zur **Prüfung eingereicht** werden. Dies ermöglicht es, unterschiedliche Arbeitsweisen in Kommunen abzubilden: Während in kleinen Teams kurze Wege bevorzugt werden, können größere Verwaltungen mit mehrstufigen Freigaben arbeiten.
-* Es soll möglich sein, **Inhalte nach Status zu filtern**, damit Redakteur\:innen schnell erkennen können, welche Inhalte noch geprüft und freigeschaltet werden müssen. Alternativ stellen Benachrichtigungen und Aufgabenlisten sicher, dass Beteiligte jederzeit den Überblick über ausstehende Prüfungen und Freigaben behalten.
+Das CMS muss flexible Workflow- und Freigabeprozesse unterstützen, um unterschiedliche organisatorische Anforderungen abzubilden – von einfachen Ein-Personen-Teams bis hin zu komplexen mehrstufigen Freigabeprozessen in großen Verwaltungen.
+
+### Workflow-Stati
+
+* Das System muss verschiedene **Inhalts-Stati** unterstützen, um den Bearbeitungsfortschritt abzubilden:
+  * **Entwurf** (Draft): Inhalt wird erstellt, noch nicht zur Prüfung eingereicht
+  * **Zur Prüfung eingereicht** (Pending Review): Wartet auf Review durch zuständige Person
+  * **In Überarbeitung** (Revision Requested): Rückgabe an Autor:in mit Änderungswünschen
+  * **Genehmigt** (Approved): Freigegeben, wartet auf Veröffentlichung
+  * **Veröffentlicht** (Published): Live und öffentlich sichtbar
+  * **Geplant** (Scheduled): Zur automatischen Veröffentlichung vorgemerkt
+  * **Archiviert** (Archived): Nicht mehr aktiv, aber aufbewahrt
+  * **Gelöscht** (Trashed): Im Papierkorb, kann wiederhergestellt werden
+* Stati sollen **farblich gekennzeichnet** sein (z.B. Entwurf = Grau, Genehmigt = Grün, Geplant = Orange)
+* Es soll eine **Status-Übersicht** geben, die zeigt, wie viele Inhalte sich in welchem Status befinden
+
+### Freigabeprozesse und Qualitätssicherung
+
+* Für bestimmte Inhaltstypen oder Kategorien sollen **Freigabeprozesse konfiguriert** werden können (z.B. Pressemitteilungen benötigen Freigabe, interne News nicht)
+* Es muss möglich sein, **mehrstufige Freigabe-Workflows** einzurichten:
+  * Beispiel 1: Entwurf → Review durch Fachbereichsleitung → Veröffentlichung
+  * Beispiel 2: Entwurf → Review durch Redaktionsleitung → Review durch Presseabteilung → Veröffentlichung
+* Rollenabhängig können Nutzer:innen:
+  * **Direkt veröffentlichen** (z.B. Administrator:innen, erfahrene Redakteur:innen)
+  * **Nur Entwürfe erstellen** und zur Prüfung einreichen (z.B. neue Redakteur:innen)
+  * **Inhalte prüfen und freigeben** (z.B. Redaktionsleitung)
+* Bei Einreichung zur Prüfung soll eine **Nachricht an Reviewer** möglich sein (z.B. "Bitte schnelle Prüfung, zeitkritische Info")
+* Reviewer können Inhalte:
+  * **Genehmigen** (Status → Genehmigt)
+  * **Ablehnen** mit Kommentar (Status → In Überarbeitung)
+  * **Direkt veröffentlichen** (bei entsprechender Berechtigung)
+* Es soll ein **Kommentar-/Anmerkungssystem** geben, damit Reviewer Feedback zu einzelnen Abschnitten geben können
+* **Änderungsvorschläge** (Suggesting Mode) sollen möglich sein, ähnlich wie in Google Docs
+
+### Zeitgesteuerte Veröffentlichungen
+
+* Inhalte sollen **zu einem bestimmten Zeitpunkt automatisch veröffentlicht** werden können (Scheduled Publishing)
+* Es muss möglich sein, ein **Veröffentlichungsdatum und -uhrzeit** festzulegen (z.B. "Veröffentliche am 15.12.2025 um 08:00 Uhr")
+* Optional kann auch ein **Ablaufdatum** (Unpublish Date) gesetzt werden, nach dem der Inhalt automatisch zurückgezogen wird
+* Eine **Übersicht aller geplanten Veröffentlichungen** (Publishing Calendar) soll verfügbar sein
+* Geplante Veröffentlichungen sollen:
+  * **Bearbeitet oder abgebrochen** werden können (bis zum geplanten Zeitpunkt)
+  * **Manuell sofort veröffentlicht** werden können (Publish Now)
+  * Bei Zeitpunkt-Erreichen automatisch von Status "Geplant" zu "Veröffentlicht" wechseln
+* Es soll eine **Benachrichtigung** geben, wenn eine zeitgesteuerte Veröffentlichung erfolgreich war (optional)
+* Bei **wiederkehrenden Inhalten** (z.B. wöchentliche Newsletter) soll eine Wiederholungsfunktion verfügbar sein
+
+### Veröffentlichungsverwaltung
+
+* Es muss eine zentrale **Veröffentlichungsübersicht** geben mit:
+  * Alle veröffentlichten Inhalte
+  * Veröffentlichungszeitpunkt und Autor:in
+  * Anzahl der Aufrufe / Engagement (falls Analytics verfügbar)
+  * Möglichkeit, Inhalte zu depublizieren oder zu archivieren
+* **Bulk-Publishing**: Mehrere genehmigte Inhalte gleichzeitig veröffentlichen
+* **Rollback-Funktion**: Veröffentlichte Inhalte auf eine frühere Version zurücksetzen
+* **Unveröffentlichen** (Unpublish): Inhalte wieder auf Entwurf setzen, ohne sie zu löschen
+* Es soll möglich sein, Inhalte **nur für bestimmte Zielgruppen** zu veröffentlichen (z.B. nur für App-Nutzer, nicht für Web)
+* **Preview-Links**: Vor Veröffentlichung sollen teilbare Links generiert werden, um Inhalte im finalen Layout zu zeigen (ohne Live-Schaltung)
+
+### Benachrichtigungen und Aufgaben
+
+* **Automatische Benachrichtigungen** bei Workflow-Ereignissen:
+  * Reviewer erhalten Benachrichtigung bei neuer Prüfanfrage
+  * Autor:in wird informiert bei Genehmigung oder Ablehnung
+  * Team-Benachrichtigung bei Veröffentlichung wichtiger Inhalte
+* Eine **Aufgabenliste** (To-Do-Liste) zeigt:
+  * Inhalte, die auf meine Prüfung warten
+  * Inhalte, die ich überarbeiten muss
+  * Geplante Veröffentlichungen heute/diese Woche
+* Benachrichtigungen sollen:
+  * **In-App** angezeigt werden (Notification Center)
+  * Optional per **E-Mail** versandt werden (konfigurierbar)
+  * Optional per **Browser-Push** oder **Webhook** verfügbar sein
+* Es soll möglich sein, **Erinnerungen** zu setzen (z.B. "Erinnere mich in 2 Tagen an diesen Entwurf")
+
+### Filterung und Übersicht
+
+* Es soll möglich sein, **Inhalte nach Status zu filtern** (z.B. "Zeige alle Entwürfe", "Zeige alle zur Prüfung eingereichten Inhalte")
+* Filter kombinierbar nach:
+  * Status, Autor:in, Reviewer, Datum, Kategorie, Tags
+  * "Meine Entwürfe", "Warte auf meine Freigabe", "Von mir veröffentlicht"
+* **Dashboard-Widgets** für schnellen Überblick:
+  * "X Inhalte warten auf Deine Prüfung"
+  * "X Deiner Entwürfe wurden genehmigt"
+  * "X Inhalte werden heute veröffentlicht"
+* Eine **Aktivitäts-Timeline** zeigt alle Workflow-Aktionen (wer hat wann was getan)
+
+### Versionskontrolle im Workflow-Kontext
+
+* Jeder Status-Wechsel erzeugt automatisch eine **Version**
+* Bei Ablehnung/Überarbeitung bleibt die **ursprünglich eingereichte Version** erhalten
+* Es soll möglich sein, **während der Prüfung bereits an einer neuen Version zu arbeiten** (parallele Workflows)
+* Vergleich zwischen:
+  * Aktueller Version und letzter veröffentlichter Version
+  * Aktueller Version und ursprünglich eingereichten Version
+  * Verschiedenen Entwurfs-Versionen
 
 ## Hilfe- und Support-System
 
@@ -114,10 +208,91 @@ Das CMS benötigt ein umfassendes Hilfe- und Support-System, das Nutzer:innen be
 * Es soll möglich sein, **neue Arten von Inhalten oder Objekten** (z. B. Fuhrparkverwaltung, Geräteübersichten oder neue Fachbereiche) einzuführen.
 * Dadurch kann das CMS auch für **zukünftige, bisher nicht absehbare Anforderungen** genutzt werden und bleibt langfristig vielseitig einsetzbar.
 
-## Weitere Anforderungen
+## Vorschau-Funktion
 
-* Inhalte sollen im **Layout der App vorschaubar** sein, bevor sie veröffentlicht werden.
-* Das CMS soll eine **Steuerung offline-fähiger Inhalte** ermöglichen, sodass bestimmte Inhalte in der App dann auch ohne Internetverbindung enthalten sind. Für besondere Fälle sollen **Caching-Strategien** verfügbar sein, damit wichtige Inhalte auch in Notfällen oder bei schlechter Verbindung schnell zugänglich bleiben.
+Das CMS muss umfassende Vorschau-Möglichkeiten bieten, damit Redakteur:innen Inhalte im finalen Layout prüfen können, bevor sie veröffentlicht werden.
+
+### Mandanten-spezifische Vorschau
+
+* Inhalte sollen im **Layout des jeweiligen Mandanten vorschaubar** sein, unabhängig vom Veröffentlichungsstatus
+* Bei **Multi-Mandanten-Umgebungen** muss die Vorschau für jeden Mandanten separat verfügbar sein:
+  * Jeder Mandant kann eigene Design-Anpassungen haben (Farben, Logos, Schriftarten)
+  * Jeder Mandant kann eigene Content-Strukturen und Module nutzen
+  * Vorschau berücksichtigt mandanten-spezifische Einstellungen (Sprache, Layout-Varianten)
+* **Mandanten-Umschalter** in der Vorschau, um zwischen verschiedenen Mandanten-Layouts zu wechseln
+* Es soll ersichtlich sein, **welcher Mandant** gerade in der Vorschau angezeigt wird (z.B. durch Badge oder Dropdown)
+
+### Geräte-Vorschau
+
+* Inhalte sollen auf **verschiedenen Gerätetypen** vorschaubar sein:
+  * **Mobile** (Smartphone-Ansicht, z.B. iPhone, Android)
+  * **Tablet** (iPad, Android Tablet)
+  * **Desktop** (Webbrowser-Ansicht)
+* **Responsive Preview**: Vorschau passt sich automatisch an die gewählte Gerätegröße an
+* Es sollen **vordefinierte Geräte-Presets** verfügbar sein:
+  * iPhone 14/15 (390×844 px)
+  * Samsung Galaxy S23 (360×780 px)
+  * iPad (768×1024 px)
+  * Desktop Standard (1920×1080 px)
+* **Rotation**: Wechsel zwischen Hochformat (Portrait) und Querformat (Landscape)
+* Optional: **Benutzerdefinierte Bildschirmgrößen** für spezielle Anforderungen
+
+### Vorschau-Modi
+
+* **Live-Vorschau während der Bearbeitung**: Änderungen werden in Echtzeit in der Vorschau angezeigt
+* **Vollbild-Vorschau**: Vorschau ohne CMS-Oberfläche, nur das finale Layout
+* **Side-by-Side-Ansicht**: Editor und Vorschau nebeneinander (Split-Screen)
+* **Status-spezifische Vorschau**: Inhalte können in verschiedenen Stati vorgeschaut werden:
+  * Entwurf-Vorschau
+  * Review-Vorschau (wie sieht es für Reviewer aus?)
+  * Geplante-Veröffentlichung-Vorschau (wie wird es nach Veröffentlichung aussehen?)
+
+### Teilbare Vorschau-Links
+
+* **Preview-Links**: Vor Veröffentlichung sollen teilbare Links generiert werden
+* Preview-Links funktionieren **ohne Login** (mit zeitlich begrenztem Token)
+* **Ablaufdatum für Preview-Links** konfigurierbar (z.B. 7 Tage, 30 Tage)
+* Preview-Links können für **externe Stakeholder** geteilt werden (z.B. Pressestelle, Fachbereiche)
+* Optional: **Passwortschutz** für besonders sensible Vorschauen
+* Links können **widerrufen** werden, falls Vorschau nicht mehr geteilt werden soll
+
+### Vorschau-Kontext
+
+* Vorschau zeigt Inhalte **im Kontext der App oder Website**:
+  * Navigation und Menüs werden angezeigt
+  * Verlinkungen zu anderen Inhalten funktionieren
+  * Eingebettete Medien (Bilder, Videos) werden korrekt dargestellt
+* **Interaktive Vorschau**: Links und Buttons sind in der Vorschau klickbar (zur Navigation innerhalb der Vorschau)
+* **Wasserzeichen oder Banner**: Optional "Vorschau-Modus" einblenden, um Verwechslungen mit Live-Inhalten zu vermeiden
+* **Metadaten-Vorschau**: Anzeige, wie SEO-Metadaten in Suchmaschinen erscheinen würden
+
+## Offline-Verfügbarkeit und Notfallinhalte
+
+* Das CMS soll eine **Steuerung offline-fähiger Inhalte** ermöglichen, sodass bestimmte Inhalte in der App auch ohne Internetverbindung verfügbar sind
+* **Notfallinhalte**: Bestimmte wichtige Inhalte sollen dauerhaft in der App gespeichert werden und auch offline zugänglich sein:
+  * Beispiele: Notfall-Kontakte, Erste-Hilfe-Informationen, Katastrophenschutz-Hinweise, wichtige Behörden-Telefonnummern
+  * Im CMS muss für jeden Inhalt markierbar sein, ob er als **"Notfallinhalt"** gekennzeichnet werden soll
+  * Checkbox oder Toggle: "Als Notfallinhalt markieren" oder "Offline verfügbar machen"
+  * Notfallinhalte werden bei App-Start oder bei Sync automatisch heruntergeladen und lokal gespeichert
+* **Priorisierung**: Es soll möglich sein, **Prioritätsstufen** für Offline-Inhalte festzulegen:
+  * **Kritisch**: Immer offline verfügbar (Notfallinhalte)
+  * **Wichtig**: Bei ausreichend Speicherplatz offline verfügbar
+  * **Optional**: Nur bei expliziter Nutzer-Auswahl offline speichern
+* **Speicherplatz-Management**: Das System soll überwachen, wie viel Speicherplatz Offline-Inhalte benötigen:
+  * Warnung bei Überschreitung eines Limits (z.B. > 50 MB)
+  * Übersicht im CMS: "Aktuelle Offline-Inhalte belegen X MB"
+  * Möglichkeit, große Medien von Offline-Speicherung auszuschließen
+* **Sync-Strategie**: 
+  * Notfallinhalte werden automatisch aktualisiert, wenn sich der Inhalt ändert
+  * App prüft bei Verbindung, ob neue Versionen von Notfallinhalten verfügbar sind
+  * Administrator:innen können **Sync-Intervalle** konfigurieren (z.B. täglich, wöchentlich)
+* **Übersicht im CMS**:
+  * Liste aller als "Notfallinhalt" markierten Inhalte
+  * Filterung nach Offline-Status, Priorität, Größe
+  * Bulk-Aktion: Mehrere Inhalte gleichzeitig als Notfallinhalt markieren/entmarkieren
+* Für besondere Fälle sollen **Caching-Strategien** konfigurierbar sein, damit wichtige Inhalte auch bei schlechter Verbindung schnell zugänglich bleiben
+
+## Weitere Anforderungen
 * Es soll ein **Export von Inhalten und Daten** in gängigen Formaten wie CSV oder JSON möglich sein.
 * Ein **Daten-Löschkonzept** muss gewährleistet sein, sodass Inhalte und personenbezogene Daten zuverlässig entfernt werden können.
 * Das CMS soll die Möglichkeit bieten, **mehrere Basis-URLs** zu definieren (z. B. für verschiedene Domains, Mandanten oder Ausgabekanäle wie App und Web).
