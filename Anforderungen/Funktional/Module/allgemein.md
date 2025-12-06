@@ -27,9 +27,187 @@ Dieses Kapitel beschreibt die allgemeinen Anforderungen an die Verwaltung der Ap
 
 ## Aktivierung und Deaktivierung
 
+### Grundfunktionalität
+
 * Administrator\:innen sollen Module **mit wenigen Klicks aktivieren oder deaktivieren** können.
 * Deaktivierte Module dürfen keine Inhalte mehr anzeigen, ihre Daten bleiben aber erhalten und können bei erneuter Aktivierung wieder genutzt werden.
 * Abhängigkeiten zwischen Modulen müssen berücksichtigt und transparent angezeigt werden (z. B. wenn Modul A für Modul B erforderlich ist).
+
+### Aktivierungs-/Deaktivierungs-Interface
+
+**Anforderungen:**
+* **Status-Anzeige**:
+  * Visueller Toggle-Switch (Ein/Aus) bei jedem Modul
+  * Farbcodierung: Grün = Aktiv, Grau = Inaktiv, Gelb = Teilweise aktiv (nur in manchen Apps)
+  * Status-Badge: "Aktiv", "Inaktiv", "Geplant", "Wird deaktiviert"
+  * Anzahl aktiver Instanzen anzeigen (z.B. "In 3 von 5 Apps aktiv")
+* **Aktivierungs-Button**:
+  * "Aktivieren"-Button bei deaktivierten Modulen
+  * Klick öffnet Aktivierungs-Dialog mit:
+    - Kurzbeschreibung des Moduls
+    - Liste der Abhängigkeiten (falls vorhanden)
+    - Kosteninformation (falls kostenpflichtig)
+    - Geschätzte Aktivierungsdauer
+    - "Jetzt aktivieren" oder "Abbrechen"
+  * Progress-Bar während Aktivierung
+  * Erfolgsmeldung: "Modul [Name] erfolgreich aktiviert"
+* **Deaktivierungs-Button**:
+  * "Deaktivieren"-Button bei aktiven Modulen
+  * Klick öffnet Bestätigungs-Dialog mit:
+    - Warnung: "Modul wird deaktiviert und ist nicht mehr in der App sichtbar"
+    - Auswirkungen: "Wird in 3 Apps verwendet", "Enthält 127 Inhalte"
+    - Liste abhängiger Module (die ggf. ebenfalls deaktiviert werden müssen)
+    - Checkbox: "Daten behalten" (Standard: aktiviert)
+    - "Jetzt deaktivieren" oder "Abbrechen"
+  * Zwei-Faktor-Bestätigung bei kritischen Modulen (optional konfigurierbar)
+  * Erfolgsmeldung: "Modul [Name] erfolgreich deaktiviert"
+
+### Bulk-Aktionen
+
+**Anforderungen:**
+* **Mehrfach-Auswahl**:
+  * Checkboxen bei jedem Modul in der Übersicht
+  * "Alle auswählen" / "Auswahl aufheben"-Funktion
+  * Anzeige: "5 Module ausgewählt"
+* **Bulk-Aktivierung**:
+  * "Ausgewählte aktivieren"-Button
+  * Bestätigungs-Dialog mit Liste aller betroffenen Module
+  * Dependency-Check für alle Module gleichzeitig
+  * Sequentielle Aktivierung mit Progress-Anzeige: "3 von 5 Module aktiviert"
+  * Fehlerbehandlung: Bei Fehler einzelner Module weitermachen oder abbrechen
+* **Bulk-Deaktivierung**:
+  * "Ausgewählte deaktivieren"-Button
+  * Warnung mit Gesamtauswirkungen: "12 Module werden deaktiviert, betrifft 4 Apps"
+  * Option: "Abhängige Module auch deaktivieren"
+  * Bestätigung erforderlich
+
+### Abhängigkeiten und Kompatibilität
+
+**Anforderungen:**
+* **Dependency-Check vor Aktivierung**:
+  * Automatische Prüfung: Sind alle erforderlichen Module aktiv?
+  * Warnung: "Modul B benötigt Modul A. Soll Modul A ebenfalls aktiviert werden?"
+  * Ketten-Aktivierung: Alle Abhängigkeiten automatisch mit aktivieren (optional)
+  * Kompatibilitätsprüfung: Passt die Modul-Version zur Core-Version?
+* **Warnung bei Deaktivierung abhängiger Module**:
+  * "Achtung: Modul C benötigt dieses Modul. Modul C wird ebenfalls deaktiviert."
+  * Liste aller betroffenen Module anzeigen
+  * Option: "Trotzdem deaktivieren" oder "Abbrechen"
+* **Dependency-Graph visualisieren**:
+  * Grafische Darstellung der Modul-Abhängigkeiten (optional)
+  * Zeigt, welche Module voneinander abhängen
+  * Klickbar: Navigation zu abhängigen Modulen
+
+### Zeitgesteuerte Aktivierung/Deaktivierung
+
+**Anforderungen:**
+* **Geplante Aktivierung**:
+  * Datum und Uhrzeit auswählen: "Modul aktivieren am 15.12.2025 um 6:00 Uhr"
+  * Verwendung für zeitlich begrenzte Kampagnen oder saisonale Module
+  * Vorschau: "Modul wird in 3 Tagen, 5 Stunden aktiviert"
+  * Benachrichtigung vor und nach Aktivierung
+* **Geplante Deaktivierung**:
+  * Automatische Deaktivierung nach Ablaufdatum
+  * Beispiel: "Event-Modul nach Veranstaltungsende deaktivieren"
+  * Erinnerung 24h vor Deaktivierung
+* **Zeitfenster definieren**:
+  * Modul nur in bestimmtem Zeitraum aktiv (von ... bis ...)
+  * Automatische Aktivierung/Deaktivierung ohne manuellen Eingriff
+  * Wiederholende Zeitfenster (z.B. "Nur Mo-Fr, 8-18 Uhr" für Behörden-Module)
+
+### Rollback und Fehlerbehandlung
+
+**Anforderungen:**
+* **Automatisches Backup vor Aktivierung**:
+  * Snapshot der aktuellen Konfiguration erstellen
+  * Bei fehlgeschlagener Aktivierung: Automatischer Rollback
+  * Manuelle Rollback-Option: "Modul-Aktivierung rückgängig machen"
+* **Fehlerbehandlung bei Aktivierung**:
+  * Fehlermeldungen verständlich formulieren (nicht nur technische Codes)
+  * Lösungsvorschläge anzeigen: "Modul X muss zuerst aktiviert werden"
+  * Support-Link bei kritischen Fehlern
+  * Log-Ausgabe für Admins (aufklappbar)
+* **Rollback nach problematischer Aktivierung**:
+  * "Rückgängig"-Button für letzte Aktivierung (bis zu 24h nach Aktivierung)
+  * Wiederherstellung des vorherigen Zustands in < 2 Minuten
+  * Audit-Log-Eintrag für Rollback
+
+### Kosten und Lizenzierung
+
+**Anforderungen:**
+* **Kostenanzeige bei Aktivierung**:
+  * Klare Darstellung: "Dieses Modul kostet 29€/Monat"
+  * Testversion verfügbar: "14 Tage kostenlos testen"
+  * Lizenzmodelle: Einmalig, Monatlich, Jährlich, Nutzungsbasiert
+* **Bestätigung bei kostenpflichtigen Modulen**:
+  * Checkbox: "Ich akzeptiere die Kosten von 29€/Monat"
+  * Link zu AGB und Lizenzvereinbarung
+  * Zahlungsmethode auswählen (falls noch nicht hinterlegt)
+  * Rechnungsadresse bestätigen
+* **Kostenübersicht**:
+  * Gesamtkosten aller aktiven Module anzeigen
+  * Filter: "Nur kostenpflichtige Module anzeigen"
+  * Export als CSV für Buchhaltung
+  * Warnungen bei Überschreitung des Budgets
+
+### Berechtigungen und Rollen
+
+**Anforderungen:**
+* **Granulare Berechtigungen**:
+  * Rolle "Modul-Admin": Darf alle Module aktivieren/deaktivieren
+  * Rolle "Modul-Editor": Darf nur bestimmte Module aktivieren (z.B. Content-Module)
+  * Rolle "Modul-Viewer": Kann nur Status sehen, keine Änderungen
+  * Pro-Modul-Berechtigungen: Nur bestimmte Admins dürfen kritische Module deaktivieren
+* **Zwei-Faktor-Authentifizierung**:
+  * Optional für kritische Module (z.B. Zahlungsmodule, Benutzerverwaltung)
+  * Admin muss 2FA-Code eingeben vor Deaktivierung
+  * Konfigurierbar: Welche Module benötigen 2FA?
+* **Genehmigungs-Workflow**:
+  * Bei kritischen Modulen: Aktivierung muss genehmigt werden
+  * Redakteur:in beantragt Aktivierung → Admin genehmigt
+  * Benachrichtigung an Genehmiger per E-Mail
+  * Status: "Genehmigung ausstehend"
+
+### Protokollierung und Audit
+
+**Anforderungen:**
+* **Vollständiges Audit-Log**:
+  * Alle Aktivierungen/Deaktivierungen werden protokolliert
+  * Informationen: Zeitstempel, Nutzer, Modul, Aktion (aktiviert/deaktiviert), Grund (optional)
+  * IP-Adresse und User-Agent
+  * Unveränderliches Log (Append-Only)
+* **Änderungs-Historie pro Modul**:
+  * Liste aller Status-Änderungen: "15.11.2025, 14:32 - Aktiviert von Max Mustermann"
+  * Grund für Änderung (optionales Textfeld bei Aktivierung/Deaktivierung)
+  * Dauer der Aktivierung: "War 47 Tage aktiv"
+* **Benachrichtigungen**:
+  * E-Mail bei kritischen Aktivierungen/Deaktivierungen
+  * Slack/Teams-Integration (optional)
+  * Wöchentlicher Report: "Diese Module wurden geändert"
+  * Warnung bei ungewöhnlichen Aktivitäten (z.B. Massen-Deaktivierung)
+
+### Multi-Mandanten-Szenarien
+
+**Anforderungen:**
+* **Mandanten-spezifische Aktivierung**:
+  * In Multi-Mandanten-Systemen: Modul für Mandant A aktiv, für Mandant B inaktiv
+  * Übersicht: "Modul in 3 von 8 Mandanten aktiv"
+  * Bulk-Aktivierung pro Mandant oder für alle Mandanten
+* **Zentrale vs. dezentrale Kontrolle**:
+  * Zentral-Admin kann Module für alle Mandanten aktivieren/deaktivieren
+  * Mandanten-Admin kann nur eigene Module verwalten
+  * Erzwungene Aktivierung: Zentral-Admin erzwingt Modul für alle (z.B. Sicherheitsmodul)
+  * Aktivierungssperre: Modul kann von Mandanten nicht deaktiviert werden
+
+**Messkriterium:**
+* Aktivierung/Deaktivierung in < 5 Sekunden abgeschlossen (für einzelnes Modul)
+* Bulk-Aktivierung von 10 Modulen in < 30 Sekunden
+* Dependency-Check erfolgt automatisch vor jeder Aktivierung
+* 100% aller Aktivierungen/Deaktivierungen im Audit-Log erfasst
+* Rollback nach fehlgeschlagener Aktivierung funktioniert in 100% der Fälle
+* Kostenpflichtige Module erfordern explizite Bestätigung vor Aktivierung
+* Zeitgesteuerte Aktivierung/Deaktivierung mit Genauigkeit von ± 1 Minute
+* Benutzerfreundlichkeit: Aktivierung/Deaktivierung ohne externe Dokumentation verständlich
 
 ## Erweiterung und Bereitstellung
 

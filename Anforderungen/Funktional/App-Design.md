@@ -425,6 +425,128 @@ Dieses Kapitel beschreibt die Anforderungen an die Gestaltung und Navigation der
   * Automatische Bereinigung alter Daten (konfigurierbar)
   * Manuelle Löschung von Cache und Offline-Daten
 
+### 12. Deep-Linking und URL-Schema-Konfiguration
+
+* **URL-Schema (Custom URL Scheme)**:
+  * Definition eines eindeutigen App-URL-Schemas im CMS
+  * Format: `[app-identifier]://[path]/[parameter]`
+  * Beispiele:
+    - `havelland://news/123` (Öffnet News-Artikel mit ID 123)
+    - `meinedorf://events/456` (Öffnet Event mit ID 456)
+    - `myapp://map?lat=52.52&lon=13.405` (Öffnet Karte mit Koordinaten)
+    - `myapp://profile` (Öffnet Nutzer-Profil)
+  * Konfiguration pro Kommune/App-Instanz
+  * Validierung: Schema-Name muss eindeutig sein (Konfliktprüfung)
+
+* **Universal Links / App Links**:
+  * iOS Universal Links (https://domain.de/app/news/123)
+  * Android App Links (https://domain.de/app/events/456)
+  * Automatische Weiterleitung von Web-URLs zur App (wenn installiert)
+  * Fallback: Öffnet Webseite, wenn App nicht installiert
+  * AASA-Datei (Apple App Site Association) automatisch generieren
+  * Digital Asset Links (Android) automatisch generieren
+
+#### 12.1 Link-Routing-Konfiguration
+
+* **Link-Pattern definieren**:
+  * Administrator:innen legen Link-Muster für verschiedene Inhaltstypen fest
+  * Zentrale Routing-Tabelle im CMS:
+    - Pattern: `news/:id` → Ziel: News-Detail-Modul, Parameter: `:id`
+    - Pattern: `events/:id` → Ziel: Event-Detail-Modul, Parameter: `:id`
+    - Pattern: `pois/:id` → Ziel: POI-Detail-Modul, Parameter: `:id`
+    - Pattern: `map` → Ziel: Karten-Modul
+    - Pattern: `search?q=:query` → Ziel: Suche-Modul, Parameter: `:query`
+  * Drag-and-Drop-Interface für Routing-Regeln
+  * Prioritäten: Reihenfolge der Matching-Regeln festlegen
+
+* **Deep-Link-Handler**:
+  * Automatisches Mapping von Deep-Links zu App-Seiten
+  * Validierung: Prüfung, ob Inhalts-ID existiert
+  * Fehlerbehandlung: Fallback-Seite bei ungültigen Links (404-Seite in App)
+  * Logging: Tracking von Deep-Link-Aufrufen (Analytics)
+
+#### 12.2 Link-Generierung
+
+* **Automatische Link-Generierung**:
+  * CMS generiert automatisch Deep-Links für alle Inhalte
+  * Teilen-Funktion: Universal Link statt Web-URL
+  * QR-Code-Generierung mit Deep-Link
+  * Beispiel: Beim Teilen eines Events wird automatisch `havelland://events/123` oder `https://havelland.app/events/123` generiert
+
+* **Link-Vorschau**:
+  * Open Graph Meta-Tags für Universal Links
+  * Preview-Bild, Titel, Beschreibung beim Teilen (WhatsApp, Telegram, etc.)
+  * Automatische Generierung aus Inhalts-Metadaten
+
+#### 12.3 Push-Notification-Integration
+
+* **Deep-Links in Push-Nachrichten**:
+  * Push-Notification kann Deep-Link enthalten
+  * Tap auf Notification öffnet direkt die Zielseite in der App
+  * Beispiel: "Neues Event in deiner Nähe!" → Tap öffnet `myapp://events/789`
+  * Konfiguration im Push-Notification-Modul
+
+* **Tracking und Analytics**:
+  * Welche Deep-Links werden am häufigsten genutzt?
+  * Woher kommen Nutzer:innen (Push, QR-Code, Webseite, Social Media)?
+  * Conversion-Tracking: Deep-Link → App-Öffnung → Aktion
+
+#### 12.4 Sicherheit und Validierung
+
+* **Link-Validierung**:
+  * Prüfung auf gültige Parameter (ID muss numerisch sein, etc.)
+  * SQL-Injection-Schutz bei Parameter-Verarbeitung
+  * Rate-Limiting bei Deep-Link-Aufrufen (DoS-Schutz)
+
+* **Signatur und Verifikation**:
+  * Optional: HMAC-Signatur für Deep-Links (verhindert Manipulation)
+  * Ablaufdatum für zeitlich begrenzte Links (z.B. für Einladungen)
+  * Beispiel: `myapp://events/123?token=abc123&expires=1234567890`
+
+* **Datenschutz**:
+  * Keine personenbezogenen Daten in Deep-Links (außer verschlüsselt)
+  * DSGVO-konform: Nutzer-IDs nur verschlüsselt übertragen
+
+#### 12.5 Testen und Debugging
+
+* **Deep-Link-Tester im CMS**:
+  * Eingabefeld für Deep-Link
+  * Test-Button: Simuliert Deep-Link-Aufruf
+  * Anzeige: Welche Seite wird geöffnet, welche Parameter werden übergeben?
+  * QR-Code-Generator für schnelles Testen auf Geräten
+
+* **Logging und Monitoring**:
+  * Fehlerhafte Deep-Links werden geloggt (404-Tracking)
+  * Statistiken: Welche Links funktionieren, welche führen zu Fehlern?
+  * Alert bei häufig fehlerhaften Links
+
+#### 12.6 Plattform-spezifische Konfiguration
+
+* **iOS-spezifisch**:
+  * Bundle Identifier: Eindeutige ID für die App (z.B. `com.havelland.app`)
+  * Associated Domains: Domain-Verknüpfung für Universal Links
+  * URL-Schema-Registrierung in Info.plist (automatisch)
+
+* **Android-spezifisch**:
+  * Package Name: Eindeutige ID für die App (z.B. `de.havelland.app`)
+  * Intent-Filter für Deep-Links (automatisch generiert)
+  * App-Links-Verifikation (Digital Asset Links)
+
+* **Web-Fallback**:
+  * Für jeden Deep-Link gibt es eine entsprechende Webseite
+  * Beispiel: `myapp://news/123` → Fallback zu `https://havelland.de/news/123`
+  * Progressive Web App (PWA) als Alternative, wenn native App nicht installiert
+
+**Messkriterium:**
+- URL-Schema kann im CMS konfiguriert werden (Eingabefeld + Validierung)
+- Routing-Tabelle mit mindestens 5 Standard-Patterns (news, events, pois, map, search)
+- Automatische Generierung von Universal Links und App Links
+- Deep-Link-Tester integriert (inkl. QR-Code-Generator)
+- Fehlerbehandlung: 404-Seite bei ungültigen Deep-Links
+- Tracking: Analytics für Deep-Link-Aufrufe verfügbar
+- Sicherheit: Parameter-Validierung und Rate-Limiting implementiert
+- Dokumentation: Link-Pattern-Syntax für Administrator:innen dokumentiert
+
 ---
 
 ## Konfiguration im CMS
