@@ -313,7 +313,130 @@ Das Schnittstellen-Modul ermöglicht die nahtlose Integration des CMS mit extern
 - Transkripte und Shownotes
 - Abonnenten-Statistiken
 
-### 3.6 Authentifizierung und Autorisierung
+### 3.6 CMS-Integrationen
+
+**Anforderung CMS-010: Typo3-Integration**
+- **Bidirektionale Synchronisation** mit Typo3-Instanzen
+- **Content-Import aus Typo3**:
+  - Import von Seiten, Nachrichten (tx_news), Events (tx_events2), Formularen
+  - Mapping von Typo3-Inhaltstypen zu CMS-Content-Types
+  - Import von Typo3-Backend-Benutzern (fe_users, be_users)
+  - Import von Kategorien und Tags (sys_category)
+  - Medien-Import aus Typo3 Fileadmin (FAL - File Abstraction Layer)
+  - Import von Metadaten (SEO, Open Graph)
+- **Content-Export zu Typo3**:
+  - Export von CMS-Inhalten als Typo3-kompatible Datenstruktur
+  - REST-API für Typo3-Extensions (z.B. über Extbase/Fluid)
+  - JSON-Export mit Typo3-spezifischen Feldern
+- **Typo3-Extension als Bridge**:
+  - Entwicklung einer Typo3-Extension für nahtlose Integration
+  - Extension liest Inhalte über CMS-GraphQL-API
+  - Frontend-Rendering in Typo3 mit Fluid-Templates
+- **Single Sign-On (SSO)**:
+  - Gemeinsame Benutzerverwaltung über OAuth 2.0 / SAML
+  - Backend-Benutzer können sich in beiden Systemen mit einem Login anmelden
+- **URL-Redirects**:
+  - Automatische Weiterleitung alter Typo3-URLs zur neuen CMS-Struktur
+  - 301-Redirects für SEO-Erhalt
+- **Migration-Tools**:
+  - Migrations-Assistent für vollständigen Umzug von Typo3 zu CMS
+  - Datenbank-Migration mit Mapping-Tabellen
+  - Testlauf-Modus mit Vorschau
+  - Rollback-Funktion
+
+**Anforderung CMS-020: WordPress-Integration**
+- **Bidirektionale Synchronisation** mit WordPress-Instanzen
+- **Content-Import aus WordPress**:
+  - Import von Posts, Pages, Custom Post Types
+  - Import von Kategorien, Tags, Custom Taxonomies
+  - Import von WordPress-Benutzern (wp_users)
+  - Import von Medien aus WordPress Media Library
+  - Import von Kommentaren (optional)
+  - Import von WooCommerce-Produkten (falls E-Commerce-Modul vorhanden)
+  - Import von ACF-Felder (Advanced Custom Fields)
+- **Content-Export zu WordPress**:
+  - REST-API-kompatibel mit WordPress REST API v2
+  - JSON-Export im WordPress-Format
+  - WP-CLI-Integration für Bulk-Operations
+- **WordPress-Plugin als Bridge**:
+  - Entwicklung eines WordPress-Plugins für nahtlose Integration
+  - Plugin liest Inhalte über CMS-REST/GraphQL-API
+  - Gutenberg-Blöcke für CMS-Inhalte
+- **Webhook-Integration**:
+  - Automatische Benachrichtigung bei neuen WordPress-Posts
+  - Synchronisation in Echtzeit über WordPress Webhooks
+- **Single Sign-On (SSO)**:
+  - OAuth 2.0-Integration mit WordPress
+  - JWT-basierte Authentifizierung
+- **Migration-Tools**:
+  - Migrations-Assistent für vollständigen Umzug von WordPress zu CMS
+  - Import von WordPress-XML-Export
+  - Automatisches Mapping von Shortcodes zu CMS-Komponenten
+  - Import von Yoast SEO-Metadaten
+
+### 3.7 Webhook-System für Push und Automatisierungen
+
+**Anforderung WEBHOOK-010: Erweiterte Webhook-Funktionen**
+- **Outgoing Webhooks (Push-Benachrichtigungen)**:
+  - Automatisches Senden von HTTP-POST-Requests bei CMS-Events
+  - Konfigurierbare Event-Trigger:
+    - `content.created`, `content.updated`, `content.deleted`, `content.published`
+    - `user.created`, `user.updated`, `user.deleted`
+    - `media.uploaded`, `media.deleted`
+    - `comment.created`, `comment.moderated`
+    - `workflow.status_changed` (z.B. Freigabe erteilt)
+    - Custom Events für spezielle Use Cases
+  - Webhook-Payload mit vollständigen Daten (oder nur ID für Lazy Loading)
+  - Signierung mit HMAC-SHA256 für Sicherheit
+  - Retry-Mechanismus mit Exponential Backoff (max. 5 Versuche)
+  - Webhook-Logs: Erfolgreiche und fehlgeschlagene Aufrufe
+- **Incoming Webhooks (Datenempfang)**:
+  - Empfang von Daten über HTTP-POST an spezielle CMS-Endpoints
+  - Authentifizierung über API-Key oder Shared Secret
+  - Automatische Verarbeitung und Speicherung von Daten
+  - Beispiel: GitHub Webhooks bei Code-Commits → Automatische Dokumentations-Updates
+- **Workflow-Automatisierungen mit Webhooks**:
+  - Zapier-Integration: CMS-Events triggern Zapier-Workflows
+  - Make (formerly Integromat): Visuelle Automatisierungs-Workflows
+  - n8n (Self-hosted): Open-Source-Alternative für Automatisierungen
+  - IFTTT-Integration für einfache Automatisierungen
+- **Webhook-Templates**:
+  - Vorkonfigurierte Webhook-Templates für häufige Szenarien:
+    - "Bei Veröffentlichung in Slack posten"
+    - "Bei neuem Kommentar E-Mail senden"
+    - "Bei Event-Erstellung in Google Calendar eintragen"
+    - "Bei Änderung Git-Commit auslösen (GitOps)"
+- **Webhook-Testing**:
+  - Test-Webhook-Endpoint (z.B. webhook.site, requestbin.com)
+  - Manuelle Trigger-Funktion zum Testen
+  - Payload-Vorschau vor Aktivierung
+- **Bedingte Webhooks (Conditional Webhooks)**:
+  - Webhooks nur bei bestimmten Bedingungen auslösen
+  - Beispiel: "Nur bei Events in Berlin" oder "Nur bei News mit Kategorie 'Wichtig'"
+  - Filterregeln mit logischen Operatoren (AND, OR, NOT)
+
+**Anforderung WEBHOOK-020: Synchronisation und Benachrichtigungen**
+- **Content-Synchronisation über Webhooks**:
+  - Echtzeit-Synchronisation mit externen Systemen
+  - Bidirektionale Sync: Änderungen in CMS → externes System UND umgekehrt
+  - Konfliktauflösung bei gleichzeitigen Änderungen (Last Write Wins oder manuelle Auflösung)
+  - Delta-Sync: Nur geänderte Felder übertragen
+- **Benachrichtigungs-System**:
+  - In-App-Benachrichtigungen über WebSocket
+  - Push-Benachrichtigungen an Browser (Web Push API)
+  - E-Mail-Benachrichtigungen mit konfigurierbaren Templates
+  - Slack/Microsoft Teams-Benachrichtigungen
+  - SMS-Benachrichtigungen (über Twilio, Vonage) für kritische Events
+- **Batch-Webhooks**:
+  - Sammeln mehrerer Events und als Batch versenden (z.B. alle 5 Minuten)
+  - Reduzierung der HTTP-Requests bei hoher Event-Frequenz
+  - Konfigurierbare Batch-Größe und -Intervall
+- **Webhook-Queues**:
+  - Verwendung von Message Queues (RabbitMQ, Apache Kafka) für zuverlässige Delivery
+  - Garantierte Zustellung auch bei temporären Ausfällen
+  - Replay-Funktion: Webhooks erneut versenden
+
+### 3.8 Authentifizierung und Autorisierung
 
 **Anforderung AUTH-010: OAuth 2.0**
 - OAuth 2.0 Server für externe Anwendungen
@@ -585,6 +708,108 @@ Das Schnittstellen-Modul ermöglicht die nahtlose Integration des CMS mit extern
 - Invalidierungs-Regeln
 - Cache-Statistiken
 - Manuelle Cache-Invalidierung
+
+**Anforderung CONF-060: Schnittstellen-Builder für einfache Formate**
+- Visueller Interface-Builder für einfache Standard-Schnittstellen
+- **RSS-Feed-Generator**:
+  - Auswahl der Inhaltstypen für Feed (News, Events, Blog)
+  - Konfiguration von Feed-Metadaten (Titel, Beschreibung, Link, Logo)
+  - Feldmapping (Welches CMS-Feld → RSS-Element)
+  - Filterung (nur veröffentlichte Inhalte, bestimmte Kategorien)
+  - Anzahl Einträge (z.B. letzte 50 Beiträge)
+  - Feed-URL generieren (z.B. `/feeds/news.xml`)
+  - RSS 2.0 und Atom 1.0 Support
+- **JSON-Feed-Generator**:
+  - Ähnlich RSS, aber JSON-basiert
+  - JSON Feed 1.1 Standard
+  - Konfigurierbare Feldauswahl
+- **iCal/ICS-Feed für Veranstaltungen**:
+  - Automatischer Export von Events im iCal-Format
+  - Abonnierbar in Kalender-Apps (Apple Kalender, Google Calendar, Outlook)
+  - Filterung nach Kategorien, Orten, Zeiträumen
+- **Vorschau und Validierung**:
+  - Live-Vorschau des generierten Feeds
+  - Validierung gegen Standard (RSS Validator, Feed Validator)
+  - Test-URL zum Abrufen
+- **Versionierung und Historie**:
+  - Feed-Konfigurationen speichern und versionieren
+  - Wiederherstellung früherer Konfigurationen
+
+**Anforderung CONF-070: Schnittstellen-Übersicht und Monitoring-Dashboard**
+- **Zentrale Übersicht aller angebundenen Schnittstellen**:
+  - Tabellarische Darstellung mit folgenden Spalten:
+    - Schnittstellenname (z.B. "OParl Ratsinformation", "VBB ÖPNV", "Wetter-API")
+    - Typ (Eingehend/Ausgehend/Bidirektional)
+    - Protokoll (REST, GraphQL, OData, WebSocket, RSS, etc.)
+    - Status-Ampel (Grün/Gelb/Rot)
+    - Letzter erfolgreicher Abruf (Zeitstempel)
+    - Nächster geplanter Abruf (bei geplanten Sync-Jobs)
+    - Fehleranzahl (letzte 24h)
+    - Aktionen (Test, Edit, Logs, Deaktivieren)
+- **Status-Ampel-Logik**:
+  - 🟢 **Grün**: Schnittstelle funktioniert, letzter Abruf erfolgreich (< 5 Minuten bei Echtzeit, < 1 Sync-Intervall bei geplanten Jobs)
+  - 🟡 **Gelb**: Warnung - Letzte Anfrage hat länger gedauert als üblich, oder letzte Anfrage vor > 2 Sync-Intervallen
+  - 🔴 **Rot**: Fehler - Schnittstelle nicht erreichbar, HTTP-Fehler, Timeout, oder > 5 Fehlversuche
+  - ⚪ **Grau**: Deaktiviert oder noch nicht konfiguriert
+- **Detailansicht pro Schnittstelle**:
+  - Verbindungsstatus mit technischen Details
+  - Uptime-Statistik (7 Tage, 30 Tage)
+  - Letzte 20 Sync-Vorgänge mit Zeitstempel und Status
+  - Fehlerprotokoll mit Stack Traces
+  - Datenvolumen (importierte/exportierte Datensätze)
+  - Response-Zeit-Diagramm
+- **Bulk-Aktionen**:
+  - "Alle testen" - alle Schnittstellen durchlaufen
+  - "Fehlerhafte neu starten"
+  - Export der Übersicht als CSV/PDF
+- **Filterung und Suche**:
+  - Nach Status filtern (nur fehlerhafte, nur aktive)
+  - Nach Typ filtern (nur eingehend, nur ausgehend)
+  - Volltextsuche nach Schnittstellenname
+- **Benachrichtigungen**:
+  - E-Mail-Alert bei Status-Wechsel zu "Rot"
+  - Slack/Teams-Integration für Fehler-Notifications
+  - Wöchentlicher Status-Report per E-Mail
+
+**Anforderung CONF-080: Externe Datenquellen-Bibliothek**
+- **Vorkonfigurierte Konnektoren für häufige Datenquellen**:
+  - **Wetter-APIs**:
+    - OpenWeatherMap (kostenlose und Premium-API)
+    - Deutscher Wetterdienst (DWD) - CDC FTP-Server und OpenData-API
+    - Weather.gov (USA)
+    - Konfiguration: API-Key, Standort (Koordinaten oder Stadt), Update-Intervall
+    - Datenfelder: Temperatur, Niederschlag, Wind, UV-Index, Warnungen
+  - **ÖPNV-Datenquellen**:
+    - VBB (Verkehrsverbund Berlin-Brandenburg) - HAFAS-API
+    - DB (Deutsche Bahn) - Fahrplan-API
+    - DELFI (deutschlandweite Schnittstelle)
+    - GTFS-Import von Verkehrsverbünden
+    - Echtzeitdaten: Verspätungen, Ausfälle, Störungen
+  - **Umweltsensoren und IoT**:
+    - luftdaten.info / Sensor.Community
+    - OpenSenseMap (Umweltsensoren)
+    - The Things Network (LoRaWAN-Sensoren)
+    - FIWARE Context Broker
+    - Datenfelder: Luftqualität (PM10, PM2.5), Lärm, Temperatur
+  - **Weitere Datenquellen**:
+    - Pegelstände (Flüsse, Seen) - PEGELONLINE
+    - Pollenflug - DWD oder spezielle Pollendienste
+    - Strompreise - SMARD (Bundesnetzagentur)
+    - Abfallkalender - Müllabfuhr-APIs kommunaler Entsorger
+- **Konnektor-Konfiguration**:
+  - Einfache Setup-Wizards mit Schritt-für-Schritt-Anleitung
+  - API-Key-Eingabe und Test-Verbindung
+  - Auswahl der zu importierenden Datenfelder
+  - Mapping zu CMS-Datenmodell (z.B. Wetterdaten → Custom Content Type "Wetter")
+  - Update-Frequenz festlegen (alle 15 Min, stündlich, täglich)
+- **Daten-Transformation**:
+  - Einheit-Konvertierung (z.B. Fahrenheit → Celsius, mph → km/h)
+  - Daten-Filterung (nur bestimmte Sensor-Typen)
+  - Daten-Aggregation (Durchschnitt über mehrere Sensoren)
+- **Fehlertoleranz**:
+  - Fallback auf gecachte Daten bei API-Ausfall
+  - Automatische Wiederholungsversuche mit Exponential Backoff
+  - Benachrichtigung bei dauerhaften Problemen
 
 ---
 

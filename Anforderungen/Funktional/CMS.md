@@ -123,6 +123,135 @@ Dieses Kapitel beschreibt die allgemeinen Anforderungen an das CMS 2.0, die unab
 * Kartenperformance: Ladezeit <2 Sekunden für bis zu 1000 Marker
 * Alle Filter in Tabelle und Karte synchronisiert
 
+### Geo-Koordinaten-Eingabe und Adress-Geocoding
+
+Für Datensätze mit geografischen Informationen muss das CMS flexible und intuitive Eingabemöglichkeiten bieten, um sowohl Adressen als auch Koordinaten komfortabel zu erfassen und automatisch umzurechnen.
+
+#### Eingabemodi für Geo-Koordinaten
+
+* **Drei Eingabemöglichkeiten** sollen verfügbar sein:
+  * **Manuelle Eingabe**: Direkte Eingabe von Breitengrad/Längengrad (Latitude/Longitude)
+  * **Adress-Eingabe mit Geocoding**: Eingabe einer Adresse, automatische Umrechnung in Koordinaten
+  * **Karten-Picker**: Interaktive Auswahl eines Punktes auf einer Karte
+
+#### Manuelle Koordinaten-Eingabe
+
+* **Eingabefelder** für Latitude und Longitude:
+  * Format-Unterstützung: Dezimalgrad (52.5200, 13.4050), Grad/Minuten/Sekunden (52°31'12"N, 13°24'18"E)
+  * Automatische Format-Erkennung und -Konvertierung
+  * Validierung: Prüfung auf gültige Koordinatenbereiche (Lat: -90 bis +90, Lon: -180 bis +180)
+* **Live-Vorschau**: Bei Eingabe von Koordinaten wird Position sofort auf einer kleinen Karte angezeigt
+* **Koordinaten kopieren/einfügen**: Verschiedene Formate werden erkannt (Google Maps, OpenStreetMap, Geo-URIs)
+
+#### Adress-Eingabe mit automatischem Geocoding
+
+* **Adressfelder**:
+  * Einzelfelder: Straße, Hausnummer, PLZ, Stadt, Land
+  * Optional: Einzelnes Freitextfeld mit intelligenter Adress-Erkennung
+* **Autocomplete-Funktion**:
+  * Vorschläge während der Eingabe (wie Google Maps Autocomplete)
+  * Integration mit Geocoding-Services (z.B. Nominatim, Photon, Google Maps Geocoding API)
+  * Priorisierung lokaler Ergebnisse (z.B. Deutschland bevorzugen, wenn Kommune in DE)
+* **Automatische Koordinaten-Berechnung**:
+  * Bei vollständiger Adresseingabe automatisches Geocoding
+  * Anzeige der ermittelten Koordinaten zur Bestätigung
+  * Button "Koordinaten neu berechnen", falls Adresse geändert wurde
+* **Genauigkeitsanzeige**:
+  * Anzeige der Geocoding-Genauigkeit (Hausnummer-genau, Straße, Stadt, PLZ-Bereich)
+  * Warnung bei ungenauer Zuordnung (z.B. nur Stadt erkannt, nicht Straße)
+
+#### Karten-Picker zur interaktiven Positionierung
+
+* **Interaktive Karte im Bearbeitungsformular**:
+  * Karte mit Marker zeigt aktuell gespeicherte Position
+  * **Klick auf Karte** setzt Marker an neue Position und aktualisiert Koordinaten automatisch
+  * **Marker verschieben** (Drag & Drop) zur Feinpositionierung
+  * **Suche auf Karte**: Adresssuche direkt in der Karte integriert
+* **Zoom-Steuerung**:
+  * Automatischer Zoom auf gewählte Position
+  * Zoom-Level speicherbar (z.B. für POIs Hausnummern-genau, für große Bereiche Stadt-Übersicht)
+* **"Mein Standort"-Funktion**:
+  * Button zur Übernahme der aktuellen Position des Nutzers (Browser-Geolocation)
+  * Nützlich für mobile Eingabe vor Ort
+
+#### Reverse Geocoding: Von Koordinaten zu Adresse
+
+* **Automatische Adress-Ermittlung**:
+  * Bei Eingabe oder Auswahl von Koordinaten (manuell oder per Karte) wird automatisch die zugehörige Adresse ermittelt
+  * Anzeige der gefundenen Adresse zur Überprüfung
+  * Option "Adresse übernehmen" oder "Adresse manuell anpassen"
+* **Reverse Geocoding bei Karten-Auswahl**:
+  * Klick auf Karte zeigt sofort die Adresse des angeklickten Punktes
+  * Pop-up mit Adresse und Koordinaten zur Bestätigung
+* **Mehrfache Ergebnisse**:
+  * Falls mehrere mögliche Adressen gefunden werden, Auswahlliste anzeigen
+  * Nutzer:in kann passende Adresse auswählen
+
+#### Synchronisation zwischen Adresse und Koordinaten
+
+* **Bidirektionale Aktualisierung**:
+  * Änderung der Adresse → Koordinaten werden neu berechnet
+  * Änderung der Koordinaten → Adresse wird neu ermittelt
+* **Konfliktauflösung**:
+  * Falls Adresse und Koordinaten nicht übereinstimmen: Warnung anzeigen
+  * Option: "Koordinaten aus Adresse übernehmen" oder "Adresse aus Koordinaten übernehmen"
+  * Letzte Änderung wird priorisiert (z.B. wenn Koordinaten manuell geändert wurden, nicht überschreiben)
+* **Manuelle Entkopplung**:
+  * Option "Adresse und Koordinaten manuell festlegen" (ohne automatische Synchronisation)
+  * Nützlich für ungenaue Adressen oder besondere Fälle (z.B. Eingang vs. Hauptgebäude)
+
+#### Geocoding-Services und Konfiguration
+
+* **Flexible Service-Integration**:
+  * Unterstützung mehrerer Geocoding-Anbieter:
+    * **Open Source**: Nominatim (OpenStreetMap), Photon, Pelias
+    * **Kommerzielle**: Google Maps Geocoding, HERE, Mapbox
+    * **Fallback-Kette**: Primärer Service, bei Fehler automatisch Fallback auf alternativen Service
+* **Administrator-Konfiguration**:
+  * Auswahl des Geocoding-Services im CMS-Backend
+  * API-Key-Verwaltung für kommerzielle Services
+  * Rate-Limiting konfigurierbar (Anfragen pro Minute/Tag)
+  * Caching von Geocoding-Ergebnissen (um API-Kosten zu sparen)
+* **Offline-Betrieb**:
+  * Lokale Geocoding-Datenbank optional (z.B. für Deutschland)
+  * Funktioniert auch ohne Internet-Zugang (wichtig für kommunale Rechenzentren)
+
+#### Spezielle Funktionen
+
+* **Mehrfach-Koordinaten**:
+  * Unterstützung für Polygone (z.B. Verwaltungsgrenzen, Stadtteile)
+  * Unterstützung für Routen/Pfade (z.B. Wanderwege, Radtouren)
+  * Visualisierung auf Karte während der Eingabe
+* **Koordinaten-Import**:
+  * Import aus GPX-Tracks (z.B. von GPS-Geräten)
+  * Import aus KML/GeoJSON
+  * Bulk-Import von Koordinaten per CSV mit automatischem Geocoding
+* **Genauigkeits-Indikator**:
+  * Anzeige der Positionsgenauigkeit (z.B. "±10m", "±100m")
+  * Setzen eines "Genauigkeits-Radius" auf der Karte (Kreis um Marker)
+
+#### Validierung und Fehlerbehandlung
+
+* **Plausibilitätsprüfungen**:
+  * Warnung, wenn Koordinaten außerhalb des erwarteten Bereichs liegen (z.B. außerhalb Deutschlands für kommunale App)
+  * Warnung bei großer Abweichung zwischen Adresse und Koordinaten (z.B. Adresse in Berlin, Koordinaten in München)
+* **Fehlerbehandlung**:
+  * Bei Geocoding-Fehler: Klare Fehlermeldung mit Hilfestellung
+  * Bei unvollständiger Adresse: Hinweis, welche Felder fehlen
+  * Bei ungültigen Koordinaten: Automatische Korrektur-Vorschläge
+* **Protokollierung**:
+  * Logging aller Geocoding-Anfragen für Debugging und Kostenüberwachung
+  * Anzeige gescheiterter Geocoding-Versuche im Admin-Bereich
+
+**Messkriterium:**
+* Alle drei Eingabemodi (manuell, Adresse, Karte) verfügbar
+* Geocoding-Genauigkeit: >90% erfolgreiche Zuordnung bei deutschen Adressen
+* Reverse Geocoding: Adresse wird in <1 Sekunde ermittelt
+* Karten-Picker: Position per Klick/Drag & Drop änderbar
+* Bidirektionale Synchronisation zwischen Adresse und Koordinaten funktioniert
+* Mindestens 2 Geocoding-Services unterstützt (1x Open Source, 1x kommerziell)
+* Caching reduziert API-Anfragen um >80% bei wiederholter Eingabe gleicher Adressen
+
 ## Mehrsprachigkeit
 
 * Das CMS soll die **Pflege von Inhalten in mehreren Sprachen** ermöglichen, damit Kommunen ihre Angebote auch für Menschen mit unterschiedlichem sprachlichen Hintergrund zugänglich machen können. Dabei muss sichergestellt sein, dass jede Sprachversion unabhängig gepflegt werden kann.
@@ -196,11 +325,142 @@ Dieses Kapitel beschreibt die allgemeinen Anforderungen an das CMS 2.0, die unab
 ## Inhalte und Versionierung
 
 * Inhalte sollen **einfach erstellt, bearbeitet und strukturiert** werden können. Dazu gehören ein intuitiver Editor, und klare Strukturen für Seiten, Artikel und Module.
+
+### Content-Templates und Vorlagen
+
 * Häufig wiederholte Inhalte sollen als **Templates** gespeichert werden und wiederverwendet werden können. Redakteur\:innen sollen **Content-Templates und Vorlagen** nutzen können, damit wiederkehrende Inhalte schneller und konsistenter gepflegt werden können.
-* Das CMS muss eine **Versionierung** bieten, sodass ältere Stände wiederhergestellt werden können. Dies umfasst sowohl Textinhalte als auch Medien, Layouts und Metadaten.
+* **Template-Bibliothek**:
+  * Zentrale Verwaltung aller Content-Templates
+  * Kategorisierung nach Inhaltstyp (News, Events, Seiten, Formulare)
+  * Suchfunktion und Tags für Templates
+  * Vorschau der Template-Struktur
+* **Template-Erstellung**:
+  * "Als Template speichern"-Funktion bei jedem Inhalt
+  * Festlegung von Pflichtfeldern und Standardwerten
+  * Platzhalter für variable Inhalte (z.B. {{titel}}, {{datum}}, {{autor}})
+  * Vorausgefüllte Felder mit Beispieltext
+* **Template-Nutzung**:
+  * "Aus Template erstellen"-Button beim Anlegen neuer Inhalte
+  * Template-Auswahl-Dialog mit Vorschau
+  * Automatisches Ausfüllen aller Template-Felder
+  * Änderungen am Template wirken sich nicht auf bereits erstellte Inhalte aus
+* **Template-Berechtigungen**:
+  * Öffentliche Templates (für alle Redakteur:innen)
+  * Team-Templates (nur für bestimmte Gruppen)
+  * Persönliche Templates (nur für eigene Nutzung)
+  * Administrator:innen können Templates sperren/freigeben
+
+### Inhalte duplizieren und Entwürfe
+
+* Es muss möglich sein, Inhalte zu **duplizieren** und als Entwurf zu speichern, um schnell neue Varianten erstellen zu können.
+* **Duplizieren-Funktion**:
+  * "Duplizieren"-Button in der Inhaltsübersicht und Detailansicht
+  * Duplikat wird automatisch als Entwurf angelegt (nicht veröffentlicht)
+  * Titel wird mit "(Kopie)" oder Datum ergänzt (z.B. "Event XYZ (Kopie 2025-12-07)")
+  * Alle Felder, Medien und Metadaten werden übernommen
+  * Beziehungen zu anderen Inhalten bleiben erhalten (optional konfigurierbar)
+* **Entwurf-Verwaltung**:
+  * Entwürfe sind nur für Autor:in und berechtigte Redakteur:innen sichtbar
+  * "Meine Entwürfe"-Übersicht im Dashboard
+  * Automatisches Speichern von Entwürfen alle 30 Sekunden
+  * Entwürfe haben kein Ablaufdatum (bleiben unbegrenzt erhalten)
+  * "Entwurf verwerfen"-Funktion mit Bestätigung
+* **Varianten erstellen**:
+  * "Als Variante speichern" für A/B-Testing oder saisonale Anpassungen
+  * Verknüpfung zwischen Original und Variante
+  * Übersicht: "Dieser Inhalt hat 3 Varianten"
+  * Varianten können einzeln veröffentlicht oder archiviert werden
+
+### Versionierung und Änderungshistorie
+
+* Das CMS muss eine **umfassende Versionierung** bieten, sodass ältere Stände wiederhergestellt werden können. Dies umfasst sowohl Textinhalte als auch Medien, Layouts und Metadaten.
+* **Automatische Versionierung**:
+  * Bei jedem Speichervorgang wird automatisch eine neue Version erstellt
+  * Versionen sind nummeriert (v1, v2, v3, ...) und mit Zeitstempel versehen
+  * Versionsnummer wird in der Inhaltsansicht angezeigt
+  * Keine manuelle Version-Erstellung nötig (passiert automatisch)
+* **Versionshistorie**:
+  * Chronologische Liste aller Versionen mit:
+    * Versionsnummer und Erstellungsdatum/-uhrzeit
+    * Autor:in der Änderung
+    * Änderungskommentar (optional, kann beim Speichern eingegeben werden)
+    * Größe der Änderung (z.B. "+127 Zeichen, -45 Zeichen")
+  * Filterung nach Zeitraum oder Autor:in
+  * Export der Versionshistorie als CSV
+* **Versionsvergleich (Diff-Ansicht)**:
+  * Auswahl von zwei beliebigen Versionen zum Vergleich
+  * Side-by-Side-Ansicht mit Hervorhebung der Unterschiede:
+    * Grün: Hinzugefügte Inhalte
+    * Rot: Gelöschte Inhalte
+    * Gelb: Geänderte Inhalte
+  * Feldweiser Vergleich (nicht nur Volltext)
+  * Medien-Vergleich: Vorher/Nachher-Bilder nebeneinander
+* **Versionen wiederherstellen**:
+  * "Diese Version wiederherstellen"-Button bei jeder Version
+  * Wiederherstellung erstellt eine neue Version (alte Version bleibt erhalten)
+  * Warnung, falls ungespeicherte Änderungen vorhanden sind
+  * Bestätigungsdialog mit Vorschau der wiederherzustellenden Version
+  * Nach Wiederherstellung: Hinweis "Version X wurde wiederhergestellt"
+* **Versionen-Cleanup**:
+  * Automatisches Löschen sehr alter Versionen (z.B. > 2 Jahre, konfigurierbar)
+  * Ausnahme: Veröffentlichte Versionen und manuell markierte "Wichtige Versionen"
+  * "Wichtige Version markieren"-Funktion (z.B. vor großen Änderungen)
+  * Benachrichtigung vor automatischem Löschen
+
+### Protokollierung und Audit-Logs
+
 * Änderungen sollen **nachvollziehbar dokumentiert** sein. Dazu gehört eine Historie mit Angaben zu Autor\:in, Zeitpunkt und Art der Änderung sowie die Möglichkeit, verschiedene Versionen miteinander zu vergleichen.
 * Zusätzlich sind **Daten-Audit-Logs** erforderlich, die alle Änderungen lückenlos und nachvollziehbar protokollieren.
-* Es muss möglich sein, Inhalte zu **duplizieren** und als Entwurf zu speichern, um schnell neue Varianten erstellen zu können.
+* **Audit-Log-Umfang**:
+  * Alle Inhalts-Operationen: Erstellen, Bearbeiten, Löschen, Veröffentlichen, Archivieren
+  * Alle Benutzer-Aktionen: Login, Logout, Passwort-Änderung, Rollen-Änderung
+  * Alle Medien-Operationen: Upload, Bearbeitung, Löschen, Ersetzen
+  * Alle Konfigurations-Änderungen: Einstellungen, Berechtigungen, Schnittstellen
+  * Alle API-Zugriffe: Endpoint, Parameter, Antwort-Status
+  * Export-Vorgänge: Welche Daten wurden von wem exportiert
+* **Protokollierte Daten pro Eintrag**:
+  * **Zeitstempel**: Exakte Uhrzeit (inkl. Millisekunden)
+  * **Benutzer**: Name, E-Mail, Benutzer-ID
+  * **Aktion**: Art der Änderung (z.B. "Inhalt veröffentlicht", "Medien gelöscht")
+  * **Objekt**: Betroffener Inhalt/Objekt mit ID und Titel
+  * **Geänderte Felder**: Welche Felder wurden geändert (Feldname)
+  * **Alte und neue Werte**: Vorher/Nachher-Werte (für sensible Daten optional maskiert)
+  * **IP-Adresse**: IP des Nutzers (für Sicherheit und Compliance)
+  * **User Agent**: Browser/App-Information
+  * **Sitzungs-ID**: Verknüpfung mehrerer Aktionen einer Sitzung
+* **Audit-Log-Ansicht**:
+  * Filterfunktionen:
+    * Nach Zeitraum (Heute, Letzte 7 Tage, Letzter Monat, Benutzerdefiniert)
+    * Nach Benutzer (alle Aktionen eines bestimmten Nutzers)
+    * Nach Aktion (nur Löschungen, nur Veröffentlichungen, etc.)
+    * Nach Objekt-Typ (nur News, nur Events, nur Medien)
+    * Nach IP-Adresse (verdächtige Aktivitäten)
+  * Volltextsuche über alle Log-Einträge
+  * Export als CSV, JSON, PDF (für Compliance-Reports)
+  * Farbcodierung: Kritische Aktionen (Löschungen) rot hervorgehoben
+* **Audit-Log-Benachrichtigungen**:
+  * Automatische Alerts bei kritischen Ereignissen:
+    * Massenlöschungen (>10 Inhalte auf einmal)
+    * Login-Versuche von unbekannten IPs
+    * Änderungen an Berechtigungen
+    * Zugriff auf sensible Daten
+  * E-Mail-Benachrichtigung an Administrator:innen
+  * Dashboard-Widget: "Letzte kritische Ereignisse"
+* **Compliance und Datenschutz**:
+  * Audit-Logs sind DSGVO-konform (keine übermäßige Datenspeicherung)
+  * Logs werden verschlüsselt gespeichert
+  * Aufbewahrungsfrist konfigurierbar (Standard: 90 Tage, max. 2 Jahre)
+  * Automatisches Löschen nach Ablauf der Frist
+  * Export für externe Audits (z.B. BSI-Grundschutz-Prüfung)
+  * Unveränderbarkeit: Logs können nicht nachträglich editiert oder gelöscht werden (nur von Superadmin mit Begründung)
+* **Performance**:
+  * Asynchrone Log-Schreibvorgänge (blockieren nicht die Hauptanwendung)
+  * Separate Datenbank oder Tabelle für Audit-Logs
+  * Indizierung für schnelle Suche trotz großer Datenmengen
+  * Archivierung alter Logs (> 6 Monate) in komprimiertem Format
+
+### Bulk-Bearbeitungen
+
 * Es sollen **Bulk-Bearbeitungen** möglich sein, zum Beispiel das gleichzeitige Löschen oder Verschieben mehrerer Elemente.
 
 ## Workflows und Freigaben
