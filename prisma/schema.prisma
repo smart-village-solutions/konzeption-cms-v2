@@ -94,12 +94,21 @@ model Dependency {
 }
 
 model Requirement {
-  id              String                 @id // "FR-001", "NFR-012", etc.
+  id              String                 @id // "FR-CMS-Dashboard-001", "NFR-QA-001", etc.
   title           String
   description     String
-  category        String                 // "Funktional", "Nicht-funktional", etc.
-  sourceFile      String?                // Referenz zur Markdown-Datei
-  priority        String?                // "Must", "Should", "Could"
+  category        String                 // "Funktional", "Nicht-funktional"
+  requirementType String                 // "functional", "non-functional"
+
+  // Detaillierte Quellenangaben
+  filePath        String                 // Vollständiger Pfad zur Markdown-Datei
+  section         String?                // Haupt-Section (z.B. "Dashboard", "Suche und Navigation")
+  headingPath     String?                // Überschriften-Hierarchie (z.B. "CMS > Dashboard > Widget-System")
+  lineNumber      Int?                   // Zeile im Markdown für genaue Referenz
+
+  priority        String?                // "Must", "Should", "Could", "Won't"
+  status          String                 @default("active") // "active", "deprecated", "implemented"
+
   createdAt       DateTime               @default(now())
   updatedAt       DateTime               @updatedAt
 
@@ -107,13 +116,18 @@ model Requirement {
 
   @@map("requirements")
   @@index([category])
+  @@index([requirementType])
   @@index([priority])
+  @@index([status])
+  @@index([filePath])
 }
 
 model PackageRequirement {
   packageId       String
   requirementId   String
   relevance       String?                // "primary", "secondary", "testing"
+  status          String                 @default("suggested") // "suggested", "confirmed", "rejected"
+  confidence      Float?                 // 0.0 - 1.0 für Auto-Mapping Confidence Score
   notes           String?
 
   package         WorkPackage            @relation(fields: [packageId], references: [id], onDelete: Cascade)
@@ -122,4 +136,6 @@ model PackageRequirement {
   @@id([packageId, requirementId])
   @@map("package_requirements")
   @@index([requirementId])
+  @@index([status])
+  @@index([confidence])
 }

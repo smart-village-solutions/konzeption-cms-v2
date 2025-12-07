@@ -7,7 +7,10 @@
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
     "db:import": "node scripts/import-yaml.js",
-    "db:generate": "prisma generate"
+    "db:generate": "prisma generate",
+    "requirements:extract": "node scripts/extract-requirements.js",
+    "requirements:auto-map": "node scripts/auto-map-requirements.js",
+    "requirements:review": "node scripts/review-requirements.js"
   },
   "dependencies": {
     "@prisma/client": "^5.7.0",
