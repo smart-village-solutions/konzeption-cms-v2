@@ -1,0 +1,125 @@
+// Prisma Schema für Arbeitspakete-Verwaltung
+// Datenbank: SQLite (lokal, versionierbar)
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Milestone {
+  id          Int           @id @default(autoincrement())
+  code        String        @unique // "MS1", "MS2", ...
+  title       String
+  description String?
+  packages    WorkPackage[]
+
+  @@map("milestones")
+}
+
+model Cluster {
+  id          Int           @id @default(autoincrement())
+  name        String        @unique
+  description String?
+  packages    WorkPackage[]
+
+  @@map("clusters")
+}
+
+model WorkPackage {
+  id              String                 @id // "WP-001"
+  title           String
+  description     String
+  storyPoints     Int
+  status          String                 @default("draft")
+  milestoneId     Int
+  clusterId       Int
+  createdAt       DateTime               @default(now())
+  updatedAt       DateTime               @updatedAt
+
+  milestone       Milestone              @relation(fields: [milestoneId], references: [id])
+  cluster         Cluster                @relation(fields: [clusterId], references: [id])
+
+  deliverables    Deliverable[]
+  acceptanceCriteria AcceptanceCriterion[]
+
+  // Dependencies: Self-referential M:N
+  dependsOn       Dependency[]           @relation("DependentPackage")
+  dependencyFor   Dependency[]           @relation("RequiredPackage")
+
+  // Requirements: M:N
+  requirements    PackageRequirement[]
+
+  @@map("work_packages")
+  @@index([milestoneId])
+  @@index([clusterId])
+  @@index([status])
+}
+
+model Deliverable {
+  id            Int         @id @default(autoincrement())
+  packageId     String
+  description   String
+
+  package       WorkPackage @relation(fields: [packageId], references: [id], onDelete: Cascade)
+
+  @@map("deliverables")
+  @@index([packageId])
+}
+
+model AcceptanceCriterion {
+  id            Int         @id @default(autoincrement())
+  packageId     String
+  criterion     String
+
+  package       WorkPackage @relation(fields: [packageId], references: [id], onDelete: Cascade)
+
+  @@map("acceptance_criteria")
+  @@index([packageId])
+}
+
+model Dependency {
+  fromPackageId String
+  toPackageId   String
+
+  fromPackage   WorkPackage @relation("DependentPackage", fields: [fromPackageId], references: [id], onDelete: Cascade)
+  toPackage     WorkPackage @relation("RequiredPackage", fields: [toPackageId], references: [id], onDelete: Cascade)
+
+  @@id([fromPackageId, toPackageId])
+  @@map("dependencies")
+  @@index([toPackageId])
+}
+
+model Requirement {
+  id              String                 @id // "FR-001", "NFR-012", etc.
+  title           String
+  description     String
+  category        String                 // "Funktional", "Nicht-funktional", etc.
+  sourceFile      String?                // Referenz zur Markdown-Datei
+  priority        String?                // "Must", "Should", "Could"
+  createdAt       DateTime               @default(now())
+  updatedAt       DateTime               @updatedAt
+
+  packages        PackageRequirement[]
+
+  @@map("requirements")
+  @@index([category])
+  @@index([priority])
+}
+
+model PackageRequirement {
+  packageId       String
+  requirementId   String
+  relevance       String?                // "primary", "secondary", "testing"
+  notes           String?
+
+  package         WorkPackage            @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  requirement     Requirement            @relation(fields: [requirementId], references: [id], onDelete: Cascade)
+
+  @@id([packageId, requirementId])
+  @@map("package_requirements")
+  @@index([requirementId])
+}
