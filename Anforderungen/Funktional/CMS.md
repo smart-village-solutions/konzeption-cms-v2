@@ -2,10 +2,26 @@
 
 Dieses Kapitel beschreibt die allgemeinen Anforderungen an das CMS 2.0, die unabhängig von einzelnen Modulen oder Rollen gelten. Ziel ist es, die tägliche Arbeit für Redakteur\:innen, Administrator\:innen und andere Nutzergruppen einfacher und effizienter zu machen.
 
+## Dashboard
+
+* Ein zentrales **Dashboard** verschafft einen schnellen Überblick zu den zentralen Möglichkeiten des CMS:
+  * **Schnellzugriff**: Wichtigste Funktionen direkt erreichbar (Neuen Inhalt erstellen, Module aktivieren, Nutzer verwalten)
+  * **Statistiken**: Übersicht über aktuelle Kennzahlen (Anzahl Inhalte, aktive Nutzer:innen, letzte Änderungen)
+  * **Aktivitäts-Feed**: Chronologische Übersicht der letzten Aktionen (wer hat was wann geändert)
+  * **Benachrichtigungen**: Offene Aufgaben, ausstehende Freigaben, System-Warnungen
+  * **Widget-System**: Administrator:innen können Dashboard personalisieren (Widgets hinzufügen/entfernen/anordnen)
+  * **Rollen-spezifisch**: Dashboard zeigt nur relevante Informationen je nach Nutzer-Rolle
+  * **Quick-Actions**: Häufig verwendete Aktionen als Buttons (z.B. "Neuer News-Artikel", "Event erstellen")
+* Dashboard soll **auf einen Blick** zeigen:
+  * Anzahl veröffentlichter/geplanter/Entwurf-Inhalte
+  * Systemstatus (Backups, Updates, Fehler)
+  * Offene Support-Tickets
+  * Letzte Anmeldungen und Nutzer-Aktivitäten
+* **Messkriterium**: Dashboard lädt in < 2 Sekunden, alle Widgets konfigurierbar, mobile-optimiert
+
 ## Suche und Navigation
 
 * Eine **klare Navigationsstruktur** unterstützt Redakteur\:innen, sich schnell zurechtzufinden. Dazu gehören übersichtliche Menüs, Breadcrumbs, eine konsistente Anordnung der Module und eine Suchleiste, die jederzeit erreichbar ist.
-* Ein zentrales **Dashboard** verschafft einen schnellen Überblick zu den zentralen Möglichkeiten des CMS.
 * Das CMS muss eine **komfortable Such- und Filterfunktion** bereitstellen, mit der Inhalte schnell gefunden werden können – auch über verschiedene Module hinweg. Dies umfasst sowohl eine Volltextsuche als auch die Möglichkeit, gezielt nach bestimmten Feldern wie Titel, Autor oder Veröffentlichungsdatum zu suchen.
 * Suchergebnisse sollen **gefiltert und sortiert** werden können, zum Beispiel nach Datum, Relevanz, Modul oder Status (Entwurf, veröffentlicht, archiviert). Filterungen nach Kommunen, Themen oder Zeiträumen müssen ebenfalls möglich sein.
 * Für die Suche nach geographisch zugeordneten Inhalten soll es ein **Kartentool** geben, das App-Inhalte auf einer Karte darstellt und die Ansteuerung der jeweiligen Bearbeitungsmaske aus der Karte erlaubt.
@@ -258,6 +274,58 @@ Für Datensätze mit geografischen Informationen muss das CMS flexible und intui
 * Nutzeroberflächen in der App  müssen sich **einfach übersetzen** lassen, zum Beispiel durch die Nutzung von Übersetzungshilfen, Vorschaufunktionen oder Integrationen mit externen Übersetzungstools.
 * Sprachvarianten der App sollen so verwaltet werden, dass **Konsistenz und Übersichtlichkeit** gewährleistet sind. Nutzer\:innen müssen jederzeit erkennen können, welche Sprachversionen bereits vorliegen und welche noch fehlen. Zudem soll es möglich sein, eine Standardsprache festzulegen.
 * Neben den Inhalten und der Apps muss auch das **CMS in mehreren Sprachen** verfügbar sein.
+
+### Sprachverwaltung und Übersetzungsdateien
+
+* **Verwaltung der CMS-Interface-Sprachen**:
+  * Übersicht aller verfügbaren Sprachen für das CMS-Interface (z.B. Deutsch, Englisch, Französisch)
+  * Aktivieren/Deaktivieren von Sprachen für das CMS
+  * Festlegung der Standard-Sprache und Fallback-Sprache
+  * Status-Anzeige: Vollständigkeit der Übersetzungen pro Sprache (z.B. "Deutsch: 100%, Englisch: 95%, Französisch: 78%")
+* **Zugriff auf Übersetzungsdateien (i18n/l10n)**:
+  * **Eingebauter Übersetzungs-Editor** im CMS:
+    - Tabellarische Übersicht aller Übersetzungs-Keys
+    - Spalten pro Sprache zum direkten Bearbeiten
+    - Suche und Filter nach Keys, fehlendenÜbersetzungen, zuletzt geänderten Texten
+    - Markierung fehlender Übersetzungen (leere Felder rot markiert)
+  * **Import/Export-Funktionen**:
+    - Export als JSON, YAML, PO-Dateien, XLIFF für externe Übersetzungstools
+    - Import von übersetzten Dateien mit Validierung
+    - Bulk-Import für mehrere Sprachen gleichzeitig
+  * **Versionierung der Übersetzungen**:
+    - Änderungshistorie für jeden übersetzten Text
+    - Rollback zu früheren Versionen möglich
+    - Anzeige: Wer hat wann welchen Text geändert
+* **Übersetzungs-Workflow**:
+  * **Mehrsprachige Redakteur:innen** können Texte direkt im CMS übersetzen
+  * **Übersetzungsspeicher (Translation Memory)**:
+    - Bereits übersetzte Phrasen werden wiederverwendet
+    - Vorschläge für ähnliche Texte
+    - Konsistenz-Prüfung (gleicher Ausgangstext → gleiche Übersetzung)
+  * **KI-gestützte Übersetzungsvorschläge**:
+    - Automatische Vorübersetzung mit DeepL, Google Translate o.ä.
+    - Vorschläge können übernommen oder manuell angepasst werden
+    - Markierung: "Automatisch übersetzt, Überprüfung ausstehend"
+  * **Kontext-Informationen**:
+    - Zu jedem Übersetzungs-Key: Beschreibung, wo er verwendet wird
+    - Screenshot oder UI-Vorschau des Verwendungsortes
+    - Hinweise für Übersetzer:innen (z.B. max. Zeichenlänge, Ton, formell/informell)
+* **Qualitätssicherung**:
+  * **Vollständigkeits-Check**: Warnung bei fehlenden Übersetzungen vor Aktivierung einer Sprache
+  * **Platzhalter-Validierung**: Prüfung, dass Platzhalter (z.B. `{name}`, `%s`) in allen Sprachen vorhanden sind
+  * **Längen-Warnung**: Warnung, wenn übersetzte Texte deutlich länger sind (UI-Breaking)
+  * **Glossar-Management**: Zentrale Verwaltung von Fachbegriffen mit bevorzugten Übersetzungen
+* **Integration mit externen Übersetzungstools**:
+  * API-Integration mit Crowdin, Lokalise, Phrase, POEditor
+  * Synchronisation: Änderungen im CMS werden an externes Tool gepusht und umgekehrt
+  * Kollaboration mit externen Übersetzungsdienstleistern
+
+**Messkriterium:**
+* Übersetzungs-Editor zeigt alle Keys in < 2 Sekunden
+* Import/Export in mindestens 3 Formaten (JSON, PO, XLIFF)
+* Vollständigkeits-Status für alle Sprachen angezeigt
+* Translation Memory findet 90% der Wiederverwendungen
+* KI-Übersetzungsvorschläge verfügbar (optional aktivierbar)
 
 ## Medienverwaltung
 
@@ -664,6 +732,133 @@ Das CMS muss umfassende Vorschau-Möglichkeiten bieten, damit Redakteur:innen In
   * Filterung nach Offline-Status, Priorität, Größe
   * Bulk-Aktion: Mehrere Inhalte gleichzeitig als Notfallinhalt markieren/entmarkieren
 * Für besondere Fälle sollen **Caching-Strategien** konfigurierbar sein, damit wichtige Inhalte auch bei schlechter Verbindung schnell zugänglich bleiben
+
+## Verwaltung von App-Instanzen und Mandanten
+
+* **Einrichtung neuer App-Instanzen**:
+  * **Assistent zur Ersteinrichtung**: Schritt-für-Schritt-Wizard für neue Kommunen/Mandanten
+    - Schritt 1: Organisations-Daten (Name, Logo, Kontakt)
+    - Schritt 2: App-Branding (Farben, Icons, App-Name)
+    - Schritt 3: Module auswählen (welche Module sollen aktiviert sein)
+    - Schritt 4: Basis-Konfiguration (Sprachen, Zeitzone, Währung)
+    - Schritt 5: Administrator:in anlegen (erster Admin-Account)
+  * **Template-basierte Einrichtung**: Vordefinierte Templates für typische Anwendungsfälle
+    - "Kleine Gemeinde" (Basismodule: News, Events, Kontakte)
+    - "Tourismus-Region" (zusätzlich: POIs, Touren, Unterkünfte)
+    - "Stadtverwaltung" (alle Module, erweiterte Funktionen)
+  * **Klon-Funktion**: Bestehende Instanz als Vorlage für neue Instanz nutzen
+    - Struktur und Konfiguration übernehmen, Inhalte optional kopieren
+* **Instanz-Verwaltung (Multi-Mandanten)**:
+  * **Übersicht aller Instanzen**:
+    - Tabellarische Liste mit Name, Status (aktiv/inaktiv/Demo), Erstellungsdatum, Nutzer-Anzahl
+    - Filterung nach Status, Erstellungsdatum, Lizenz-Typ
+    - Sortierung nach Name, Aktivität, Speichernutzung
+  * **Instanz-Details**:
+    - Detailansicht jeder Instanz: Organisations-Daten, Kontakte, aktivierte Module, Statistiken
+    - Schnellaktionen: "Als Admin anmelden", "Instanz pausieren", "Instanz löschen"
+  * **Instanz-Status-Management**:
+    - **Aktiv**: Instanz läuft normal
+    - **Demo/Test**: Zeitlich begrenzt, automatische Deaktivierung nach X Tagen
+    - **Pausiert**: Inhalte bleiben, aber App/Web-Zugriff deaktiviert (z.B. bei Zahlungsausfall)
+    - **Archiviert**: Instanz nicht mehr aktiv, aber Daten bleiben erhalten
+  * **Mandanten-Trennung**:
+    - Strikte Datentrennung zwischen Instanzen
+    - Keine Sichtbarkeit von Daten anderer Mandanten
+    - Optionale Freigabe für übergreifende Inhalte (z.B. Landkreis → Gemeinden)
+* **Ressourcen-Verwaltung**:
+  * **Speicherplatz-Monitoring**: Übersicht pro Instanz (Datenbank, Medien, Backups)
+  * **Nutzer-Kontingente**: Maximale Anzahl Nutzer:innen pro Instanz (je nach Lizenz)
+  * **API-Rate-Limits**: Anfragen-Limits pro Instanz zur Lastverteilung
+  * **Warnungen**: Benachrichtigung bei Überschreitung von Limits (Speicher, Nutzer, Traffic)
+* **Instanz-Migration und Export**:
+  * **Vollständiger Export**: Alle Daten einer Instanz als Backup (DB-Dump + Medien)
+  * **Migration zwischen Umgebungen**: Test → Staging → Production
+  * **Instanz-Transfer**: Übertragung einer Instanz an andere Organisation (mit Datenübernahme)
+* **Zugriffsrechte und Hierarchien**:
+  * **Super-Admin**: Kann alle Instanzen verwalten, neue Instanzen anlegen
+  * **Instanz-Admin**: Voller Zugriff auf eigene Instanz, keine Sichtbarkeit anderer Instanzen
+  * **Hierarchische Strukturen**: Landkreis → Gemeinden mit delegierten Rechten
+
+**Messkriterium:**
+* Neue Instanz in < 5 Minuten einrichtbar (via Wizard)
+* Instanz-Übersicht lädt < 2 Sekunden (auch bei 100+ Instanzen)
+* Strikte Mandanten-Trennung nachgewiesen (Security-Audit)
+* Template-basierte Einrichtung mit mindestens 3 Vorlagen
+* Export/Migration vollständig und verlustfrei
+
+## E-Mail-Konfiguration und -Verwaltung
+
+* **Mehrere E-Mail-Accounts konfigurieren**:
+  * **Zentrale E-Mail-Verwaltung** im CMS:
+    - Liste aller konfigurierten E-Mail-Accounts
+    - Jeder Account mit Name, Verwendungszweck, SMTP-Server, Status
+  * **Account-Typen** für verschiedene Zwecke:
+    - **Benachrichtigungen** (System-Benachrichtigungen, Alerts, Workflow-Updates)
+    - **Kontaktformular** (Antwort-Adresse für Nutzer-Anfragen)
+    - **Newsletter** (für Marketing- und Newsletter-Versand)
+    - **Support** (für Support-Tickets und Hilfe-Anfragen)
+    - **Transaktional** (für Rechnungen, Buchungsbestätigungen, Passwort-Reset)
+    - **No-Reply** (für automatische E-Mails ohne Antwortmöglichkeit)
+* **E-Mail-Account-Konfiguration**:
+  * **SMTP-Einstellungen** pro Account:
+    - SMTP-Server (Host, Port)
+    - Authentifizierung (Benutzername, Passwort/App-Password)
+    - Verschlüsselung (TLS, SSL, STARTTLS)
+    - Absender-Name und Absender-E-Mail
+  * **Test-Funktion**: "Test-E-Mail senden" zur Überprüfung der Konfiguration
+  * **Status-Monitoring**: Automatische Überprüfung der Verbindung (grün/rot/gelb)
+  * **Fehlerbehandlung**: Retry-Logik bei fehlgeschlagenen E-Mails, Dead-Letter-Queue
+* **Zuordnung von E-Mail-Accounts zu Funktionen**:
+  * **Dropdown-Auswahl** bei jeder E-Mail-Funktion:
+    - Kontaktformular-Modul: "Welcher E-Mail-Account soll verwendet werden?"
+    - Benachrichtigungs-Einstellungen: "E-Mails versenden über: [Account auswählen]"
+    - Newsletter-Modul: "Absender-Account: [Account auswählen]"
+  * **Standard-Account festlegen**: Fallback-Account für alle Funktionen ohne spezifische Zuordnung
+  * **Instanz-spezifisch**: In Multi-Mandanten-Umgebungen kann jede Instanz eigene E-Mail-Accounts haben
+* **E-Mail-Templates und Branding**:
+  * **Template-Verwaltung** pro E-Mail-Typ:
+    - Willkommens-E-Mail
+    - Passwort-Reset
+    - Benachrichtigungen
+    - Newsletter
+  * **Branding pro Account**:
+    - Logo, Farben, Footer mit Kontaktdaten und Impressum
+    - Unterschiedliches Branding für verschiedene Zwecke (z.B. offiziell vs. Marketing)
+* **E-Mail-Versand-Monitoring**:
+  * **Versand-Statistiken**:
+    - Anzahl versendeter E-Mails pro Account und Zeitraum
+    - Erfolgsrate (zugestellt/fehlgeschlagen/Bounce)
+    - Öffnungsrate und Klickrate (bei Newsletter)
+  * **Fehler-Protokollierung**:
+    - Übersicht fehlgeschlagener E-Mails
+    - Grund des Fehlers (SMTP-Error, ungültige Adresse, Bounce)
+    - Retry-Status und manuelle Wiederholung
+  * **Blacklist-Management**:
+    - Verwaltung von E-Mail-Adressen, die keine E-Mails mehr erhalten sollen
+    - Automatische Blacklist bei Hard-Bounces
+    - DSGVO-konforme Abmeldung (Opt-Out-Liste)
+* **Sicherheit und Compliance**:
+  * **SPF/DKIM/DMARC-Konfiguration**: Anleitung und Validierung für Domain-Authentifizierung
+  * **DSGVO-konform**: Opt-In für Marketing-E-Mails, Datenschutzerklärung in E-Mails
+  * **Rate-Limiting**: Schutz vor Spam-Verdacht (max. X E-Mails pro Stunde/Tag)
+  * **Verschlüsselung**: Alle Passwörter verschlüsselt gespeichert
+* **Integration mit E-Mail-Diensten**:
+  * **Unterstützung für gängige Anbieter**:
+    - Standard-SMTP (für eigene Server)
+    - SendGrid, Mailgun, Amazon SES, Postmark
+    - Microsoft 365, Google Workspace
+  * **API-Integration** (wo verfügbar) für erweiterte Funktionen:
+    - Tracking (Öffnungen, Klicks)
+    - Bounce-Handling
+    - Suppression-Listen
+
+**Messkriterium:**
+* Mindestens 5 verschiedene E-Mail-Accounts konfigurierbar
+* Test-E-Mail-Funktion für jeden Account verfügbar
+* Versand-Statistiken für die letzten 90 Tage abrufbar
+* Fehlerhafte E-Mails im Retry-Queue sichtbar
+* SPF/DKIM/DMARC-Validierung integriert
+* Multi-Mandanten: Jede Instanz kann eigene E-Mail-Accounts haben
 
 ## Weitere Anforderungen
 * Es soll ein **Export von Inhalten und Daten** in gängigen Formaten wie CSV oder JSON möglich sein.
