@@ -111,6 +111,54 @@ Diese Übersicht listet alle funktionalen und nicht-funktionalen Anforderungen a
 - **[SOLLTE]** Reverse Geocoding (Koordinaten → Adresse)
 - **[MUSS]** Validierung der Koordinaten
 
+#### Mehrsprachigkeit
+- **[MUSS]** Mehrere Sprachen konfigurierbar (mind. DE, EN)
+- **[MUSS]** UI-Übersetzungen zentral verwalten (Übersetzungsdateien)
+- **[SOLLTE]** Import/Export von Übersetzungsdateien (JSON, PO, XLIFF)
+- **[SOLLTE]** Fallback-Sprache bei fehlenden Übersetzungen
+- **[SOLLTE]** Sprachauswahl pro Nutzer:in
+- **[SOLLTE]** Automatische Browser-/System-Spracherkennung
+- **[Messkriterium]** Mind. 2 Sprachen vollständig verfügbar
+
+#### Medienverwaltung
+- **[MUSS]** Zentrale Medienbibliothek (Bilder, Dokumente, Videos, Audio)
+- **[MUSS]** Upload mit automatischer Optimierung:
+  - Verschiedene Auflösungen generieren (Thumbnail, Medium, Large, Original)
+  - Automatische Komprimierung (WebP, AVIF, progressive JPEG)
+  - Responsive Bildvarianten für verschiedene Endgeräte
+- **[SOLLTE]** Integrierte Bildbearbeitung:
+  - Zuschneiden (mit vordefinierten Seitenverhältnissen: 16:9, 4:3, 1:1)
+  - Drehen, Spiegeln
+  - Filter und Effekte (Helligkeit, Kontrast, Sättigung, Schärfe)
+  - Fokuspunkt setzen für automatische Zuschnitte
+  - Nicht-destruktiv (Original bleibt erhalten)
+- **[MUSS]** Metadaten-Verwaltung:
+  - Titel, Beschreibung, Alt-Text (Pflichtfeld für Barrierefreiheit)
+  - Copyright, Quelle, Lizenzinformationen
+  - Tags und Kategorien
+  - EXIF-/IPTC-Daten automatisch auslesen
+- **[SOLLTE]** Versionierung von Medien:
+  - Änderungshistorie (wer, wann, was)
+  - Frühere Versionen wiederherstellen
+- **[SOLLTE]** Verwendungsnachweis:
+  - Anzeige: "Wo wird dieses Medium verwendet?"
+  - Warnung vor Löschen bei aktiver Verwendung
+  - Medien durch andere ersetzen (alle Verwendungsstellen aktualisieren)
+- **[SOLLTE]** Ordnerstruktur und Organisation:
+  - Medien in Ordnern organisieren (verschachtelt)
+  - Berechtigungen pro Ordner
+  - Favoritenliste für häufig genutzte Medien
+- **[SOLLTE]** Bulk-Operationen:
+  - Massenupload (Drag & Drop)
+  - Massen-Tagging
+  - Massenbearbeitung von Metadaten
+- **[SOLLTE]** Externe Medienverwaltung:
+  - Unterstützung für S3, Azure Blob Storage, Cloudinary
+  - CDN-Integration für weltweite Performance
+  - Externe Medien referenzieren (YouTube, Vimeo, externe Bild-URLs)
+- **[Messkriterium]** Medienbibliothek durchsuchbar und filterbar
+- **[Messkriterium]** Upload und Optimierung in < 5 Sekunden pro Bild
+
 ---
 
 ### 1.3 App-Gestaltung und Navigation
