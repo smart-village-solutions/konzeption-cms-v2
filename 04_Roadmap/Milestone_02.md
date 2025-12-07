@@ -14,6 +14,7 @@ Alle zentralen Module des bisherigen CMS werden modern, einheitlich und API-basi
 
 ## Bestandteile
 
+### Content-Module
 * Veranstaltungen (inkl. Serientermine, Kartenintegration)
 * Orte / POIs
 * Touren (GPX, Wegpunkte, Karten)
@@ -24,5 +25,40 @@ Alle zentralen Module des bisherigen CMS werden modern, einheitlich und API-basi
 * Abfallkalender inkl. Abweichungslogik
 * Kartenmodul (Geodaten, Marker, Layer)
 * Nutzertracking (Analysebasis)
+
+### Erweiterte Datenverwaltung
+* **Export-Funktionen für alle Tabellen:**
+  * CSV-Export mit konfigurierbaren Optionen (Trennzeichen, Encoding)
+  * JSON-Export (Pretty Print, kompakt, NDJSON)
+  * Optional: Excel (XLSX) und PDF-Export
+  * Export berücksichtigt aktive Filter
+  * Spaltenauswahl für Export
+  * GeoJSON-Export für geografische Daten
+  * Audit-Logging aller Exporte
+  * Asynchrone Verarbeitung großer Datenmengen (>10.000 Datensätze)
+* **Batch-Operationen (Bulk-Actions):**
+  * Mehrere Inhalte gleichzeitig auswählen und bearbeiten
+  * Batch-Publishing (mehrere Inhalte auf einmal veröffentlichen)
+  * Batch-Archivierung und -Löschung
+  * Batch-Tagging (Tags mehreren Inhalten zuweisen)
+  * Batch-Kategorisierung
+  * Batch-Status-Änderungen
+  * Fortschrittsanzeige bei großen Batch-Operationen
+  * Rollback-Möglichkeit bei Fehlern
+
+### Erweiterte Karten-Funktionen
+* **Karten-Darstellung für geografische Inhalte:**
+  * Toggle zwischen Tabellenansicht und Kartenansicht
+  * Optional: Hybrid-Ansicht (Split-Screen Tabelle/Karte)
+  * Marker auf Karte für alle Inhalte mit Geo-Koordinaten
+  * Marker-Clustering bei vielen Inhalten in einem Bereich
+  * Interaktive Marker mit Popup (Kurzinfo, Bild, Link zum Bearbeiten)
+* **Kartenbasierte Navigation und Filterung:**
+  * Umkreis-Suche (Radius um Punkt)
+  * Bounding-Box-Filter (rechteckiger Bereich)
+  * Polygon-Filter (freie Form zeichnen)
+  * Filter kombinierbar mit anderen Kriterien
+  * Export direkt aus Kartenansicht
+  * Gespeicherte Kartenansichten mit Filtern
 
 ---
