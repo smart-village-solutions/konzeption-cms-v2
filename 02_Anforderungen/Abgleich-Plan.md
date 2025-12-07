@@ -1,6 +1,6 @@
 # Plan: Abgleich Anforderungsübersicht mit Detailanforderungen
 
-**Erstellt:** 7. Dezember 2025  
+**Erstellt:** 7. Dezember 2025
 **Zweck:** Systematischer Abgleich der Anforderungsübersicht.md mit den funktionalen und nicht-funktionalen Detailanforderungen
 
 ---
@@ -311,7 +311,7 @@ Aufgaben:
 **Diskussionspunkt:**
 Sollen Template-Module in der Übersicht detailliert aufgeführt werden oder nur als "Geplante Module (Templates)" zusammengefasst?
 
-**Output PHASE 4:** 
+**Output PHASE 4:**
 - Vollständiger Abgleich der 5 ausgearbeiteten Module
 - Entscheidung über Behandlung von Template-Modulen
 - Ggf. zusammenfassende Liste aller 60 Module mit Status
@@ -390,7 +390,7 @@ Aufgaben:
   - Anzahl bereinigter Inkonsistenzen
 - [ ] Lessons Learned dokumentieren
 
-**Output PHASE 6:** 
+**Output PHASE 6:**
 - Aktualisierte, vollständige Anforderungsübersicht
 - Änderungsprotokoll
 - Qualitätsgesicherte Dokumentation
