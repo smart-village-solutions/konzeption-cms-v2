@@ -38,6 +38,7 @@ const CLUSTERS = [
   'Frontend',
   'DevOps',
   'Qualität',
+  'Betrieb',
   'Sicherheit',
   'Security',
   'Authentifizierung',
