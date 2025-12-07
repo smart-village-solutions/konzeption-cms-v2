@@ -126,4 +126,60 @@ Alle Funktionen, die bisher über schwer wartbare Server-Konfigurationen gesteue
   * "Übersetzung fehlt"-Hinweis im Frontend
   * Fallback-Sprache konfigurierbar (z.B. Deutsch als Default)
 
+### App-Design und Theme-Editor **[MUSS]**
+* **Visueller Theme-Editor:**
+  * WYSIWYG-Interface zur direkten Anpassung des App-Designs
+  * Live-Vorschau in verschiedenen Bildschirmgrößen (Mobile, Tablet, Desktop)
+  * Design-Elemente: Primärfarbe, Sekundärfarbe, Akzentfarbe, Hintergrundfarben
+  * Typografie: Schriftarten (Google Fonts, Custom Fonts), Schriftgrößen, Zeilenhöhe
+  * Abstände und Rundungen: Padding, Margin, Border-Radius
+  * Dark Mode: Separate Farbpalette für dunkles Design
+* **Logo und Branding:**
+  * Upload mehrerer Logo-Varianten (Standard, Dark Mode, Favicon, App-Icon)
+  * Bildformate: PNG, SVG, JPEG (automatische Konvertierung)
+  * Positionierung: Links, Zentriert, Rechts
+  * Logo-Größe anpassbar
+  * Fallback-Logo bei fehlendem Upload
+* **Farbmanagement:**
+  * Farbpaletten-Generator: Automatische Ableitung von Sekundär- und Akzentfarben
+  * Barrierefreiheitsprüfung: WCAG-konformer Kontrast (AA, AAA)
+  * Farbvorschau in allen UI-Komponenten (Buttons, Karten, Header)
+  * Export und Import von Themes (JSON)
+* **Responsive Design-Einstellungen:**
+  * Breakpoints konfigurieren (Mobile <768px, Tablet 768-1024px, Desktop >1024px)
+  * Layout-Modi: Fluid, Fixed, Hybrid
+  * Touch-Optimierung: Größere Buttons und Touch-Targets auf Mobile
+* **Theme-Vorlagen:**
+  * 5-10 vordefinierte Theme-Templates (Modern, Classic, Minimal, Bold, etc.)
+  * Template-Vorschau vor Auswahl
+  * Custom-Themes speichern und wiederverwenden
+  * Theme-Export für andere Instanzen
+* **CSS-Variablen-System:**
+  * Zentrale CSS-Custom-Properties für alle Design-Tokens
+  * Dynamisches Laden bei Theme-Änderung (ohne Neuladen der Seite)
+  * Override-Möglichkeit für fortgeschrittene Nutzer (Custom CSS)
+
+### Modul-Management UI (Entwickler-Tools) **[MUSS]**
+
+* **Übersicht installierter Module:**
+  * Liste aller installierten Backend-Module (Plugins, Extensions)
+  * Anzeige: Name, Version, Autor, Status (Aktiv/Inaktiv), Beschreibung
+  * Badges für Updates verfügbar, Sicherheitsupdates, Deprecated
+  * Filterung nach Status, Kategorie, Hersteller
+  * Suchfunktion
+* **Modul-Installation und Updates:**
+  * Upload von Modul-Paketen (ZIP, TAR.GZ)
+  * Installation aus Modul-Registry (zukünftig: Marketplace)
+  * Automatische Dependency-Prüfung (benötigte Module, Versionen)
+  * Update-Funktion mit Changelog-Anzeige
+  * Rollback-Option bei fehlgeschlagenen Updates
+  * Backup vor Installation/Update
+* **Modul-Konfiguration:**
+  * Zentrale Konfigurationsseite pro Modul
+  * Modul-spezifische Einstellungen (Key-Value, JSON, YAML)
+  * Umgebungsvariablen-Verwaltung
+  * Secrets-Management (API-Keys, Passwörter verschlüsselt speichern)
+  * Validierung der Konfiguration (Schema-basiert)
+  * Export/Import von Modul-Konfigurationen
+
 ---

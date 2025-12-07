@@ -20,6 +20,32 @@ Ein integrierter Hilfe- und Supportbereich ermöglicht Schulungen, Dokumentation
 * Ticket-System
 * Tutorials & Onboarding
 
+### Onboarding und Benutzerführung **[MUSS]**
+* **Interaktiver Onboarding-Tour:**
+  * Schritt-für-Schritt-Anleitung beim ersten Login (First-Time User Experience)
+  * Highlight wichtiger UI-Elemente mit Overlay und Erklärungen
+  * Tooltips mit "Nächster Schritt" und "Überspringen"-Buttons
+  * Kontextbezogene Hilfe: Erklärungen basierend auf aktuellem Modul/Bereich
+  * Fortschrittsanzeige: Schritte 1-5 von 10 abgeschlossen
+  * Tour-Themen: Dashboard-Überblick, Erste Inhalte erstellen, Rechte-Management, Wichtige Einstellungen
+  * Wiederholung möglich: "Tour erneut starten"-Funktion im Hilfe-Menü
+  * Multi-Sprachen-Support für Onboarding-Inhalte
+  * Analytics: Tracking welche Schritte abgeschlossen/übersprungen werden
+  * Personalisierung: Rolle-basierte Tour-Inhalte (Admin sieht andere Schritte als Redakteur)
+
+* **Guided Walkthroughs für komplexe Aufgaben:**
+  * Assistenten für häufige Workflows (z.B. "Erste Veranstaltung anlegen", "Design anpassen")
+  * Split-Screen: Anleitung links, Arbeitsbereich rechts
+  * Validierung von Eingaben während Walkthrough
+  * "Best Practices"-Hinweise integriert
+  * Optional: Video-Tutorials eingebettet in Walkthrough
+
+* **Contextual Help (Kontexthilfe):**
+  * "?"-Icon in jedem Formularfeld für Feld-spezifische Hilfe
+  * Sidebar mit Hilfe-Inhalten basierend auf aktueller Seite
+  * "Need help?"-Widget im Footer (immer verfügbar)
+  * Quick-Links zu relevanten Dokumentations-Artikeln
+
 ### Release-Management und Release-Historie (NEU)
 * **Versionsverwaltung des CMS:**
   * Anzeige der aktuellen CMS-Version
