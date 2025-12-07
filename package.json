@@ -10,10 +10,14 @@
     "db:generate": "prisma generate",
     "requirements:extract": "node scripts/extract-requirements.js",
     "requirements:auto-map": "node scripts/auto-map-requirements.js",
-    "requirements:review": "node scripts/review-requirements.js"
+    "requirements:review": "node scripts/review-requirements.js",
+    "requirements:batch-create": "node scripts/batch-review-requirements.js create",
+    "requirements:batch-status": "node scripts/batch-review-requirements.js status",
+    "requirements:batch-results": "node scripts/batch-review-requirements.js results"
   },
   "dependencies": {
     "@prisma/client": "^5.7.0",
+    "@anthropic-ai/sdk": "^0.32.0",
     "js-yaml": "^4.1.0"
   },
   "devDependencies": {
