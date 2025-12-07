@@ -1,9 +1,12 @@
 meta:
   project: "CMS 2.0"
   version: 1
-  last_updated: 2025-09-20
+  last_updated: 2025-12-07
+  total_packages: 83
+  total_story_points: 875
   conventions:
     effort_unit: "PT" # Personentage
+    story_points_scale: "Fibonacci (1, 2, 3, 5, 8, 13, 21)" # Komplexität und Aufwand
     status_values: ["idea","draft","ready","in_progress","done","on_hold"]
 
 work_packages:
@@ -11,6 +14,7 @@ work_packages:
     title: "Performance-Optimierung"
     description: "Analyse und Optimierung der Systemperformance. Ziel ist, dass Inhalte schnell geladen werden, Redaktionsvorgänge ohne merkliche Verzögerung ablaufen und das System auch bei Lastspitzen stabil bleibt. Dazu gehören Code-Optimierungen, Caching-Strategien, Datenbank-Tuning sowie die Einführung von Monitoring-Tools zur kontinuierlichen Überwachung."
     deliverables: "Performance-Analysebericht, implementierte Optimierungen (Code, DB, Caching), automatisierte Performance-Tests, Monitoring-Dashboard mit Kennzahlen"
+    story_points: 13
     deps: []
     cluster: "Qualität"
     status: "draft"
@@ -20,6 +24,7 @@ work_packages:
     title: "Verfügbarkeit & Ausfallsicherheit"
     description: "Entwicklung und Umsetzung eines Konzepts für Hochverfügbarkeit und Ausfallsicherheit. Dazu zählen redundante Systeme, Failover-Mechanismen, Backups, Disaster-Recovery-Strategien sowie ein proaktives Monitoring mit Alarmierung. Ziel ist, dass Redakteure und Nutzer:innen jederzeit zuverlässig arbeiten können."
     deliverables: "Architektur- und Betriebskonzept für Hochverfügbarkeit, implementierte Failover-Mechanismen, Backup- und Recovery-Dokumentation, Monitoring- und Alarmierungs-Setup"
+    story_points: 13
     deps: []
     cluster: "Qualität"
     status: "draft"
@@ -29,6 +34,7 @@ work_packages:
     title: "Skalierbarkeit"
     description: "Sicherstellung, dass das System mit wachsenden Nutzerzahlen und Datenvolumen umgehen kann. Last- und Stresstests prüfen, wie das CMS bei paralleler Nutzung durch viele Redakteur:innen sowie beim Betrieb mit umfangreichen Datenmengen funktioniert. Dokumentation und Maßnahmenplan für horizontale und vertikale Skalierung."
     deliverables: "Lasttest-Szenarien und -Protokolle, Maßnahmenkatalog zur Skalierung (z. B. Sharding, Load Balancing), aktualisierte Architektur-Dokumentation"
+    story_points: 8
     deps: ["WP-001"]
     cluster: "Qualität"
     status: "draft"
@@ -38,6 +44,7 @@ work_packages:
     title: "Wartbarkeit & Erweiterbarkeit"
     description: "Definition und Umsetzung von Architekturprinzipien, Coding-Guidelines und modularer Erweiterbarkeit. Ziel ist eine nachhaltige und saubere Codebasis, die leicht gepflegt und erweitert werden kann. Das Paket umfasst eine Referenzimplementierung für ein Modul sowie klare Vorgaben für API-first-Entwicklung."
     deliverables: "Architektur- und Coding-Guidelines, Beispiel-Plugin als Referenz, dokumentierte Schnittstellen (OpenAPI/GraphQL), Developer-Handbuch"
+    story_points: 8
     deps: []
     cluster: "Betrieb"
     status: "draft"
@@ -47,6 +54,7 @@ work_packages:
     title: "Deployment & Installation"
     description: "Bereitstellung standardisierter Installations- und Betriebsverfahren, die sowohl für kleine Kommunen als auch für professionelle Hosting-Dienstleister geeignet sind. Dazu gehören Containerisierung, automatisierte Deployments, Selfhosting-Optionen und Dokumentation für Betrieb und Updates."
     deliverables: "Docker-Compose-Setup, Kubernetes-Helm-Chart, Installations- und Betriebshandbuch, CI/CD-Pipeline für Deployments"
+    story_points: 8
     deps: ["WP-004"]
     cluster: "Betrieb"
     status: "draft"
@@ -54,26 +62,29 @@ work_packages:
 
   - id: WP-006
     title: "IT-Sicherheit"
-    description: "Entwicklung und Umsetzung eines Sicherheitskonzepts auf Basis von BSI-Grundschutz und FITKO-Leitlinien. Beinhaltet sichere Konfigurationen, Verschlüsselung, Härtung von Servern, Zugriffskontrollen sowie regelmäßige Penetrationstests. Ziel ist, Sicherheitslücken frühzeitig zu erkennen und Risiken zu minimieren."
-    deliverables: "IT-Sicherheitskonzept, implementierte Maßnahmen (z. B. TLS, Härtung), Bericht eines externen Pentests, kontinuierliches Monitoring"
+    description: "Entwicklung und Umsetzung eines umfassenden Sicherheitskonzepts auf Basis von BSI-Grundschutz und FITKO-Leitlinien. Beinhaltet sichere Konfigurationen, Verschlüsselung, Härtung von Servern, Zugriffskontrollen sowie regelmäßige Penetrationstests. Authentifizierung mit 2FA, Passkeys-Unterstützung, Brute-Force-Schutz (Account-Sperre nach x Versuchen), automatischer Logout nach Inaktivität, Benachrichtigung bei Login aus unbekannter Quelle. SIEM-Anbindung für Sicherheitsereignisse. Ziel ist, Sicherheitslücken frühzeitig zu erkennen und Risiken zu minimieren."
+    deliverables: "IT-Sicherheitskonzept (BSI TR-03185-2), 2FA-Implementation (TOTP/SMS/Hardware-Token), Passkeys-Integration (WebAuthn), Brute-Force-Protection-System, Session-Management mit konfigurierbarem Auto-Logout, Device-Tracking und Benachrichtigungssystem, SIEM-Integration, implementierte Maßnahmen (z. B. TLS 1.3, Server-Härtung), Bericht eines externen Pentests, kontinuierliches Security-Monitoring"
+    story_points: 13
     deps: []
     cluster: "Sicherheit"
     status: "draft"
-    acceptance: "Externer Pentest ohne kritische Findings; Sicherheitskonzept ist dokumentiert und freigegeben."
+    acceptance: "2FA für alle Nutzer verfügbar; Passkeys funktionieren auf gängigen Browsern; Brute-Force-Schutz aktiv; automatischer Logout konfigurierbar; Device-Benachrichtigungen funktionieren; externer Pentest ohne kritische Findings; Sicherheitskonzept dokumentiert und freigegeben."
 
   - id: WP-007
     title: "Datenschutz & DSGVO"
-    description: "Sicherstellung der DSGVO-Konformität, insbesondere durch Audit-Logs, Löschkonzepte, Hosting in Deutschland und Dokumentation einer Datenschutzfolgeabschätzung (DSFA). Ziel ist die rechtssichere Verarbeitung personenbezogener Daten und der Nachweis von Compliance."
-    deliverables: "DSFA-Dokumentation, Audit-Log-System, Lösch- und Archivierungskonzept, Hosting-Nachweise"
+    description: "Sicherstellung der DSGVO-Konformität durch umfassendes Audit-Log-System, detailliertes Löschkonzept für personenbezogene Daten, Hosting in Deutschland und Dokumentation einer Datenschutzfolgeabschätzung (DSFA). Unveränderliches Audit-Log mit Export (CSV/JSON), Löschkonzept mit Löschanträgen, Abhängigkeitsanalyse, automatisierten Löschroutinen, Aufbewahrungsfristen, Anonymisierung, DSGVO-Anfragen-Management. Ziel ist die rechtssichere Verarbeitung personenbezogener Daten und der Nachweis von Compliance."
+    deliverables: "DSFA-Dokumentation, Audit-Log-System mit unveränderlicher Speicherung und Export-Funktionen, detailliertes Lösch- und Archivierungskonzept, DSGVO-Löschanträge-Workflow, Abhängigkeitsanalyse für Löschvorgänge, automatisierte Löschroutinen, Aufbewahrungsfristen-Management, Anonymisierungsfunktionen, Hosting-Nachweise (Deutschland), DSGVO-Reporting-Dashboard"
+    story_points: 13
     deps: ["WP-006"]
     cluster: "Sicherheit"
     status: "draft"
-    acceptance: "Audit-Logs werden für mindestens 6 Monate gespeichert; DSFA abgeschlossen; Löschkonzept implementiert und getestet."
+    acceptance: "Audit-Logs unveränderlich für mindestens 6 Monate gespeichert; Export in CSV/JSON funktioniert; DSFA abgeschlossen; Löschkonzept vollständig implementiert und getestet; Löschanträge können gestellt und bearbeitet werden; Abhängigkeitsanalyse vor Löschen funktioniert; automatische Löschung nach Aufbewahrungsfrist aktiv."
 
   - id: WP-008
     title: "Testautomatisierung"
     description: "Einführung einer durchgängigen Teststrategie mit automatisierten Unit-, Integrations- und End-to-End-Tests. Einrichtung einer CI/CD-Pipeline, die Tests automatisch ausführt und Ergebnisse transparent macht. Ziel ist ein hoher Qualitätsstandard mit geringer Fehleranfälligkeit."
     deliverables: "Teststrategie-Dokument, Testframework, automatisierte Tests für Kernmodule, CI/CD-Pipeline"
+    story_points: 8
     deps: ["WP-004"]
     cluster: "Sicherheit"
     status: "draft"
@@ -83,6 +94,7 @@ work_packages:
     title: "Usability & Editor"
     description: "Konzeption, Umsetzung und Test einer modernen und intuitiven Benutzeroberfläche. Schwerpunkt ist ein Editor, mit dem Redakteur:innen Inhalte einfach erstellen und verwalten können. Nutzertests stellen sicher, dass die Oberfläche auch für Ehrenamtliche und Gelegenheitsnutzer:innen leicht verständlich ist."
     deliverables: "UX-Prototypen, implementierter Editor, Ergebnisse aus Usability-Tests, Schulungsmaterial"
+    story_points: 13
     deps: []
     cluster: "Nutzerfreundlichkeit"
     status: "draft"
@@ -92,6 +104,7 @@ work_packages:
     title: "Barrierefreiheit"
     description: "Sicherstellung, dass CMS 2.0 vollständig BITV- und WCAG-konform ist. Dazu gehören barrierefreie Templates, Oberflächen und Redaktionswerkzeuge sowie Tests mit realen Nutzer:innen. Ziel ist die volle Teilhabe aller Bevölkerungsgruppen."
     deliverables: "Barrierefreie Templates, BITV-Testbericht, Umsetzung identifizierter Verbesserungen"
+    story_points: 8
     deps: ["WP-009"]
     cluster: "Nutzerfreundlichkeit"
     status: "draft"
@@ -101,6 +114,7 @@ work_packages:
     title: "Lokalisierung"
     description: "Erweiterung des Systems um Mehrsprachigkeit und regionale Anpassungen. Backend und UI sollen einfach übersetzbar sein. Ziel ist die einfache Nutzung des CMS in unterschiedlichen Sprach- und Kulturkontexten."
     deliverables: "Internationalisierungskonzept, Sprachdateien (Deutsch, Englisch), Übersetzungsworkflow, Tests"
+    story_points: 5
     deps: ["WP-009"]
     cluster: "Nutzerfreundlichkeit"
     status: "draft"
@@ -110,6 +124,7 @@ work_packages:
     title: "Interoperabilität & Schnittstellen"
     description: "Definition und Umsetzung offener Schnittstellen zur Integration externer Systeme (Tourismusplattformen, urbane Datenplattformen, Fachverfahren). Ziel ist die Interoperabilität auf Basis offener Standards und die einfache Anbindung neuer Systeme."
     deliverables: "API-Dokumentation (OpenAPI/Swagger), Referenzimplementierungen, Integrationstest mit externen Systemen"
+    story_points: 8
     deps: ["WP-004"]
     cluster: "Integration"
     status: "draft"
@@ -119,6 +134,7 @@ work_packages:
     title: "Open Source & Governance"
     description: "Etablierung von Strukturen für ein echtes Open-Source-Projekt. Dazu gehören Lizenzwahl, öffentliche Repositories, Contribution-Guidelines, Governance-Modelle und Community-Prozesse. Ziel ist Transparenz, Nachhaltigkeit und aktive Mitgestaltung durch die Anwendergemeinschaft."
     deliverables: "Governance-Dokument, öffentliches Repository (GitHub/GitLab), Lizenzdokumentation, Contribution-Guidelines"
+    story_points: 5
     deps: []
     cluster: "Governance"
     status: "draft"
@@ -128,7 +144,787 @@ work_packages:
     title: "Dokumentation & Schulung"
     description: "Erstellung umfassender Dokumentationen und Schulungsmaterialien für verschiedene Zielgruppen (Admins, Redakteur:innen, Entwickler:innen). Ziel ist, dass Nutzer:innen das CMS schnell verstehen und selbstständig anwenden können."
     deliverables: "User-Handbuch, Admin-Dokumentation, Entwickler-Dokumentation, Video-Tutorials, Schulungsunterlagen"
+    story_points: 8
     deps: ["WP-004","WP-009"]
     cluster: "Governance"
     status: "draft"
     acceptance: "Alle Handbücher sind vollständig; mindestens 2 Schulungen durchgeführt; Tutorials online verfügbar."
+
+  # === Milestone 1: Basis-Infrastruktur & MVP ===
+
+  - id: WP-015
+    title: "Authentifizierung & Single Sign-On"
+    description: "Implementation der zentralen Authentifizierung über Keycloak mit Single-Sign-On-Unterstützung für externe Identity Provider. Unterstützung für SAML/OIDC (Kommunal-AD, BundID, Servicekonto), einheitlicher Zugang für App und CMS, sichere Passwort-Richtlinien mit Self-Service-Reset und Fallback-Codes, Monitoring von Login-Ereignissen und Device-Tracking."
+    deliverables: "Keycloak-Integration, SAML/OIDC-Konnektoren, Passwort-Policy-Engine, Self-Service-Passwort-Reset, Fallback-Code-System, Login-Monitoring, Device-Tracking-System, Dokumentation für SSO-Anbindung"
+    story_points: 8
+    deps: ["WP-006"]
+    cluster: "Authentifizierung"
+    milestone: "MS1"
+    status: "draft"
+    acceptance: "SSO über Keycloak funktioniert; SAML/OIDC-Integration getestet mit mind. 2 Identity Providern; Passwort-Richtlinien konfigurierbar und aktiv; Self-Service-Reset funktioniert; Fallback-Codes verfügbar; Login-Events werden protokolliert; Device-Tracking funktioniert."
+
+  - id: WP-016
+    title: "Rollen- & Rechtemanagement"
+    description: "Entwicklung eines flexiblen, fein abgestuften Rollen- und Rechtesystems. Eigene Rollen anlegbar (z.B. Vereinsredakteur, Fachadmin Tourismus), Rechte-Vererbung über Organisationsebenen (Landkreis → Gemeinde), Zugriffskontrolle auf Modul-/Funktionsebene, konfigurierbarer Genehmigungsworkflow (Vier-Augen-Prinzip), automatische Dokumentation von Rechte-Änderungen, temporäre Rollen-Übernahme für Support, Inhaltsbesitzer-Konzept mit Änderungsanträgen."
+    deliverables: "Rollen-Editor, Rechte-Matrix, Vererbungsmechanismus, Genehmigungsworkflow-Engine, Rechte-Änderungs-Log, Support-Rollen-Übernahme-Funktion, Inhaltsbesitzer-Verwaltung, Änderungsantrags-System, Benachrichtigungssystem für Rechte-Änderungen"
+    story_points: 13
+    deps: ["WP-015"]
+    cluster: "Authentifizierung"
+    milestone: "MS1"
+    status: "draft"
+    acceptance: "Eigene Rollen können angelegt werden; Rechte bis auf Modul-/Funktionsebene vergeben; Rechte-Vererbung funktioniert über mind. 3 Organisationsebenen; Genehmigungsworkflow aktiv; alle Rechte-Änderungen werden automatisch geloggt; Support-Rollen-Übernahme getestet; Inhaltsbesitzer-Konzept implementiert."
+
+  - id: WP-017
+    title: "Audit-Logging & Compliance-Reporting"
+    description: "Implementation eines umfassenden, unveränderlichen Audit-Log-Systems für alle sicherheits- und datenschutzrelevanten Aktionen. Export-Funktionen (CSV/JSON), revisionssichere Archivierung, Reporting-Dashboards für Verantwortliche (aktive Accounts, Rechteanträge, Audit-Findings), BI-Export, Erinnerungssystem für regelmäßige Überprüfungen."
+    deliverables: "Audit-Log-Engine mit unveränderlicher Speicherung, Export-Funktionen (CSV/JSON), Archivierungs-System, Compliance-Dashboard, BI-Export-Schnittstelle, Erinnerungs- und Benachrichtigungssystem, Audit-Report-Generator"
+    story_points: 8
+    deps: ["WP-007","WP-016"]
+    cluster: "Sicherheit"
+    milestone: "MS1"
+    status: "draft"
+    acceptance: "Alle relevanten Aktionen werden unveränderlich geloggt; Logs mindestens 6 Monate abrufbar; Export in CSV/JSON funktioniert; Dashboard zeigt aktive Accounts, offene Rechteanträge, Audit-Findings; Erinnerungen für Überprüfungen werden versendet; Archivierung funktioniert."
+
+  - id: WP-018
+    title: "Organisationsstrukturen & Mandantenfähigkeit"
+    description: "Entwicklung mehrstufiger Organisationsstrukturen (Landkreis → Region → Gemeinde → Ortsteil) mit Mandantenfähigkeit. Personen können in mehreren Organisationen tätig sein, Namensnennung vs. Anonymität konfigurierbar (Privacy by Default), Einladungs- oder Bewerbungsprinzip für Beitritt, delegierbare Administration, Schnittstellen zu kommunalen Verwaltungsportalen."
+    deliverables: "Organisationsstruktur-Editor, Mehrstufige Hierarchie-Verwaltung, Mandanten-Management-System, Organisationszuordnungs-Interface, Namensnennung-Konfigurator mit Privacy-by-Default, Einladungs- und Bewerbungssystem, Delegierungs-Mechanismus, Portal-Schnittstellen-Adapter"
+    story_points: 8
+    deps: ["WP-016"]
+    cluster: "Organisation"
+    milestone: "MS1"
+    status: "draft"
+    acceptance: "Mind. 4-stufige Organisationshierarchie anlegbar; Personen können mehreren Organisationen zugeordnet werden; Namensnennung per Opt-in aktivierbar; Einladungs- und Bewerbungsprozess funktioniert; Administration kann delegiert werden; Schnittstelle zu mind. 1 Verwaltungsportal getestet."
+
+  - id: WP-019
+    title: "Benutzer-Lifecycle-Management"
+    description: "Standardisierte Prozesse für Onboarding und Offboarding von Nutzer:innen. Einladungsprozess, Antragstellung, Freigabe durch Verantwortliche, verpflichtende Schulungs-/Nutzungsbestätigung, temporäre Vertretungsrechte mit Ablaufdatum, automatisiertes Offboarding (Entzug aller Rollen, Tokens, Gerätebindungen, Zugänge), Inhalts-Neuzuweisung, Sperrung inaktiver Konten."
+    deliverables: "Onboarding-Workflow-Engine, Einladungssystem, Antragsverwaltung, Freigabeprozess, Schulungsbestätigungs-System, Vertretungsrechte-Verwaltung mit Ablaufdatum, Offboarding-Automatisierung, Inhalts-Neuzuweisungs-Tool, Inaktivitäts-Monitoring und Auto-Sperrung"
+    story_points: 5
+    deps: ["WP-016","WP-018"]
+    cluster: "Organisation"
+    milestone: "MS1"
+    status: "draft"
+    acceptance: "Onboarding-Prozess vollständig implementiert; Einladungen und Anträge funktionieren; Schulungsbestätigung verpflichtend; Vertretungsrechte mit Ablaufdatum verfügbar; Offboarding entzieht automatisch alle Zugänge; Inhalte werden bei Offboarding neu zugewiesen; inaktive Konten werden nach konfigurierbarer Zeit gesperrt."
+
+  - id: WP-020
+    title: "Medienverwaltung"
+    description: "Zentrale Medienbibliothek mit Upload, automatischer Optimierung (verschiedene Auflösungen, Komprimierung WebP/AVIF/Progressive JPEG, responsive Bildvarianten), integrierte Bildbearbeitung (Zuschneiden mit Seitenverhältnissen, Drehen, Spiegeln, Filter, Fokuspunkt, nicht-destruktiv), Metadaten-Verwaltung (Titel, Beschreibung, Alt-Text als Pflichtfeld, Copyright, Lizenz, Tags, EXIF/IPTC-Auslesen), Versionierung, Verwendungsnachweis, Ordnerstruktur mit Berechtigungen, Bulk-Operationen, externe Medienverwaltung (S3, Azure, Cloudinary), CDN-Integration."
+    deliverables: "Medienbibliothek-System, Upload-Engine mit Auto-Optimierung, Bildbearbeitungs-Tool, Metadaten-Editor mit Alt-Text-Pflichtfeld, Versionierungs-System, Verwendungsnachweis-Tracker, Ordner-Management mit Permissions, Bulk-Operations-Interface, S3/Azure/Cloudinary-Adapter, CDN-Integration, externe Medienreferenzierung (YouTube, Vimeo)"
+    story_points: 13
+    deps: ["WP-016"]
+    cluster: "CMS-Core"
+    milestone: "MS1"
+    status: "draft"
+    acceptance: "Upload und Optimierung funktioniert in <5 Sek/Bild; verschiedene Auflösungen werden generiert; Bildbearbeitung nicht-destruktiv verfügbar; Alt-Text ist Pflichtfeld; Metadaten vollständig verwaltbar; Versionierung aktiv; Verwendungsnachweis zeigt alle Stellen; Ordnerstruktur mit Berechtigungen funktioniert; Bulk-Upload getestet; S3 oder Azure-Integration funktioniert."
+
+  - id: WP-021
+    title: "News-Modul (MVP)"
+    description: "Entwicklung eines MVP für das News-Modul als erstes vollständiges Content-Modul. Basis-Funktionen: Erstellen, Bearbeiten, Veröffentlichen, Archivieren von News-Artikeln. Standard-Felder (Titel, Text, Bild, Kategorie, Datum), Entwürfe, Vorschau, Veröffentlichungsplanung, Kategorisierung, räumliche Zuordnung, Suchfunktion, Filterfunktionen (Kategorie, Datum, Ort), Export (CSV/JSON), responsive Darstellung."
+    deliverables: "News-Modul mit CRUD-Operationen, Entwurfs-System, Vorschau-Funktion, Veröffentlichungsplaner, Kategorisierungs-System, räumliche Zuordnung, Such- und Filterlogik, Export-Funktionen, responsive UI, Unit- und Integrationstests"
+    story_points: 8
+    deps: ["WP-020","WP-016"]
+    cluster: "CMS-Core"
+    milestone: "MS1"
+    status: "draft"
+    acceptance: "News-Artikel können erstellt, bearbeitet, veröffentlicht und archiviert werden; Entwürfe speicherbar; Vorschau funktioniert; Veröffentlichungsplanung aktiv; Kategorisierung möglich; räumliche Zuordnung funktioniert; Suche findet News-Artikel; Filter nach Kategorie, Datum, Ort funktionieren; CSV/JSON-Export verfügbar; mobile-optimiert."
+
+  - id: WP-022
+    title: "Dashboard-Basis"
+    description: "Zentrales Dashboard mit Schnellzugriff, Statistiken, Aktivitäts-Feed, Benachrichtigungen, Widget-System (personalisierbar, rollen-spezifisch), Quick-Actions für häufige Aufgaben, Systemstatus-Anzeige (Backups, Updates, Fehler), mobile-optimiert. Basis-Widgets: Statistiken (Anzahl Inhalte, aktive Nutzer, letzte Änderungen), offene Aufgaben, ausstehende Freigaben, System-Warnungen."
+    deliverables: "Dashboard-Framework, Widget-System mit Drag & Drop, Basis-Widgets (Statistiken, Aktivitäts-Feed, Benachrichtigungen, Quick-Actions, Systemstatus), rollen-basierte Dashboard-Konfiguration, mobile-optimiertes Layout, Performance-Optimierung für <2 Sek Ladezeit"
+    story_points: 8
+    deps: ["WP-016"]
+    cluster: "CMS-Core"
+    milestone: "MS1"
+    status: "draft"
+    acceptance: "Dashboard lädt in <2 Sekunden; Widgets personalisierbar; rollen-spezifische Ansichten funktionieren; Quick-Actions verfügbar; Systemstatus wird angezeigt; Statistiken korrekt; Aktivitäts-Feed chronologisch; Benachrichtigungen funktionieren; mobile-optimiert."
+
+  - id: WP-023
+    title: "Suche & Navigation"
+    description: "Komfortable Such- und Filterfunktion für das gesamte CMS. Volltextsuche über alle Inhalte, gezielte Feldsuche, modulübergreifende Suche, Filterung nach Datum, Relevanz, Modul, Status, Kommunen, Themen, kombinierbare Filter, gespeicherte Filter, klare Navigationsstruktur (Menüs, Breadcrumbs), Suchleiste jederzeit erreichbar."
+    deliverables: "Suchmaschinen-Integration (Elasticsearch oder ähnlich), Volltextsuche-Engine, Feldsuche-Interface, modulübergreifende Such-API, Filter-System mit kombinierbaren Filtern, gespeicherte-Filter-Verwaltung, Navigationsstruktur, Breadcrumb-System, globale Suchleiste"
+    story_points: 8
+    deps: ["WP-021"]
+    cluster: "CMS-Core"
+    milestone: "MS1"
+    status: "draft"
+    acceptance: "Volltextsuche findet Inhalte über alle Module; Feldsuche funktioniert; Filter nach Datum, Modul, Status, Kommunen kombinierbar; gespeicherte Filter können angelegt werden; Navigation konsistent; Breadcrumbs korrekt; Suchleiste global verfügbar; Suchergebnisse relevant."
+
+  - id: WP-024
+    title: "DSGVO-Löschkonzept"
+    description: "Implementation des DSGVO-konformen Löschkonzepts für personenbezogene Daten. Löschanträge stellen, Abhängigkeitsanalyse vor Löschung, automatisierte Löschroutinen, konfigurierbare Aufbewahrungsfristen, Anonymisierungsfunktionen, DSGVO-Anfragen-Management (Auskunft, Export, Berichtigung, Löschung), Dokumentation und Nachweisführung."
+    deliverables: "Löschantrags-System, Abhängigkeitsanalyse-Engine, automatisierte Löschroutinen, Aufbewahrungsfristen-Konfigurator, Anonymisierungs-Funktionen, DSGVO-Anfragen-Management-Portal, Export-Funktionen für personenbezogene Daten, Lösch-Dokumentation und Nachweisführung"
+    story_points: 8
+    deps: ["WP-007","WP-017"]
+    cluster: "Sicherheit"
+    milestone: "MS1"
+    status: "draft"
+    acceptance: "Löschanträge können gestellt werden; Abhängigkeitsanalyse zeigt betroffene Daten; automatische Löschung nach Aufbewahrungsfrist funktioniert; Anonymisierung möglich; DSGVO-Anfragen (Auskunft, Export, Berichtigung, Löschung) können verwaltet werden; alle Löschvorgänge dokumentiert; Export personenbezogener Daten funktioniert."
+
+  # === Milestone 2: Ablösung Kernmodule ===
+
+  - id: WP-025
+    title: "Events-Modul"
+    description: "Vollständiges Events-/Veranstaltungsmodul mit Serientermine, Kartenintegration, Kategorisierung, Ticketing-Integration. Basis-Funktionen: CRUD, Entwürfe, Vorschau, Veröffentlichungsplanung. Erweitert: Wiederkehrende Events (täglich, wöchentlich, monatlich, jährlich), Ausnahmen, Geo-Koordinaten, Kartenansicht, Export (iCal, CSV, JSON), Filterfunktionen (Kategorie, Datum, Ort, Veranstalter), externe Event-Quellen (iCal-Import)."
+    deliverables: "Events-Modul mit CRUD, Serientermine-Engine, Kartenintegration, Kategorisierungs-System, iCal-Export/Import, Such- und Filterlogik, Ticketing-Schnittstelle, GeoJSON-Export, responsive UI, Tests"
+    story_points: 13
+    deps: ["WP-020","WP-021","WP-023"]
+    cluster: "Content-Module"
+    milestone: "MS2"
+    status: "draft"
+    acceptance: "Events erstell-/bearbeitbar; Serientermine funktionieren; Ausnahmen möglich; Kartenansicht zeigt Events; iCal-Export/Import funktioniert; Filter nach Kategorie, Datum, Ort, Veranstalter; externe Event-Quellen importierbar; Ticketing-Integration getestet."
+
+  - id: WP-026
+    title: "POIs/Orte-Modul"
+    description: "Modul für Points of Interest und Orte mit Geo-Daten, Kategorien, Öffnungszeiten, Kontaktdaten, Bilder. Kartenintegration mit Markern, Clustering, Umkreissuche. Öffnungszeiten-Editor mit regulären und Sonderzeiten, Feiertagen. Import/Export von Geodaten (GeoJSON, KML, GPX). Integration mit externen Karten-Services."
+    deliverables: "POI-Modul mit CRUD, Geo-Koordinaten-Verwaltung, Öffnungszeiten-Editor, Kartenintegration mit Clustering, Umkreissuche, GeoJSON/KML/GPX-Import/Export, Kategorisierung, Bildergalerie, Tests"
+    story_points: 13
+    deps: ["WP-020","WP-021","WP-023"]
+    cluster: "Content-Module"
+    milestone: "MS2"
+    status: "draft"
+    acceptance: "POIs erstell-/bearbeitbar; Geo-Koordinaten über 3 Modi eingabebar; Öffnungszeiten mit Sonderzeiten verwaltbar; Kartenansicht mit Clustering; Umkreissuche funktioniert; GeoJSON/KML/GPX-Import/Export; Kategorisierung; Bilder uploadbar; Filter funktionieren."
+
+  - id: WP-027
+    title: "Touren-Modul"
+    description: "Modul für Wander-, Rad- und andere Touren mit GPX-Tracks, Wegpunkten, Höhenprofilen, Schwierigkeitsgraden. Kartenansicht mit Routendarstellung, interaktive Karte mit Zoom auf Tour. GPX-Upload und -Download, Wegpunkte mit POIs verknüpfen, Tourenlänge und Dauer berechnen, Höhenprofil-Visualisierung."
+    deliverables: "Touren-Modul mit CRUD, GPX-Upload/Download, Wegpunkt-Editor, Höhenprofil-Generator, Kartenintegration mit Routendarstellung, POI-Verknüpfung, Schwierigkeitsgrad-System, Längen/Dauer-Berechnung, Tests"
+    story_points: 13
+    deps: ["WP-026","WP-023"]
+    cluster: "Content-Module"
+    milestone: "MS2"
+    status: "draft"
+    acceptance: "Touren erstell-/bearbeitbar; GPX-Upload/Download funktioniert; Wegpunkte verwaltbar; POI-Verknüpfung; Höhenprofil wird generiert; Karte zeigt Route; Länge/Dauer automatisch berechnet; Schwierigkeitsgrad setzbar; Filter funktionieren."
+
+  - id: WP-028
+    title: "Abfallkalender-Modul"
+    description: "Abfallkalender mit Abfallarten, Termine, Abweichungslogik (Feiertage, Verschiebungen). Adress-basierte Zuordnung, Erinnerungen, iCal-Export. Bulk-Import von Terminen (CSV, Excel), Feiertags-Management mit automatischer Verschiebungslogik, Push-Benachrichtigungen-Vorbereitung."
+    deliverables: "Abfallkalender-Modul mit Abfallarten-Verwaltung, Termin-Editor, Abweichungslogik-Engine, Adress-Zuordnung, iCal-Export, CSV/Excel-Import, Feiertags-Management, Push-Notification-Integration, Tests"
+    story_points: 8
+    deps: ["WP-021","WP-023"]
+    cluster: "Content-Module"
+    milestone: "MS2"
+    status: "draft"
+    acceptance: "Abfallarten verwaltbar; Termine anlegbar; Abweichungslogik funktioniert (Feiertagsverschiebung); Adress-basierte Zuordnung; iCal-Export; CSV-Import von Terminen; Push-Benachrichtigungen konfigurierbar; Filter funktionieren."
+
+  - id: WP-029
+    title: "Baustellen & Verkehrsmeldungen"
+    description: "Modul für Baustellen und Verkehrsstörungen mit Zeiträumen, betroffenen Straßen, Umleitungen, Kartenintegration. Status (geplant, aktiv, abgeschlossen), Kategorien (Vollsperrung, Teilsperrung, Umleitung), Benachrichtigungen. Import externer Daten (z.B. von Verkehrsbehörden via API)."
+    deliverables: "Baustellen-Modul mit CRUD, Zeitraum-Verwaltung, Straßen-Editor, Umleitungs-Beschreibung, Status-System, Kartenintegration mit betroffenen Bereichen, API-Import für externe Daten, Benachrichtigungssystem, Tests"
+    story_points: 8
+    deps: ["WP-026","WP-023"]
+    cluster: "Content-Module"
+    milestone: "MS2"
+    status: "draft"
+    acceptance: "Baustellen erstell-/bearbeitbar; Zeiträume verwaltbar; Status setzbar; Karte zeigt betroffene Bereiche; Umleitungen beschreibbar; externe Daten importierbar; Benachrichtigungen konfigurierbar; Filter funktionieren."
+
+  - id: WP-030
+    title: "Umfragen-Modul"
+    description: "Modul für Umfragen und Abstimmungen mit verschiedenen Fragetypen (Single Choice, Multiple Choice, Freitext, Rating, Skala). Anonyme und authentifizierte Teilnahme, zeitliche Begrenzung, Ergebnisdarstellung (Charts, Export). Optionen für öffentliche/private Umfragen, Anti-Spam-Maßnahmen."
+    deliverables: "Umfragen-Modul mit Frage-Editor (5 Fragetypen), Teilnahme-Management (anonym/authentifiziert), Zeitbegrenzung, Ergebnis-Visualisierung (Charts), CSV-Export, Zugriffskontrolle (öffentlich/privat), Anti-Spam (Captcha, Rate-Limiting), Tests"
+    story_points: 8
+    deps: ["WP-021","WP-023"]
+    cluster: "Content-Module"
+    milestone: "MS2"
+    status: "draft"
+    acceptance: "Umfragen mit 5 Fragetypen erstellbar; Zeitbegrenzung funktioniert; anonyme/authentifizierte Teilnahme; Ergebnisse als Charts visualisiert; CSV-Export; öffentlich/privat setzbar; Anti-Spam aktiv; Filter funktionieren."
+
+  - id: WP-031
+    title: "Stellenanzeigen-Modul"
+    description: "Modul für Stellenanzeigen mit Kategorien, Arbeitsort, Arbeitszeit (Vollzeit/Teilzeit), Bewerbungsfristen, Kontaktdaten. Kategorisierung (z.B. Verwaltung, Technik, Soziales), automatische Archivierung nach Bewerbungsfrist, Bewerbungsformular-Integration, Export."
+    deliverables: "Stellenanzeigen-Modul mit CRUD, Kategorisierung, Arbeitsort/Arbeitszeit-Felder, Bewerbungsfristen-System mit Auto-Archivierung, Kontaktdaten-Verwaltung, Bewerbungsformular-Integration, Export (CSV/JSON), Tests"
+    story_points: 5
+    deps: ["WP-021","WP-023"]
+    cluster: "Content-Module"
+    milestone: "MS2"
+    status: "draft"
+    acceptance: "Stellenanzeigen erstell-/bearbeitbar; Kategorien verwaltbar; Bewerbungsfristen setzbar; automatische Archivierung nach Frist; Bewerbungsformular-Integration; Export funktioniert; Filter funktionieren."
+
+  - id: WP-032
+    title: "Produkte & Dienstleistungen"
+    description: "Modul für lokalen Marktplatz: Produkte und Dienstleistungen von lokalen Anbietern. Kategorien, Preise, Verfügbarkeit, Kontaktdaten, Bilder. Optionale E-Commerce-Integration (externe Shops verlinken), Anbieter-Profilverwaltung, Bewertungen (optional)."
+    deliverables: "Produkte-Modul mit CRUD, Kategorisierung, Preis-/Verfügbarkeits-Verwaltung, Anbieter-Profilverwaltung, Bildergalerie, E-Commerce-Link-Integration, optionales Bewertungssystem, Export, Tests"
+    story_points: 8
+    deps: ["WP-020","WP-021","WP-023"]
+    cluster: "Content-Module"
+    milestone: "MS2"
+    status: "draft"
+    acceptance: "Produkte/Dienstleistungen erstell-/bearbeitbar; Kategorien verwaltbar; Preise/Verfügbarkeit setzbar; Anbieter-Profile verwaltbar; Bilder uploadbar; E-Commerce-Links funktionieren; optionale Bewertungen; Export; Filter funktionieren."
+
+  - id: WP-033
+    title: "Erweiterte Kartenintegration"
+    description: "Zentrale Kartenfunktionalität für alle geografischen Module. Umschalter Tabelle/Karte, Hybrid-Ansicht, Marker-Clustering, interaktive Marker mit Popup, Umkreissuche, Bounding-Box-Filter, Layer-Steuerung, Heatmap-Modus. Performance-Optimierung für >1000 Marker, Lazy Loading."
+    deliverables: "Karten-Framework, Tabelle/Karte-Toggle, Hybrid-View, Marker-Clustering-System, interaktive Marker mit Popups, Umkreissuche-Tool, Bounding-Box-Filter, Layer-Manager, Heatmap-Renderer, Performance-Optimierungen, Tests"
+    story_points: 13
+    deps: ["WP-026"]
+    cluster: "CMS-Core"
+    milestone: "MS2"
+    status: "draft"
+    acceptance: "Tabelle/Karte-Umschalter in allen Geo-Modulen; Hybrid-Ansicht verfügbar; Clustering ab >50 Marker; Marker-Klick öffnet Popup; Umkreissuche mit Radius; Bounding-Box-Filter; Layer-Steuerung; Heatmap-Modus; Performance <2 Sek für 1000 Marker."
+
+  - id: WP-034
+    title: "Batch-Operationen & Bulk-Actions"
+    description: "Massenbearbeitungsfunktionen für alle Content-Module. Mehrfachauswahl, Batch-Publishing, Batch-Archivierung, Batch-Löschung, Batch-Tagging, Batch-Kategorisierung, Batch-Status-Änderungen. Fortschrittsanzeige, Rollback bei Fehlern, Audit-Logging aller Batch-Operationen."
+    deliverables: "Bulk-Actions-Framework, Mehrfachauswahl-UI, Batch-Operations (Publish, Archive, Delete, Tag, Categorize, Status), Fortschrittsbalken, Rollback-Mechanismus, Audit-Log-Integration, Tests"
+    story_points: 8
+    deps: ["WP-023","WP-017"]
+    cluster: "CMS-Core"
+    milestone: "MS2"
+    status: "draft"
+    acceptance: "Mehrfachauswahl in allen Modulen; Batch-Publishing funktioniert; Batch-Archivierung/Löschung; Batch-Tagging/Kategorisierung; Batch-Status-Änderungen; Fortschrittsanzeige bei >100 Items; Rollback bei Fehlern; alle Operationen geloggt."
+
+  # === Milestone 3: Konfigurationssystem ===
+
+  - id: WP-035
+    title: "E-Mail-Konfiguration & -Verwaltung"
+    description: "Zentrale E-Mail-Verwaltung mit SMTP-Konfiguration, Account-Management (System, Kontaktformular, Newsletter, Support, Transaktional), Template-Verwaltung mit WYSIWYG-Editor, Platzhalter-System, mehrsprachige Templates, Versand-Monitoring, SPF/DKIM/DMARC-Prüfung, Test-Funktionen."
+    deliverables: "E-Mail-Verwaltungs-Interface, SMTP-Konfigurator mit Test-Funktion, Account-Typen-System, Template-Editor (WYSIWYG), Platzhalter-Engine, Mehrsprachigkeits-Support, Versand-Monitoring-Dashboard, SPF/DKIM/DMARC-Validator, DNS-Setup-Anleitung, Tests"
+    story_points: 13
+    deps: ["WP-004","WP-016"]
+    cluster: "Konfiguration"
+    milestone: "MS3"
+    status: "draft"
+    acceptance: "E-Mail-Accounts verwaltbar; SMTP-Konfiguration; Test-E-Mail funktioniert; Account-Typen zuweisbar; Templates mit WYSIWYG bearbeitbar; Platzhalter funktionieren; mehrsprachige Templates; Versand-Monitoring zeigt Status; SPF/DKIM/DMARC-Prüfung; DNS-Anleitung vorhanden."
+
+  - id: WP-036
+    title: "App-Instanzen-Verwaltung"
+    description: "Multi-Mandanten-System für App-Instanzen. Einrichtungs-Wizard (4 Schritte), Template-Auswahl (Basis, Standard, Enterprise, Custom), automatische Provisionierung (DB, Storage, Keycloak), Status-Management, Ressourcen-Monitoring (CPU, RAM, Storage, API-Calls), Mandanten-Trennung, Backup/Restore pro Instanz, Klonen von Instanzen."
+    deliverables: "Instanzen-Verwaltungs-UI, Einrichtungs-Wizard, Template-System (3 vordefiniert + Custom), Auto-Provisionierung-Engine, Status-Management, Ressourcen-Monitoring-Dashboard, Mandanten-Isolation (Row-Level Security), Backup/Restore-System, Klon-Funktion, Tests"
+    story_points: 13
+    deps: ["WP-004","WP-016","WP-018"]
+    cluster: "Konfiguration"
+    milestone: "MS3"
+    status: "draft"
+    acceptance: "Instanzen-Wizard funktioniert (4 Schritte); Templates auswählbar; automatische Provisionierung; Status verwaltbar; Ressourcen-Monitoring zeigt Metriken; Warnungen bei Schwellwerten; Mandanten-Trennung aktiv; Backup/Restore funktioniert; Instanzen klonbar."
+
+  - id: WP-037
+    title: "i18n-System & Übersetzungs-Editor"
+    description: "Internationalisierungssystem für UI-Übersetzungen. Übersetzungs-Editor mit Inline-Editing, Import/Export (JSON, PO, XLIFF), Übersetzungsstatus-Tracking (übersetzt/fehlend), Fallback-Sprache, automatische Übersetzungs-Vorschläge (optional via DeepL/Google), Versionierung von Übersetzungen, Übersetzungs-Freigabe-Workflow."
+    deliverables: "i18n-Framework, Übersetzungs-Editor-UI, Import/Export-Funktionen (JSON/PO/XLIFF), Status-Tracking-System, Fallback-Mechanismus, API-Integration für Auto-Übersetzung, Versionierungs-System, Freigabe-Workflow, Tests"
+    story_points: 8
+    deps: ["WP-011","WP-016"]
+    cluster: "Konfiguration"
+    milestone: "MS3"
+    status: "draft"
+    acceptance: "Übersetzungen inline bearbeitbar; Import/Export in JSON/PO/XLIFF; Status zeigt fehlende Übersetzungen; Fallback-Sprache funktioniert; optionale Auto-Übersetzung; Versionierung; Freigabe-Workflow; mind. 2 Sprachen vollständig."
+
+  - id: WP-038
+    title: "App-Design-Konfigurator"
+    description: "UI-basierter Design-Konfigurator für App-Branding. App-Name (mehrsprachig), App-Icon-Upload mit Auto-Größengenerierung, Farb-Verwaltung (Primär-, Sekundär-, Akzentfarben, Dark/Light Mode), Icon-Bibliothek, Schriftarten-Auswahl, Kontrast-Prüfung (WCAG 2.1 AA), Live-Vorschau auf verschiedenen Geräten, CI/CD-Integration für automatische Builds."
+    deliverables: "Design-Konfigurator-UI, App-Name-Editor (mehrsprachig), Icon-Upload mit Auto-Größengenerierung, Farb-Picker mit WCAG-Prüfung, Dark/Light-Mode-Paletten, Icon-Bibliotheks-Manager, Font-Selector, Live-Vorschau-Simulator (iOS/Android), CI/CD-Trigger-Integration, Tests"
+    story_points: 13
+    deps: ["WP-020","WP-037"]
+    cluster: "Konfiguration"
+    milestone: "MS3"
+    status: "draft"
+    acceptance: "App-Name mehrsprachig setzbar; Icon-Upload mit Auto-Generierung; Farben mit WCAG-Prüfung; Dark/Light-Mode separat; Icon-Bibliothek verwaltbar; Schriftarten auswählbar; Live-Vorschau auf iOS/Android; CI/CD-Trigger funktioniert; Design-Änderungen bauen App neu."
+
+  - id: WP-039
+    title: "Kategorienverwaltung"
+    description: "Zentrale Kategorien-/Taxonomie-Verwaltung für alle Content-Module. Hierarchische Kategorien (verschachtelt), Icons und Farben pro Kategorie, mehrsprachige Labels, Zuordnung zu Modulen, Sortierung, Aktivierung/Deaktivierung, Verwendungsnachweis (wo wird Kategorie genutzt), Import/Export."
+    deliverables: "Kategorien-Verwaltungs-UI, hierarchischer Baum-Editor, Icon/Farb-Zuweisungen, mehrsprachige Labels, Modul-Zuordnung, Sortier-Mechanismus, Verwendungsnachweis-Tracker, Import/Export (JSON/CSV), Tests"
+    story_points: 5
+    deps: ["WP-021","WP-037"]
+    cluster: "Konfiguration"
+    milestone: "MS3"
+    status: "draft"
+    acceptance: "Kategorien hierarchisch anlegbar; Icons/Farben zuweisbar; mehrsprachige Labels; Modul-Zuordnung funktioniert; Sortierung; Verwendungsnachweis zeigt zugeordnete Inhalte; Import/Export funktioniert."
+
+  - id: WP-040
+    title: "Navigation & Tabbar-Konfiguration"
+    description: "UI-basierte Konfiguration von App-Navigation: Tabbar, Drawer, Header. Drag & Drop für Menüpunkte, Icon-Auswahl, Aktivierung/Deaktivierung von Navigationselementen, Reihenfolgenverwaltung, Berechtigungen pro Navigationspunkt (rollen-basiert), mehrsprachige Labels, Live-Vorschau."
+    deliverables: "Navigations-Konfigurator-UI, Drag & Drop-Editor für Tabbar/Drawer/Header, Icon-Picker, Aktivierungs-Toggle, Reihenfolgen-Manager, Berechtigungs-System pro Nav-Punkt, mehrsprachige Labels, Live-Vorschau, Tests"
+    story_points: 8
+    deps: ["WP-037","WP-038"]
+    cluster: "Konfiguration"
+    milestone: "MS3"
+    status: "draft"
+    acceptance: "Tabbar/Drawer/Header via Drag & Drop konfigurierbar; Icons auswählbar; Aktivierung/Deaktivierung; Reihenfolge änderbar; Berechtigungen pro Nav-Punkt; mehrsprachige Labels; Live-Vorschau zeigt Änderungen."
+
+  - id: WP-041
+    title: "Listen- & Kachelseiten-Konfigurator"
+    description: "Konfiguration von Listenansichten und Kachel-Layouts für Content-Module. Darstellungsformen (einfache Liste, Liste mit Bild, Karten-Layout, Grid, große Kacheln), Bildgrößen, Spaltenanzahl, Text-Vorschau-Länge, Sortierung, Filter-Einstellungen, Layout pro Inhaltstyp, Vorschau."
+    deliverables: "Listen/Kachel-Konfigurator-UI, Layout-Auswahl (5 Darstellungsformen), Bildgrößen-Konfigurator, Spaltenanzahl-Einstellung, Text-Vorschau-Längen-Slider, Sortier-/Filter-Einstellungen, Inhaltstyp-Zuordnung, Live-Vorschau, Tests"
+    story_points: 8
+    deps: ["WP-021","WP-037"]
+    cluster: "Konfiguration"
+    milestone: "MS3"
+    status: "draft"
+    acceptance: "5 Darstellungsformen auswählbar; Bildgrößen konfigurierbar; Spaltenanzahl einstellbar; Text-Vorschau-Länge anpassbar; Sortierung/Filter pro Inhaltstyp; Vorschau zeigt Layout; Änderungen speicherbar."
+
+  - id: WP-042
+    title: "Störer & Hinweise-System"
+    description: "System für Banner, Störer und Hinweise in der App. Zeitlich begrenzte Anzeige, Positionierung (Top Banner, Bottom Banner, Modal, Toast), Prioritäten, Zielgruppen (alle/angemeldet/Rollen), Call-to-Action-Buttons, Styling (Farben, Icons), mehrsprachig, Vorschau, Aktivierung/Deaktivierung."
+    deliverables: "Störer-Verwaltungs-UI, Zeitbegrenzungs-System, Positionierungs-Optionen (4 Typen), Prioritäts-Management, Zielgruppen-Selector, CTA-Button-Editor, Styling-Optionen, mehrsprachige Texte, Live-Vorschau, Tests"
+    story_points: 5
+    deps: ["WP-037","WP-016"]
+    cluster: "Konfiguration"
+    milestone: "MS3"
+    status: "draft"
+    acceptance: "Störer erstell-/bearbeitbar; Zeitbegrenzung funktioniert; 4 Positionierungen verfügbar; Prioritäten setzbar; Zielgruppen-Filterung; CTA-Buttons; Styling anpassbar; mehrsprachig; Vorschau; Aktivierung/Deaktivierung."
+
+  - id: WP-043
+    title: "Slider & Karussell-Management"
+    description: "Verwaltung von Bild-Slidern und Karussells für Startseite und andere Bereiche. Bilder-Upload, Reihenfolge via Drag & Drop, Verlinkung (intern/extern), zeitliche Anzeige, Auto-Play-Konfiguration, Übergangseffekte, mobile-optimiert, mehrsprachige Alt-Texte."
+    deliverables: "Slider-Verwaltungs-UI, Bilder-Upload mit Drag & Drop-Reihenfolge, Link-Editor (intern/extern), Zeitplan-System, Auto-Play-Konfigurator, Übergangseffekte-Auswahl, mobile-Optimierung, mehrsprachige Alt-Texte, Tests"
+    story_points: 5
+    deps: ["WP-020","WP-037"]
+    cluster: "Konfiguration"
+    milestone: "MS3"
+    status: "draft"
+    acceptance: "Slider erstell-/bearbeitbar; Bilder per Drag & Drop sortierbar; interne/externe Verlinkung; zeitliche Anzeige konfigurierbar; Auto-Play einstellbar; Übergangseffekte wählbar; mobile-optimiert; mehrsprachige Alt-Texte."
+
+  - id: WP-044
+    title: "App-Intro & Onboarding"
+    description: "Konfigurator für App-Einführung (Onboarding-Screens) bei erstem Start. Mehrere Screens (Slides) mit Bildern, Texten, Call-to-Action. Aktivierung/Deaktivierung, Überspringen erlauben, mehrsprachig, Vorschau auf verschiedenen Geräten, Tracking (wie viele Nutzer schließen Onboarding ab)."
+    deliverables: "Onboarding-Konfigurator-UI, Multi-Screen-Editor, Bild/Text-Editor, CTA-Button-Konfigurator, Aktivierungs-Toggle, Überspringen-Option, mehrsprachige Inhalte, Device-Vorschau, Analytics-Integration, Tests"
+    story_points: 5
+    deps: ["WP-020","WP-037"]
+    cluster: "Konfiguration"
+    milestone: "MS3"
+    status: "draft"
+    acceptance: "Onboarding-Screens erstell-/bearbeitbar; mehrere Slides; Bilder/Texte/CTAs; Aktivierung/Deaktivierung; Überspringen möglich; mehrsprachig; Vorschau auf iOS/Android; Tracking-Integration."
+
+  # === Milestone 4: Schnittstellen-Management ===
+
+  - id: WP-045
+    title: "GraphQL-API"
+    description: "Zentrale GraphQL-API als primäre Schnittstelle. Schema-first-Ansatz mit typisiertem Schema, flexible Queries mit Feldauswahl, Mutations für Schreiboperationen, Subscriptions für Echtzeit-Updates (WebSocket), Introspection, GraphQL Playground, Query-Komplexitäts-Limits (DoS-Schutz), Cursor-basierte Pagination, standardisierte Error-Codes, Schema-Evolution ohne Breaking Changes."
+    deliverables: "GraphQL-Schema-Definition für alle Datentypen, Query/Mutation/Subscription-Resolver, WebSocket-Server für Subscriptions, GraphQL Playground, Query-Complexity-Analyzer, Pagination-System (Relay-Style), Error-Handling-Framework, Schema-Versionierungs-System, API-Dokumentation, Tests"
+    story_points: 13
+    deps: ["WP-004","WP-012"]
+    cluster: "Schnittstellen"
+    milestone: "MS4"
+    status: "draft"
+    acceptance: "GraphQL-API erreichbar; alle Datentypen im Schema; Queries/Mutations funktionieren; Subscriptions mit WebSocket; Playground verfügbar; Query-Limits aktiv; Pagination funktioniert; Error-Codes standardisiert; Schema-Evolution getestet; API dokumentiert."
+
+  - id: WP-046
+    title: "REST-API"
+    description: "RESTful API nach Best Practices mit ressourcen-orientierten Endpoints. HTTP-Methoden (GET, POST, PUT, PATCH, DELETE), HATEOAS-Links, Content Negotiation (JSON, XML, CSV), Standard HTTP-Status-Codes, URL-basierte Versionierung (/api/v1), OpenAPI 3.0 Spezifikation (Swagger), Pagination (Link-Header, Offset/Limit, Cursor), Filtering/Sorting via Query-Parameter."
+    deliverables: "REST-API-Endpoints für alle Ressourcen, OpenAPI 3.0 Spezifikation, Swagger-UI, HATEOAS-Link-Generator, Content-Negotiation-Middleware, Pagination-System, Filter/Sort-Query-Parser, Versionierungs-Mechanismus, API-Dokumentation, Tests"
+    story_points: 13
+    deps: ["WP-004","WP-012"]
+    cluster: "Schnittstellen"
+    milestone: "MS4"
+    status: "draft"
+    acceptance: "REST-API erreichbar; alle Ressourcen verfügbar; HTTP-Methoden korrekt; HATEOAS-Links; JSON/XML/CSV-Support; HTTP-Status-Codes korrekt; Versionierung funktioniert; OpenAPI-Spec verfügbar; Swagger-UI; Pagination/Filter/Sort; API dokumentiert."
+
+  - id: WP-047
+    title: "Schema.org & SEO-Integration"
+    description: "Automatische Generierung von Schema.org JSON-LD für alle Inhalte zur SEO-Optimierung. Unterstützte Typen: Event, Place, Organization, Article, NewsArticle, JobPosting, Product, Service. Einbettung in HTML-Head oder separate Endpoints, Validierung gegen Schema.org-Spezifikationen, Google Rich Snippets Support, konfigurierbare Mappings (CMS-Felder → Schema.org-Properties)."
+    deliverables: "Schema.org-Generator-Engine, JSON-LD-Serializer für 8 Typen, HTML-Einbettungs-System, separate Schema.org-Endpoints, Schema.org-Validator, Google Rich Snippets Tester-Integration, Mapping-Konfigurator, Dokumentation, Tests"
+    story_points: 8
+    deps: ["WP-046"]
+    cluster: "Schnittstellen"
+    milestone: "MS4"
+    status: "draft"
+    acceptance: "Schema.org JSON-LD wird für alle Inhaltstypen generiert; 8 Schema.org-Typen unterstützt; HTML-Einbettung funktioniert; separate Endpoints verfügbar; Validierung gegen Schema.org aktiv; Google Rich Snippets getestet; Mappings konfigurierbar."
+
+  - id: WP-048
+    title: "Webhooks-System"
+    description: "Event-basierte Benachrichtigungen an externe Systeme. Konfigurierbare Webhook-Endpoints, Event-Typen (content.created, content.updated, content.deleted, user.created, etc.), Retry-Mechanismus bei Fehlern, Signierung der Payloads (HMAC-SHA256), Webhook-Logs und Monitoring, Test-Tool für Webhook-Konfiguration."
+    deliverables: "Webhooks-Management-UI, Event-System mit konfigurierbaren Triggern, Endpoint-Konfigurator, Retry-Queue mit exponential Backoff, HMAC-Signierung, Webhook-Logger, Monitoring-Dashboard, Test-Tool, Dokumentation, Tests"
+    story_points: 8
+    deps: ["WP-004","WP-017"]
+    cluster: "Schnittstellen"
+    milestone: "MS4"
+    status: "draft"
+    acceptance: "Webhooks konfigurierbar; Event-Typen auswählbar; Retry-Mechanismus funktioniert; HMAC-Signierung aktiv; Logs verfügbar; Monitoring zeigt Status; Test-Tool sendet Test-Webhooks; Dokumentation vollständig."
+
+  - id: WP-049
+    title: "Externe Datenstandards (xZuFi, OParl, Open311)"
+    description: "Integration externer Datenstandards: xZuFi (Verwaltungsleistungen), OParl 1.1 (Ratsinformationen), Open311 GeoReport v2 (Meldungen). Import/Export, Synchronisation mit FIM-Portal, OParl-Endpoints für Ratsinformationssysteme, Open311-Service-Discovery und Service-Requests, Validierung gegen Standards, Mapping-Editor."
+    deliverables: "xZuFi-Import/Export-Engine mit FIM-Sync, OParl 1.1-API-Endpoints (9 Objekttypen), Open311-GeoReport-v2-Implementation, Standard-Validatoren, Mapping-Editor für alle 3 Standards, Sync-Scheduler, Fehlerbehandlung, Dokumentation, Tests"
+    story_points: 13
+    deps: ["WP-046","WP-012"]
+    cluster: "Schnittstellen"
+    milestone: "MS4"
+    status: "draft"
+    acceptance: "xZuFi-Import/Export funktioniert; FIM-Sync aktiv; OParl 1.1-Endpoints verfügbar; Open311-Service-Discovery/Requests; Validierung gegen Standards; Mappings konfigurierbar; Sync-Scheduler läuft; Fehlerbehandlung aktiv."
+
+  - id: WP-050
+    title: "GeoJSON & Geodaten-Import"
+    description: "Import-Funktion für GeoJSON-Dateien (Geodaten-Quellen). Unterstützte Feature-Typen (Point, LineString, Polygon, Multi-Typen), automatische Koordinaten-Extraktion, Mapping von GeoJSON-Properties auf CMS-Felder, Batch-Import, GeoJSON-Validierung, Karten-Vorschau vor Import, Update-Strategie (neu/aktualisieren), Export von GeoJSON."
+    deliverables: "GeoJSON-Import-Tool, Parser für alle Feature-Typen, Property-Mapping-Konfigurator, Batch-Import-Engine, GeoJSON-Validator, Karten-Vorschau-Widget, Update-Strategie-Selector, GeoJSON-Export-Funktion, Fehlerbehandlung, Tests"
+    story_points: 8
+    deps: ["WP-033"]
+    cluster: "Schnittstellen"
+    milestone: "MS4"
+    status: "draft"
+    acceptance: "GeoJSON-Import funktioniert; alle Feature-Typen unterstützt; Property-Mapping konfigurierbar; Batch-Import; Validierung vor Import; Karten-Vorschau; Update-Strategie wählbar; GeoJSON-Export; Fehlerberichte bei ungültigen Features."
+
+  - id: WP-051
+    title: "Schnittstellenmanager-UI"
+    description: "Zentrale Verwaltungs-UI für alle Schnittstellen. API-Key-Verwaltung, Endpoint-Konfiguration, Mapping-Editor für Datenfelder, Test-Werkzeug für Integrationen, Scheduling & Sync-Status, Error-Handling und Logs, Berechtigungssystem für Schnittstellenzugriff, Dokumentation pro Schnittstelle."
+    deliverables: "Schnittstellenmanager-Dashboard, API-Key-Generator und -Verwaltung, Endpoint-Konfigurator, visueller Mapping-Editor, Integration-Test-Tool, Sync-Scheduler mit Cron-Unterstützung, Error-Log-Viewer, Berechtigungs-System, integrierte Dokumentation, Tests"
+    story_points: 13
+    deps: ["WP-045","WP-046","WP-048","WP-049"]
+    cluster: "Schnittstellen"
+    milestone: "MS4"
+    status: "draft"
+    acceptance: "Dashboard zeigt alle Schnittstellen; API-Keys generier-/verwaltbar; Endpoints konfigurierbar; Mapping-Editor funktioniert; Test-Tool sendet Test-Requests; Sync-Scheduler läuft; Error-Logs einsehbar; Berechtigungen pro Schnittstelle; Dokumentation integriert."
+
+  # === Milestone 5: Monitoring & Logging ===
+
+  - id: WP-052
+    title: "System-Monitoring-Dashboard"
+    description: "Umfassendes System-Monitoring mit Echtzeit-KPIs: CPU, RAM, Disk, Netzwerk, Datenbank, Web-Server. Übersichts-Dashboard mit Status-Ampeln, System-Health-Score (0-100), Live-Charts, historische Daten (30 Tage), Detail-Ansichten pro Komponente, Korrelations-Analysen, automatische Alerts bei Schwellwerten, Export-Funktionen."
+    deliverables: "Monitoring-Dashboard-UI, KPI-Collector für alle Systemkomponenten, Health-Score-Algorithmus, Chart-Visualisierungen (Zeit-Serien), Historische Daten-Speicherung, Detail-Ansichten, Korrelations-Analyzer, Alert-System mit konfigurierbaren Schwellwerten, Export (PNG/PDF), Tests"
+    story_points: 13
+    deps: ["WP-004","WP-022"]
+    cluster: "Monitoring"
+    milestone: "MS5"
+    status: "draft"
+    acceptance: "Dashboard zeigt alle KPIs in Echtzeit; Status-Ampeln funktionieren; Health-Score berechnet; Charts für CPU/RAM/Disk/Netz/DB; historische Daten 30 Tage; Detail-Ansichten; Alerts bei Schwellwerten; Export funktioniert; Auto-Refresh alle 30 Sek."
+
+  - id: WP-053
+    title: "Schnittstellenmonitoring"
+    description: "Monitoring aller externen Schnittstellen und APIs. Status-Überwachung (erreichbar/nicht erreichbar), Response-Time-Tracking, Fehlerrate-Monitoring, Verfügbarkeits-SLA-Tracking (Uptime), Sync-Status für periodische Imports, Warnungen bei Ausfällen, Eskalationen, historische Performance-Daten, Integration in Haupt-Monitoring-Dashboard."
+    deliverables: "Schnittstellen-Monitoring-Modul, Endpoint-Health-Checker, Response-Time-Tracker, Fehlerrate-Analyzer, Uptime-Calculator mit SLA-Reports, Sync-Status-Tracker, Alert/Eskalations-System, Performance-History-Storage, Dashboard-Integration, Tests"
+    story_points: 8
+    deps: ["WP-051","WP-052"]
+    cluster: "Monitoring"
+    milestone: "MS5"
+    status: "draft"
+    acceptance: "Alle Schnittstellen überwacht; Status erreichbar/nicht erreichbar; Response-Times gemessen; Fehlerrate angezeigt; Uptime-SLA-Reports; Sync-Status sichtbar; Alerts bei Ausfällen; Eskalationen konfigurierbar; historische Daten; Integration in Dashboard."
+
+  - id: WP-054
+    title: "ELK/OpenSearch Logging-Stack"
+    description: "Zentralisierte Log-Aggregation mit ELK-Stack (Elasticsearch, Logstash, Kibana) oder OpenSearch. Strukturierte Logs (JSON), standardisierte Felder (timestamp, level, service, message, context), Log-Retention-Policies, Index-Management mit Rotation, Log-Level-Filterung, Request-Tracing mit Korrelations-IDs, Alerting-Integration, vordefinierte Dashboards, Hot-Warm-Cold-Architektur."
+    deliverables: "ELK/OpenSearch-Stack-Setup, Log-Collector-Integration (Logstash/Fluent Bit), strukturiertes Logging-Framework, Index-Rotation-System, Log-Retention-Konfigurator, Korrelations-ID-Generator, Kibana/OpenSearch-Dashboards (Fehlerrate, Response-Times, User-Aktivitäten), Alerting-Rules, Hot-Warm-Cold-Setup, Dokumentation, Tests"
+    story_points: 13
+    deps: ["WP-004","WP-052"]
+    cluster: "Monitoring"
+    milestone: "MS5"
+    status: "draft"
+    acceptance: "ELK/OpenSearch läuft; alle Logs zentralisiert; strukturierte JSON-Logs; Index-Rotation aktiv; Log-Retention konfigurierbar; Korrelations-IDs funktionieren; Dashboards verfügbar; Alerting bei kritischen Events; Hot-Warm-Cold-Architektur; Abfragen performant."
+
+  - id: WP-055
+    title: "Job & Queue-Monitoring"
+    description: "Monitoring von Hintergrund-Jobs und Queue-Systemen. Überwachung von Job-Status (pending, running, completed, failed), Queue-Länge, Verarbeitungszeiten, Fehlerrate, Retry-Versuche, Dead-Letter-Queue, automatische Neuversuche bei Fehlern, Job-Logs, Dashboard mit Job-Historie, Alerts bei stuck Jobs oder überlangen Queues."
+    deliverables: "Job-Queue-Monitoring-Modul, Status-Tracker für alle Jobs, Queue-Längen-Monitor, Verarbeitungszeit-Analyzer, Fehlerrate-Tracker, Dead-Letter-Queue-System, Retry-Mechanismus mit exponential Backoff, Job-Log-Viewer, Job-Historie-Dashboard, Alert-System für stuck/lange Queues, Tests"
+    story_points: 8
+    deps: ["WP-052","WP-054"]
+    cluster: "Monitoring"
+    milestone: "MS5"
+    status: "draft"
+    acceptance: "Alle Jobs überwacht; Status sichtbar; Queue-Längen angezeigt; Verarbeitungszeiten gemessen; Fehlerrate getrackt; Dead-Letter-Queue funktioniert; Retry-Mechanismus aktiv; Job-Logs einsehbar; Dashboard zeigt Historie; Alerts bei Problemen."
+
+  - id: WP-056
+    title: "Nutzungsstatistiken & Analytics"
+    description: "Erfassung und Auswertung von Nutzungsstatistiken: Aktive Nutzer (täglich/wöchentlich/monatlich), beliebte Module/Inhalte, Seitenaufrufe, API-Calls, Nutzer-Flows, Conversion-Tracking, Retention-Analyse, Cohort-Analyse, Export für BI-Systeme, DSGVO-konform (IP-Anonymisierung, Opt-out), integriertes Analytics-Dashboard."
+    deliverables: "Analytics-Tracking-System, Event-Collector, Nutzungsstatistik-Aggregator, Analytics-Dashboard (aktive Nutzer, populäre Inhalte, Flows), Retention/Cohort-Analyzer, Export-Schnittstelle (CSV/JSON/BI), IP-Anonymisierung, Opt-out-Mechanismus, DSGVO-Compliance-Check, Tests"
+    story_points: 13
+    deps: ["WP-052","WP-007"]
+    cluster: "Monitoring"
+    milestone: "MS5"
+    status: "draft"
+    acceptance: "Nutzungsstatistiken erfasst; aktive Nutzer getrackt; populäre Module/Inhalte angezeigt; Seitenaufrufe/API-Calls gezählt; Nutzer-Flows visualisiert; Retention/Cohort-Analysen; Export funktioniert; IP-Anonymisierung aktiv; Opt-out verfügbar; DSGVO-konform."
+
+  # === Milestone 6: Erweiterte Module ===
+
+  - id: WP-057
+    title: "Erweiterte Content-Module (Gruppe 1)"
+    description: "Implementierung erweiterter Content-Module: Zuständigkeitsfinder (Behörden/Ämter mit Zuständigkeiten), Merkliste/Favoriten (nutzerbasiert), Feedback-System (Formulare, Kategorien, Ticketing), Fristenmelder (Termine, Erinnerungen), Schwarzes Brett (Community-Posts), Mitfahrbörse (Angebote/Gesuche mit Matching)."
+    deliverables: "6 Module mit CRUD-Operationen, Zuständigkeitsfinder mit Suchlogik, Merkliste mit Sync, Feedback-Formular mit Kategorisierung, Fristenmelder mit Benachrichtigungen, Schwarzes Brett mit Moderation, Mitfahrbörse mit Matching-Algorithmus, Tests"
+    story_points: 13
+    deps: ["WP-021","WP-023"]
+    cluster: "Erweiterte Module"
+    milestone: "MS6"
+    status: "draft"
+    acceptance: "Alle 6 Module funktionieren; Zuständigkeitsfinder mit Suche; Merkliste synchronisiert; Feedback-System mit Tickets; Fristenmelder sendet Erinnerungen; Schwarzes Brett moderierbar; Mitfahrbörse matcht Angebote/Gesuche."
+
+  - id: WP-058
+    title: "Erweiterte Content-Module (Gruppe 2)"
+    description: "Implementierung weiterer Module: Mängelmelder (mit Foto-Upload, Status-Tracking, Geo-Lokalisierung, Integration mit Fachverfahren), Hinweisgebersystem/Whistleblowing (anonym, verschlüsselt, sicher), Kommunales Recht (Satzungen, Verordnungen, Suche), Gastro-Angebote (Restaurants mit Speisekarten, Öffnungszeiten)."
+    deliverables: "4 Module mit CRUD, Mängelmelder mit Foto-Upload und Geo-Lokalisierung, Whistleblowing mit Verschlüsselung, Kommunales Recht mit Volltextsuche, Gastro-Angebote mit Öffnungszeiten, Fachverfahren-Schnittstelle (Mängelmelder), Tests"
+    story_points: 13
+    deps: ["WP-021","WP-026","WP-051"]
+    cluster: "Erweiterte Module"
+    milestone: "MS6"
+    status: "draft"
+    acceptance: "Alle 4 Module funktionieren; Mängelmelder mit Foto und Geo; Status-Tracking; Whistleblowing anonym/verschlüsselt; Kommunales Recht durchsuchbar; Gastro-Angebote mit Öffnungszeiten; Fachverfahren-Integration getestet."
+
+  - id: WP-059
+    title: "Mobility-Module (ÖPNV, Carsharing, Bikesharing)"
+    description: "Mobilitäts-Module für Smart-City-Integration: ÖPNV-Abfahrtszeiten (Echtzeit-API-Integration, Haltestellen, Linien), Carsharing-Angebote (Standorte, Verfügbarkeit, Buchungs-Links), Bikesharing-Angebote (Stationen, verfügbare Räder, Preise), Smartes Trampen (Standorte, Begegnungen). Kartenintegration für alle Module."
+    deliverables: "4 Mobility-Module, ÖPNV-API-Integration (GTFS, HAFAS), Echtzeit-Abfahrten, Carsharing-API-Adapter, Bikesharing-API-Adapter, Smartes-Trampen-Modul, Kartenintegration, Verfügbarkeits-Tracking, Tests"
+    story_points: 13
+    deps: ["WP-026","WP-033","WP-051"]
+    cluster: "Erweiterte Module"
+    milestone: "MS6"
+    status: "draft"
+    acceptance: "Alle 4 Module funktionieren; ÖPNV-Echtzeit-Daten; Carsharing-Standorte/Verfügbarkeit; Bikesharing-Stationen angezeigt; Smartes Trampen; Kartenintegration für alle; API-Integrationen stabil."
+
+  - id: WP-060
+    title: "Widget-System"
+    description: "Flexibles Widget-System für Homepage und Bereiche: Wetter-Widget (API-Integration), Events-Widget (bevorstehende Events), Baustellen-Widget (aktuelle Baustellen), Sensor-Widget (IoT-Daten), Content-Widget (beliebige Inhalte), Umfrage-Widget. Drag & Drop-Anordnung, Größen konfigurierbar, Widget-Store für Aktivierung/Deaktivierung."
+    deliverables: "Widget-Framework, 6 vordefinierte Widgets (Wetter, Events, Baustellen, Sensor, Content, Umfrage), Widget-Store-UI, Drag & Drop-Layout-Editor, Widget-Größen-Konfigurator, API-Integrationen (Wetter, IoT), Tests"
+    story_points: 13
+    deps: ["WP-022","WP-025"]
+    cluster: "Erweiterte Module"
+    milestone: "MS6"
+    status: "draft"
+    acceptance: "Widget-Framework funktioniert; 6 Widgets verfügbar; Widget-Store zum Aktivieren; Drag & Drop-Anordnung; Größen konfigurierbar; Wetter-API-Integration; IoT-Sensor-Integration; Widgets auf Homepage anzeigbar."
+
+  - id: WP-061
+    title: "Community & Social Features"
+    description: "Social-Networking-Features: Persönliches Profil (Avatar, Bio, Einstellungen), Postfach (interne Nachrichten zwischen Nutzern), Social-Sharing (Inhalte auf Social Media teilen), HumHub-Integration (externes soziales Netzwerk), Vorteilssystem/Treueclub (Punkte sammeln, Gutscheine), Augmented Reality (AR-Marker für POIs)."
+    deliverables: "Profil-Editor, Postfach-System mit Messaging, Social-Sharing-Buttons (Facebook, Twitter, WhatsApp), HumHub-API-Integration, Vorteilssystem mit Punkten/Gutscheinen, AR-Marker-Generator, Tests"
+    story_points: 13
+    deps: ["WP-019","WP-026"]
+    cluster: "Erweiterte Module"
+    milestone: "MS6"
+    status: "draft"
+    acceptance: "Profile erstell-/bearbeitbar; Postfach mit interner Messaging; Social-Sharing funktioniert; HumHub-Integration; Vorteilssystem mit Punkten; Gutscheine einlösbar; AR-Marker für POIs generiert."
+
+  - id: WP-062
+    title: "RIS/OParl-Integration & Ratsinformationen"
+    description: "Vollständige Integration von Ratsinformationssystemen via OParl 1.1. Import von Sitzungen, Tagesordnungen, Drucksachen, Beschlüssen. Darstellung in übersichtlicher UI, Suche nach Gremien/Personen/Themen, Verlinkung zu Originaldokumenten, Benachrichtigungen bei neuen Sitzungen, Kalenderintegration."
+    deliverables: "RIS-Modul mit OParl-1.1-Import, Sitzungs-/Tagesordnungs-Darstellung, Drucksachen-Verwaltung, Suche über RIS-Daten, Gremien-/Personen-Übersicht, Benachrichtigungssystem für neue Sitzungen, Kalenderintegration, Tests"
+    story_points: 8
+    deps: ["WP-049","WP-025"]
+    cluster: "Erweiterte Module"
+    milestone: "MS6"
+    status: "draft"
+    acceptance: "OParl-Import funktioniert; Sitzungen/Tagesordnungen angezeigt; Drucksachen durchsuchbar; Gremien/Personen-Übersicht; Benachrichtigungen bei neuen Sitzungen; Kalenderintegration; Verlinkung zu Originaldokumenten."
+
+  - id: WP-063
+    title: "Globale Suche & Chatbot (Basis)"
+    description: "Modulübergreifende globale Suche mit Autosuggest, Filterung, Relevanz-Ranking. Basis-Chatbot für FAQs und einfache Anfragen, Integration mit Wissensdatenbank, Weiterleitung an Support bei komplexen Anfragen, mehrsprachig."
+    deliverables: "Globale Such-Engine (modulübergreifend), Autosuggest-System, Relevanz-Ranking-Algorithmus, Chatbot-Engine (Basis), FAQ-Integration, Wissensdatenbank-Anbindung, Support-Weiterleitung, mehrsprachiger Support, Tests"
+    story_points: 8
+    deps: ["WP-023","WP-037"]
+    cluster: "Erweiterte Module"
+    milestone: "MS6"
+    status: "draft"
+    acceptance: "Globale Suche findet Inhalte über alle Module; Autosuggest funktioniert; Relevanz-Ranking; Chatbot antwortet auf FAQs; Wissensdatenbank-Integration; Weiterleitung an Support; mehrsprachig; Tests erfolgreich."
+
+  - id: WP-064
+    title: "Modul-Baukasten & SDK"
+    description: "No-Code-Modul-Baukasten für einfache Module ohne Programmierung. Formular-Builder, Datenmodell-Designer, Template-Editor, Workflow-Designer. SDK für externe Entwickler zur Erstellung eigener Module, API-Dokumentation, Beispiel-Module, Plugin-System, Marketplace-Vorbereitung."
+    deliverables: "No-Code-Baukasten-UI (Formular/Datenmodell/Template/Workflow-Builder), SDK-Package mit API-Wrapper, Entwickler-Dokumentation, 3 Beispiel-Module, Plugin-System-Framework, Marketplace-Infrastruktur (Vorbereitung), Tests"
+    story_points: 13
+    deps: ["WP-004","WP-045","WP-046"]
+    cluster: "Erweiterte Module"
+    milestone: "MS6"
+    status: "draft"
+    acceptance: "No-Code-Baukasten funktioniert; einfache Module ohne Code erstellbar; SDK verfügbar; API dokumentiert; 3 Beispiel-Module; Plugin-System aktiv; Marketplace-Infrastruktur vorbereitet; Tests erfolgreich."
+
+  # === Milestone 7: Dashboard-Erweiterungen ===
+
+  - id: WP-065
+    title: "Dashboard Analytics & Reporting"
+    description: "Umfassendes Analytics-System im Dashboard: Nutzerstatistiken (aktiv, neu, Logins), Content-Statistiken (erstellt, Status, Typen), Redaktionsaktivität (Timeline, Workflows), API/Performance-Metriken (Aufrufe, Response-Times, Fehlerraten), Mobile-App-Statistiken (Downloads, Nutzung, Crashes). Export für BI-Systeme."
+    deliverables: "Analytics-Dashboard mit 5 Hauptbereichen, Chart-Visualisierungen (Zeitreihen, Balken, Torten), Nutzer-/Content-/Redaktions-/API-/App-Statistiken, Drill-Down-Funktionen, Export-Schnittstelle (CSV/JSON/BI-Connector), Echtzeit-Updates, Tests"
+    story_points: 13
+    deps: ["WP-022","WP-052","WP-056"]
+    cluster: "Dashboard"
+    milestone: "MS7"
+    status: "draft"
+    acceptance: "Dashboard zeigt alle 5 Analytics-Bereiche; Charts visualisieren Daten korrekt; Nutzer/Content/Redaktion/API/App-Stats; Drill-Down funktioniert; Export in CSV/JSON/BI; Echtzeit-Updates alle 30 Sek; Tests erfolgreich."
+
+  - id: WP-066
+    title: "Dashboard Widget-System-Erweiterung"
+    description: "Erweiterung des Dashboard-Widget-Systems aus WP-022: Zusätzliche Widgets (Neueste Inhalte, Kalender, Aktivitäts-Feed, Statistik-Kacheln, Custom-Widgets für externe Module), Widget-Personalisierung pro Rolle, Dashboard-Layouts speichern/wiederherstellen, Widget-Einstellungen (Refresh-Intervall, Datenquelle), Widget-Marketplace-Integration."
+    deliverables: "5 zusätzliche Widgets, rollen-basierte Widget-Konfiguration, Layout-Speicher-System, Widget-Einstellungs-Editor, Marketplace-Integration für externe Widgets, Widget-Refresh-Logik, Tests"
+    story_points: 8
+    deps: ["WP-022","WP-065"]
+    cluster: "Dashboard"
+    milestone: "MS7"
+    status: "draft"
+    acceptance: "5 neue Widgets verfügbar; rollen-basierte Personalisierung; Layouts speicherbar/wiederherstellbar; Widget-Einstellungen konfigurierbar; Marketplace-Integration; Auto-Refresh funktioniert; Tests erfolgreich."
+
+  # === Milestone 8: Hilfe & Support ===
+
+  - id: WP-067
+    title: "Interaktives Onboarding & Guided Tours"
+    description: "Interaktive Onboarding-Tour für neue Nutzer mit Schritt-für-Schritt-Anleitung, UI-Element-Highlights, kontextbezogener Hilfe, Fortschrittsanzeige. Guided Walkthroughs für komplexe Aufgaben (Assistenten), Split-Screen-Anleitung. Contextual Help mit Fragezeichen-Icons, Sidebar-Hilfe, Quick-Links zu Dokumentation."
+    deliverables: "Onboarding-Tour-Engine, UI-Overlay-System, Schritt-für-Schritt-Wizard, rollen-basierte Tour-Inhalte, mehrsprachiger Support, Walkthrough-Builder für komplexe Workflows, Contextual-Help-System (Tooltips, Sidebar), Analytics-Integration (Tracking), Tests"
+    story_points: 13
+    deps: ["WP-009","WP-037"]
+    cluster: "Hilfe & Support"
+    milestone: "MS8"
+    status: "draft"
+    acceptance: "Onboarding-Tour beim ersten Login; Schritte überspringbar; UI-Highlights funktionieren; rollen-basierte Inhalte; mehrsprachig; Walkthroughs für komplexe Aufgaben; Contextual Help mit Fragezeichen-Icons; Analytics trackt Abschluss; Tests erfolgreich."
+
+  - id: WP-068
+    title: "Dokumentationssystem & Ticket-System"
+    description: "Markdown-basiertes Dokumentationssystem mit Suchfunktion, Kategorisierung, Versionierung. Integriertes Ticket-System für Support-Anfragen: Ticket erstellen, Kategorien, Prioritäten, Status-Tracking, Zuweisungen, Kommentare, E-Mail-Benachrichtigungen, Eskalationen, SLA-Tracking, Wissensbasiertes Suchen (ähnliche Tickets)."
+    deliverables: "Dokumentations-Editor (Markdown), Such-Engine für Docs, Kategorisierungs-System, Versions-Management, Ticket-System mit CRUD, Kategorien/Prioritäten/Status, Zuweisung an Bearbeiter, Kommentar-System, E-Mail-Benachrichtigungen, SLA-Tracker, Tests"
+    story_points: 13
+    deps: ["WP-023","WP-035"]
+    cluster: "Hilfe & Support"
+    milestone: "MS8"
+    status: "draft"
+    acceptance: "Dokumentation in Markdown erstellbar; Suche funktioniert; Kategorien/Versionierung; Tickets erstell-/bearbeitbar; Kategorien/Prioritäten/Status; Zuweisung; Kommentare; E-Mail-Benachrichtigungen; SLA-Tracking; ähnliche Tickets-Suche; Tests erfolgreich."
+
+  - id: WP-069
+    title: "Release-Management & Feature-Flags"
+    description: "Versionsverwaltung des CMS mit Release Notes/Changelogs, Historie, Semantic Versioning. Release-Management: geplante Releases, Roadmap, Beta/RC-Versionen. Rollback-Mechanismen, automatische Backups vor Updates. Feature-Flags-Management: Aktivieren/Deaktivieren von Features, Rollout-Strategien (Alle, Prozentsatz, A/B-Testing), Abhängigkeiten, Ablaufdatum."
+    deliverables: "Versions-Verwaltungs-System, Release-Notes-Editor (Markdown), Changelog-Generator, geplante-Releases-Roadmap, Rollback-System mit Auto-Backup, Feature-Flags-Manager, Rollout-Strategien-Konfigurator, Abhängigkeits-Resolver, Update-Prozess mit Pre/Post-Checks, Tests"
+    story_points: 13
+    deps: ["WP-005","WP-004"]
+    cluster: "Hilfe & Support"
+    milestone: "MS8"
+    status: "draft"
+    acceptance: "Versions-Anzeige; Release Notes bearbeitbar; Changelogs kategorisiert; geplante Releases in Roadmap; Rollback funktioniert; Auto-Backup vor Update; Feature-Flags aktivier-/deaktivierbar; Rollout-Strategien; Abhängigkeiten; Tests erfolgreich."
+
+  # === Milestone 9: KI-Assistenz ===
+
+  - id: WP-070
+    title: "KI-Provider-Management & Credentials"
+    description: "Zentrale Verwaltung von KI-Providern (OpenAI, Anthropic, Azure OpenAI, Hugging Face, lokale Modelle). Provider-Konfiguration (Endpoint, Region, Modell-Auswahl), API-Key-Management mit verschlüsselter Speicherung, Key-Rotation, Zugriffsberechtigungen, Secrets-Management-Integration (HashiCorp Vault, AWS Secrets Manager), Test-Funktionen, Multi-Tenancy."
+    deliverables: "Provider-Verwaltungs-UI, Provider-Konfigurator (5+ Provider), API-Key-Manager mit AES-256-Verschlüsselung, Key-Rotation-System, RBAC für Keys, Secrets-Manager-Adapter (Vault/AWS), Provider-Test-Tool, Masked-Keys-Anzeige, Audit-Log, Tests"
+    story_points: 13
+    deps: ["WP-016","WP-017"]
+    cluster: "KI-Assistenz"
+    milestone: "MS9"
+    status: "draft"
+    acceptance: "5+ Provider konfigurierbar; API-Keys verschlüsselt gespeichert; Key-Rotation; RBAC für Keys; Secrets-Manager-Integration; Provider-Test funktioniert; Masked-Keys; Audit-Log für Key-Änderungen; Multi-Tenancy; Tests erfolgreich."
+
+  - id: WP-071
+    title: "KI-Feature-Steuerung & Monitoring"
+    description: "Rollen-basierte Freigabe von KI-Funktionen (Text/Bild-Generierung, Alt-Text, Duplicate Detection), Quota-Management (Max. Anfragen pro Nutzer/Rolle/Tag), Cost-Control (Budget-Limits), Feature-Deaktivierung. KI-Monitoring: Dashboard mit Anfragen, Kosten-Tracking, Response-Times, Fehlerrate, Top-Nutzer, Export, Alarmierung bei Schwellwerten."
+    deliverables: "RBAC für KI-Features, Quota-Management-System, Cost-Control mit Budget-Limits, Feature-Toggle, KI-Monitoring-Dashboard (Anfragen/Kosten/Performance/Fehler/Nutzer), Export-Funktionen, Alert-System bei Schwellwerten, Tests"
+    story_points: 13
+    deps: ["WP-070","WP-052"]
+    cluster: "KI-Assistenz"
+    milestone: "MS9"
+    status: "draft"
+    acceptance: "KI-Features rollen-basiert freigegeben; Quotas funktionieren; Budget-Limits; Features deaktivierbar; Dashboard zeigt Anfragen/Kosten/Performance/Fehler; Top-Nutzer; Export; Alerts bei Schwellwerten; Tests erfolgreich."
+
+  - id: WP-072
+    title: "Content-KI (Text-Generierung & SEO)"
+    description: "KI-gestützte Content-Erstellung: Texte generieren (Artikel, Zusammenfassungen, Überschriften), SEO-Optimierung (Keywords, Meta-Descriptions), Textverbesserung (Grammatik, Stil), Übersetzungen, Kategorisierung/Tagging automatisch. Integration in Content-Editor, Prompt-Verwaltung, A/B-Testing von Prompts, mehrsprachig."
+    deliverables: "Content-KI-Engine mit LLM-Integration, Text-Generator (Artikel/Zusammenfassungen/Headlines), SEO-Optimizer, Grammatik-/Stil-Checker, Auto-Übersetzung, Auto-Tagging/Kategorisierung, Editor-Integration (KI-Button), Prompt-Manager mit Versionierung, A/B-Testing-System, Tests"
+    story_points: 13
+    deps: ["WP-070","WP-009"]
+    cluster: "KI-Assistenz"
+    milestone: "MS9"
+    status: "draft"
+    acceptance: "Text-Generierung funktioniert; SEO-Optimierung; Grammatik-/Stil-Check; Auto-Übersetzung; Auto-Tagging/Kategorisierung; KI-Button im Editor; Prompt-Manager; A/B-Testing; mehrsprachig; Tests erfolgreich."
+
+  - id: WP-073
+    title: "Barrierefreiheits-KI & Qualitätssicherung"
+    description: "KI für Barrierefreiheit: Alt-Text-Generierung für Bilder (automatisch), Strukturanalyse von Inhalten (Überschriften-Hierarchie, Lesefluss), Farbkontrast-Prüfung. Qualitätssicherung: Duplicate Detection (ähnliche Inhalte finden), Plagiatserkennung, Inhalts-Qualitäts-Score, Lesbarkeits-Analyse (Flesch-Reading-Ease)."
+    deliverables: "Alt-Text-Generator mit Vision-API-Integration, Struktur-Analyzer, Farbkontrast-Checker mit WCAG-Validierung, Duplicate-Detection-Engine, Plagiatsprüfung, Qualitäts-Score-Algorithmus, Lesbarkeits-Analyzer, Integration in Content-Editor, Tests"
+    story_points: 13
+    deps: ["WP-070","WP-010"]
+    cluster: "KI-Assistenz"
+    milestone: "MS9"
+    status: "draft"
+    acceptance: "Alt-Text automatisch generiert; Strukturanalyse funktioniert; Farbkontrast-Prüfung WCAG-konform; Duplicate Detection findet ähnliche Inhalte; Plagiatsprüfung; Qualitäts-Score; Lesbarkeits-Analyse; Editor-Integration; Tests erfolgreich."
+
+  - id: WP-074
+    title: "Chatbot-Erweiterung & CMS-Wissensbasis"
+    description: "Erweiterung des Basis-Chatbots (WP-063) mit CMS-Wissensbasis-Integration (RAG - Retrieval Augmented Generation). Chatbot kann Fragen zum CMS beantworten basierend auf Dokumentation, Release Notes, Tickets. Kontext-bewusste Antworten, Weiterleitung an Support bei Bedarf, Chat-Historie, mehrsprachig, Intent-Recognition."
+    deliverables: "RAG-System mit Embeddings, Wissensbasis-Indexierung (Docs/Release-Notes/Tickets), Chatbot-Engine-Erweiterung, Kontext-Manager, Intent-Recognition, Chat-Historie-Speicher, Support-Weiterleitung-Logik, mehrsprachiger Support, Admin-Interface für Wissensbasis, Tests"
+    story_points: 13
+    deps: ["WP-063","WP-068","WP-070"]
+    cluster: "KI-Assistenz"
+    milestone: "MS9"
+    status: "draft"
+    acceptance: "Chatbot nutzt Wissensbasis; RAG funktioniert; Antworten basierend auf Docs/Release-Notes/Tickets; kontext-bewusst; Intent-Recognition; Chat-Historie; Weiterleitung an Support; mehrsprachig; Admin-Interface für Wissensbasis; Tests erfolgreich."
+
+  # === Milestone 10: QA, Security, Compliance & Finalisierung ===
+
+  - id: WP-075
+    title: "End-to-End-Tests & QA"
+    description: "Vollständige End-to-End-Tests aller Module und Workflows. Manuelle QA-Tests mit verschiedenen Nutzerrollen (Redaktion, Admins, Kommunen), User-Acceptance-Tests (UAT), Cross-Browser-Testing, Mobile-Testing, Performance-Tests unter Last, Regressionstests, Test-Dokumentation, Bug-Tracking und -Fixing."
+    deliverables: "E2E-Test-Suite (Cypress/Playwright), manuelle Test-Checklisten, UAT-Protokolle, Cross-Browser-Test-Matrix, Mobile-Test-Reports, Performance-Test-Szenarien, Bug-Tracking-System-Integration, Test-Coverage-Report (>80%), Regressions-Test-Automatisierung"
+    story_points: 13
+    deps: ["WP-008"]
+    cluster: "QA"
+    milestone: "MS10"
+    status: "draft"
+    acceptance: "E2E-Tests für alle Module; manuelle QA abgeschlossen; UAT mit Kommunen durchgeführt; Cross-Browser (Chrome, Firefox, Safari, Edge) getestet; Mobile (iOS, Android) getestet; Performance-Tests bestanden; Regressionstests automatisiert; >80% Test-Coverage; alle kritischen Bugs behoben."
+
+  - id: WP-076
+    title: "Accessibility & BITV-Compliance"
+    description: "Vollständige Barrierefreiheits-Prüfung nach WCAG 2.1 AA und BITV 2.0. Automatisierte Accessibility-Tests (axe, Pa11y), manuelle Tests mit Screen-Readern (NVDA, JAWS, VoiceOver), Tastatur-Navigation-Tests, Kontrast-Prüfungen, Tests mit echten Nutzern mit Behinderungen, BITV-Selbstbewertung, Behebung aller kritischen Mängel, Accessibility-Statement."
+    deliverables: "Automatisierte A11y-Test-Integration, Screen-Reader-Test-Protokolle, Tastatur-Navigation-Test-Checkliste, Kontrast-Prüfungs-Report, User-Tests mit Menschen mit Behinderungen, BITV-Selbstbewertung (≥90/100), Mängel-Behebungs-Log, Accessibility-Statement (öffentlich), Dokumentation"
+    story_points: 13
+    deps: ["WP-010","WP-073"]
+    cluster: "QA"
+    milestone: "MS10"
+    status: "draft"
+    acceptance: "Automatisierte A11y-Tests integriert; Screen-Reader-Tests durchgeführt; Tastatur-Navigation vollständig; Kontraste WCAG-konform; User-Tests mit Betroffenen; BITV-Selbstbewertung ≥90/100; alle kritischen Mängel behoben; Accessibility-Statement veröffentlicht."
+
+  - id: WP-077
+    title: "Externe Security-Audits & Pentests"
+    description: "Externe Qualitäts- und Sicherheitsprüfungen durch zertifizierte Anbieter. Penetrationstests (White-Box, Grey-Box, Black-Box), Vulnerability-Scans, Code-Reviews durch Dritte, OWASP Top 10-Prüfung, Bug-Bounty-Programm (optional), Red-Team-Übungen, Audit-Berichte, Re-Testing nach Behebung, Security-Sign-Off."
+    deliverables: "Pentest-Beauftragung und -Durchführung (extern), Vulnerability-Scan-Reports, externer Code-Review-Bericht, OWASP-Compliance-Check, Bug-Bounty-Setup (optional), Red-Team-Exercise-Report, alle Audit-Berichte, Behebungs-Nachweise, Re-Test-Bestätigungen, Security-Sign-Off-Dokument"
+    story_points: 13
+    deps: ["WP-006","WP-007"]
+    cluster: "Security"
+    milestone: "MS10"
+    status: "draft"
+    acceptance: "Externer Pentest durchgeführt; keine kritischen Schwachstellen; Vulnerability-Scans clean; externer Code-Review abgeschlossen; OWASP Top 10 konform; optional Bug-Bounty läuft; Red-Team-Übung bestanden; alle Audit-Berichte vorgelegt; kritische Issues behoben und re-getestet; Security-Sign-Off erteilt."
+
+  - id: WP-078
+    title: "BSI IT-Grundschutz-Compliance"
+    description: "Umsetzung und Dokumentation des BSI IT-Grundschutzes. Implementierung relevanter Bausteine (ORP.4, ORP.5, CON.1, CON.3, CON.4, APP.3.1, APP.4.3, SYS.1.1), Basis-/Kern-/Standard-Absicherung, Modellierung im IT-Grundschutz-Tool, Gap-Analyse, Maßnahmenplan, Dokumentation aller Maßnahmen, BSI-Lifecycle-Management (Planung, Beschaffung, Umsetzung, Betrieb, Aussonderung, Notfallmanagement)."
+    deliverables: "BSI-Grundschutz-Modellierung, Umsetzungs-Dokumentation für 8 Bausteine, Gap-Analyse-Report, Maßnahmenplan zur Lücken-Schließung, Lifecycle-Management-Dokumentation, Notfallmanagement-Plan, Härtungs-Guidelines (Server, DB, Container, Web-Server, OS), Compliance-Dashboard"
+    story_points: 13
+    deps: ["WP-006","WP-007","WP-002"]
+    cluster: "Security"
+    milestone: "MS10"
+    status: "draft"
+    acceptance: "BSI-Grundschutz modelliert; 8 Bausteine umgesetzt und dokumentiert; Gap-Analyse abgeschlossen; Maßnahmenplan erstellt; Lifecycle-Management dokumentiert; Notfallmanagement-Plan vorhanden; Härtungs-Guidelines für alle Komponenten; Compliance-Dashboard zeigt Status."
+
+  - id: WP-079
+    title: "Security-Tooling & Automation"
+    description: "Integration und Konfiguration von Security-Tools: SIEM (Log-Aggregation, Alerting), IDS/IPS (Intrusion Detection/Prevention), WAF (Web Application Firewall), Vulnerability-Scanner (OpenVAS, Nessus), Secrets-Management (Vault), EDR (Endpoint Detection & Response). Automatisierte Security-Scans in CI/CD, Dependency-Scanning, Container-Scanning, SAST/DAST, Secret-Scanning."
+    deliverables: "SIEM-Setup (Splunk/ELK), IDS/IPS-Konfiguration, WAF-Integration (Cloudflare/ModSecurity), Vulnerability-Scanner-Automation, Secrets-Manager-Integration (Vault/AWS), EDR-Deployment, CI/CD-Security-Pipeline (SAST/DAST/Dependency/Container/Secret-Scans), Alert-Integration (Slack/E-Mail/Jira), Security-Dashboards"
+    story_points: 13
+    deps: ["WP-006","WP-054","WP-005"]
+    cluster: "Security"
+    milestone: "MS10"
+    status: "draft"
+    acceptance: "SIEM läuft und aggregiert Logs; IDS/IPS aktiv; WAF schützt vor OWASP Top 10; Vulnerability-Scanner automatisiert; Secrets-Manager integriert; EDR auf allen Endpoints; CI/CD-Security-Scans integriert; Alerts bei Schwachstellen; Dashboards zeigen Security-Status."
+
+  - id: WP-080
+    title: "Governance & Compliance-Dokumentation"
+    description: "Erstellung umfassender Governance- und Compliance-Dokumentation: Governance-Richtlinien, RACI-Matrix, Change-Management-Prozess, Incident-Management, SLAs, Betriebshandbuch mit Runbooks, DSGVO-Compliance-Dokumentation (Art. 30 Verzeichnis), Barrierefreiheits-Compliance, IT-Sicherheitsrichtlinien, AVV-Verträge, Audit-Trail-Dokumentation, Schulungskonzepte, Richtlinien (AUP, Datenschutz, Sicherheit, Content, Retention), Incident-Response-Plan."
+    deliverables: "Governance-Dokument mit Richtlinien/RACI/Change-Management/Incident-Management/SLAs, Betriebshandbuch mit Runbooks, DSGVO-Art.-30-Verzeichnis, Barrierefreiheits-Dokumentation, IT-Sicherheitsrichtlinien, AVV-Verträge-Vorlagen, Audit-Trail-Doku, Schulungskonzept (Datenschutz/Security/Rollen-spezifisch), Policy-Dokumente (5 Policies), Incident-Response-Plan mit Runbooks"
+    story_points: 13
+    deps: ["WP-007","WP-010","WP-013"]
+    cluster: "Governance"
+    milestone: "MS10"
+    status: "draft"
+    acceptance: "Governance-Dokument vollständig; RACI-Matrix definiert; Change/Incident-Management-Prozesse dokumentiert; SLAs definiert; Betriebshandbuch mit Runbooks; DSGVO-Art.-30-Verzeichnis; Barrierefreiheits-Doku; IT-Sicherheitsrichtlinien; AVV-Vorlagen; 5 Policies dokumentiert; Incident-Response-Plan mit Runbooks."
+
+  - id: WP-081
+    title: "Performance-Optimierung & Refactoring"
+    description: "Finale Performance-Optimierungen und Code-Refactoring. Datenbank-Query-Optimierung, API-Response-Time-Verbesserung, Frontend-Performance (Code-Splitting, Lazy-Loading, Caching), CDN-Optimierung, Refactoring technischer Schulden, Konsolidierung von Komponenten und UI-Patterns, Code-Quality-Verbesserungen (ESLint, Prettier, SonarQube), Architektur-Konsolidierung."
+    deliverables: "Performance-Optimierungs-Report, optimierte DB-Queries, API-Performance-Verbesserungen, Frontend-Optimierungen (Bundle-Size-Reduktion, Lazy-Loading), CDN-Setup, Refactoring-Log (technische Schulden abgebaut), konsolidierte UI-Component-Library, Code-Quality-Reports (SonarQube), Architektur-Review-Dokument"
+    story_points: 13
+    deps: ["WP-001","WP-003","WP-004"]
+    cluster: "QA"
+    milestone: "MS10"
+    status: "draft"
+    acceptance: "95% Anfragen <500ms; Frontend-Seitenaufbau <2 Sek; DB-Queries optimiert; API-Response-Times verbessert; Bundle-Size reduziert; CDN aktiv; technische Schulden dokumentiert abgebaut; UI-Components konsolidiert; Code-Quality-Score verbessert; Architektur-Review abgeschlossen."
+
+  - id: WP-082
+    title: "Finale Dokumentation & Knowledge Transfer"
+    description: "Vervollständigung aller Dokumentationen: Technische Architektur-Dokumentation (aktualisiert), vollständige API-Dokumentation (OpenAPI, GraphQL), Deployment-Guides (Docker, Kubernetes, VM), Backup & Recovery-Prozeduren, Troubleshooting-Guides, Admin-Handbuch, Redaktions-Handbuch, Entwickler-Onboarding-Guide, Video-Tutorials, Schulungsmaterialien."
+    deliverables: "Architektur-Dokumentation (final), API-Dokumentation (OpenAPI/Swagger, GraphQL vollständig), Deployment-Guides (3 Varianten), Backup/Recovery-Dokumentation, Troubleshooting-Guide, Admin-Handbuch, Redaktions-Handbuch, Entwickler-Guide, 10+ Video-Tutorials, Schulungsmaterial-Pakete (Admin/Redakteur/Entwickler)"
+    story_points: 13
+    deps: ["WP-014","WP-068","WP-069"]
+    cluster: "Dokumentation"
+    milestone: "MS10"
+    status: "draft"
+    acceptance: "Architektur-Doku vollständig und aktuell; API-Doku 100% vollständig; Deployment-Guides für Docker/K8s/VM; Backup/Recovery-Prozeduren dokumentiert; Troubleshooting-Guide vorhanden; Admin/Redaktions/Entwickler-Handbücher vollständig; 10+ Video-Tutorials produziert; Schulungsmaterialien für alle Rollen."
+
+  - id: WP-083
+    title: "Go-Live-Vorbereitung & Projektübergabe"
+    description: "Finale Vorbereitungen für Go-Live und Projektübergabe: Production-Readiness-Checkliste abarbeiten, Load-Tests auf Production-Umgebung, Disaster-Recovery-Tests, Rollback-Plan dokumentieren, Support-Hotline und Eskalationsketten einrichten, Launch-Communication vorbereiten, Schulungen durchführen (Admin/Redakteur), Q&A-Sessions mit Kommunen, Abschlussbericht, Lessons Learned, formale Projektübergabe."
+    deliverables: "Production-Readiness-Checkliste (abgearbeitet), Load-Test-Reports (Production), Disaster-Recovery-Test-Protokoll, Rollback-Plan, Support-Hotline-Setup, Eskalationsketten-Dokumentation, Launch-Communication-Material (Pressemitteilung, Blog-Posts), durchgeführte Schulungen (Protokolle), Q&A-Session-Aufzeichnungen, Abschlussbericht, Lessons-Learned-Dokument, Übergabe-Protokoll"
+    story_points: 13
+    deps: ["WP-075","WP-076","WP-077","WP-078","WP-082"]
+    cluster: "Projektabschluss"
+    milestone: "MS10"
+    status: "draft"
+    acceptance: "Production-Readiness-Checkliste 100% abgearbeitet; Load-Tests auf Production erfolgreich; Disaster-Recovery getestet und funktioniert; Rollback-Plan dokumentiert; Support-Hotline aktiv; Eskalationsketten definiert; Launch-Communication vorbereitet; Schulungen durchgeführt; Q&A-Sessions abgehalten; Abschlussbericht erstellt; Lessons Learned dokumentiert; Projekt formal übergeben."
