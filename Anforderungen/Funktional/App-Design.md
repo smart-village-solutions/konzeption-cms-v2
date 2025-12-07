@@ -413,7 +413,163 @@ Dieses Kapitel beschreibt die Anforderungen an die Gestaltung und Navigation der
   * Cache leeren (Speicherplatz freigeben)
   * Download-Verhalten (nur WLAN, auch mobiles Netz)
 
-### 11. Lokaler App-Speicher
+### 11. Krisen-Modus
+
+* **Aktivierung des Krisen-Modus**:
+  * Ein-Klick-Aktivierung im CMS-Admin-Panel
+  * Notfall-Button prominent platziert (z.B. im Header: "Krisen-Modus aktivieren")
+  * Bestätigungs-Dialog mit Warnung: "App wird in Krisen-Modus geschaltet"
+  * Begründung eingeben (optional): "Hochwasser in Region XY"
+  * Sofortige Aktivierung (innerhalb von Sekunden)
+  * Push-Notification an alle Admins: "Krisen-Modus wurde aktiviert"
+  * Status-Badge im CMS: "KRISEN-MODUS AKTIV" (rot, prominent)
+
+* **Krisen-Modus-Funktionen**:
+  * **Priorisierung kritischer Inhalte**:
+    - Automatische Umstellung der Startseite auf Krisen-Dashboard
+    - Notfall-Banner prominent angezeigt (oben, nicht wegklickbar)
+    - Krisen-relevante Inhalte (Warnungen, Evakuierungen, Notfallkontakte) ganz oben
+    - Weniger wichtige Module werden ausgeblendet oder nach unten verschoben
+  * **Visuelle Anpassungen**:
+    - Warnfarbe (Rot/Orange) als Akzentfarbe
+    - Alert-Icon/Banner in App-Header
+    - "Krisen-Modus"-Badge in Navigation
+    - Optionale Vollbild-Warnung beim App-Start (einmalig)
+  * **Push-Notifications verstärkt**:
+    - Krisen-Notifications umgehen "Nicht stören"-Modus (falls erlaubt)
+    - Höhere Priorität bei Notification-Zustellung
+    - Automatische Notification bei Aktivierung: "Wichtige Informationen verfügbar"
+  * **Vereinfachte Navigation**:
+    - Reduzierte Tabbar/Drawer auf essenzielle Bereiche
+    - Schnellzugriff auf Notfall-Hotlines, Evakuierungspläne, Warn-Apps
+    - "Hilfe"-Button prominent platziert
+  * **Content-Freischaltung**:
+    - Zugriff auf normalerweise gesperrte Inhalte (z.B. Evakuierungspläne)
+    - Automatische Anzeige von Notfallkontakten
+    - Karten mit Notfall-Locations (Notunterkünfte, Sanitätsstationen)
+  * **Offline-Priorisierung**:
+    - Automatischer Download kritischer Inhalte für Offline-Verfügbarkeit
+    - Erhöhte Cache-Priorität für Krisen-Inhalte
+    - Offline-Karte mit Notfall-POIs
+  * **Externe Integrationen**:
+    - Einbindung offizieller Warn-Apps (NINA, KATWARN, etc.)
+    - RSS-Feeds von Feuerwehr, THW, DWD
+    - Social-Media-Feeds von Behörden
+    - Automatische Updates aus Katastrophenschutz-Systemen
+
+* **Krisen-Dashboard**:
+  * **Übersicht**:
+    - Aktuelle Lage-Zusammenfassung (Text + Karte)
+    - Zeitstempel der letzten Aktualisierung
+    - Status-Ampel: Grün/Gelb/Rot (Gefahrenstufe)
+    - Betroffenes Gebiet (Karte mit Markierungen)
+  * **Notfall-Aktionen**:
+    - Notfall-Hotline anrufen (direkter Call-Button)
+    - Evakuierungsrouten anzeigen
+    - Nächste Notunterkunft finden
+    - Notfall-Checkliste (Was jetzt tun?)
+  * **Live-Updates**:
+    - Chronologische Timeline aller Updates
+    - Auto-Refresh alle 5 Minuten
+    - "Neue Informationen verfügbar"-Banner
+  * **Kommunikation**:
+    - Notfall-Kontaktformular (direkt an Krisenstab)
+    - "Ich bin sicher"-Button (Check-In-Funktion)
+    - Hilfe anfordern / anbieten (Community-Funktion)
+
+* **Krisen-Inhalte verwalten**:
+  * **Krisen-Nachrichten erstellen**:
+    - Eigener Inhaltstyp: "Krisen-Nachricht"
+    - Pflichtfelder: Titel, Beschreibung, Gefahrenstufe, betroffenes Gebiet
+    - Optionale Felder: Handlungsempfehlungen, Karte, Kontakte, Dokumente
+    - Mehrsprachig (automatische Übersetzung mit KI)
+  * **Schnellveröffentlichung**:
+    - "Sofort veröffentlichen"-Button (ohne Freigabe-Workflow)
+    - Automatische Push-Notification an alle Nutzer:innen
+    - Priorisierung in allen Listen und Feeds
+  * **Vorlagen für häufige Szenarien**:
+    - Hochwasser-Warnung
+    - Unwetter-Warnung
+    - Evakuierung
+    - Stromausfall
+    - Chemieunfall
+    - etc.
+  * **Mehrkanal-Veröffentlichung**:
+    - Gleichzeitige Veröffentlichung in App, Webseite, Social Media
+    - Optional: SMS-Versand an registrierte Nutzer:innen
+    - Optional: E-Mail-Versand
+
+* **Deaktivierung des Krisen-Modus**:
+  * "Krisen-Modus beenden"-Button im CMS
+  * Bestätigungs-Dialog: "Krise beendet?"
+  * Abschlussmeldung verfassen (optional): "Entwarnung gegeben"
+  * Automatische Push-Notification: "Krisen-Modus beendet, Entwarnung"
+  * Sanfte Rückkehr zu Normal-Ansicht (nicht abrupt)
+  * Krisen-Inhalte bleiben im Archiv verfügbar
+  * Automatische Deaktivierung nach X Stunden (konfigurierbar, mit Erinnerung)
+
+* **Krisen-Historie und Auswertung**:
+  * Alle Krisen-Modi werden protokolliert (Audit-Log)
+  * Informationen: Start-/End-Zeitpunkt, Grund, Verantwortliche:r, Maßnahmen
+  * Statistiken: Anzahl Push-Notifications, App-Nutzung während Krise, erreichte Nutzer:innen
+  * Nachbereitung: "Lessons Learned"-Report
+  * Export für Behörden-Berichte
+
+* **Berechtigungen und Rollen**:
+  * **Krisen-Admin**: Darf Krisen-Modus aktivieren/deaktivieren
+  * **Krisen-Redakteur:in**: Darf Krisen-Inhalte erstellen/bearbeiten
+  * **Standard-Admin**: Sieht Krisen-Modus-Status, kann nicht aktivieren
+  * Zwei-Faktor-Authentifizierung für Krisen-Modus-Aktivierung (empfohlen)
+  * Vier-Augen-Prinzip (optional): Zweite:r Admin muss Aktivierung bestätigen
+
+* **Simulation und Training**:
+  * Test-Modus: Krisen-Modus für Test-App aktivieren (nicht Production)
+  * Notfall-Übungen durchführen ohne echte Nutzer:innen zu alarmieren
+  * Checkliste: Sind alle Prozesse klar? Funktionieren Integrationen?
+  * Regelmäßige Drills (z.B. halbjährlich) mit Protokollierung
+
+* **Integration mit Warnsystemen**:
+  * **MoWaS (Modulares Warnsystem)**:
+    - Automatische Übernahme von Warnungen
+    - Krisen-Modus bei bestimmten Warnkategorien automatisch aktivieren
+  * **NINA / KATWARN**:
+    - API-Integration für Warnmeldungen
+    - Anzeige in der App mit Deep-Link
+  * **DWD (Deutscher Wetterdienst)**:
+    - Unwetterwarnungen automatisch übernehmen
+    - Krisen-Modus bei Warnstufe Rot/Violett
+  * **Cell Broadcast**:
+    - Kompatibilität mit DE-Alert (EU-Alert)
+    - Weiterleitung relevanter Warnungen in die App
+
+* **Datenschutz und rechtliche Aspekte**:
+  * Krisen-Modus darf keine persönlichen Daten ohne Einwilligung erfassen
+  * "Ich bin sicher"-Check-In: Opt-In, Daten werden nach 48h gelöscht
+  * Standort-Tracking nur mit expliziter Zustimmung (für Evakuierungs-Hilfe)
+  * Rechtliche Absicherung: Haftungsausschluss für Krisen-Informationen
+  * Quellenangaben für alle Warnungen und Informationen
+
+* **Barrierefreiheit im Krisen-Modus**:
+  * Screen-Reader-optimiert (klare Ansagen)
+  * Hoher Kontrast (Warnfarben deutlich sichtbar)
+  * Große Schriftgrößen (automatisch aktiviert)
+  * Einfache Sprache in Krisen-Nachrichten
+  * Symbol-basierte Kommunikation (für alle verständlich)
+  * Mehrsprachigkeit (mindestens DE/EN, weitere nach Bedarf)
+
+**Messkriterium:**
+* Krisen-Modus-Aktivierung in < 10 Sekunden
+* Push-Notification an alle Nutzer:innen innerhalb von 60 Sekunden nach Aktivierung
+* Automatischer Download kritischer Inhalte für Offline-Verfügbarkeit innerhalb von 5 Minuten
+* Krisen-Dashboard lädt in < 2 Sekunden
+* 100% der Krisen-Modi im Audit-Log erfasst
+* Integration mit mindestens 2 offiziellen Warnsystemen (z.B. MoWaS, NINA)
+* Barrierefreiheit WCAG 2.1 AAA im Krisen-Modus
+* Test-Modus für Notfall-Übungen verfügbar
+* "Ich bin sicher"-Check-In funktioniert auch offline (lokale Speicherung bis Online)
+* Krisen-Inhalte in mindestens 2 Sprachen (DE, EN) verfügbar
+
+### 12. Lokaler App-Speicher
 
 * **Daten lokal speichern**:
   * Offline-Verfügbarkeit für definierte Inhalte (News, Events, Seiten)
