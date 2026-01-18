@@ -17,8 +17,8 @@ Das CMS basiert auf einer modularen Plugin-Architektur, die Erweiterbarkeit durc
   - Berechtigungen und Zugriffskontrollen
 
 * **Build-time vs. Runtime:**
-  - **Phase 1 (Start):** Plugins werden zur Build-Zeit kompiliert und fest in die Anwendung integriert. Dies garantiert Stabilität, Sicherheit und Performance.
-  - **Phase 2 (später):** Optional können Runtime-Plugins hinzugefügt werden, die dynamisch geladen werden. Dies ist jedoch keine Voraussetzung für den Start und wird erst bei Bedarf (z.B. für externe Partner-Plugins) implementiert.
+  - **Do:** Plugins werden zur Build-Zeit kompiliert und fest in die Anwendung integriert. Dies garantiert Stabilität, Sicherheit und Performance.
+  - **No:** Runtime-Plugins werden nicht unterstützt, da dynamisch nachladbare Module ein Sicherheits- und Lieferkettenrisiko darstellen.
 
 **Vorteil:** Klare Trennung, keine „Spaghetti-Imports", bessere Wartbarkeit und Testbarkeit.
 
@@ -238,36 +238,13 @@ Klare Trennung zwischen Verwaltungs-CMS und Bürger-App:
 
 ---
 
-> **Hinweis:** Dies ist die erweiterte, ausführliche Version der Anforderungen. Die vollständige Architektur-Dokumentation finden Sie in [Paketarchitektur.md](Paketarchitektur.md).
-1. **Framework-agnostischer Kern = Entscheidungsfreiheit**
-   Ihr trennt konsequent:
-
-* *Was* das CMS tut (Domain/Fachlogik) vs. *wie* es gerendert wird (Vue/React).
-  So bleibt die Vue/React-Entscheidung eine UI-Frage, nicht eine Systemfrage.
-
-2. **SDK als Vertrag statt „Hooks überall“**
-   Ein stabiles `@cms/sdk` mit wenigen, klaren Extension Points ist langfristig wartbar:
-
-* Plugins integrieren über Contracts
-* Host implementiert Renderer/Slots für die Contracts
-* Breaking Changes werden über SDK-Versionierung steuerbar
-
-3. **Monorepo + Workspaces für Geschwindigkeit und Konsistenz**
-   Ein Repository, ein Tooling-Set, klare Build-/Test-Pipelines.
-   Später könnt ihr einzelne Plugins/SDK auskoppeln, wenn Partner-/Community-Druck steigt.
-
-4. **Build-time Plugins als sicherer Start**
-   Ihr vermeidet die typischen Runtime-Probleme (CSP/CORS, Live-Supply-Chain, Offline, Kompatibilität).
-   Gleichzeitig bleibt der Weg zu Runtime offen, weil ihr schon eine saubere Plugin-Grenze habt.
-
----
 
 ## Architekturvorschlag: Schichten, Pakete, Regeln
 
 ### Leitprinzip
 
 **„Contracts zuerst“:** Alles, was Plugins und Host verbindet, ist explizit im SDK beschrieben.
-**„Core ohne UI“:** Fachlogik kennt kein Vue/React.
+**„Core ohne UI“:** Fachlogik kennt kein Vue/React. ???
 **„UI ist Adapter“:** Vue/React rendert nur, was aus Registry/Contracts kommt.
 
 ---
