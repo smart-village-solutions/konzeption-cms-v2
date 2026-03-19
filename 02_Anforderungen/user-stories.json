@@ -1,154 +1,4184 @@
-[
-  {"id": 1, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich nur Inhalte meiner Organisation sehen, damit ich mich auf relevante Inhalte konzentrieren kann."},
-  {"id": 2, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich sehen, welche Inhalte ich bearbeiten darf, damit ich keine unzulässigen Änderungen vornehme."},
-  {"id": 3, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich meine eigenen Inhalte schnell finden, damit ich sie effizient aktualisieren kann."},
-  {"id": 4, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich erkennen, wer einen Inhalt erstellt hat, damit ich bei Rückfragen die richtige Person ansprechen kann."},
-  {"id": 5, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich sehen, ob ich Inhalte nur lesen oder auch bearbeiten darf, damit ich meine Rechte kenne."},
-
-  {"id": 6, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich beim Login direkt Zugriff auf meine Arbeitsbereiche haben, damit ich schnell starten kann."},
-  {"id": 7, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich Fehlermeldungen bei fehlenden Rechten erhalten, damit ich verstehe, warum etwas nicht funktioniert."},
-  {"id": 8, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich Inhalte nach Organisation filtern können, damit ich gezielt arbeiten kann."},
-  {"id": 9, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich meine Rollen einsehen können, damit ich meine Zuständigkeiten verstehe."},
-  {"id": 10, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich sehen, welche Rechte ich über Gruppen erhalte, damit ich meine Berechtigungen nachvollziehen kann."},
-
-  {"id": 11, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich neue Nutzer anlegen können, damit ich mein Team verwalten kann."},
-  {"id": 12, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Nutzer Organisationen zuweisen, damit Zuständigkeiten klar sind."},
-  {"id": 13, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Rollen vergeben können, damit ich Berechtigungen steuern kann."},
-  {"id": 14, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Gruppen erstellen können, damit ich Berechtigungen bündeln kann."},
-  {"id": 15, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich sehen, welche Nutzer in welcher Organisation sind, damit ich den Überblick behalte."},
-
-  {"id": 16, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Organisationsstrukturen abbilden, damit Hierarchien korrekt sind."},
-  {"id": 17, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Unterorganisationen verwalten, damit dezentrale Strukturen unterstützt werden."},
-  {"id": 18, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Rollen vererben können, damit ich weniger manuell pflegen muss."},
-  {"id": 19, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Änderungen an Rollen sofort wirksam sehen, damit ich Kontrolle habe."},
-  {"id": 20, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich nachvollziehen können, warum ein Nutzer Zugriff hat, damit ich Berechtigungen prüfen kann."},
-
-  {"id": 21, "role": "Systembetreiber", "story": "Als Systembetreiber möchte ich alle Nutzer zentral verwalten, damit ich systemweite Kontrolle habe."},
-  {"id": 22, "role": "Systembetreiber", "story": "Als Systembetreiber möchte ich Authentifizierungsprozesse überwachen, damit ich Sicherheit gewährleisten kann."},
-  {"id": 23, "role": "Systembetreiber", "story": "Als Systembetreiber möchte ich Login-Vorgänge nachvollziehen, damit ich Missbrauch erkennen kann."},
-  {"id": 24, "role": "Systembetreiber", "story": "Als Systembetreiber möchte ich Systemrollen definieren, damit ich Standardprozesse etablieren kann."},
-  {"id": 25, "role": "Systembetreiber", "story": "Als Systembetreiber möchte ich Mandanten trennen können, damit Daten isoliert bleiben."},
-
-  {"id": 26, "role": "Systembetreiber", "story": "Als Systembetreiber möchte ich Performance der Rechteprüfung überwachen, damit das System schnell bleibt."},
-  {"id": 27, "role": "Systembetreiber", "story": "Als Systembetreiber möchte ich Cache-Mechanismen verstehen, damit ich Fehler analysieren kann."},
-  {"id": 28, "role": "Systembetreiber", "story": "Als Systembetreiber möchte ich Änderungen an Rollen sofort invalidieren, damit falsche Rechte vermieden werden."},
-  {"id": 29, "role": "Systembetreiber", "story": "Als Systembetreiber möchte ich zentrale Autorisierungsentscheidungen einsehen, damit ich Debugging betreiben kann."},
-  {"id": 30, "role": "Systembetreiber", "story": "Als Systembetreiber möchte ich Systemzustände protokollieren, damit ich Audits unterstützen kann."},
-
-  {"id": 31, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich sehen, welche Nutzer welche Daten sehen dürfen, damit DSGVO eingehalten wird."},
-  {"id": 32, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich akzeptierte Rechtstexte nachvollziehen, damit Nachweispflichten erfüllt sind."},
-  {"id": 33, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich Versionen von Rechtstexten verwalten, damit Änderungen nachvollziehbar sind."},
-  {"id": 34, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich sehen, wer wann zugestimmt hat, damit ich auditsicher dokumentieren kann."},
-  {"id": 35, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich Reports exportieren können, damit ich Prüfungen vorbereiten kann."},
-
-  {"id": 36, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich sehen, welche Rollen Zugriff auf personenbezogene Daten haben, damit Risiken minimiert werden."},
-  {"id": 37, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich unzulässige Zugriffe erkennen, damit ich Maßnahmen ergreifen kann."},
-  {"id": 38, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich Zugriffshistorien prüfen, damit ich Compliance sicherstelle."},
-  {"id": 39, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich Nutzer zur Zustimmung zwingen können, damit Rechtssicherheit gewährleistet ist."},
-  {"id": 40, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich sehen, welche Nutzer noch nicht zugestimmt haben, damit ich nachsteuern kann."},
-
-  {"id": 41, "role": "Fachbereichsleiter:in", "story": "Als Fachbereichsleiter:in möchte ich sehen, wer in meinem Bereich Inhalte pflegt, damit ich Verantwortung zuweisen kann."},
-  {"id": 42, "role": "Fachbereichsleiter:in", "story": "Als Fachbereichsleiter:in möchte ich Rollen innerhalb meines Bereichs vergeben, damit Arbeitsabläufe funktionieren."},
-  {"id": 43, "role": "Fachbereichsleiter:in", "story": "Als Fachbereichsleiter:in möchte ich sehen, welche Inhalte veröffentlicht wurden, damit ich Qualität sicherstellen kann."},
-  {"id": 44, "role": "Fachbereichsleiter:in", "story": "Als Fachbereichsleiter:in möchte ich Freigaben steuern können, damit Inhalte geprüft sind."},
-  {"id": 45, "role": "Fachbereichsleiter:in", "story": "Als Fachbereichsleiter:in möchte ich Berechtigungen delegieren können, damit ich entlastet werde."},
-
-  {"id": 46, "role": "Onboarding-Verantwortliche:r", "story": "Als Onboarding-Verantwortliche:r möchte ich neue Nutzer einfach einrichten, damit sie schnell starten können."},
-  {"id": 47, "role": "Onboarding-Verantwortliche:r", "story": "Als Onboarding-Verantwortliche:r möchte ich Standardrollen zuweisen, damit Prozesse einheitlich sind."},
-  {"id": 48, "role": "Onboarding-Verantwortliche:r", "story": "Als Onboarding-Verantwortliche:r möchte ich sehen, ob Nutzer aktiv sind, damit ich nachsteuern kann."},
-  {"id": 49, "role": "Onboarding-Verantwortliche:r", "story": "Als Onboarding-Verantwortliche:r möchte ich Einladungen verwalten, damit Nutzer Zugang erhalten."},
-  {"id": 50, "role": "Onboarding-Verantwortliche:r", "story": "Als Onboarding-Verantwortliche:r möchte ich Status von Accounts sehen, damit ich Fortschritte verfolge."},
-
-  {"id": 51, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich sehen, welche Inhalte mir zugewiesen sind, damit ich meine Aufgaben kenne."},
-  {"id": 52, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich nur relevante Module sehen, damit die Oberfläche übersichtlich bleibt."},
-  {"id": 53, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich meine Rechte auch mobil verstehen, damit ich unterwegs arbeiten kann."},
-  {"id": 54, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich sehen, welche Organisation ich vertrete, damit ich korrekt arbeite."},
-  {"id": 55, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich wissen, welche Inhalte gesperrt sind, damit ich keine Konflikte verursache."},
-
-  {"id": 56, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Rollen zentral ändern können, damit ich effizient arbeite."},
-  {"id": 57, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Gruppen wiederverwenden, damit ich Zeit spare."},
-  {"id": 58, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Berechtigungen simulieren, damit ich Fehler vermeide."},
-  {"id": 59, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich sehen, welche Rechte effektiv gelten, damit ich Klarheit habe."},
-  {"id": 60, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Änderungen dokumentieren, damit ich nachvollziehbar bleibe."},
-
-  {"id": 61, "role": "Systembetreiber", "story": "Als Systembetreiber möchte ich Mandanten konfigurieren, damit mehrere Kommunen parallel arbeiten können."},
-  {"id": 62, "role": "Systembetreiber", "story": "Als Systembetreiber möchte ich Systemlogs einsehen, damit ich Fehler finde."},
-  {"id": 63, "role": "Systembetreiber", "story": "Als Systembetreiber möchte ich Berechtigungsregeln zentral definieren, damit Konsistenz besteht."},
-  {"id": 64, "role": "Systembetreiber", "story": "Als Systembetreiber möchte ich Schnittstellen überwachen, damit Integrationen stabil laufen."},
-  {"id": 65, "role": "Systembetreiber", "story": "Als Systembetreiber möchte ich Zugriffsmuster analysieren, damit ich Optimierungen vornehmen kann."},
-
-  {"id": 66, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich personenbezogene Daten minimieren, damit Risiken reduziert werden."},
-  {"id": 67, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich Löschkonzepte prüfen, damit gesetzliche Vorgaben eingehalten werden."},
-  {"id": 68, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich Datenflüsse verstehen, damit ich Transparenz habe."},
-  {"id": 69, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich Zugriffsbeschränkungen prüfen, damit Daten geschützt sind."},
-  {"id": 70, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich Reports erstellen, damit ich Behörden Auskunft geben kann."},
-
-  {"id": 71, "role": "Fachbereichsleiter:in", "story": "Als Fachbereichsleiter:in möchte ich Teamrechte sehen, damit ich Verantwortung überblicken kann."},
-  {"id": 72, "role": "Fachbereichsleiter:in", "story": "Als Fachbereichsleiter:in möchte ich Inhalte priorisieren, damit wichtige Themen sichtbar sind."},
-  {"id": 73, "role": "Fachbereichsleiter:in", "story": "Als Fachbereichsleiter:in möchte ich Rechte einschränken können, damit Qualität gesichert bleibt."},
-  {"id": 74, "role": "Fachbereichsleiter:in", "story": "Als Fachbereichsleiter:in möchte ich Eskalationen steuern, damit Probleme schnell gelöst werden."},
-  {"id": 75, "role": "Fachbereichsleiter:in", "story": "Als Fachbereichsleiter:in möchte ich Zuständigkeiten klar sehen, damit keine Lücken entstehen."},
-
-  {"id": 76, "role": "Onboarding-Verantwortliche:r", "story": "Als Onboarding-Verantwortliche:r möchte ich Vorlagen für Rollen nutzen, damit ich schneller arbeiten kann."},
-  {"id": 77, "role": "Onboarding-Verantwortliche:r", "story": "Als Onboarding-Verantwortliche:r möchte ich Schulungsstände sehen, damit ich Unterstützung anbieten kann."},
-  {"id": 78, "role": "Onboarding-Verantwortliche:r", "story": "Als Onboarding-Verantwortliche:r möchte ich Fehler bei Accounts erkennen, damit ich sie beheben kann."},
-  {"id": 79, "role": "Onboarding-Verantwortliche:r", "story": "Als Onboarding-Verantwortliche:r möchte ich Zugriffe testen, damit ich Qualität sichere."},
-  {"id": 80, "role": "Onboarding-Verantwortliche:r", "story": "Als Onboarding-Verantwortliche:r möchte ich Feedback sammeln, damit ich Prozesse verbessern kann."},
-
-  {"id": 81, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich schnell erkennen, was ich tun darf, damit ich effizient arbeite."},
-  {"id": 82, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich nur relevante Aktionen sehen, damit ich nicht verwirrt bin."},
-  {"id": 83, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich Zugriffsbeschränkungen verstehen, damit ich korrekt arbeite."},
-  {"id": 84, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich meine Organisation wechseln können, damit ich mehrere Rollen bedienen kann."},
-  {"id": 85, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich sehen, welche Inhalte global gelten, damit ich Kontext habe."},
-
-  {"id": 86, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich globale vs. lokale Rechte unterscheiden, damit ich sauber konfiguriere."},
-  {"id": 87, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Rechte granular vergeben, damit ich Sicherheit erhöhe."},
-  {"id": 88, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Änderungen versionieren, damit ich nachvollziehen kann, was passiert ist."},
-  {"id": 90, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich eigene mandantenspezifische Rollen anlegen können, damit ich unsere internen Zuständigkeiten passend abbilden kann."},
-  {"id": 91, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich bestehende Rollen kopieren und anpassen können, damit ich neue Rollen schneller erstellen kann."},
-  {"id": 92, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich vor der Aktivierung einer Rolle prüfen können, welche effektiven Rechte sie erzeugt, damit ich keine zu weitreichenden Berechtigungen vergebe."},
-  {"id": 93, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich sehen, aus welcher Quelle ein Recht stammt, damit ich direkte Zuweisungen, Gruppenrechte und Vererbungen unterscheiden kann."},
-  {"id": 94, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich für einen Nutzer alle effektiven Rechte gebündelt einsehen können, damit ich Support-Anfragen schnell beantworten kann."},
-
-  {"id": 95, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Rechte auf bestimmte Stadtteile oder Regionen beschränken können, damit Redakteur:innen nur in ihrem Zuständigkeitsraum arbeiten."},
-  {"id": 96, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich sehen, für welche geografischen Bereiche ich Inhalte bearbeiten darf, damit ich keine Inhalte außerhalb meines Verantwortungsbereichs ändere."},
-  {"id": 97, "role": "Fachbereichsleiter:in", "story": "Als Fachbereichsleiter:in möchte ich erkennen, ob ein Recht direkt oder über geografische Vererbung gilt, damit ich Berechtigungen fachlich korrekt bewerten kann."},
-  {"id": 98, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Gruppen für Redaktionsteams, Standorte oder Fachbereiche anlegen können, damit ich Berechtigungen gesammelt verwalten kann."},
-  {"id": 99, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich sehen, welche Gruppen einem Nutzer indirekt Zugriff geben, damit ich Berechtigungen vollständig nachvollziehen kann."},
-
-  {"id": 100, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Nutzer deaktivieren können, damit ehemalige Mitarbeitende sofort keinen Zugriff mehr haben."},
-  {"id": 101, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich Verantwortlichkeiten beim Ausscheiden eines Nutzers an andere Personen übergeben können, damit keine verwaisten Zuständigkeiten entstehen."},
-  {"id": 102, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich nachvollziehen können, wann ein Zugang entzogen wurde, damit ich die Einhaltung interner Datenschutzprozesse belegen kann."},
-  {"id": 103, "role": "Onboarding-Verantwortliche:r", "story": "Als Onboarding-Verantwortliche:r möchte ich den genauen Onboarding-Status eines Accounts sehen, damit ich erkenne, ob ein Nutzer eingeladen, registriert, synchronisiert oder freigeschaltet ist."},
-  {"id": 104, "role": "Onboarding-Verantwortliche:r", "story": "Als Onboarding-Verantwortliche:r möchte ich erkennen, an welchem Schritt ein Onboarding hängen bleibt, damit ich gezielt helfen kann."},
-
-  {"id": 105, "role": "Onboarding-Verantwortliche:r", "story": "Als Onboarding-Verantwortliche:r möchte ich Synchronisationsfehler zwischen Login und Fachkonto sehen, damit neue Nutzer nicht im Einrichtungsprozess stecken bleiben."},
-  {"id": 106, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich sehen, ob ein technischer Login korrekt mit einem fachlichen Account verknüpft wurde, damit Zugänge vollständig funktionieren."},
-  {"id": 107, "role": "Betreiber:in", "story": "Als Betreiber:in möchte ich in der Oberfläche immer erkennen, in welchem Mandanten ich mich befinde, damit ich keine Änderungen im falschen Kontext vornehme."},
-  {"id": 108, "role": "Betreiber:in", "story": "Als Betreiber:in möchte ich mandantenübergreifende Rechte nur bewusst und sichtbar nutzen, damit Fehlbedienungen vermieden werden."},
-  {"id": 109, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich nur Nutzer, Rollen, Gruppen und Rechtstexte meines Mandanten sehen, damit Daten sauber getrennt bleiben."},
-
-  {"id": 110, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich neue Versionen von Datenschutzerklärungen und Nutzungsbedingungen anlegen können, damit rechtliche Änderungen kontrolliert ausgerollt werden."},
-  {"id": 111, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich Rechtstexte als Entwurf vorbereiten und später aktivieren können, damit ich Änderungen vor Veröffentlichung prüfen kann."},
-  {"id": 112, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich sehen, welche Version eines Rechtstextes aktuell aktiv ist, damit ich eindeutige Auskünfte geben kann."},
-  {"id": 113, "role": "Nutzer:in des SVA Studio", "story": "Als Nutzer:in des SVA Studio möchte ich beim Login erkennen, welche neuen Rechtstexte ich akzeptieren muss, damit ich transparent informiert bin."},
-  {"id": 114, "role": "Nutzer:in des SVA Studio", "story": "Als Nutzer:in des SVA Studio möchte ich neue Rechtstexte vollständig lesen können, bevor ich zustimme, damit meine Zustimmung informiert ist."},
-
-  {"id": 115, "role": "Nutzer:in des SVA Studio", "story": "Als Nutzer:in des SVA Studio möchte ich nach der Zustimmung wieder an meinen ursprünglichen Einstiegspunkt zurückkehren, damit mein Arbeitsfluss nicht unnötig unterbrochen wird."},
-  {"id": 116, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich die Akzeptanzhistorie eines Nutzers exportieren können, damit ich bei Prüfungen einen belastbaren Nachweis vorlegen kann."},
-  {"id": 117, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich bei einem Nachweis sehen, welche konkrete Fassung eines Rechtstextes akzeptiert wurde, damit der Rechtsstand eindeutig dokumentiert ist."},
-  {"id": 118, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich Nachweise nach Organisation oder Zeitraum filtern können, damit ich gezielt auf Anfragen reagieren kann."},
-  {"id": 119, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich sehen, welche Nutzer eine neue Fassung noch nicht akzeptiert haben, damit ich Compliance-Lücken schließen kann."},
-
-  {"id": 120, "role": "Support-Verantwortliche:r", "story": "Als Support-Verantwortliche:r möchte ich für eine konkrete Aktion prüfen können, ob sie für einen Nutzer erlaubt ist, damit ich Rechteprobleme schnell erklären kann."},
-  {"id": 121, "role": "Support-Verantwortliche:r", "story": "Als Support-Verantwortliche:r möchte ich zu einer Berechtigungsentscheidung auch die Begründung sehen, damit ich Anwendern verständlich helfen kann."},
-  {"id": 122, "role": "Betreiber:in", "story": "Als Betreiber:in möchte ich konsistente Berechtigungsentscheidungen in allen Modulen sehen, damit Regeln überall gleich angewendet werden."},
-  {"id": 123, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich testen können, welche Rechte ein Nutzer nach einer geplanten Rollenänderung hätte, damit ich Änderungen vorab absichern kann."},
-  {"id": 124, "role": "Organisations-Admin", "story": "Als Organisations-Admin möchte ich sehen, welche Inhalte oder Funktionen einem Nutzer wegen fehlender Rechte verborgen bleiben, damit ich Konfigurationen besser nachvollziehen kann."},
-
-  {"id": 125, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich erkennen können, ob meine Bearbeitungsrechte aus meiner Rolle, meiner Organisation oder einer Gruppenmitgliedschaft stammen, damit ich meine Zuständigkeit besser verstehe."},
-  {"id": 126, "role": "Redakteur:in", "story": "Als Redakteur:in möchte ich bei fehlenden Rechten einen klaren Hinweis erhalten, an wen ich mich wenden kann, damit ich schnell Unterstützung bekomme."},
-  {"id": 127, "role": "Fachbereichsleiter:in", "story": "Als Fachbereichsleiter:in möchte ich sehen, welche Rechte in meinem Bereich vererbt weitergegeben werden, damit ich unbeabsichtigte Zugriffe vermeiden kann."},
-  {"id": 128, "role": "Betreiber:in", "story": "Als Betreiber:in möchte ich Änderungen an Rollen, Gruppen und Zuordnungen nachvollziehen können, damit ich Sicherheitsvorfälle untersuchen kann."},
-  {"id": 129, "role": "Datenschutzbeauftragte:r", "story": "Als Datenschutzbeauftragte:r möchte ich prüfen können, ob nur berechtigte Personen Zugriff auf personenbezogene Daten eines Bereichs haben, damit der Grundsatz der Datenminimierung eingehalten wird."}
-]
+{
+  "version": "2.7",
+  "scope": "IAM",
+  "updatedAt": "2026-03-19",
+  "description": "Verlustfrei paketierte IAM-User-Stories fuer den Studio-Abgleich. Alle Alt-Stories bleiben als einzelne Eintraege erhalten und sind um pruefbezogene Metadaten erweitert.",
+  "migrationNote": "Die Story-Sammlung wurde nach Prio sortiert. Stories tragen jetzt eine prioritaetsbasierte laufende Nummer in `id`; die urspruengliche Story-ID bleibt als `legacyId` erhalten.",
+  "sourceStoryCount": 128,
+  "totalStoryCount": 141,
+  "packageCount": 7,
+  "statusLegend": {
+    "offen": "Noch nicht gegen das Studio abgeglichen",
+    "teilweise": "Teilweise vorhanden oder nur eingeschraenkt pruefbar",
+    "erfuellt": "Im Studio belastbar nachweisbar",
+    "unklar": "Aktueller Stand noch nicht sicher bewertbar"
+  },
+  "coverageLegend": {
+    "nicht_geprueft": "Noch kein Abgleich durchgefuehrt",
+    "vorhanden": "Flow oder Teilfunktion sichtbar vorhanden",
+    "luecke": "Fehlt ganz oder wesentlich",
+    "nachweis_fehlend": "Vermutlich vorhanden, aber nicht belastbar nachweisbar"
+  },
+  "packages": [
+    {
+      "id": "IAM-P1",
+      "title": "Login und Erstzugang",
+      "goal": "Abgleich des Einstiegs in den richtigen fachlichen Kontext inklusive Pflichtzustimmungen und Fehlermeldungen.",
+      "storyCount": 19,
+      "stories": [
+        {
+          "id": 1,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich beim Login direkt Zugriff auf meine Arbeitsbereiche haben, damit ich schnell starten kann.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Login, Session-Start oder Aufruf eines geschuetzten Bereichs",
+          "preconditions": [
+            "Nutzer:in ist authentifiziert oder befindet sich im Login-Flow"
+          ],
+          "acceptanceCriteria": [
+            "Nach erfolgreichem Login ist der fachlich gueltige Einstiegspunkt sichtbar.",
+            "Mandant, Organisation oder vergleichbarer Arbeitskontext werden vor der ersten Aktion erkennbar gemacht.",
+            "Der Einstieg ist fuer dieselbe Nutzerrolle reproduzierbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 6,
+          "priority": 1
+        },
+        {
+          "id": 2,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich Fehlermeldungen bei fehlenden Rechten erhalten, damit ich verstehe, warum etwas nicht funktioniert.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Login, Session-Start oder Aufruf eines geschuetzten Bereichs",
+          "preconditions": [
+            "Nutzer:in ist authentifiziert oder befindet sich im Login-Flow"
+          ],
+          "acceptanceCriteria": [
+            "Nicht erlaubte Aktionen werden mit einer fachlich verstaendlichen Rueckmeldung beantwortet.",
+            "Die Meldung benennt fehlendes Recht, fehlenden Kontext oder eine vergleichbare Ursache.",
+            "Die Fehlersituation fuehrt nicht zu einem teilweise ausgefuehrten Ergebnis."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 7,
+          "priority": 1
+        },
+        {
+          "id": 3,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich Authentifizierungsprozesse überwachen, damit ich Sicherheit gewährleisten kann.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Login, Session-Start oder Aufruf eines geschuetzten Bereichs",
+          "preconditions": [
+            "Nutzer:in ist authentifiziert oder befindet sich im Login-Flow"
+          ],
+          "acceptanceCriteria": [
+            "Authentifizierungsereignisse koennen fuer die berechtigte Betriebsrolle ueberwacht werden.",
+            "Erfolgreiche und fehlgeschlagene Authentifizierungen sind unterscheidbar.",
+            "Die Sicht unterstuetzt die Bewertung sicherheitsrelevanter Auffaelligkeiten."
+          ],
+          "evidence": [
+            "Monitoring",
+            "Audit-Log",
+            "Admin-UI"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 22,
+          "priority": 1
+        },
+        {
+          "id": 4,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich Login-Vorgänge nachvollziehen, damit ich Missbrauch erkennen kann.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Login, Session-Start oder Aufruf eines geschuetzten Bereichs",
+          "preconditions": [
+            "Nutzer:in ist authentifiziert oder befindet sich im Login-Flow"
+          ],
+          "acceptanceCriteria": [
+            "Login-Vorgaenge sind fuer die berechtigte Betriebsrolle nachvollziehbar.",
+            "Ein Login-Ereignis ist mindestens Zeit, Nutzer oder Kontext zuordenbar.",
+            "Die Darstellung unterstuetzt das Erkennen moeglichen Missbrauchs."
+          ],
+          "evidence": [
+            "Audit-Log",
+            "Monitoring"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 23,
+          "priority": 1
+        },
+        {
+          "id": 5,
+          "role": "Betreiber:in",
+          "story": "Als Betreiber:in möchte ich in der Oberfläche immer erkennen, in welchem Mandanten ich mich befinde, damit ich keine Änderungen im falschen Kontext vornehme.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [
+            "IAM-P5"
+          ],
+          "legacy": true,
+          "trigger": "Login, Session-Start oder Aufruf eines geschuetzten Bereichs",
+          "preconditions": [
+            "Nutzer:in ist authentifiziert oder befindet sich im Login-Flow"
+          ],
+          "acceptanceCriteria": [
+            "Der aktuell aktive Mandant ist in der Oberflaeche durchgehend sichtbar.",
+            "Die Mandantenanzeige bleibt auch waehrend tieferer Arbeitsfluesse erkennbar.",
+            "Die Sicht reduziert das Risiko von Aenderungen im falschen Kontext."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Kontextwechsel"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 107,
+          "priority": 1
+        },
+        {
+          "id": 6,
+          "role": "Nutzer:in des SVA Studio",
+          "story": "Als Nutzer:in des SVA Studio möchte ich beim Login erkennen, welche neuen Rechtstexte ich akzeptieren muss, damit ich transparent informiert bin.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [
+            "IAM-P6"
+          ],
+          "legacy": true,
+          "trigger": "Login, Session-Start oder Aufruf eines geschuetzten Bereichs",
+          "preconditions": [
+            "Nutzer:in ist authentifiziert oder befindet sich im Login-Flow"
+          ],
+          "acceptanceCriteria": [
+            "Beim Login wird sichtbar, ob neue zustimmungspflichtige Rechtstexte vorliegen.",
+            "Die betroffenen Texte oder Fassungen werden vor dem regulaeren Einstieg benannt.",
+            "Der Hinweis ist fuer Nutzer:innen eindeutig als Pflichtschritt erkennbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 113,
+          "priority": 1
+        },
+        {
+          "id": 7,
+          "role": "Nutzer:in des SVA Studio",
+          "story": "Als Nutzer:in des SVA Studio möchte ich neue Rechtstexte vollständig lesen können, bevor ich zustimme, damit meine Zustimmung informiert ist.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [
+            "IAM-P6"
+          ],
+          "legacy": true,
+          "trigger": "Login, Session-Start oder Aufruf eines geschuetzten Bereichs",
+          "preconditions": [
+            "Nutzer:in ist authentifiziert oder befindet sich im Login-Flow"
+          ],
+          "acceptanceCriteria": [
+            "Neue Rechtstexte koennen vor der Zustimmung vollstaendig gelesen werden.",
+            "Die angezeigte Fassung ist eindeutig identifizierbar.",
+            "Eine Zustimmung erfolgt nicht, bevor der Text im vorgesehenen Flow angezeigt wurde."
+          ],
+          "evidence": [
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 114,
+          "priority": 1
+        },
+        {
+          "id": 8,
+          "role": "Nutzer:in des SVA Studio",
+          "story": "Als Nutzer:in des SVA Studio möchte ich nach der Zustimmung wieder an meinen ursprünglichen Einstiegspunkt zurückkehren, damit mein Arbeitsfluss nicht unnötig unterbrochen wird.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [
+            "IAM-P6"
+          ],
+          "legacy": true,
+          "trigger": "Login, Session-Start oder Aufruf eines geschuetzten Bereichs",
+          "preconditions": [
+            "Nutzer:in ist authentifiziert oder befindet sich im Login-Flow"
+          ],
+          "acceptanceCriteria": [
+            "Nach der Zustimmung kehrt der Flow an den urspruenglichen Einstiegspunkt zurueck.",
+            "Der bisherige Arbeitskontext geht durch den Zustimmungsdialog nicht verloren.",
+            "Der Zustimmungsprozess unterbricht den Arbeitsfluss nur so weit wie fachlich noetig."
+          ],
+          "evidence": [
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 115,
+          "priority": 1
+        },
+        {
+          "id": 9,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich externe Identity Provider über SAML oder OIDC anbinden können, damit föderierte Logins für Kommunen und Partner unterstützt werden.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [],
+          "legacy": false,
+          "trigger": "Ein externer Login-Provider wird für den Zugang zum Studio konfiguriert oder genutzt.",
+          "preconditions": [
+            "Die berechtigte Rolle besitzt Zugriff auf den Authentifizierungs- oder SSO-Kontext."
+          ],
+          "acceptanceCriteria": [
+            "Ein externer Identity Provider kann im vorgesehenen Administrationskontext angebunden werden.",
+            "Die Zuordnung von Login-Flow und fachlichem Zugang ist nach erfolgreicher Föderation nachvollziehbar.",
+            "Fehler in der SAML- oder OIDC-Anbindung sind als Föderationsproblem erkennbar und nicht nur als allgemeiner Login-Fehler sichtbar."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Monitoring",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 130,
+          "priority": 1
+        },
+        {
+          "id": 10,
+          "role": "Nutzer:in des SVA Studio",
+          "story": "Als Nutzer:in des SVA Studio möchte ich mein Passwort selbst zurücksetzen oder Fallback-Codes verwenden können, damit ich mich auch bei Zugangsproblemen wieder anmelden kann.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [],
+          "legacy": false,
+          "trigger": "Ein regulärer Login ist wegen vergessenem Passwort oder fehlendem zweiten Faktor nicht möglich.",
+          "preconditions": [
+            "Für den Zugang ist ein Self-Service- oder Recovery-Mechanismus vorgesehen."
+          ],
+          "acceptanceCriteria": [
+            "Ein Passwort-Reset kann ohne Admin-Eingriff im vorgesehenen Self-Service-Flow gestartet werden.",
+            "Fallback-Codes oder vergleichbare Recovery-Mechanismen sind für berechtigte Nutzer:innen nutzbar.",
+            "Der Recovery-Flow ist von normalen Login-Fehlern getrennt erkennbar und führt nicht in einen unklaren Sperrzustand."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Negativtest",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 131,
+          "priority": 1
+        },
+        {
+          "id": 11,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich Geräte- und Sitzungsinformationen zu Logins nachvollziehen können, damit ich auffällige oder missbräuchliche Zugriffe erkenne.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [
+            "IAM-P7"
+          ],
+          "legacy": false,
+          "trigger": "Ein Login oder eine Sitzung wird aufgebaut, fortgeführt oder beendet.",
+          "preconditions": [
+            "Geräte- oder Sitzungsinformationen werden im Authentifizierungsumfeld protokolliert."
+          ],
+          "acceptanceCriteria": [
+            "Login-Ereignisse können mit Geräte-, Sitzungs- oder vergleichbaren Kontextinformationen eingesehen werden.",
+            "Mehrere aktive Sitzungen oder auffällige Gerätewechsel sind für Betriebsrollen erkennbar.",
+            "Sicherheitsrelevante Sitzungen lassen sich einem konkreten Zugangsvorgang zuordnen."
+          ],
+          "evidence": [
+            "Monitoring",
+            "Audit-Log",
+            "Admin-UI"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 132,
+          "priority": 1
+        },
+        {
+          "id": 12,
+          "role": "Nutzer:in des SVA Studio",
+          "story": "Als Nutzer:in des SVA Studio möchte ich aktive Sitzungen beenden können, damit ich verlorene oder fremde Geräte schnell aussperre.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [
+            "IAM-P7"
+          ],
+          "legacy": false,
+          "trigger": "Ein Zugang soll auf einem anderen Gerät oder in einer anderen Sitzung beendet werden.",
+          "preconditions": [
+            "Die Berechtigung zur Einsicht oder Verwaltung aktiver Sitzungen ist für den eigenen Zugang vorhanden."
+          ],
+          "acceptanceCriteria": [
+            "Aktive Sitzungen oder vergleichbare Login-Kontexte sind für den eigenen Zugang einsehbar.",
+            "Eine ausgewählte Sitzung kann kontrolliert beendet werden.",
+            "Nach dem Beenden ist die Sitzung nicht weiter als aktiv nutzbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Negativtest",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 140,
+          "priority": 1
+        },
+        {
+          "id": 55,
+          "role": "Onboarding-Verantwortliche:r",
+          "story": "Als Onboarding-Verantwortliche:r möchte ich sehen, ob Nutzer aktiv sind, damit ich nachsteuern kann.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Login, Session-Start oder Aufruf eines geschuetzten Bereichs",
+          "preconditions": [
+            "Nutzer:in ist authentifiziert oder befindet sich im Login-Flow"
+          ],
+          "acceptanceCriteria": [
+            "Es ist sichtbar, ob ein Nutzer aktiv, deaktiviert oder anderweitig nicht nutzbar ist.",
+            "Der Aktivstatus ist in einer Nutzer- oder Accountansicht ohne Umweg einsehbar.",
+            "Die Sicht unterstuetzt gezielte Nachsteuerung im Onboarding oder Betrieb."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 48,
+          "priority": 4
+        },
+        {
+          "id": 56,
+          "role": "Onboarding-Verantwortliche:r",
+          "story": "Als Onboarding-Verantwortliche:r möchte ich Status von Accounts sehen, damit ich Fortschritte verfolge.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [
+            "IAM-P2"
+          ],
+          "legacy": true,
+          "trigger": "Login, Session-Start oder Aufruf eines geschuetzten Bereichs",
+          "preconditions": [
+            "Nutzer:in ist authentifiziert oder befindet sich im Login-Flow"
+          ],
+          "acceptanceCriteria": [
+            "Der Status eines Accounts ist in einer Uebersicht oder Detailansicht sichtbar.",
+            "Unterschiedliche Zustände wie eingeladen, aktiv, gesperrt oder fehlerhaft sind unterscheidbar.",
+            "Der Status eignet sich zur Verfolgung des Fortschritts je Zugang."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 50,
+          "priority": 4
+        },
+        {
+          "id": 57,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich meine Rechte auch mobil verstehen, damit ich unterwegs arbeiten kann.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Login, Session-Start oder Aufruf eines geschuetzten Bereichs",
+          "preconditions": [
+            "Nutzer:in ist authentifiziert oder befindet sich im Login-Flow"
+          ],
+          "acceptanceCriteria": [
+            "Rechtehinweise oder Berechtigungssichten sind auch in mobiler Darstellung lesbar.",
+            "Die mobile Ansicht verliert keine fuer die Rolle relevanten Berechtigungsinformationen.",
+            "Auch in mobiler Nutzung bleibt erkennbar, welche Aktionen erlaubt oder gesperrt sind."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 53,
+          "priority": 4
+        },
+        {
+          "id": 58,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich schnell erkennen, was ich tun darf, damit ich effizient arbeite.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Login, Session-Start oder Aufruf eines geschuetzten Bereichs",
+          "preconditions": [
+            "Nutzer:in ist authentifiziert oder befindet sich im Login-Flow"
+          ],
+          "acceptanceCriteria": [
+            "Die fuer die Rolle erlaubten Hauptaktionen sind in der Oberflaeche schnell erfassbar.",
+            "Erlaubte und nicht erlaubte Handlungsoptionen werden nicht verwechselt.",
+            "Die Sicht unterstuetzt effizientes Arbeiten ohne zusaetzliche Rechteerklaerung."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 81,
+          "priority": 4
+        },
+        {
+          "id": 59,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich nur relevante Aktionen sehen, damit ich nicht verwirrt bin.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Login, Session-Start oder Aufruf eines geschuetzten Bereichs",
+          "preconditions": [
+            "Nutzer:in ist authentifiziert oder befindet sich im Login-Flow"
+          ],
+          "acceptanceCriteria": [
+            "Nur fuer die Rolle sinnvolle Aktionen werden als regulaere Hauptaktionen angezeigt.",
+            "Nicht nutzbare Aktionen sind ausgeblendet oder klar als nicht verfuegbar gekennzeichnet.",
+            "Die reduzierte Aktionssicht vermeidet Fehlbedienung und Verwirrung."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 82,
+          "priority": 4
+        },
+        {
+          "id": 60,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich Zugriffsbeschränkungen verstehen, damit ich korrekt arbeite.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Login, Session-Start oder Aufruf eines geschuetzten Bereichs",
+          "preconditions": [
+            "Nutzer:in ist authentifiziert oder befindet sich im Login-Flow"
+          ],
+          "acceptanceCriteria": [
+            "Nicht erlaubte Aktionen werden mit einer fachlich verstaendlichen Rueckmeldung beantwortet.",
+            "Die Meldung benennt fehlendes Recht, fehlenden Kontext oder eine vergleichbare Ursache.",
+            "Die Fehlersituation fuehrt nicht zu einem teilweise ausgefuehrten Ergebnis."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 83,
+          "priority": 4
+        },
+        {
+          "id": 61,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich bei fehlenden Rechten einen klaren Hinweis erhalten, an wen ich mich wenden kann, damit ich schnell Unterstützung bekomme.",
+          "packageId": "IAM-P1",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Login, Session-Start oder Aufruf eines geschuetzten Bereichs",
+          "preconditions": [
+            "Nutzer:in ist authentifiziert oder befindet sich im Login-Flow"
+          ],
+          "acceptanceCriteria": [
+            "Bei fehlenden Rechten enthaelt die Rueckmeldung einen klaren Hinweis auf zustaendige Ansprechpartner oder naechste Schritte.",
+            "Die Hilfestellung ist fachlich verstaendlich und nicht nur technisch formuliert.",
+            "Die Meldung hilft dabei, Unterstuetzung ohne weitere Recherche zu finden."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Negativtest"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 126,
+          "priority": 4
+        }
+      ]
+    },
+    {
+      "id": "IAM-P4",
+      "title": "Rollen, Gruppen und effektive Rechte",
+      "goal": "Abgleich der Vergabe, Wiederverwendung, Simulation und Erklaerbarkeit von Berechtigungen.",
+      "storyCount": 40,
+      "stories": [
+        {
+          "id": 13,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Rollen vergeben können, damit ich Berechtigungen steuern kann.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Rollen oder Rechte koennen im vorgesehenen Kontext gepflegt werden.",
+            "Die Aenderung wird nach dem Speichern in der betroffenen Rechteansicht sichtbar.",
+            "Nicht erlaubte Vergaben werden verhindert."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 13,
+          "priority": 1
+        },
+        {
+          "id": 14,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Änderungen an Rollen sofort wirksam sehen, damit ich Kontrolle habe.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Nach einer Rollenänderung aktualisiert sich die wirksame Rechteansicht ohne manuellen Nebenprozess im Studio nachvollziehbar.",
+            "Die geänderte Wirkung ist an mindestens einem betroffenen Nutzer oder einer betroffenen Aktion sichtbar.",
+            "Ein veralteter Zwischenzustand bleibt fuer Admins nicht unerklaert bestehen."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Monitoring"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 19,
+          "priority": 1
+        },
+        {
+          "id": 15,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich nachvollziehen können, warum ein Nutzer Zugriff hat, damit ich Berechtigungen prüfen kann.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Fuer einen konkreten Nutzer ist einsehbar, warum ein Zugriff erlaubt ist.",
+            "Die Erklaerung unterscheidet direkte Rolle, Gruppe, Organisation oder Vererbung als Ursache.",
+            "Die Begründung ist so dargestellt, dass sie fuer Support oder Fachpruefung nutzbar ist."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 20,
+          "priority": 1
+        },
+        {
+          "id": 16,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich sehen, welche Rechte effektiv gelten, damit ich Klarheit habe.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Alle aktuell wirksamen Rechte eines Nutzers oder Kontexts werden gebuendelt angezeigt.",
+            "Die Ansicht trennt wirksame Rechte von nur konfigurierten, aber nicht greifenden Zuweisungen.",
+            "Die Darstellung ist fuer Rueckfragen und fachliche Pruefung unmittelbar nutzbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 59,
+          "priority": 1
+        },
+        {
+          "id": 17,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich sehen, aus welcher Quelle ein Recht stammt, damit ich direkte Zuweisungen, Gruppenrechte und Vererbungen unterscheiden kann.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Gruppen koennen angelegt, zugewiesen oder wiederverwendet werden.",
+            "Die Wirkung einer Gruppe auf effektive Rechte ist nachvollziehbar.",
+            "Die Herkunft eines Rechts aus Rolle, Gruppe, Organisation oder Vererbung ist erkennbar.",
+            "Die Darstellung ist fuer Fachanwender:innen ohne technische Detailanalyse nutzbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 93,
+          "priority": 1
+        },
+        {
+          "id": 20,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Gruppen erstellen können, damit ich Berechtigungen bündeln kann.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Eine neue Gruppe kann mit Name und fachlichem Zweck angelegt werden.",
+            "Gruppenmitglieder oder nachgelagerte Berechtigungen koennen der Gruppe zugeordnet werden.",
+            "Die neu angelegte Gruppe ist anschliessend in Zuweisungs- oder Rechteansichten verfuegbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 14,
+          "priority": 2
+        },
+        {
+          "id": 21,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Berechtigungen simulieren, damit ich Fehler vermeide.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Eine Rechte-Simulation kann vor dem Speichern einer Aenderung aufgerufen werden.",
+            "Die Simulation zeigt mindestens zusaetzliche, entfallende oder geaenderte Rechtewirkungen an.",
+            "Die Simulation veraendert den Ist-Zustand nicht stillschweigend."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log",
+            "Vergleich Ist/Soll"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 58,
+          "priority": 2
+        },
+        {
+          "id": 22,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich vor der Aktivierung einer Rolle prüfen können, welche effektiven Rechte sie erzeugt, damit ich keine zu weitreichenden Berechtigungen vergebe.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Vor der Aktivierung einer Rolle ist eine Vorschau der erwarteten Rechtewirkung verfuegbar.",
+            "Die Vorschau macht sichtbar, welche Aktionen, Bereiche oder Daten durch die Rolle freigegeben werden.",
+            "Eine Rolle kann vor der Produktivnutzung auf uebermaessige Berechtigungen geprueft werden."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 92,
+          "priority": 2
+        },
+        {
+          "id": 23,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich für einen Nutzer alle effektiven Rechte gebündelt einsehen können, damit ich Support-Anfragen schnell beantworten kann.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Fuer einen ausgewaehlten Nutzer gibt es eine gebuendelte Gesamtsicht aller effektiven Rechte.",
+            "Die Gesamtsicht umfasst direkte, indirekte und vererbte Wirksamkeiten.",
+            "Die Ansicht ist ausreichend konkret, um Support-Anfragen ohne Datenbankanalyse zu beantworten."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 94,
+          "priority": 2
+        },
+        {
+          "id": 24,
+          "role": "Support-Verantwortliche:r",
+          "story": "Als Support-Verantwortliche:r möchte ich für eine konkrete Aktion prüfen können, ob sie für einen Nutzer erlaubt ist, damit ich Rechteprobleme schnell erklären kann.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [
+            "IAM-P7"
+          ],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Eine konkrete Aktion kann fuer einen konkreten Nutzer gezielt geprueft werden.",
+            "Die Auskunft liefert ein klares erlaubt oder nicht erlaubt fuer den gewaehlten Kontext.",
+            "Die Pruefung ist fuer Support ohne technische Tiefenanalyse nutzbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 120,
+          "priority": 2
+        },
+        {
+          "id": 25,
+          "role": "Support-Verantwortliche:r",
+          "story": "Als Support-Verantwortliche:r möchte ich zu einer Berechtigungsentscheidung auch die Begründung sehen, damit ich Anwendern verständlich helfen kann.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [
+            "IAM-P7"
+          ],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Zu einer Berechtigungsentscheidung wird eine fachlich lesbare Begruendung angezeigt.",
+            "Die Begruendung verweist auf Rolle, Gruppe, Organisation oder Vererbung als Ursache.",
+            "Die Erklaerung reicht aus, um Anwender:innen den Fall nachvollziehbar zu erklaeren."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 121,
+          "priority": 2
+        },
+        {
+          "id": 26,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich testen können, welche Rechte ein Nutzer nach einer geplanten Rollenänderung hätte, damit ich Änderungen vorab absichern kann.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Eine geplante Rollenänderung kann fuer einen konkreten Nutzer vorab getestet werden.",
+            "Die Vorschau zeigt die Rechtewirkung nach der geplanten Aenderung im Vergleich zum aktuellen Zustand.",
+            "Der Testfall bleibt folgenlos, bis die Aenderung explizit bestaetigt wird."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log",
+            "Vergleich Ist/Soll"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 123,
+          "priority": 2
+        },
+        {
+          "id": 27,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Rechteänderungen als Antrag einreichen können, damit kritische Änderungen nicht direkt ungeprüft wirksam werden.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [
+            "IAM-P7"
+          ],
+          "legacy": false,
+          "trigger": "Eine berechtigungsrelevante Änderung soll vorbereitet, aber noch nicht final aktiviert werden.",
+          "preconditions": [
+            "Das Rechtemodell unterstützt antragsbasierte Änderungen."
+          ],
+          "acceptanceCriteria": [
+            "Eine Rechteänderung kann als Antrag statt als Sofortänderung erfasst werden.",
+            "Der Antrag ist einem konkreten Nutzer, einer Rolle oder einer Gruppe zuordenbar.",
+            "Der Antragsstatus bleibt bis zur Entscheidung nachvollziehbar."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Audit-Log",
+            "Vergleich Ist/Soll"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 133,
+          "priority": 2
+        },
+        {
+          "id": 28,
+          "role": "Fachbereichsleiter:in",
+          "story": "Als Fachbereichsleiter:in möchte ich Rechteanträge im Vier-Augen-Prinzip freigeben oder ablehnen können, damit kritische Zugriffe kontrolliert genehmigt werden.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [
+            "IAM-P7"
+          ],
+          "legacy": false,
+          "trigger": "Ein Rechteantrag liegt zur Entscheidung vor.",
+          "preconditions": [
+            "Die entscheidende Rolle ist nicht identisch mit der antragstellenden Rolle, sofern Vier-Augen-Prinzip gefordert ist."
+          ],
+          "acceptanceCriteria": [
+            "Ein offener Rechteantrag kann explizit freigegeben oder abgelehnt werden.",
+            "Der Entscheidungsweg ist einschließlich entscheidender Person nachvollziehbar.",
+            "Vor einer Freigabe wird die beantragte Rechtewirkung fachlich erkennbar gemacht."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Audit-Log",
+            "Vergleich Ist/Soll"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 134,
+          "priority": 2
+        },
+        {
+          "id": 29,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich temporäre Vertretungen mit Start- und Endzeit vergeben können, damit Ausfälle kontrolliert überbrückt werden.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [
+            "IAM-P2",
+            "IAM-P7"
+          ],
+          "legacy": false,
+          "trigger": "Eine Person benötigt zeitlich befristet die Rechte einer anderen Rolle oder Funktion.",
+          "preconditions": [
+            "Das IAM-Modell unterstützt zeitlich begrenzte Delegation oder Vertretung."
+          ],
+          "acceptanceCriteria": [
+            "Eine Delegation kann mit Gültigkeitsbeginn und Gültigkeitsende angelegt werden.",
+            "Die delegierte Berechtigung ist als befristet erkennbar und nicht mit einer dauerhaften Rollenvergabe verwechselt.",
+            "Nach Ablauf der Gültigkeit entfällt die zusätzliche Berechtigung ohne manuelle Nacharbeit."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 135,
+          "priority": 2
+        },
+        {
+          "id": 30,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich vor der Vergabe erkennen, ob sich beantragte Rechte mit bestehenden Rollen fachlich widersprechen, damit Konfliktkombinationen vermieden werden.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [
+            "IAM-P7"
+          ],
+          "legacy": false,
+          "trigger": "Eine neue Rollen- oder Rechtekombination soll vergeben oder beantragt werden.",
+          "preconditions": [
+            "Für kritische Rollen oder Rechte können Konfliktregeln definiert werden."
+          ],
+          "acceptanceCriteria": [
+            "Potenzielle Konflikte zwischen bestehenden und neuen Rechten werden vor der Aktivierung angezeigt.",
+            "Die Konfliktanzeige ist einem konkreten Nutzer und einer konkreten Rollenkombination zuordenbar.",
+            "Konfliktfälle können nicht stillschweigend als normale Vergabe durchlaufen."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Vergleich Ist/Soll",
+            "Negativtest"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 141,
+          "priority": 2
+        },
+        {
+          "id": 36,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich Servicekonten oder technische Clients mit begrenzten Rechten verwalten können, damit nicht-menschliche Zugriffe kontrolliert und nachvollziehbar bleiben.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [
+            "IAM-P7"
+          ],
+          "legacy": false,
+          "trigger": "Ein technischer Zugriff auf APIs oder Systemfunktionen wird für eine Integration benötigt.",
+          "preconditions": [
+            "Das IAM-Modell erlaubt die Verwaltung technischer Identitäten."
+          ],
+          "acceptanceCriteria": [
+            "Servicekonten oder technische Clients sind von menschlichen Nutzerkonten unterscheidbar.",
+            "Technische Identitäten können mit begrenzten Rollen oder Berechtigungen ausgestattet werden.",
+            "Die Berechtigungswirkung technischer Identitäten ist für Betrieb und Audit nachvollziehbar."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Audit-Log",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 137,
+          "priority": 3
+        },
+        {
+          "id": 62,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich sehen, ob ich Inhalte nur lesen oder auch bearbeiten darf, damit ich meine Rechte kenne.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Fuer einen Inhalt ist eindeutig erkennbar, ob nur Leserechte oder auch Bearbeitungsrechte bestehen.",
+            "Die Anzeige unterscheidet mindestens zwischen lesen, bearbeiten und nicht erlaubt.",
+            "Nicht verfuegbare Bearbeitungsaktionen werden nicht irrefuehrend als ausfuehrbar dargestellt."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 5,
+          "priority": 4
+        },
+        {
+          "id": 63,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich meine Rollen einsehen können, damit ich meine Zuständigkeiten verstehe.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Die dem eigenen Zugang zugeordneten Rollen sind in einer einsehbaren Ansicht aufgefuehrt.",
+            "Jede Rolle ist mindestens einem Mandanten, Bereich oder Organisationskontext zuordenbar.",
+            "Die Rollenansicht ist fuer die Nutzer:in ohne Adminwissen interpretierbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 9,
+          "priority": 4
+        },
+        {
+          "id": 64,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich sehen, welche Rechte ich über Gruppen erhalte, damit ich meine Berechtigungen nachvollziehen kann.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Gruppen koennen angelegt, zugewiesen oder wiederverwendet werden.",
+            "Die Wirkung einer Gruppe auf effektive Rechte ist nachvollziehbar.",
+            "Die Herkunft eines Rechts aus Rolle, Gruppe, Organisation oder Vererbung ist erkennbar.",
+            "Die Darstellung ist fuer Fachanwender:innen ohne technische Detailanalyse nutzbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 10,
+          "priority": 4
+        },
+        {
+          "id": 65,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Rollen vererben können, damit ich weniger manuell pflegen muss.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Eine Rolle kann so konfiguriert werden, dass ihre Wirkung an nachgelagerte Einheiten weitergegeben wird.",
+            "Die Vererbungsrichtung und der betroffene Bereich sind in der Oberflaeche sichtbar.",
+            "In der Rechteansicht ist erkennbar, dass ein Recht durch Vererbung und nicht direkt entstanden ist."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 18,
+          "priority": 4
+        },
+        {
+          "id": 66,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich Systemrollen definieren, damit ich Standardprozesse etablieren kann.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Systemrollen koennen in einem zentralen Administrationsbereich angelegt oder gepflegt werden.",
+            "Systemrollen sind von mandanten- oder organisationsspezifischen Rollen unterscheidbar.",
+            "Die Wirkung einer Systemrolle ist vor oder nach Aktivierung in einer Rechteansicht pruefbar."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 24,
+          "priority": 4
+        },
+        {
+          "id": 67,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich Änderungen an Rollen sofort invalidieren, damit falsche Rechte vermieden werden.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [
+            "IAM-P7"
+          ],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Nach einer berechtigungsrelevanten Aenderung wird eine bisherige Rechtewirkung zeitnah aufgehoben.",
+            "Veraltete Rechteentscheidungen bleiben fuer Admins oder Betrieb nicht unbemerkt bestehen.",
+            "Die Wirksamkeit der Invalidierung ist an einer konkreten Aktion oder Nutzeransicht pruefbar."
+          ],
+          "evidence": [
+            "Monitoring",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 28,
+          "priority": 4
+        },
+        {
+          "id": 68,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich zentrale Autorisierungsentscheidungen einsehen, damit ich Debugging betreiben kann.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [
+            "IAM-P7"
+          ],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Zentrale Autorisierungsentscheidungen sind fuer berechtigte Betriebsrollen einsehbar.",
+            "Eine Entscheidung kann einem konkreten Nutzer, Kontext und einer Aktion zugeordnet werden.",
+            "Erlaubt- oder Verboten-Entscheidungen enthalten eine fachlich nachvollziehbare Begruendung."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Audit-Log",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 29,
+          "priority": 4
+        },
+        {
+          "id": 69,
+          "role": "Fachbereichsleiter:in",
+          "story": "Als Fachbereichsleiter:in möchte ich Rollen innerhalb meines Bereichs vergeben, damit Arbeitsabläufe funktionieren.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Rollen koennen innerhalb des fachlich zustaendigen Bereichs vergeben werden.",
+            "Die Vergabe ist auf den eigenen Bereich begrenzt und erlaubt keine unzulaessige Ausweitung.",
+            "Die neue Rolle wirkt anschliessend im Bereich sichtbar auf Daten oder Aktionen."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 42,
+          "priority": 4
+        },
+        {
+          "id": 70,
+          "role": "Fachbereichsleiter:in",
+          "story": "Als Fachbereichsleiter:in möchte ich Berechtigungen delegieren können, damit ich entlastet werde.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Berechtigungen koennen zeitweise oder kontrolliert an andere Personen weitergegeben werden, soweit das Modell dies vorsieht.",
+            "Die delegierte Berechtigung ist als delegiert und nicht als urspruengliche Rolle erkennbar.",
+            "Beginn, Ende oder Entzug der Delegation sind nachvollziehbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 45,
+          "priority": 4
+        },
+        {
+          "id": 71,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Rollen zentral ändern können, damit ich effizient arbeite.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Rollen oder Rechte koennen im vorgesehenen Kontext gepflegt werden.",
+            "Die Aenderung wird nach dem Speichern in der betroffenen Rechteansicht sichtbar.",
+            "Nicht erlaubte Vergaben werden verhindert."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 56,
+          "priority": 4
+        },
+        {
+          "id": 72,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Gruppen wiederverwenden, damit ich Zeit spare.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Bestehende Gruppen koennen bei neuen Zuweisungen wiederverwendet werden, ohne sie erneut anzulegen.",
+            "Die Auswahl vorhandener Gruppen ist im relevanten Vergabeflow verfuegbar.",
+            "Die Wiederverwendung fuehrt zu derselben nachvollziehbaren Rechtewirkung wie bei der Erstzuweisung."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 57,
+          "priority": 4
+        },
+        {
+          "id": 73,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Änderungen dokumentieren, damit ich nachvollziehbar bleibe.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Aenderungen an Rollen, Gruppen oder Zuweisungen erzeugen einen nachvollziehbaren Historieneintrag.",
+            "Der Eintrag enthaelt mindestens Zeit, Akteur und betroffene Aenderung.",
+            "Die Dokumentation bleibt auch nach spaeteren Folgeaenderungen abrufbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 60,
+          "priority": 4
+        },
+        {
+          "id": 74,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich Berechtigungsregeln zentral definieren, damit Konsistenz besteht.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Berechtigungsregeln koennen an zentraler Stelle gepflegt oder eingesehen werden.",
+            "Mehrere Module oder Bereiche greifen auf dieselbe nachvollziehbare Regelbasis zu.",
+            "Abweichende Sonderlogik ist fuer Betriebsrollen erkennbar und nicht verborgen."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 63,
+          "priority": 4
+        },
+        {
+          "id": 75,
+          "role": "Fachbereichsleiter:in",
+          "story": "Als Fachbereichsleiter:in möchte ich Rechte einschränken können, damit Qualität gesichert bleibt.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Vorhandene Rechte koennen innerhalb des zustaendigen Bereichs reduziert oder entzogen werden.",
+            "Die Einschraenkung wirkt sich sichtbar auf verfuegbare Aktionen oder Daten aus.",
+            "Unzulaessig weitgehende Rechte koennen damit kontrolliert begrenzt werden."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 73,
+          "priority": 4
+        },
+        {
+          "id": 76,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich globale vs. lokale Rechte unterscheiden, damit ich sauber konfiguriere.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Globale und lokale Rechte sind in der Rechteansicht klar voneinander unterscheidbar.",
+            "Fuer jedes Recht ist erkennbar, ob es mandantenuebergreifend oder nur lokal wirkt.",
+            "Die Unterscheidung verhindert Fehlkonfigurationen bei der Rollenpflege."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 86,
+          "priority": 4
+        },
+        {
+          "id": 77,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Rechte granular vergeben, damit ich Sicherheit erhöhe.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Rollen oder Rechte koennen im vorgesehenen Kontext gepflegt werden.",
+            "Die Aenderung wird nach dem Speichern in der betroffenen Rechteansicht sichtbar.",
+            "Nicht erlaubte Vergaben werden verhindert."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 87,
+          "priority": 4
+        },
+        {
+          "id": 78,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Änderungen versionieren, damit ich nachvollziehen kann, was passiert ist.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Aenderungen an Rollen oder Rechtestrukturen lassen sich in einer Versions- oder Historienlogik nachvollziehen.",
+            "Es ist erkennbar, welche Fassung vor und nach einer Aenderung galt.",
+            "Die Versionierung ist fuer fachliche Pruefung nutzbar und nicht nur technisch vorhanden."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 88,
+          "priority": 4
+        },
+        {
+          "id": 79,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich eigene mandantenspezifische Rollen anlegen können, damit ich unsere internen Zuständigkeiten passend abbilden kann.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Eine neue Rolle kann mandantenspezifisch angelegt werden, ohne globale Rollen zu veraendern.",
+            "Die Rolle ist eindeutig dem zustaendigen Mandanten zugeordnet.",
+            "Die resultierende Rechtewirkung ist vor oder nach dem Einsatz pruefbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log",
+            "Kontextwechsel"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 90,
+          "priority": 4
+        },
+        {
+          "id": 80,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich bestehende Rollen kopieren und anpassen können, damit ich neue Rollen schneller erstellen kann.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Eine bestehende Rolle kann als Vorlage kopiert werden.",
+            "Die kopierte Rolle laesst sich anpassen, ohne die Ursprungsrolle mitzuveraendern.",
+            "Unterschiede zwischen Vorlage und neuer Rolle sind vor der Nutzung nachvollziehbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 91,
+          "priority": 4
+        },
+        {
+          "id": 81,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Gruppen für Redaktionsteams, Standorte oder Fachbereiche anlegen können, damit ich Berechtigungen gesammelt verwalten kann.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Gruppen koennen fachlich passend fuer Teams, Standorte oder Fachbereiche angelegt werden.",
+            "Die Gruppe ist einem klaren organisatorischen Zweck zugeordnet und spaeter wiederauffindbar.",
+            "Die Gruppenstruktur laesst sich fuer gesammelte Rechteverwaltung im Studio nutzen."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 98,
+          "priority": 4
+        },
+        {
+          "id": 82,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich sehen, welche Gruppen einem Nutzer indirekt Zugriff geben, damit ich Berechtigungen vollständig nachvollziehen kann.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Fuer einen Nutzer ist sichtbar, welche Gruppen indirekt zu einer Rechtewirkung beitragen.",
+            "Die Darstellung trennt direkte Gruppenzugehoerigkeiten von daraus resultierenden Rechten.",
+            "Die indirekte Wirkung ist fuer fachliche Pruefung nachvollziehbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 99,
+          "priority": 4
+        },
+        {
+          "id": 83,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich erkennen können, ob meine Bearbeitungsrechte aus meiner Rolle, meiner Organisation oder einer Gruppenmitgliedschaft stammen, damit ich meine Zuständigkeit besser verstehe.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Gruppen koennen angelegt, zugewiesen oder wiederverwendet werden.",
+            "Die Wirkung einer Gruppe auf effektive Rechte ist nachvollziehbar.",
+            "Die Herkunft eines Rechts aus Rolle, Gruppe, Organisation oder Vererbung ist erkennbar.",
+            "Die Darstellung ist fuer Fachanwender:innen ohne technische Detailanalyse nutzbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 125,
+          "priority": 4
+        },
+        {
+          "id": 84,
+          "role": "Fachbereichsleiter:in",
+          "story": "Als Fachbereichsleiter:in möchte ich sehen, welche Rechte in meinem Bereich vererbt weitergegeben werden, damit ich unbeabsichtigte Zugriffe vermeiden kann.",
+          "packageId": "IAM-P4",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Vergabe, Aenderung, Simulation oder Analyse einer Berechtigung",
+          "preconditions": [
+            "Rollen- und Gruppenmodell ist im Studio verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Vererbte Rechte im eigenen Bereich sind in einer Bereichs- oder Rechteansicht sichtbar.",
+            "Die Darstellung zeigt, wohin Rechte weitergegeben werden und wo sie herkommen.",
+            "Unbeabsichtigte Weitergaben lassen sich dadurch fachlich erkennen."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 127,
+          "priority": 4
+        }
+      ]
+    },
+    {
+      "id": "IAM-P2",
+      "title": "Onboarding und Einladung",
+      "goal": "Abgleich des Wegs von Einladung bis arbeitsfaehigem Fachkonto inklusive Statussicht, Synchronisation und Offboarding.",
+      "storyCount": 17,
+      "stories": [
+        {
+          "id": 18,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich neue Nutzer anlegen können, damit ich mein Team verwalten kann.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Anlage, Einladung, Aktivierung, Synchronisation oder Deaktivierung eines Accounts",
+          "preconditions": [
+            "Die bearbeitende Rolle besitzt die noetigen IAM-Adminrechte"
+          ],
+          "acceptanceCriteria": [
+            "Ein neuer Nutzerzugang kann im Studio angelegt werden.",
+            "Der Zugang ist einer Organisation oder einem fachlichen Kontext zuordenbar.",
+            "Nach dem Anlegen ist der neue Nutzer in der Verwaltungsansicht auffindbar."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 11,
+          "priority": 1
+        },
+        {
+          "id": 31,
+          "role": "Onboarding-Verantwortliche:r",
+          "story": "Als Onboarding-Verantwortliche:r möchte ich Standardrollen zuweisen, damit Prozesse einheitlich sind.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Anlage, Einladung, Aktivierung, Synchronisation oder Deaktivierung eines Accounts",
+          "preconditions": [
+            "Die bearbeitende Rolle besitzt die noetigen IAM-Adminrechte"
+          ],
+          "acceptanceCriteria": [
+            "Standardrollen koennen waehrend des Onboardings ausgewaehlt und zugewiesen werden.",
+            "Die zugewiesenen Rollen sind vor Abschluss des Onboardings sichtbar.",
+            "Dasselbe Setup kann fuer gleichartige Faelle wiederholt verwendet werden."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 47,
+          "priority": 2
+        },
+        {
+          "id": 32,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Nutzer deaktivieren können, damit ehemalige Mitarbeitende sofort keinen Zugriff mehr haben.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Anlage, Einladung, Aktivierung, Synchronisation oder Deaktivierung eines Accounts",
+          "preconditions": [
+            "Die bearbeitende Rolle besitzt die noetigen IAM-Adminrechte"
+          ],
+          "acceptanceCriteria": [
+            "Ein Nutzerzugang kann kontrolliert deaktiviert werden.",
+            "Nach der Deaktivierung ist der Zugang nicht mehr als aktiv nutzbar.",
+            "Die Deaktivierung ist in Status oder Historie nachvollziehbar."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Audit-Log",
+            "Negativtest"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 100,
+          "priority": 2
+        },
+        {
+          "id": 33,
+          "role": "Onboarding-Verantwortliche:r",
+          "story": "Als Onboarding-Verantwortliche:r möchte ich den genauen Onboarding-Status eines Accounts sehen, damit ich erkenne, ob ein Nutzer eingeladen, registriert, synchronisiert oder freigeschaltet ist.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Anlage, Einladung, Aktivierung, Synchronisation oder Deaktivierung eines Accounts",
+          "preconditions": [
+            "Die bearbeitende Rolle besitzt die noetigen IAM-Adminrechte"
+          ],
+          "acceptanceCriteria": [
+            "Der genaue Onboarding-Status eines Accounts ist einsehbar.",
+            "Zwischen eingeladen, registriert, synchronisiert und freigeschaltet kann unterschieden werden.",
+            "Der Status erlaubt eine gezielte Einordnung des aktuellen Prozessstands."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 103,
+          "priority": 2
+        },
+        {
+          "id": 34,
+          "role": "Onboarding-Verantwortliche:r",
+          "story": "Als Onboarding-Verantwortliche:r möchte ich Synchronisationsfehler zwischen Login und Fachkonto sehen, damit neue Nutzer nicht im Einrichtungsprozess stecken bleiben.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Anlage, Einladung, Aktivierung, Synchronisation oder Deaktivierung eines Accounts",
+          "preconditions": [
+            "Die bearbeitende Rolle besitzt die noetigen IAM-Adminrechte"
+          ],
+          "acceptanceCriteria": [
+            "Synchronisationsfehler zwischen technischem Login und Fachkonto sind sichtbar.",
+            "Der Fehler ist einem konkreten Zugang zuordenbar.",
+            "Die Anzeige macht erkennbar, warum der Einrichtungsprozess nicht weitergeht."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Negativtest"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 105,
+          "priority": 2
+        },
+        {
+          "id": 35,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich sehen, ob ein technischer Login korrekt mit einem fachlichen Account verknüpft wurde, damit Zugänge vollständig funktionieren.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Anlage, Einladung, Aktivierung, Synchronisation oder Deaktivierung eines Accounts",
+          "preconditions": [
+            "Die bearbeitende Rolle besitzt die noetigen IAM-Adminrechte"
+          ],
+          "acceptanceCriteria": [
+            "Technischer Login und fachlicher Account koennen als verknuepft oder fehlerhaft verknuepft eingesehen werden.",
+            "Eine fehlerhafte Verknuepfung ist in der Verwaltungsansicht erkennbar.",
+            "Die Sicht unterstuetzt die Behebung unvollstaendig funktionierender Zugaenge."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Negativtest"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 106,
+          "priority": 2
+        },
+        {
+          "id": 85,
+          "role": "Onboarding-Verantwortliche:r",
+          "story": "Als Onboarding-Verantwortliche:r möchte ich neue Nutzer einfach einrichten, damit sie schnell starten können.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Anlage, Einladung, Aktivierung, Synchronisation oder Deaktivierung eines Accounts",
+          "preconditions": [
+            "Die bearbeitende Rolle besitzt die noetigen IAM-Adminrechte"
+          ],
+          "acceptanceCriteria": [
+            "Ein neuer Zugang kann mit den noetigen Stammdaten und Zuweisungen eingerichtet werden.",
+            "Der Einrichtungsstand ist nach dem Start des Prozesses sichtbar.",
+            "Der Flow ist so gestaltet, dass neue Nutzer schnell arbeitsfaehig werden koennen."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 46,
+          "priority": 4
+        },
+        {
+          "id": 86,
+          "role": "Onboarding-Verantwortliche:r",
+          "story": "Als Onboarding-Verantwortliche:r möchte ich Einladungen verwalten, damit Nutzer Zugang erhalten.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Anlage, Einladung, Aktivierung, Synchronisation oder Deaktivierung eines Accounts",
+          "preconditions": [
+            "Die bearbeitende Rolle besitzt die noetigen IAM-Adminrechte"
+          ],
+          "acceptanceCriteria": [
+            "Einladungen koennen erstellt, eingesehen und im Status verfolgt werden.",
+            "Es ist sichtbar, ob eine Einladung offen, angenommen oder ungueltig ist.",
+            "Die Einladung bleibt einem konkreten Nutzer oder Zugang zuordenbar."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 49,
+          "priority": 4
+        },
+        {
+          "id": 87,
+          "role": "Onboarding-Verantwortliche:r",
+          "story": "Als Onboarding-Verantwortliche:r möchte ich Vorlagen für Rollen nutzen, damit ich schneller arbeiten kann.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Anlage, Einladung, Aktivierung, Synchronisation oder Deaktivierung eines Accounts",
+          "preconditions": [
+            "Die bearbeitende Rolle besitzt die noetigen IAM-Adminrechte"
+          ],
+          "acceptanceCriteria": [
+            "Rollenvorlagen oder aehnliche Standards koennen im Onboarding verwendet werden.",
+            "Die gewaehlte Vorlage ist vor Abschluss des Flows sichtbar.",
+            "Die Nutzung von Vorlagen beschleunigt wiederkehrende Einrichtungsprozesse."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 76,
+          "priority": 4
+        },
+        {
+          "id": 88,
+          "role": "Onboarding-Verantwortliche:r",
+          "story": "Als Onboarding-Verantwortliche:r möchte ich Schulungsstände sehen, damit ich Unterstützung anbieten kann.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Anlage, Einladung, Aktivierung, Synchronisation oder Deaktivierung eines Accounts",
+          "preconditions": [
+            "Die bearbeitende Rolle besitzt die noetigen IAM-Adminrechte"
+          ],
+          "acceptanceCriteria": [
+            "Schulungsstaende koennen fuer relevante Nutzer eingesehen werden.",
+            "Es ist erkennbar, ob notwendige Schulungsschritte offen oder abgeschlossen sind.",
+            "Die Sicht unterstuetzt gezielte Unterstuetzung im Onboarding."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 77,
+          "priority": 4
+        },
+        {
+          "id": 89,
+          "role": "Onboarding-Verantwortliche:r",
+          "story": "Als Onboarding-Verantwortliche:r möchte ich Fehler bei Accounts erkennen, damit ich sie beheben kann.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Anlage, Einladung, Aktivierung, Synchronisation oder Deaktivierung eines Accounts",
+          "preconditions": [
+            "Die bearbeitende Rolle besitzt die noetigen IAM-Adminrechte"
+          ],
+          "acceptanceCriteria": [
+            "Fehlerhafte Accounts oder Einrichtungsprobleme sind in der Verwaltungsansicht erkennbar.",
+            "Die Fehleranzeige ist einem konkreten Nutzer oder Schritt zuordenbar.",
+            "Die Sicht unterstuetzt eine gezielte Fehlerbehebung."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Negativtest"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 78,
+          "priority": 4
+        },
+        {
+          "id": 90,
+          "role": "Onboarding-Verantwortliche:r",
+          "story": "Als Onboarding-Verantwortliche:r möchte ich Zugriffe testen, damit ich Qualität sichere.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Anlage, Einladung, Aktivierung, Synchronisation oder Deaktivierung eines Accounts",
+          "preconditions": [
+            "Die bearbeitende Rolle besitzt die noetigen IAM-Adminrechte"
+          ],
+          "acceptanceCriteria": [
+            "Vor Freigabe eines Zugangs kann geprueft werden, ob die erwarteten Zugriffe funktionieren.",
+            "Das Pruefergebnis zeigt, ob Rollen und Kontexte wie erwartet greifen.",
+            "Die Pruefung veraendert die eigentliche Konfiguration nicht unbeabsichtigt."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Vergleich Ist/Soll"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 79,
+          "priority": 4
+        },
+        {
+          "id": 91,
+          "role": "Onboarding-Verantwortliche:r",
+          "story": "Als Onboarding-Verantwortliche:r möchte ich Feedback sammeln, damit ich Prozesse verbessern kann.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Anlage, Einladung, Aktivierung, Synchronisation oder Deaktivierung eines Accounts",
+          "preconditions": [
+            "Die bearbeitende Rolle besitzt die noetigen IAM-Adminrechte"
+          ],
+          "acceptanceCriteria": [
+            "Rueckmeldungen zum Onboarding koennen dokumentiert oder erfasst werden.",
+            "Die Rueckmeldung bleibt einem konkreten Schritt, Fall oder Nutzer zuordenbar.",
+            "Die Erfassung unterstuetzt die Verbesserung des Prozesses."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 80,
+          "priority": 4
+        },
+        {
+          "id": 92,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Verantwortlichkeiten beim Ausscheiden eines Nutzers an andere Personen übergeben können, damit keine verwaisten Zuständigkeiten entstehen.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Anlage, Einladung, Aktivierung, Synchronisation oder Deaktivierung eines Accounts",
+          "preconditions": [
+            "Die bearbeitende Rolle besitzt die noetigen IAM-Adminrechte"
+          ],
+          "acceptanceCriteria": [
+            "Beim Ausscheiden eines Nutzers koennen offene Verantwortlichkeiten auf andere Personen uebertragen werden.",
+            "Nicht uebergebene Verantwortlichkeiten sind vor Abschluss des Prozesses sichtbar.",
+            "Die Uebergabe verhindert verwaiste fachliche Zustaendigkeiten."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 101,
+          "priority": 4
+        },
+        {
+          "id": 93,
+          "role": "Onboarding-Verantwortliche:r",
+          "story": "Als Onboarding-Verantwortliche:r möchte ich erkennen, an welchem Schritt ein Onboarding hängen bleibt, damit ich gezielt helfen kann.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Anlage, Einladung, Aktivierung, Synchronisation oder Deaktivierung eines Accounts",
+          "preconditions": [
+            "Die bearbeitende Rolle besitzt die noetigen IAM-Adminrechte"
+          ],
+          "acceptanceCriteria": [
+            "Es ist sichtbar, an welchem konkreten Schritt ein Onboarding haengt.",
+            "Der haengende Schritt ist einem Nutzer oder Prozessfall eindeutig zuordenbar.",
+            "Die Sicht ermoeglicht zielgerichtete Unterstuetzung statt allgemeiner Fehlersuche."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Negativtest"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 104,
+          "priority": 4
+        },
+        {
+          "id": 94,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Einladungs- und Beitrittsanträge für Organisationen steuern können, damit Zugänge nur kontrolliert in den richtigen Kontext gelangen.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [
+            "IAM-P3"
+          ],
+          "legacy": false,
+          "trigger": "Eine Person soll einer Organisation per Einladung oder Antrag beitreten.",
+          "preconditions": [
+            "Die Organisation ist im IAM-Modell vorhanden und kann Zugänge aufnehmen."
+          ],
+          "acceptanceCriteria": [
+            "Einladungs- und Beitrittsfälle sind als unterschiedliche Einstiegspfade erkennbar.",
+            "Ein Antrag oder eine Einladung ist einer konkreten Organisation zuordenbar.",
+            "Annahme, Ablehnung oder Offenstand des Beitritts bleiben im Studio nachvollziehbar."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "UI-Demo",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 138,
+          "priority": 4
+        },
+        {
+          "id": 95,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich inaktive oder ausgeschiedene Zugänge automatisiert sperren und vollständig offboarden können, damit keine Restberechtigungen oder aktiven Tokens verbleiben.",
+          "packageId": "IAM-P2",
+          "relatedPackageIds": [
+            "IAM-P7"
+          ],
+          "legacy": false,
+          "trigger": "Ein Zugang wird inaktiv, scheidet aus oder überschreitet eine definierte Frist.",
+          "preconditions": [
+            "Für den Zugang existieren fachliche Berechtigungen oder aktive technische Zugriffskontexte."
+          ],
+          "acceptanceCriteria": [
+            "Ein inaktiver oder ausgeschiedener Zugang kann automatisiert oder regelbasiert gesperrt werden.",
+            "Mit dem Offboarding werden Rollen, Tokens, Gerätebindungen oder vergleichbare Zugriffskontexte entzogen.",
+            "Das Offboarding-Ergebnis ist in Status oder Historie nachvollziehbar."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Audit-Log",
+            "Negativtest"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 139,
+          "priority": 4
+        }
+      ]
+    },
+    {
+      "id": "IAM-P5",
+      "title": "Mandantenkontext und Isolation",
+      "goal": "Abgleich der sichtbaren und technischen Trennung von Mandanten sowie des bewussten Umgangs mit globalen Rechten.",
+      "storyCount": 5,
+      "stories": [
+        {
+          "id": 37,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich Mandanten trennen können, damit Daten isoliert bleiben.",
+          "packageId": "IAM-P5",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Arbeiten im mandantenfaehigen Studio oder Wechsel des Mandantenkontexts",
+          "preconditions": [
+            "Mandantenfaehigkeit ist fuer den Testfall aktiviert"
+          ],
+          "acceptanceCriteria": [
+            "Mandanten sind fachlich und technisch voneinander getrennt sichtbar.",
+            "Daten eines Mandanten erscheinen nicht unbeabsichtigt in einem anderen Mandanten.",
+            "Die Trennung ist ueber Listen, Details oder Testfaelle im Studio nachvollziehbar."
+          ],
+          "evidence": [
+            "Rollen-Test",
+            "Negativtest",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 25,
+          "priority": 3
+        },
+        {
+          "id": 38,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich Mandanten konfigurieren, damit mehrere Kommunen parallel arbeiten können.",
+          "packageId": "IAM-P5",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Arbeiten im mandantenfaehigen Studio oder Wechsel des Mandantenkontexts",
+          "preconditions": [
+            "Mandantenfaehigkeit ist fuer den Testfall aktiviert"
+          ],
+          "acceptanceCriteria": [
+            "Mandanten koennen im vorgesehenen Administrationsbereich konfiguriert werden.",
+            "Mandantenspezifische Einstellungen oder Stammdaten sind dem richtigen Mandanten zugeordnet.",
+            "Mehrere Kommunen koennen dadurch parallel mit getrennten Konfigurationen arbeiten."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 61,
+          "priority": 3
+        },
+        {
+          "id": 39,
+          "role": "Betreiber:in",
+          "story": "Als Betreiber:in möchte ich mandantenübergreifende Rechte nur bewusst und sichtbar nutzen, damit Fehlbedienungen vermieden werden.",
+          "packageId": "IAM-P5",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Arbeiten im mandantenfaehigen Studio oder Wechsel des Mandantenkontexts",
+          "preconditions": [
+            "Mandantenfaehigkeit ist fuer den Testfall aktiviert"
+          ],
+          "acceptanceCriteria": [
+            "Mandantenuebergreifende Rechte sind fuer die nutzende Rolle als Sonderfall sichtbar.",
+            "Die Nutzung solcher Rechte erfolgt bewusst im erkennbaren Kontext.",
+            "Die Darstellung reduziert das Risiko unbeabsichtigter mandantenuebergreifender Aenderungen."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Audit-Log",
+            "Kontextwechsel"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 108,
+          "priority": 3
+        },
+        {
+          "id": 96,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich alle Nutzer zentral verwalten, damit ich systemweite Kontrolle habe.",
+          "packageId": "IAM-P5",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Arbeiten im mandantenfaehigen Studio oder Wechsel des Mandantenkontexts",
+          "preconditions": [
+            "Mandantenfaehigkeit ist fuer den Testfall aktiviert"
+          ],
+          "acceptanceCriteria": [
+            "Eine zentrale Nutzerverwaltung zeigt Nutzer ueber den relevanten Geltungsbereich hinweg an.",
+            "Nutzer koennen in dieser Sicht gesucht, geprueft oder weiterverwaltet werden.",
+            "Die zentrale Sicht unterstuetzt systemweite Kontrolle ohne in Einzelsichten zu zerfallen."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 21,
+          "priority": 4
+        },
+        {
+          "id": 97,
+          "role": "Betreiber:in",
+          "story": "Als Betreiber:in möchte ich konsistente Berechtigungsentscheidungen in allen Modulen sehen, damit Regeln überall gleich angewendet werden.",
+          "packageId": "IAM-P5",
+          "relatedPackageIds": [
+            "IAM-P7"
+          ],
+          "legacy": true,
+          "trigger": "Arbeiten im mandantenfaehigen Studio oder Wechsel des Mandantenkontexts",
+          "preconditions": [
+            "Mandantenfaehigkeit ist fuer den Testfall aktiviert"
+          ],
+          "acceptanceCriteria": [
+            "Vergleichbare Berechtigungsentscheidungen fallen in verschiedenen Modulen konsistent aus.",
+            "Unterschiede sind nur bei fachlich begruendeten Ausnahmen sichtbar.",
+            "Die Konsistenz ist fuer Betrieb oder Support anhand konkreter Faelle pruefbar."
+          ],
+          "evidence": [
+            "Rollen-Test",
+            "UI-Demo",
+            "Admin-UI"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 122,
+          "priority": 4
+        }
+      ]
+    },
+    {
+      "id": "IAM-P3",
+      "title": "Nutzer-, Organisations- und Bereichszuordnung",
+      "goal": "Abgleich der fachlichen Verortung in Organisationen, Unterorganisationen und optionalen Bereichsgrenzen.",
+      "storyCount": 27,
+      "stories": [
+        {
+          "id": 19,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich nur Nutzer, Rollen, Gruppen und Rechtstexte meines Mandanten sehen, damit Daten sauber getrennt bleiben.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [
+            "IAM-P5"
+          ],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Im aktiven Mandanten werden nur dessen Nutzer, Rollen, Gruppen und Rechtstexte angezeigt.",
+            "Mandantenfremde Verwaltungsdaten erscheinen nicht in regulaeren Listen oder Details.",
+            "Die Sicht ist fuer den Organisations-Admin ausreichend klar, um saubere Trennung zu pruefen."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Negativtest",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 109,
+          "priority": 1
+        },
+        {
+          "id": 40,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Nutzer Organisationen zuweisen, damit Zuständigkeiten klar sind.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Ein Nutzer kann einer konkreten Organisation zugewiesen werden.",
+            "Die Zuordnung ist im Nutzerprofil und in Organisationsansichten sichtbar.",
+            "Die Zuweisung wirkt sich nachvollziehbar auf zustaendige Bereiche und Sichtbarkeiten aus."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 12,
+          "priority": 3
+        },
+        {
+          "id": 41,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Organisationsstrukturen abbilden, damit Hierarchien korrekt sind.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Organisationsstrukturen koennen im Studio als Hierarchie oder vergleichbare Struktur dargestellt werden.",
+            "Ueber- und Unterordnungen sind fachlich nachvollziehbar.",
+            "Die Struktur ist so pflegbar oder sichtbar, dass Hierarchien korrekt abgebildet bleiben."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 16,
+          "priority": 3
+        },
+        {
+          "id": 42,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Unterorganisationen verwalten, damit dezentrale Strukturen unterstützt werden.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Die relevante Organisation oder Unterorganisation ist in der Oberflaeche sichtbar.",
+            "Die organisatorische Zuordnung wirkt sich auf Listen, Inhalte oder Aktionen nachvollziehbar aus.",
+            "Hierarchische Beziehungen koennen im Studio dargestellt oder verwaltet werden.",
+            "Die Wirkung der Unterorganisation bleibt von der uebergeordneten Struktur ableitbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Kontextwechsel"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 17,
+          "priority": 3
+        },
+        {
+          "id": 43,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich Rechte auf bestimmte Stadtteile oder Regionen beschränken können, damit Redakteur:innen nur in ihrem Zuständigkeitsraum arbeiten.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Die relevante Organisation oder Unterorganisation ist in der Oberflaeche sichtbar.",
+            "Die organisatorische Zuordnung wirkt sich auf Listen, Inhalte oder Aktionen nachvollziehbar aus.",
+            "Geografische oder fachliche Bereichsgrenzen sind fuer die Story sichtbar oder pruefbar.",
+            "Aktionen ausserhalb des zugewiesenen Bereichs werden verhindert oder verstaendlich markiert."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Kontextwechsel"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 95,
+          "priority": 3
+        },
+        {
+          "id": 44,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich sehen, für welche geografischen Bereiche ich Inhalte bearbeiten darf, damit ich keine Inhalte außerhalb meines Verantwortungsbereichs ändere.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Fuer einen Inhalt ist erkennbar, ob Bearbeitung erlaubt, eingeschraenkt oder gesperrt ist.",
+            "Zugewiesene oder gesperrte Inhalte lassen sich von frei verfuegbaren Inhalten unterscheiden.",
+            "Geografische oder fachliche Bereichsgrenzen sind fuer die Story sichtbar oder pruefbar.",
+            "Aktionen ausserhalb des zugewiesenen Bereichs werden verhindert oder verstaendlich markiert.",
+            "Die personelle oder fachliche Zuordnung im Bereich ist sichtbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Kontextwechsel"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 96,
+          "priority": 3
+        },
+        {
+          "id": 45,
+          "role": "Fachbereichsleiter:in",
+          "story": "Als Fachbereichsleiter:in möchte ich erkennen, ob ein Recht direkt oder über geografische Vererbung gilt, damit ich Berechtigungen fachlich korrekt bewerten kann.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Es ist erkennbar, ob ein Recht direkt zugewiesen oder geografisch vererbt wurde.",
+            "Die geografische Herkunft eines Rechts ist in der Rechteansicht nachvollziehbar.",
+            "Die Darstellung unterstuetzt eine fachlich korrekte Bewertung der Berechtigung."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 97,
+          "priority": 3
+        },
+        {
+          "id": 98,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich nur Inhalte meiner Organisation sehen, damit ich mich auf relevante Inhalte konzentrieren kann.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Die relevante Organisation oder Unterorganisation ist in der Oberflaeche sichtbar.",
+            "Die organisatorische Zuordnung wirkt sich auf Listen, Inhalte oder Aktionen nachvollziehbar aus.",
+            "Es werden nur Inhalte aus dem zustaendigen Organisationskontext angezeigt.",
+            "Mandanten- oder organisationsfremde Inhalte erscheinen nicht in der regulaeren Arbeitsliste."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Kontextwechsel"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 1,
+          "priority": 4
+        },
+        {
+          "id": 99,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich sehen, welche Inhalte ich bearbeiten darf, damit ich keine unzulässigen Änderungen vornehme.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "In einer Inhaltsliste oder Detailansicht ist erkennbar, welche Inhalte bearbeitet werden duerfen.",
+            "Nicht bearbeitbare Inhalte sind visuell oder funktional von bearbeitbaren Inhalten unterscheidbar.",
+            "Ein Bearbeitungsversuch ausserhalb der eigenen Berechtigung fuehrt nicht zu einer stillschweigenden Aenderung."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Negativtest"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 2,
+          "priority": 4
+        },
+        {
+          "id": 100,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich meine eigenen Inhalte schnell finden, damit ich sie effizient aktualisieren kann.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Eigene Inhalte koennen ueber eine dafuer geeignete Such- oder Filtersicht schnell gefunden werden.",
+            "Die Trefferliste laesst sich auf Inhalte der eigenen Verantwortung eingrenzen.",
+            "Die Sicht unterstuetzt eine effiziente Rueckkehr in den Bearbeitungsflow."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 3,
+          "priority": 4
+        },
+        {
+          "id": 101,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich erkennen, wer einen Inhalt erstellt hat, damit ich bei Rückfragen die richtige Person ansprechen kann.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Zu einem Inhalt ist die erstellende oder verantwortliche Person sichtbar.",
+            "Die Anzeige ist eindeutig genug, um Rueckfragen einer konkreten Person zuzuordnen.",
+            "Die Information ist in der regulaeren Arbeitsansicht oder im Detail ohne Umweg erreichbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 4,
+          "priority": 4
+        },
+        {
+          "id": 102,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich Inhalte nach Organisation filtern können, damit ich gezielt arbeiten kann.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Die relevante Organisation oder Unterorganisation ist in der Oberflaeche sichtbar.",
+            "Die organisatorische Zuordnung wirkt sich auf Listen, Inhalte oder Aktionen nachvollziehbar aus.",
+            "Die Story-relevante Filter- oder Suchsicht ist ohne Zusatzwerkzeug im Studio pruefbar.",
+            "Das Filterergebnis entspricht dem aktuellen Organisations- oder Zustaendigkeitskontext."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Kontextwechsel"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 8,
+          "priority": 4
+        },
+        {
+          "id": 103,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich sehen, welche Nutzer in welcher Organisation sind, damit ich den Überblick behalte.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Eine Organisationsansicht zeigt, welche Nutzer welcher Organisation zugeordnet sind.",
+            "Die Zuordnung ist je Nutzer eindeutig und ohne Zusatzabfrage erkennbar.",
+            "Die Uebersicht ist fuer Verwaltungs- und Supportzwecke nutzbar."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 15,
+          "priority": 4
+        },
+        {
+          "id": 104,
+          "role": "Fachbereichsleiter:in",
+          "story": "Als Fachbereichsleiter:in möchte ich sehen, wer in meinem Bereich Inhalte pflegt, damit ich Verantwortung zuweisen kann.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Im eigenen Bereich ist sichtbar, welche Personen Inhalte pflegen oder verantworten.",
+            "Die Zuordnung unterstuetzt die Vergabe oder Prüfung fachlicher Verantwortung.",
+            "Die Sicht bleibt auf den zustaendigen Bereich begrenzt."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 41,
+          "priority": 4
+        },
+        {
+          "id": 105,
+          "role": "Fachbereichsleiter:in",
+          "story": "Als Fachbereichsleiter:in möchte ich sehen, welche Inhalte veröffentlicht wurden, damit ich Qualität sicherstellen kann.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Im zustaendigen Bereich ist sichtbar, welche Inhalte veroeffentlicht wurden.",
+            "Die Anzeige unterscheidet veroeffentlichte Inhalte von anderen Statuswerten.",
+            "Die Sicht unterstuetzt eine qualitative Prüfung durch die fachlich verantwortliche Rolle."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 43,
+          "priority": 4
+        },
+        {
+          "id": 106,
+          "role": "Fachbereichsleiter:in",
+          "story": "Als Fachbereichsleiter:in möchte ich Freigaben steuern können, damit Inhalte geprüft sind.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Freigaberelevante Inhalte oder Freigabestatusse sind fuer die zuständige Rolle einsehbar.",
+            "Die Rolle kann erkennen, welche Inhalte auf Freigabe warten, freigegeben oder blockiert sind.",
+            "Die Steuerung von Freigaben bleibt auf den eigenen Verantwortungsbereich begrenzt."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 44,
+          "priority": 4
+        },
+        {
+          "id": 107,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich sehen, welche Inhalte mir zugewiesen sind, damit ich meine Aufgaben kenne.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Mir zugewiesene Inhalte sind in einer dafuer geeigneten Sicht gesammelt erkennbar.",
+            "Die Zuweisung ist je Inhalt nachvollziehbar und nicht nur indirekt ableitbar.",
+            "Die Ansicht unterstuetzt die Priorisierung eigener Aufgaben."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 51,
+          "priority": 4
+        },
+        {
+          "id": 108,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich nur relevante Module sehen, damit die Oberfläche übersichtlich bleibt.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Die Oberflaeche zeigt fuer die Rolle nur die fachlich relevanten Module oder Hauptbereiche.",
+            "Nicht nutzbare Module erscheinen nicht als regulaere Arbeitsoption.",
+            "Die reduzierte Modulsicht bleibt nach erneutem Login oder Kontextwechsel konsistent."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 52,
+          "priority": 4
+        },
+        {
+          "id": 109,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich sehen, welche Organisation ich vertrete, damit ich korrekt arbeite.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Die aktuell vertretene Organisation ist in der Oberflaeche eindeutig sichtbar.",
+            "Die Anzeige ist waehrend der Arbeit erreichbar und nicht nur beim Login erkennbar.",
+            "Die Information reduziert das Risiko, im falschen Kontext zu arbeiten."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Kontextwechsel"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 54,
+          "priority": 4
+        },
+        {
+          "id": 110,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich wissen, welche Inhalte gesperrt sind, damit ich keine Konflikte verursache.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Gesperrte Inhalte sind in Listen oder Details als gesperrt gekennzeichnet.",
+            "Es ist erkennbar, dass eine Bearbeitung aktuell nicht zulaessig ist.",
+            "Die Kennzeichnung verhindert Bearbeitungskonflikte im regulaeren Redaktionsfluss."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Negativtest"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 55,
+          "priority": 4
+        },
+        {
+          "id": 111,
+          "role": "Fachbereichsleiter:in",
+          "story": "Als Fachbereichsleiter:in möchte ich Teamrechte sehen, damit ich Verantwortung überblicken kann.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Die Rechte des eigenen Teams sind fuer die leitende Rolle uebersichtlich einsehbar.",
+            "Die Sicht erlaubt einen Abgleich zwischen Personen, Rollen und Verantwortungsbereich.",
+            "Rechteunterschiede innerhalb des Teams lassen sich nachvollziehen."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 71,
+          "priority": 4
+        },
+        {
+          "id": 112,
+          "role": "Fachbereichsleiter:in",
+          "story": "Als Fachbereichsleiter:in möchte ich Inhalte priorisieren, damit wichtige Themen sichtbar sind.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Inhalte im eigenen Bereich koennen fachlich priorisiert oder nach Relevanz unterschieden werden.",
+            "Die Priorisierung ist in der relevanten Arbeits- oder Uebersichtssicht sichtbar.",
+            "Wichtige Themen lassen sich dadurch im Bereich gezielt hervorheben oder bearbeiten."
+          ],
+          "evidence": [
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 72,
+          "priority": 4
+        },
+        {
+          "id": 113,
+          "role": "Fachbereichsleiter:in",
+          "story": "Als Fachbereichsleiter:in möchte ich Eskalationen steuern, damit Probleme schnell gelöst werden.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Eskalationsrelevante Faelle sind fuer die leitende Rolle erkennbar.",
+            "Eine Eskalation kann einem konkreten Inhalt, Vorgang oder Verantwortungsbereich zugeordnet werden.",
+            "Der Eskalationsstatus ist fuer die weitere Bearbeitung nachvollziehbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Admin-UI"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 74,
+          "priority": 4
+        },
+        {
+          "id": 114,
+          "role": "Fachbereichsleiter:in",
+          "story": "Als Fachbereichsleiter:in möchte ich Zuständigkeiten klar sehen, damit keine Lücken entstehen.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Zustaendigkeiten im Bereich sind fuer Personen oder Themen klar einsehbar.",
+            "Die Sicht erlaubt das Erkennen von Luecken oder Ueberschneidungen.",
+            "Die Darstellung ist fuer Steuerungsentscheidungen nutzbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 75,
+          "priority": 4
+        },
+        {
+          "id": 115,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich meine Organisation wechseln können, damit ich mehrere Rollen bedienen kann.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [
+            "IAM-P5"
+          ],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Die relevante Organisation oder Unterorganisation ist in der Oberflaeche sichtbar.",
+            "Die organisatorische Zuordnung wirkt sich auf Listen, Inhalte oder Aktionen nachvollziehbar aus.",
+            "Ein Wechsel des Organisationskontexts ist bewusst ausloesbar.",
+            "Nach dem Wechsel werden Daten und Aktionen konsistent neu geladen."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Kontextwechsel"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 84,
+          "priority": 4
+        },
+        {
+          "id": 116,
+          "role": "Redakteur:in",
+          "story": "Als Redakteur:in möchte ich sehen, welche Inhalte global gelten, damit ich Kontext habe.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Global geltende Inhalte sind in der Inhaltssicht eindeutig als global gekennzeichnet.",
+            "Globale Inhalte lassen sich von organisationsgebundenen Inhalten unterscheiden.",
+            "Die Kennzeichnung vermeidet falsche Rueckschluesse auf lokale Bearbeitungszustaendigkeit."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 85,
+          "priority": 4
+        },
+        {
+          "id": 117,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich sehen, welche Inhalte oder Funktionen einem Nutzer wegen fehlender Rechte verborgen bleiben, damit ich Konfigurationen besser nachvollziehen kann.",
+          "packageId": "IAM-P3",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Zuordnung oder Wechsel von Organisation, Unterorganisation oder Bereich",
+          "preconditions": [
+            "Mindestens ein fachlicher Kontext oder Bereich ist konfiguriert"
+          ],
+          "acceptanceCriteria": [
+            "Fuer einen ausgewaehlten Nutzer ist nachvollziehbar, welche Inhalte oder Funktionen aufgrund fehlender Rechte verborgen bleiben.",
+            "Die verborgenen Bereiche lassen sich einem fehlenden Recht oder Kontext zuordnen.",
+            "Die Sicht hilft dabei, Konfigurationen ohne technische Tiefenanalyse zu verstehen."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 124,
+          "priority": 4
+        }
+      ]
+    },
+    {
+      "id": "IAM-P6",
+      "title": "Rechtstexte, Zustimmung und Nachweis",
+      "goal": "Abgleich der Pflege von Rechtstexten, der Durchsetzung von Zustimmung und des Compliance-Nachweises.",
+      "storyCount": 22,
+      "stories": [
+        {
+          "id": 46,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich neue Versionen von Datenschutzerklärungen und Nutzungsbedingungen anlegen können, damit rechtliche Änderungen kontrolliert ausgerollt werden.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Neue Fassungen von Datenschutzerklaerungen oder Nutzungsbedingungen koennen angelegt werden.",
+            "Die neue Fassung ist von bereits aktiven Fassungen getrennt erkennbar.",
+            "Der Rollout einer neuen Fassung laesst sich fachlich vorbereitet und spaeter aktivieren."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Admin-UI",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 110,
+          "priority": 3
+        },
+        {
+          "id": 47,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich Rechtstexte als Entwurf vorbereiten und später aktivieren können, damit ich Änderungen vor Veröffentlichung prüfen kann.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Rechtstexte und ihre Fassungen sind fuer die berechtigte Rolle sichtbar.",
+            "Aktive und nicht aktive Fassungen koennen unterschieden werden.",
+            "Eine Fassung kann vor der Aktivierung als Entwurf gefuehrt werden.",
+            "Der Entwurfsstatus ist in der Oberflaeche erkennbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Audit-Log",
+            "Export oder Report"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 111,
+          "priority": 3
+        },
+        {
+          "id": 48,
+          "role": "Organisations-Admin",
+          "story": "Als Organisations-Admin möchte ich sehen, welche Version eines Rechtstextes aktuell aktiv ist, damit ich eindeutige Auskünfte geben kann.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Die aktuell aktive Version eines Rechtstexts ist eindeutig gekennzeichnet.",
+            "Parallel vorhandene historische oder vorbereitete Fassungen sind davon unterscheidbar.",
+            "Die aktive Fassung ist fuer Auskunfts- oder Supportfaelle schnell auffindbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Admin-UI"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 112,
+          "priority": 3
+        },
+        {
+          "id": 49,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich die Akzeptanzhistorie eines Nutzers exportieren können, damit ich bei Prüfungen einen belastbaren Nachweis vorlegen kann.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Zeitpunkt, betroffene Person und konkrete Fassung der Zustimmung sind nachvollziehbar.",
+            "Offene und erledigte Zustimmungen sind voneinander unterscheidbar.",
+            "Die fuer die Story benoetigten Nachweise koennen gefiltert oder exportiert werden.",
+            "Der Export oder Report ist fachlich auswertbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Audit-Log",
+            "Export oder Report"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 116,
+          "priority": 3
+        },
+        {
+          "id": 50,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich bei einem Nachweis sehen, welche konkrete Fassung eines Rechtstextes akzeptiert wurde, damit der Rechtsstand eindeutig dokumentiert ist.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Ein Nachweis zeigt die konkret akzeptierte Fassung eines Rechtstexts an.",
+            "Die Fassung ist eindeutig identifizierbar und nicht nur ueber Freitext ableitbar.",
+            "Der Rechtsstand eines Zustimmungsvorgangs kann damit belastbar dokumentiert werden."
+          ],
+          "evidence": [
+            "Export oder Report",
+            "Audit-Log",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 117,
+          "priority": 3
+        },
+        {
+          "id": 51,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich Nachweise nach Organisation oder Zeitraum filtern können, damit ich gezielt auf Anfragen reagieren kann.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Nachweise koennen mindestens nach Organisation oder Zeitraum gefiltert werden.",
+            "Die Filterung wirkt sich direkt auf die angezeigten oder exportierten Ergebnisse aus.",
+            "Die Eingrenzung ist fuer gezielte Anfragen oder Prueffaelle ausreichend."
+          ],
+          "evidence": [
+            "Export oder Report",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 118,
+          "priority": 3
+        },
+        {
+          "id": 52,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich sehen, welche Nutzer eine neue Fassung noch nicht akzeptiert haben, damit ich Compliance-Lücken schließen kann.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Nutzer mit offener Zustimmung zu einer neuen Fassung koennen gezielt identifiziert werden.",
+            "Die Auswertung bezieht sich auf eine konkrete Fassung und nicht nur allgemein auf offene Zustimmungen.",
+            "Die Liste ist fuer operative Nachsteuerung nutzbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Export oder Report",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 119,
+          "priority": 3
+        },
+        {
+          "id": 118,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich sehen, welche Nutzer welche Daten sehen dürfen, damit DSGVO eingehalten wird.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Es ist sichtbar, welche Nutzer oder Rollen Zugriff auf welche Datenkategorien haben.",
+            "Die Sicht laesst mindestens zwischen berechtigten und nicht berechtigten Zugriffsgruppen unterscheiden.",
+            "Die Darstellung ist geeignet, DSGVO-relevante Zugriffe fachlich zu pruefen."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Export oder Report"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 31,
+          "priority": 4
+        },
+        {
+          "id": 119,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich akzeptierte Rechtstexte nachvollziehen, damit Nachweispflichten erfüllt sind.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Akzeptierte Rechtstexte koennen je Nutzer oder Zielgruppe nachvollzogen werden.",
+            "Die Nachweisansicht zeigt mindestens Text, Fassung und Zustimmungsstatus.",
+            "Bereits akzeptierte und noch offene Fassungen sind unterscheidbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Audit-Log",
+            "Export oder Report"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 32,
+          "priority": 4
+        },
+        {
+          "id": 120,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich Versionen von Rechtstexten verwalten, damit Änderungen nachvollziehbar sind.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Mehrere Fassungen eines Rechtstexts koennen verwaltet und geordnet eingesehen werden.",
+            "Zu jeder Fassung sind Status und zeitliche Einordnung erkennbar.",
+            "Aeltere Fassungen bleiben fuer Nachweiszwecke weiterhin auffindbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Audit-Log",
+            "Admin-UI"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 33,
+          "priority": 4
+        },
+        {
+          "id": 121,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich sehen, wer wann zugestimmt hat, damit ich auditsicher dokumentieren kann.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Zu einer Zustimmung sind mindestens Nutzerbezug, Zeitpunkt und Textfassung einsehbar.",
+            "Die Nachweise sind so strukturiert, dass sie fuer Audit oder Pruefung verwendbar sind.",
+            "Mehrere Zustimmungen lassen sich je Nutzer chronologisch nachvollziehen."
+          ],
+          "evidence": [
+            "Audit-Log",
+            "Export oder Report",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 34,
+          "priority": 4
+        },
+        {
+          "id": 122,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich Reports exportieren können, damit ich Prüfungen vorbereiten kann.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [
+            "IAM-P7"
+          ],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Pruefrelevante Reports koennen aus den vorhandenen Datenschutz- oder Zustimmungsdaten erzeugt werden.",
+            "Der Report ist in einem fachlich nutzbaren Format verfuegbar.",
+            "Der Umfang des Reports ist ueber Filter oder Auswahl eingrenzbar."
+          ],
+          "evidence": [
+            "Export oder Report",
+            "UI-Demo",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 35,
+          "priority": 4
+        },
+        {
+          "id": 123,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich sehen, welche Rollen Zugriff auf personenbezogene Daten haben, damit Risiken minimiert werden.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Es ist sichtbar, welche Rollen Zugriff auf personenbezogene Daten oder Datenbereiche vermitteln.",
+            "Die Ansicht erlaubt eine Bewertung, welche Rollen datenschutzrelevant sind.",
+            "Die Zuordnung von Rolle zu Datenzugriff ist nicht nur indirekt, sondern nachvollziehbar dargestellt."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Audit-Log",
+            "Export oder Report"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 36,
+          "priority": 4
+        },
+        {
+          "id": 124,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich Nutzer zur Zustimmung zwingen können, damit Rechtssicherheit gewährleistet ist.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Eine neue zustimmungspflichtige Fassung fuehrt dazu, dass betroffene Nutzer den Text erneut akzeptieren muessen.",
+            "Bis zur Zustimmung ist der fachliche Zugriff ganz oder teilweise kontrolliert eingeschraenkt.",
+            "Der erzwungene Zustimmungsbedarf ist fuer Betrieb und Datenschutz nachvollziehbar."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Audit-Log",
+            "Rollen-Test"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 39,
+          "priority": 4
+        },
+        {
+          "id": 125,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich sehen, welche Nutzer noch nicht zugestimmt haben, damit ich nachsteuern kann.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Zeitpunkt, betroffene Person und konkrete Fassung der Zustimmung sind nachvollziehbar.",
+            "Offene und erledigte Zustimmungen sind voneinander unterscheidbar.",
+            "Nicht abgeschlossene Zustimmungen koennen gezielt identifiziert werden.",
+            "Die Auswertung laesst sich nach Organisation, Zeitraum oder aehnlichem Kontext eingrenzen."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Audit-Log",
+            "Export oder Report"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 40,
+          "priority": 4
+        },
+        {
+          "id": 126,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich personenbezogene Daten minimieren, damit Risiken reduziert werden.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Die vorhandenen Berechtigungen koennen so eingesehen werden, dass ueberfluessige personenbezogene Datenzugriffe erkennbar sind.",
+            "Die Sicht unterstuetzt die Identifikation von Rollen oder Gruppen mit unnoetig breitem Zugriff.",
+            "Die Bewertung der Datenminimierung ist anhand der Studio-Informationen fachlich moeglich."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Audit-Log",
+            "Export oder Report"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 66,
+          "priority": 4
+        },
+        {
+          "id": 127,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich Löschkonzepte prüfen, damit gesetzliche Vorgaben eingehalten werden.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Loeschkonzepte oder zugehoerige Nachweise sind fuer die berechtigte Rolle auffindbar.",
+            "Die Darstellung erlaubt zu pruefen, ob gesetzliche Vorgaben oder interne Regeln hinterlegt sind.",
+            "Relevante Dokumente, Regeln oder Verweise lassen sich ohne Umweg aus dem Studio erreichen."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Export oder Report",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 67,
+          "priority": 4
+        },
+        {
+          "id": 128,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich Datenflüsse verstehen, damit ich Transparenz habe.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Datenfluesse oder ihre relevanten Stationen sind fuer die Datenschutzrolle nachvollziehbar beschrieben oder verlinkt.",
+            "Es ist erkennbar, welche Rollen, Systeme oder Prozesse an einem Datenfluss beteiligt sind.",
+            "Die Sicht unterstuetzt Transparenz fuer Datenschutzpruefungen."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Export oder Report",
+            "UI-Demo"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 68,
+          "priority": 4
+        },
+        {
+          "id": 129,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich Zugriffsbeschränkungen prüfen, damit Daten geschützt sind.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Zugriffsbeschraenkungen auf sensible Daten sind fuer die berechtigte Rolle einsehbar.",
+            "Die Sicht zeigt, welche Einschraenkungen durch Rollen, Gruppen oder Bereiche greifen.",
+            "Abweichungen oder zu breite Zugriffe koennen dadurch erkannt werden."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Export oder Report"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 69,
+          "priority": 4
+        },
+        {
+          "id": 130,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich Reports erstellen, damit ich Behörden Auskunft geben kann.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Auskunftsrelevante Reports koennen fuer Anfragen oder Behoerdenberichte zusammengestellt werden.",
+            "Der Report enthaelt die fuer den Zweck benoetigten Datenschutz- oder Zustimmungsinformationen.",
+            "Ergebnisse sind nach Zeitraum, Organisation oder vergleichbarem Kontext eingrenzbar."
+          ],
+          "evidence": [
+            "Export oder Report",
+            "UI-Demo",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 70,
+          "priority": 4
+        },
+        {
+          "id": 131,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich nachvollziehen können, wann ein Zugang entzogen wurde, damit ich die Einhaltung interner Datenschutzprozesse belegen kann.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [
+            "IAM-P7"
+          ],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Der Entzug eines Zugangs ist mit Datum und betroffener Person nachvollziehbar.",
+            "Soweit vorhanden, ist auch der ausloesende Akteur oder Prozess sichtbar.",
+            "Der Nachweis ist fuer interne Datenschutz- oder Compliance-Pruefungen verwendbar."
+          ],
+          "evidence": [
+            "Audit-Log",
+            "Admin-UI",
+            "Export oder Report"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 102,
+          "priority": 4
+        },
+        {
+          "id": 132,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich prüfen können, ob nur berechtigte Personen Zugriff auf personenbezogene Daten eines Bereichs haben, damit der Grundsatz der Datenminimierung eingehalten wird.",
+          "packageId": "IAM-P6",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Pflege, Aktivierung, Zustimmung oder Auswertung eines Rechtstexts",
+          "preconditions": [
+            "Rechtstexte und ihre Versionen sind im Studio oder in angebundenen Flows verfuegbar"
+          ],
+          "acceptanceCriteria": [
+            "Fuer einen Bereich ist pruefbar, welche Personen Zugriff auf personenbezogene Daten haben.",
+            "Unberechtigte oder fachlich nicht erklaerbare Zugriffe koennen aus der Sicht erkannt werden.",
+            "Die Darstellung unterstuetzt den Nachweis des Grundsatzes der Datenminimierung."
+          ],
+          "evidence": [
+            "UI-Demo",
+            "Rollen-Test",
+            "Export oder Report"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 129,
+          "priority": 4
+        }
+      ]
+    },
+    {
+      "id": "IAM-P7",
+      "title": "Audit, Monitoring und Betriebsnachweis",
+      "goal": "Abgleich der Nachvollziehbarkeit sicherheits- und berechtigungsrelevanter Ereignisse fuer Betrieb, Datenschutz und Support.",
+      "storyCount": 11,
+      "stories": [
+        {
+          "id": 53,
+          "role": "Betreiber:in",
+          "story": "Als Betreiber:in möchte ich regelmäßig prüfen lassen, welche Zugänge und erweiterten Rechte noch erforderlich sind, damit Berechtigungen rezertifiziert und Altlasten abgebaut werden.",
+          "packageId": "IAM-P7",
+          "relatedPackageIds": [
+            "IAM-P4"
+          ],
+          "legacy": false,
+          "trigger": "Eine regelmäßige Berechtigungsüberprüfung oder Rezertifizierung wird fällig.",
+          "preconditions": [
+            "Rezertifizierungs- oder Review-Termine können im IAM-Betrieb ausgelöst oder nachverfolgt werden."
+          ],
+          "acceptanceCriteria": [
+            "Offene Reviews zu Zugängen oder erhöhten Rechten sind für die berechtigte Rolle sichtbar.",
+            "Das Ergebnis einer Rezertifizierung ist einem konkreten Zugang oder Recht zuordenbar.",
+            "Überfällige oder nicht abgeschlossene Reviews können erkannt und nachverfolgt werden."
+          ],
+          "evidence": [
+            "Admin-UI",
+            "Audit-Log",
+            "Export oder Report"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 136,
+          "priority": 3
+        },
+        {
+          "id": 54,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich technische Identitäten, Delegationen und Rechteanträge im Audit gemeinsam auswerten können, damit Governance- und Sicherheitsfälle nicht in getrennten Nachweisen verloren gehen.",
+          "packageId": "IAM-P7",
+          "relatedPackageIds": [
+            "IAM-P2",
+            "IAM-P4"
+          ],
+          "legacy": false,
+          "trigger": "Ein Governance-, Audit- oder Sicherheitsfall muss bereichsübergreifend untersucht werden.",
+          "preconditions": [
+            "Berechtigungsrelevante Ereignisse aus den verschiedenen IAM-Flows werden protokolliert."
+          ],
+          "acceptanceCriteria": [
+            "Rechteanträge, Delegationen und technische Zugriffe sind im Audit nicht nur isoliert, sondern gemeinsam auswertbar.",
+            "Ein Fall kann über mehrere IAM-Ereignistypen hinweg einer Person, Rolle oder technischen Identität zugeordnet werden.",
+            "Die gemeinsame Sicht ist für Governance- und Sicherheitsuntersuchungen nutzbar."
+          ],
+          "evidence": [
+            "Audit-Log",
+            "Export oder Report",
+            "Admin-UI"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 142,
+          "priority": 3
+        },
+        {
+          "id": 133,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich Performance der Rechteprüfung überwachen, damit das System schnell bleibt.",
+          "packageId": "IAM-P7",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Berechtigungsrelevantes Ereignis im laufenden Betrieb",
+          "preconditions": [
+            "Logging oder Monitoring fuer den Testfall ist aktiviert"
+          ],
+          "acceptanceCriteria": [
+            "Kennzahlen oder Messwerte zur Performance der Rechtepruefung sind fuer Betriebsrollen einsehbar.",
+            "Die Darstellung zeigt, ob die Rechtepruefung innerhalb eines erwarteten Zeitfensters bleibt.",
+            "Auffaellige Last- oder Antwortzeitprobleme koennen fuer weitere Analyse erkannt werden."
+          ],
+          "evidence": [
+            "Monitoring",
+            "Admin-UI"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 26,
+          "priority": 4
+        },
+        {
+          "id": 134,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich Cache-Mechanismen verstehen, damit ich Fehler analysieren kann.",
+          "packageId": "IAM-P7",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Berechtigungsrelevantes Ereignis im laufenden Betrieb",
+          "preconditions": [
+            "Logging oder Monitoring fuer den Testfall ist aktiviert"
+          ],
+          "acceptanceCriteria": [
+            "Cache-bezogene Wirkungen oder Zustandsinformationen sind fuer den Betrieb nachvollziehbar.",
+            "Es ist erkennbar, wann veraltete oder erneuerte Rechteinformationen eine Rolle spielen.",
+            "Die Sicht unterstuetzt die Analyse von Rechtesynchronisationsproblemen."
+          ],
+          "evidence": [
+            "Monitoring",
+            "Admin-UI",
+            "Audit-Log"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 27,
+          "priority": 4
+        },
+        {
+          "id": 135,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich Systemzustände protokollieren, damit ich Audits unterstützen kann.",
+          "packageId": "IAM-P7",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Berechtigungsrelevantes Ereignis im laufenden Betrieb",
+          "preconditions": [
+            "Logging oder Monitoring fuer den Testfall ist aktiviert"
+          ],
+          "acceptanceCriteria": [
+            "Systemzustände koennen in einer Log- oder Monitoring-Sicht protokolliert eingesehen werden.",
+            "Die protokollierten Zustände sind zeitlich einordenbar.",
+            "Die Sicht ist fuer Audit- oder Betriebsnachweise nutzbar."
+          ],
+          "evidence": [
+            "Audit-Log",
+            "Monitoring"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 30,
+          "priority": 4
+        },
+        {
+          "id": 136,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich unzulässige Zugriffe erkennen, damit ich Maßnahmen ergreifen kann.",
+          "packageId": "IAM-P7",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Berechtigungsrelevantes Ereignis im laufenden Betrieb",
+          "preconditions": [
+            "Logging oder Monitoring fuer den Testfall ist aktiviert"
+          ],
+          "acceptanceCriteria": [
+            "Unzulaessige oder unerwartete Zugriffe koennen in einer Nachweissicht erkannt werden.",
+            "Der Vorfall ist einem konkreten Zugriff, Nutzer oder Bereich zuordenbar.",
+            "Die Informationen reichen aus, um weitere Massnahmen einzuleiten."
+          ],
+          "evidence": [
+            "Audit-Log",
+            "Export oder Report"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 37,
+          "priority": 4
+        },
+        {
+          "id": 137,
+          "role": "Datenschutzbeauftragte:r",
+          "story": "Als Datenschutzbeauftragte:r möchte ich Zugriffshistorien prüfen, damit ich Compliance sicherstelle.",
+          "packageId": "IAM-P7",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Berechtigungsrelevantes Ereignis im laufenden Betrieb",
+          "preconditions": [
+            "Logging oder Monitoring fuer den Testfall ist aktiviert"
+          ],
+          "acceptanceCriteria": [
+            "Zugriffshistorien sind fuer berechtigte Rollen einsehbar.",
+            "Die Historie ist nach Nutzer, Zeitraum oder vergleichbarem Kontext auswertbar.",
+            "Die Sicht unterstuetzt eine Compliance-Pruefung ohne Rohdatenanalyse."
+          ],
+          "evidence": [
+            "Audit-Log",
+            "Export oder Report"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 38,
+          "priority": 4
+        },
+        {
+          "id": 138,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich Systemlogs einsehen, damit ich Fehler finde.",
+          "packageId": "IAM-P7",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Berechtigungsrelevantes Ereignis im laufenden Betrieb",
+          "preconditions": [
+            "Logging oder Monitoring fuer den Testfall ist aktiviert"
+          ],
+          "acceptanceCriteria": [
+            "Systemlogs sind fuer die berechtigte Betriebsrolle einsehbar.",
+            "Logeintraege koennen zur Fehlersuche nach Zeit, Typ oder Kontext ausgewertet werden.",
+            "Die Sicht liefert ausreichend Informationen fuer eine erste Fehleranalyse."
+          ],
+          "evidence": [
+            "Audit-Log",
+            "Admin-UI"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 62,
+          "priority": 4
+        },
+        {
+          "id": 139,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich Schnittstellen überwachen, damit Integrationen stabil laufen.",
+          "packageId": "IAM-P7",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Berechtigungsrelevantes Ereignis im laufenden Betrieb",
+          "preconditions": [
+            "Logging oder Monitoring fuer den Testfall ist aktiviert"
+          ],
+          "acceptanceCriteria": [
+            "Schnittstellenbezogene Betriebsereignisse koennen ueberwacht werden.",
+            "Stoerungen oder Ausfaelle angebundener Integrationen sind erkennbar.",
+            "Die Sicht unterstuetzt die Einschaetzung, ob Integrationen stabil laufen."
+          ],
+          "evidence": [
+            "Monitoring",
+            "Admin-UI"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 64,
+          "priority": 4
+        },
+        {
+          "id": 140,
+          "role": "Systembetreiber",
+          "story": "Als Systembetreiber möchte ich Zugriffsmuster analysieren, damit ich Optimierungen vornehmen kann.",
+          "packageId": "IAM-P7",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Berechtigungsrelevantes Ereignis im laufenden Betrieb",
+          "preconditions": [
+            "Logging oder Monitoring fuer den Testfall ist aktiviert"
+          ],
+          "acceptanceCriteria": [
+            "Zugriffsmuster koennen fuer berechtigte Betriebsrollen ausgewertet werden.",
+            "Die Sicht zeigt Haeufungen, Auffaelligkeiten oder Nutzungsschwerpunkte.",
+            "Die Analyse unterstuetzt betriebliche Optimierungsentscheidungen."
+          ],
+          "evidence": [
+            "Monitoring",
+            "Export oder Report"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 65,
+          "priority": 4
+        },
+        {
+          "id": 141,
+          "role": "Betreiber:in",
+          "story": "Als Betreiber:in möchte ich Änderungen an Rollen, Gruppen und Zuordnungen nachvollziehen können, damit ich Sicherheitsvorfälle untersuchen kann.",
+          "packageId": "IAM-P7",
+          "relatedPackageIds": [],
+          "legacy": true,
+          "trigger": "Berechtigungsrelevantes Ereignis im laufenden Betrieb",
+          "preconditions": [
+            "Logging oder Monitoring fuer den Testfall ist aktiviert"
+          ],
+          "acceptanceCriteria": [
+            "Das relevante Ereignis ist in Log, Historie oder Audit-Ansicht auffindbar.",
+            "Zeitpunkt und ausloesende Person oder Komponente sind nachvollziehbar.",
+            "Sicherheits- oder Compliance-relevante Ereignisse sind auswertbar.",
+            "Die Nachweise reichen fuer eine fachliche Untersuchung des Vorfalls aus."
+          ],
+          "evidence": [
+            "Audit-Log",
+            "Monitoring",
+            "Admin-UI"
+          ],
+          "studioCheck": {
+            "status": "offen",
+            "coverage": "nicht_geprueft",
+            "notes": ""
+          },
+          "legacyId": 128,
+          "priority": 4
+        }
+      ]
+    }
+  ],
+  "priorityLegend": {
+    "1": "Zuerst gegen das Studio pruefen",
+    "2": "Danach pruefen, zentrale Governance- und Rechtefluesse",
+    "3": "Anschliessend pruefen, Mandanten-, Organisations- und Compliance-Themen",
+    "4": "Restliche IAM-relevante Stories nachrangig pruefen"
+  }
+}

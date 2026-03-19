@@ -2,7 +2,7 @@
 
 ## Anforderungen
 
-### 1. Plugin-/Paket-Ansatz (Build-time zuerst)
+### 1. Plugin--studio/Paket-Ansatz (Build-time zuerst)
 
 Das CMS basiert auf einer modularen Plugin-Architektur, die Erweiterbarkeit durch klar definierte Pakete ermöglicht:
 
@@ -10,7 +10,7 @@ Das CMS basiert auf einer modularen Plugin-Architektur, die Erweiterbarkeit durc
 
 * **Feature-Kapselung:** Jedes Plugin ist eine geschlossene Einheit, die alle notwendigen Komponenten enthält:
   - Menüeinträge und Navigation
-  - Eigene Seiten/Routen im CMS
+  - Eigene Seiten-studio/Routen im CMS
   - Dashboard-Widgets
   - Benutzerdefinierte Formularfelder
   - Konfigurationsoptionen (Settings)
@@ -32,7 +32,7 @@ Die technische Basis des CMS:
 
 * **Vue als Alternative:** Die Architektur ist so gestaltet, dass Vue als Alternative zu React genutzt werden kann, ohne die Kern-Logik umschreiben zu müssen. Dies wird durch strikte Trennung von UI-Framework und Business-Logik erreicht.
 
-* **Framework-Agnostizität:** Vue/React werden nur als „Adapter-Schicht" behandelt:
+* **Framework-Agnostizität:** Vue-studio/React werden nur als „Adapter-Schicht" behandelt:
   - Die gesamte Fachlogik (Business Logic) ist framework-unabhängig
   - UI-Frameworks rendern nur, was aus der Registry kommt
   - Ein Wechsel des Frameworks betrifft nur die Render-Schicht, nicht die Domänen-Logik
@@ -47,17 +47,17 @@ Die technische Basis des CMS:
 
 Um „Wildwuchs" zu verhindern und eine stabile, wartbare Architektur zu gewährleisten:
 
-* **Ein SDK als einzige Schnittstelle:** Das `@cms/sdk` Paket ist die **einzige offizielle Schnittstelle** zwischen Plugins und dem Host-System. Plugins dürfen ausschließlich über dieses SDK mit dem CMS interagieren.
+* **Ein SDK als einzige Schnittstelle:** Das `@cms-studio/sdk` Paket ist die **einzige offizielle Schnittstelle** zwischen Plugins und dem Host-System. Plugins dürfen ausschließlich über dieses SDK mit dem CMS interagieren.
 
 * **Verhinderte Wildwuchs-Importe:**
-  - Plugins dürfen **nicht** direkt aus der Host-Anwendung (`apps/cms-admin`) importieren
+  - Plugins dürfen **nicht** direkt aus der Host-Anwendung (`apps-studio/cms-admin`) importieren
   - Plugins dürfen **nicht** auf interne Implementierungsdetails zugreifen
   - Alle Importe werden durch ESLint-Regeln und TypeScript-Path-Mapping kontrolliert
-  - CI/CD-Pipeline schlägt fehl bei Boundary-Verletzungen
+  - CI-studio/CD-Pipeline schlägt fehl bei Boundary-Verletzungen
 
 * **Klare Extension Points:** Das SDK definiert genau, was ein Plugin tun darf:
   - Navigation registrieren
-  - Routen/Seiten hinzufügen
+  - Routen-studio/Seiten hinzufügen
   - Widgets bereitstellen
   - Formularfelder definieren
   - Settings-Schemas deklarieren
@@ -73,7 +73,7 @@ Multi-Tenancy und Berechtigungen als Kernfeature der Architektur:
 
 * **Multi-Tenancy:** Das CMS unterstützt mehrere Mandanten (Kommunen) in einer Installation. Jede Kommune hat:
   - Eigene Daten (Content, Benutzer, Einstellungen)
-  - Eigenes Design/Theme
+  - Eigenes Design-studio/Theme
   - Eigene Modul-Aktivierungen
   - Strikte Datentrennung durch Row-Level Security im Backend
 
@@ -84,7 +84,7 @@ Multi-Tenancy und Berechtigungen als Kernfeature der Architektur:
   - Das Auth-System prüft Berechtigungen vor jedem Zugriff
 
 * **UI-Integration:**
-  - UI-Elemente werden automatisch basierend auf Berechtigungen ein-/ausgeblendet
+  - UI-Elemente werden automatisch basierend auf Berechtigungen ein--studio/ausgeblendet
   - Keine manuellen Permission-Checks im UI-Code nötig
   - Das Runtime-System rendert nur, was der Benutzer sehen darf
 
@@ -106,12 +106,12 @@ Professionelle Software-Engineering-Praktiken als Standard:
   - Exakte Versionen für alle Dependencies
   - Docker-Container für konsistente Build-Umgebungen
 
-* **CI/CD-Pipeline:**
+* **CI-studio/CD-Pipeline:**
   - Automatisierte Tests (Unit, Integration, E2E)
   - Linting & Code-Style-Checks
   - Bundle-Size-Monitoring
   - Security-Scans (npm audit, Dependabot)
-  - Quality Gates: Build schlägt fehl bei Test-/Lint-Fehlern
+  - Quality Gates: Build schlägt fehl bei Test--studio/Lint-Fehlern
 
 * **Testbarkeit:**
   - Architektur ermöglicht einfaches Unit-Testing (durch klare Trennung)
@@ -140,7 +140,7 @@ Moderne KI-Funktionen werden standardisiert integriert:
 * **MCP-Standard:**
   - Model Context Protocol ist ein offener Standard für LLM-Integration
   - Ermöglicht einheitliche Anbindung verschiedener KI-Anbieter
-  - Verhindert Vendor-Lock-in (nicht an OpenAI/Claude gebunden)
+  - Verhindert Vendor-Lock-in (nicht an OpenAI-studio/Claude gebunden)
 
 * **Flexible Provider-Anbindung:**
   - Support für OpenAI (GPT-4, GPT-4o)
@@ -156,7 +156,7 @@ Moderne KI-Funktionen werden standardisiert integriert:
   - **Chatbot:** LLM-basierter Bürger-Support (in Mobile App)
 
 * **Architektur:**
-  - `packages/mcp-client` abstrahiert Provider-Details
+  - `packages-studio/mcp-client` abstrahiert Provider-Details
   - Plugins nutzen MCP-Client über SDK
   - API-Keys werden sicher im Backend verwaltet
   - Rate Limiting & Cost Control
@@ -172,10 +172,10 @@ Das CMS integriert sich mit professionellen Infrastruktur-Services:
 * **Monitoring (Prometheus & Grafana):**
   - **Prometheus:** Metriken-Sammlung (Response Times, Error Rates, Ressourcen-Nutzung)
   - **Grafana:** Visualisierung der Metriken in Dashboards
-  - CMS exportiert Metriken über `/metrics` Endpoint
+  - CMS exportiert Metriken über `-studio/metrics` Endpoint
   - Alerting bei Problemen (z.B. API-Fehlerrate > 5%)
 
-* **Logging (Loki / ELK-Stack):**
+* **Logging (Loki -studio/ ELK-Stack):**
   - **Loki:** Log-Aggregation (von Grafana Labs, kompatibel mit Grafana)
   - **ELK-Stack:** Alternative (Elasticsearch, Logstash, Kibana)
   - Strukturierte Logs (JSON-Format)
@@ -191,7 +191,7 @@ Das CMS integriert sich mit professionellen Infrastruktur-Services:
 
 * **Integration:**
   - CMS enthält Client-Pakete (`monitoring-client`, `search-client`)
-  - Services laufen **außerhalb** des CMS (separate Container/VMs)
+  - Services laufen **außerhalb** des CMS (separate Container-studio/VMs)
   - Keine Code-Abhängigkeiten, nur Konfiguration
 
 **Vorteil:** Professionelles Monitoring ohne CMS-Komplexität, bewährte Tools, hohe Performance.
@@ -244,8 +244,8 @@ Klare Trennung zwischen Verwaltungs-CMS und Bürger-App:
 ### Leitprinzip
 
 **„Contracts zuerst“:** Alles, was Plugins und Host verbindet, ist explizit im SDK beschrieben.
-**„Core ohne UI“:** Fachlogik kennt kein Vue/React. ???
-**„UI ist Adapter“:** Vue/React rendert nur, was aus Registry/Contracts kommt.
+**„Core ohne UI“:** Fachlogik kennt kein Vue-studio/React. ???
+**„UI ist Adapter“:** Vue-studio/React rendert nur, was aus Registry-studio/Contracts kommt.
 
 ---
 
@@ -254,141 +254,141 @@ Klare Trennung zwischen Verwaltungs-CMS und Bürger-App:
 ### Top-Level
 
 ```
-smart-village-cms/
-  apps/
-    cms-admin/                 # CMS Admin UI (TypeScript + React)
-    api/                       # Ruby on Rails + GraphQL API (bestehendes Backend)
+smart-village-cms-studio/
+  apps-studio/
+    cms-admin-studio/                 # CMS Admin UI (TypeScript + React)
+    api-studio/                       # Ruby on Rails + GraphQL API (bestehendes Backend)
 
-  packages/
-    sdk/                       # Plugin Contracts + Registry + Capabilities (KEIN UI)
-    core/                      # Domainlogik, Modelle, Validierung (KEIN UI)
-    data/                      # GraphQL Clients (Apollo/urql), DTOs, Caching
-    auth/                      # RBAC-Checks, Policy-Helpers, Row-Level Security
-    config/                    # shared configs, schemas, build tooling
-    ui-contracts/              # Design Tokens + UI-Kontrakte (KEIN React/Vue)
-    runtime-contracts/         # Slot-/Extension-Point-Definitionen
-    ui-react/                  # React Design System (Primär)
-    ui-vue/                    # (optional) Vue Design System
-    runtime-react/             # React Adapter/Renderer für SDK-Registry
-    runtime-vue/               # (optional) Vue Adapter/Renderer
-    mcp-client/                # MCP (Model Context Protocol) Client für KI-Integration
-    api-manager/               # API Management: externe APIs, Webhooks, Schema.org, GeoJSON
-    theme-engine/              # Theme-Editor Engine, Design Tokens, CSS Variables
-    app-config/                # App-Design & Konfiguration (Multi-Tenancy Settings)
-    monitoring-client/         # Clients für Prometheus, Loki, Grafana
-    search-client/             # MeiliSearch Integration
+  packages-studio/
+    sdk-studio/                       # Plugin Contracts + Registry + Capabilities (KEIN UI)
+    core-studio/                      # Domainlogik, Modelle, Validierung (KEIN UI)
+    data-studio/                      # GraphQL Clients (Apollo-studio/urql), DTOs, Caching
+    auth-studio/                      # RBAC-Checks, Policy-Helpers, Row-Level Security
+    config-studio/                    # shared configs, schemas, build tooling
+    ui-contracts-studio/              # Design Tokens + UI-Kontrakte (KEIN React-studio/Vue)
+    runtime-contracts-studio/         # Slot--studio/Extension-Point-Definitionen
+    ui-react-studio/                  # React Design System (Primär)
+    ui-vue-studio/                    # (optional) Vue Design System
+    runtime-react-studio/             # React Adapter-studio/Renderer für SDK-Registry
+    runtime-vue-studio/               # (optional) Vue Adapter-studio/Renderer
+    mcp-client-studio/                # MCP (Model Context Protocol) Client für KI-Integration
+    api-manager-studio/               # API Management: externe APIs, Webhooks, Schema.org, GeoJSON
+    theme-engine-studio/              # Theme-Editor Engine, Design Tokens, CSS Variables
+    app-config-studio/                # App-Design & Konfiguration (Multi-Tenancy Settings)
+    monitoring-client-studio/         # Clients für Prometheus, Loki, Grafana
+    search-client-studio/             # MeiliSearch Integration
 
-  plugins/
+  plugins-studio/
     # --- Basis-Module (Milestone 1-2) ---
-    news/
-      core/
-      ui-react/
-    events/
-      core/
-      ui-react/
-    pois/                      # Points of Interest
-      core/
-      ui-react/
-    tours/
-      core/
-      ui-react/
-    media/
-      core/
-      ui-react/
-    users-roles/
-      core/
-      ui-react/
-    workflows/
-      core/
-      ui-react/
+    news-studio/
+      core-studio/
+      ui-react-studio/
+    events-studio/
+      core-studio/
+      ui-react-studio/
+    pois-studio/                      # Points of Interest
+      core-studio/
+      ui-react-studio/
+    tours-studio/
+      core-studio/
+      ui-react-studio/
+    media-studio/
+      core-studio/
+      ui-react-studio/
+    users-roles-studio/
+      core-studio/
+      ui-react-studio/
+    workflows-studio/
+      core-studio/
+      ui-react-studio/
 
     # --- Kommunal-Module ---
-    waste-calendar/            # Abfallkalender
-      core/
-      ui-react/
-    defect-reporter/           # Mängelmelder
-      core/
-      ui-react/
-    construction-sites/        # Baustellen & Verkehrsstörungen
-      core/
-      ui-react/
-    public-participation/      # Bürgerbeteiligung
-      core/
-      ui-react/
-    survey-tool/               # Umfrage-Tool
-      core/
-      ui-react/
-    deadline-reminder/         # Fristenmelder
-      core/
-      ui-react/
+    waste-calendar-studio/            # Abfallkalender
+      core-studio/
+      ui-react-studio/
+    defect-reporter-studio/           # Mängelmelder
+      core-studio/
+      ui-react-studio/
+    construction-sites-studio/        # Baustellen & Verkehrsstörungen
+      core-studio/
+      ui-react-studio/
+    public-participation-studio/      # Bürgerbeteiligung
+      core-studio/
+      ui-react-studio/
+    survey-tool-studio/               # Umfrage-Tool
+      core-studio/
+      ui-react-studio/
+    deadline-reminder-studio/         # Fristenmelder
+      core-studio/
+      ui-react-studio/
 
     # --- Mobility & Services ---
-    parking/
-      core/
-      ui-react/
-    car-sharing/
-      core/
-      ui-react/
-    bike-sharing/
-      core/
-      ui-react/
-    weather/
-      core/
-      ui-react/
+    parking-studio/
+      core-studio/
+      ui-react-studio/
+    car-sharing-studio/
+      core-studio/
+      ui-react-studio/
+    bike-sharing-studio/
+      core-studio/
+      ui-react-studio/
+    weather-studio/
+      core-studio/
+      ui-react-studio/
 
     # --- Content & Widgets ---
-    content-widget/            # Generischer Content-Block
-      core/
-      ui-react/
-    image-slider/
-      core/
-      ui-react/
-    event-widget/
-      core/
-      ui-react/
-    dashboard/                 # Dashboard mit Widget-Store
-      core/
-      ui-react/
+    content-widget-studio/            # Generischer Content-Block
+      core-studio/
+      ui-react-studio/
+    image-slider-studio/
+      core-studio/
+      ui-react-studio/
+    event-widget-studio/
+      core-studio/
+      ui-react-studio/
+    dashboard-studio/                 # Dashboard mit Widget-Store
+      core-studio/
+      ui-react-studio/
 
     # --- KI & Erweitert (Milestone 9) ---
-    ai-assistant/              # KI-Content-Assistenz (via MCP)
-      core/
-      ui-react/
-    chatbot/                   # Chatbot-Integration
-      core/
-      ui-react/
+    ai-assistant-studio/              # KI-Content-Assistenz (via MCP)
+      core-studio/
+      ui-react-studio/
+    chatbot-studio/                   # Chatbot-Integration
+      core-studio/
+      ui-react-studio/
 
     # --- System ---
-    help-support/              # Hilfe, Dokumentation, Ticketsystem
-      core/
-      ui-react/
-    onboarding/                # Onboarding-Tour
-      core/
-      ui-react/
+    help-support-studio/              # Hilfe, Dokumentation, Ticketsystem
+      core-studio/
+      ui-react-studio/
+    onboarding-studio/                # Onboarding-Tour
+      core-studio/
+      ui-react-studio/
 
-  docs/
-  tooling/
-  prisma/                      # Prisma Schema (falls für CMS-Metadaten genutzt)
+  docs-studio/
+  tooling-studio/
+  prisma-studio/                      # Prisma Schema (falls für CMS-Metadaten genutzt)
 ```
 
 ### Was kommt *wo* hin?
 
-#### `packages/sdk`
+#### `packages-studio/sdk`
 
 Enthält:
 
 * Plugin-Typen (`Plugin`, `PluginManifest`)
 * Registries (Navigation, Routes, Widgets, FieldTypes, SettingsSchemas)
-* Capability-/Permission-Model (RBAC)
+* Capability--studio/Permission-Model (RBAC)
 * Lifecycle-Hooks (sparsam!): `onRegister`, `onInit`, evtl. domain-spezifische Events
 
 Enthält **nicht**:
 
-* Vue/React Imports
+* Vue-studio/React Imports
 * konkrete UI-Komponenten
 * direkte API-Calls (das ist `data`)
 
-#### `packages/core` – **Fachlogik & Domänen**
+#### `packages-studio/core` – **Fachlogik & Domänen**
 
 Enthält:
 
@@ -398,40 +398,40 @@ Enthält:
 
 Enthält **nicht**:
 
-* HTTP/GraphQL-Clients
+* HTTP-studio/GraphQL-Clients
 * UI
 * Storage-Implementierungen, die an ein Framework koppeln
 
-#### `packages/data` – **Datenzugriffsschicht**
+#### `packages-studio/data` – **Datenzugriffsschicht**
 
 Enthält:
 
-* GraphQL/REST-Clients (Fetch/Apollo/urql – egal, aber konsistent)
+* GraphQL-studio/REST-Clients (Fetch-studio/Apollo-studio/urql – egal, aber konsistent)
 * Cache-Strategie, Retry, Pagination
 * Mapper von API → Domain DTOs
 
 Regel: UI und Plugins rufen **nie** direkt „fetch irgendwo“ auf, sondern über `data`.
 
-#### `packages/auth` – **Berechtigungen & Policies**
+#### `packages-studio/auth` – **Berechtigungen & Policies**
 
 Enthält:
 
 * Capability-Checks (`can(user, capability, resource?)`)
-* Rollen-/Rechte-Mapping, Helpers für UI Guards
+* Rollen--studio/Rechte-Mapping, Helpers für UI Guards
 * (Optional) Policy-Engine light (z. B. ABAC-Regeln als Ergänzung)
 
 Regel: Plugins deklarieren Capabilities im SDK, `auth` setzt sie durch.
 
-#### `packages/ui-contracts` – **Design System ohne Framework**
+#### `packages-studio/ui-contracts` – **Design System ohne Framework**
 
 Enthält:
 
 * Design Tokens (Farben, Spacing, Typography)
 * UI-Kontrakte für generische Renderer (Form schema, table schema, action schema)
 
-Ziel: möglichst viel UI kann schema-driven sein, unabhängig von Vue/React.
+Ziel: möglichst viel UI kann schema-driven sein, unabhängig von Vue-studio/React.
 
-#### `packages/mcp-client` – **KI-Integration via Model Context Protocol**
+#### `packages-studio/mcp-client` – **KI-Integration via Model Context Protocol**
 
 Enthält:
 
@@ -443,15 +443,15 @@ Enthält:
 Enthält **nicht**:
 
 * konkrete UI-Komponenten (nur Contracts)
-* direkte API-Keys (werden über Backend/Env-Vars verwaltet)
+* direkte API-Keys (werden über Backend-studio/Env-Vars verwaltet)
 
-#### `packages/api-manager` – **API Management & externe Integrationen**
+#### `packages-studio/api-manager` – **API Management & externe Integrationen**
 
 Enthält:
 
-* API-Registry für externe Datenquellen (REST/GraphQL)
-* Webhook-Management (eingehend/ausgehend)
-* Schema.org Export/Import
+* API-Registry für externe Datenquellen (REST-studio/GraphQL)
+* Webhook-Management (eingehend-studio/ausgehend)
+* Schema.org Export-studio/Import
 * GeoJSON-Import für Geodaten
 * API-Key-Verwaltung, Rate Limiting, Caching
 * Transformation-Layer (externe APIs → interne Modelle)
@@ -460,7 +460,7 @@ Enthält:
 - Plugins können APIs registrieren (z. B. `waste-calendar` registriert Abfallkalender-API)
 - UI für API-Verwaltung in separatem Admin-Bereich
 
-#### `packages/theme-engine` – **Theme-Editor & Design-System**
+#### `packages-studio/theme-engine` – **Theme-Editor & Design-System**
 
 Enthält:
 
@@ -468,24 +468,24 @@ Enthält:
 * CSS Variables Generator
 * Theme-Presets & Templates
 * Live-Preview-Engine
-* Theme-Export/-Import (JSON)
+* Theme-Export-studio/-Import (JSON)
 
 Regel: Themes sind Tenant-spezifisch, aber mit globalen Defaults.
 
-#### `packages/app-config` – **App-Design & Instanz-Konfiguration**
+#### `packages-studio/app-config` – **App-Design & Instanz-Konfiguration**
 
 Enthält:
 
 * Instanz-Management (Multi-Tenancy)
 * App-Konfiguration (Name, Logo, Farben, Module, Sprachen)
 * i18n-Verwaltung (Übersetzungen, Sprachauswahl)
-* Modul-Aktivierung/Deaktivierung pro Instanz
+* Modul-Aktivierung-studio/Deaktivierung pro Instanz
 * E-Mail-Templates & SMTP-Config
 * Feature-Flags
 
-Regel: Ersetzt bisherige YAML/JSON-Konfigurationsdateien durch UI.
+Regel: Ersetzt bisherige YAML-studio/JSON-Konfigurationsdateien durch UI.
 
-#### `packages/monitoring-client` – **Integration externer Monitoring-Services**
+#### `packages-studio/monitoring-client` – **Integration externer Monitoring-Services**
 
 Enthält:
 
@@ -498,7 +498,7 @@ Enthält **nicht**:
 
 * Die Monitoring-Services selbst (laufen extern)
 
-#### `packages/search-client` – **MeiliSearch Integration**
+#### `packages-studio/search-client` – **MeiliSearch Integration**
 
 Enthält:
 
@@ -509,41 +509,41 @@ Enthält:
 
 Regel: Plugins registrieren ihre Inhalte zur Indizierung.
 
-#### `packages/runtime-vue|runtime-react` – **Host-Adapter**
+#### `packages-studio/runtime-vue|runtime-react` – **Host-Adapter**
 
 Enthält:
 
 * Registry-Renderer (Navigation bauen, Routen mounten, Widget-Slots rendern)
-* Error Boundaries, Permission Gates, Plugin Activation/Deactivation
+* Error Boundaries, Permission Gates, Plugin Activation-studio/Deactivation
 * Brücke zwischen `ui-contracts` und konkreten Komponenten
 
-Hier entscheidet sich Vue/React – aber nur hier.
+Hier entscheidet sich Vue-studio/React – aber nur hier.
 
-#### `plugins/*` – **Features als Pakete**
+#### `plugins-studio/*` – **Features als Pakete**
 
 Jedes Plugin ist idealerweise zweigeteilt:
 
-* `plugins/<name>/core`:
+* `plugins-studio/<name>-studio/core`:
 
   * Domainlogik, plugin-spezifische Services, Settings-Defaults, schema definitions
-  * Keine Vue/React Imports.
+  * Keine Vue-studio/React Imports.
 
-* `plugins/<name>/ui-vue` / `ui-react` (optional):
+* `plugins-studio/<name>-studio/ui-vue` -studio/ `ui-react` (optional):
 
-  * tatsächliche Screens/Widgets, die der Host rendert
+  * tatsächliche Screens-studio/Widgets, die der Host rendert
   * nutzt nur `sdk`, `data`, `auth`, `ui-*` (nicht Host-Interna!)
 
 ---
 
 ## Plugin-Integrationsmodell (klar nachvollziehbar)
 
-### Plugin Manifest (im Plugin-Paket, z. B. `plugins/events/core`)
+### Plugin Manifest (im Plugin-Paket, z. B. `plugins-studio/events-studio/core`)
 
 * Deklariert:
 
   * `id`, `version`
   * `capabilities` (z. B. `events.read`, `events.write`)
-  * `settingsSchema` (Tenant/Global)
+  * `settingsSchema` (Tenant-studio/Global)
   * `register(ctx)` – dort werden Extension Points befüllt
 
 **Regel:** Alles, was im Host sichtbar ist, kommt **über `register(ctx)`**.
@@ -551,11 +551,11 @@ Jedes Plugin ist idealerweise zweigeteilt:
 ### Extension Points (Minimal-Set)
 
 * **Navigation**: Menüpunkte, Gruppen, Labels
-* **Routes/Screens**: „Seiten“ des CMS
+* **Routes-studio/Screens**: „Seiten“ des CMS
 * **Widgets**: Dashboards, Sidepanels, Detail-Widgets
 * **Field Types**: z. B. `locationPicker`, `richText`, `mediaRef`
-* **Settings**: JSON Schema / UI schema für Admin-Konfiguration
-* **Permissions**: deklarativ + enforced by Host/Auth
+* **Settings**: JSON Schema -studio/ UI schema für Admin-Konfiguration
+* **Permissions**: deklarativ + enforced by Host-studio/Auth
 
 So ist 100% klar: „Wenn es UI ist, muss es irgendwo in einer Registry auftauchen.“
 
@@ -565,24 +565,24 @@ So ist 100% klar: „Wenn es UI ist, muss es irgendwo in einer Registry auftauch
 
 ### Erlaubte Imports
 
-* `plugins/*/*` dürfen importieren:
+* `plugins-studio/*-studio/*` dürfen importieren:
 
-  * `@cms/sdk`
-  * `@cms/core`
-  * `@cms/data`
-  * `@cms/auth`
-  * `@cms/ui-contracts`
-  * optional `@cms/ui-vue|ui-react` (nur in ui-* Paketen)
+  * `@cms-studio/sdk`
+  * `@cms-studio/core`
+  * `@cms-studio/data`
+  * `@cms-studio/auth`
+  * `@cms-studio/ui-contracts`
+  * optional `@cms-studio/ui-vue|ui-react` (nur in ui-* Paketen)
 
 ### Verbotene Imports
 
-* Plugins dürfen **niemals** aus `apps/admin-web` importieren.
-* `packages/core` darf **niemals** aus `ui-*`, `runtime-*` importieren.
-* `packages/sdk` darf **niemals** aus `data` oder `auth` importieren (SDK bleibt Vertrag, nicht Implementation).
+* Plugins dürfen **niemals** aus `apps-studio/admin-web` importieren.
+* `packages-studio/core` darf **niemals** aus `ui-*`, `runtime-*` importieren.
+* `packages-studio/sdk` darf **niemals** aus `data` oder `auth` importieren (SDK bleibt Vertrag, nicht Implementation).
 
 Das erzwingt ihr technisch über:
 
-* ESLint boundary rules / `eslint-plugin-import`
+* ESLint boundary rules -studio/ `eslint-plugin-import`
 * TS path mapping + lint rules
 * CI Fail bei Boundary-Verletzung
 
@@ -597,7 +597,7 @@ Das erzwingt ihr technisch über:
 
 ### Phase 2 (wenn Partner-Plugins kommen): „SDK-Vertrag“
 
-* Plugins pinnen `peerDependency` auf `@cms/sdk`.
+* Plugins pinnen `peerDependency` auf `@cms-studio/sdk`.
 * Host kann Plugins unabhängig upgraden – *aber nur*, wenn SDK-Compatibility passt.
 
 ---
@@ -607,7 +607,7 @@ Das erzwingt ihr technisch über:
 * Der komplette „Kern“ (`core`, `sdk`, `data`, `auth`, `contracts`) bleibt gleich.
 * Ein Framework-Wechsel betrifft primär:
 
-  * `apps/admin-web`
+  * `apps-studio/admin-web`
   * `runtime-vue` ↔ `runtime-react`
   * (optional) plugin UI layer `ui-vue` ↔ `ui-react`
 
@@ -620,8 +620,8 @@ Wenn ihr zusätzlich **schema-driven UI** konsequent nutzt (über `ui-contracts`
 * **`sdk`**: Verträge, Registry, Capabilities, *keine Implementierung*
 * **`core`**: Fachlogik, Modelle, Workflows, *keine UI*
 * **`data`**: GraphQL Zugriff (Rails API), Caching, DTO Mapping
-* **`auth`**: Berechtigungen/Policies, RBAC, Row-Level Security
-* **`ui-contracts`**: schema/tokens, UI als Daten
+* **`auth`**: Berechtigungen-studio/Policies, RBAC, Row-Level Security
+* **`ui-contracts`**: schema-studio/tokens, UI als Daten
 * **`runtime-react`**: React-Renderer für Registry + Slots (primär)
 * **`runtime-vue`**: Vue-Renderer (optional)
 * **`mcp-client`**: KI-Integration via Model Context Protocol
@@ -630,7 +630,7 @@ Wenn ihr zusätzlich **schema-driven UI** konsequent nutzt (über `ui-contracts`
 * **`app-config`**: Instanz-Management, App-Konfiguration, i18n
 * **`monitoring-client`**: Prometheus, Loki, Grafana Integration
 * **`search-client`**: MeiliSearch Integration
-* **`plugins/*`**: 60+ Features (core + ui-react), nur über SDK integriert
+* **`plugins-studio/*`**: 60+ Features (core + ui-react), nur über SDK integriert
 
 ---
 
@@ -641,7 +641,7 @@ Wenn ihr zusätzlich **schema-driven UI** konsequent nutzt (über `ui-contracts`
 ```
 ┌─────────────────────┐         ┌─────────────────────┐         ┌─────────────────────┐
 │   CMS Admin UI      │         │   Rails Backend +   │         │  Smart Village App  │
-│  (TypeScript/React) │◄────────│   GraphQL API       │────────►│    (Mobile/Web)     │
+│  (TypeScript-studio/React) │◄────────│   GraphQL API       │────────►│    (Mobile-studio/Web)     │
 │                     │         │                     │         │                     │
 │  - Content-Editor   │         │  - Datenmodelle     │         │  - Bürger-Frontend  │
 │  - User-Management  │         │  - Business Logic   │         │  - Content-Anzeige  │
@@ -657,8 +657,8 @@ Wenn ihr zusätzlich **schema-driven UI** konsequent nutzt (über `ui-contracts`
                          ▼                               ▼
               ┌──────────────────────┐       ┌──────────────────────┐
               │  Externe Services    │       │  KI-Services (MCP)   │
-              │  - Prometheus        │       │  - OpenAI/Claude     │
-              │  - Loki/Grafana      │       │  - Content-Assistenz │
+              │  - Prometheus        │       │  - OpenAI-studio/Claude     │
+              │  - Loki-studio/Grafana      │       │  - Content-Assistenz │
               │  - MeiliSearch       │       │  - Alt-Text Gen.     │
               └──────────────────────┘       └──────────────────────┘
 ```
@@ -667,8 +667,8 @@ Wenn ihr zusätzlich **schema-driven UI** konsequent nutzt (über `ui-contracts`
 
 **CMS Admin UI (dieses Repo):**
 - Content-Management für Redakteure
-- Theme-/Design-Verwaltung
-- Benutzer-/Rollen-Verwaltung
+- Theme--studio/Design-Verwaltung
+- Benutzer--studio/Rollen-Verwaltung
 - Modul-Konfiguration
 - Analytics & Monitoring-Dashboards
 - API-Management UI
@@ -682,7 +682,7 @@ Wenn ihr zusätzlich **schema-driven UI** konsequent nutzt (über `ui-contracts`
 - Webhook-Ausführung
 
 **Mobile App (separates Repo):**
-- Bürger-Frontend (React Native / Flutter / Progressive Web App)
+- Bürger-Frontend (React Native -studio/ Flutter -studio/ Progressive Web App)
 - Konsumiert GraphQL API
 - Offline-First Architektur
 - Push-Notifications
@@ -690,10 +690,10 @@ Wenn ihr zusätzlich **schema-driven UI** konsequent nutzt (über `ui-contracts`
 
 ### Kommunikation
 
-- **CMS ↔ Backend:** GraphQL Queries/Mutations (vollständige CRUD-Operationen)
+- **CMS ↔ Backend:** GraphQL Queries-studio/Mutations (vollständige CRUD-Operationen)
 - **Mobile App ↔ Backend:** GraphQL Queries (hauptsächlich Read-Only, User-Generated Content via Mutations)
-- **CMS → MCP:** HTTP/WebSocket (KI-Anfragen)
-- **Backend → Externe Services:** REST/Webhooks (Monitoring, Logs, Search-Indexing)
+- **CMS → MCP:** HTTP-studio/WebSocket (KI-Anfragen)
+- **Backend → Externe Services:** REST-studio/Webhooks (Monitoring, Logs, Search-Indexing)
 
 ---
 
@@ -701,17 +701,17 @@ Wenn ihr zusätzlich **schema-driven UI** konsequent nutzt (über `ui-contracts`
 
 ### Wo gehört API Management hin?
 
-**Empfehlung:** `packages/api-manager` als eigenständiges Paket mit Plugin-Integration
+**Empfehlung:** `packages-studio/api-manager` als eigenständiges Paket mit Plugin-Integration
 
 ### Funktionen
 
 1. **Externe APIs verwalten**
-   - REST/GraphQL Endpunkte registrieren
-   - API-Keys/OAuth konfigurieren
+   - REST-studio/GraphQL Endpunkte registrieren
+   - API-Keys-studio/OAuth konfigurieren
    - Rate Limiting & Retry-Logik
    - Beispiel: Wetter-API, Verkehrsdaten, Öffnungszeiten
 
-2. **Webhooks (eingehend/ausgehend)**
+2. **Webhooks (eingehend-studio/ausgehend)**
    - Webhook-URLs registrieren
    - Event-Trigger definieren (z. B. „News publiziert" → Webhook an externe Systeme)
    - Incoming Webhooks (externe Systeme pushen Daten ins CMS)
@@ -720,31 +720,31 @@ Wenn ihr zusätzlich **schema-driven UI** konsequent nutzt (über `ui-contracts`
    - Content als Schema.org JSON-LD exportieren
    - Automatische Mapping-Rules (News → NewsArticle, Events → Event, POIs → Place)
 
-4. **GeoJSON Import/Export**
+4. **GeoJSON Import-studio/Export**
    - Import von Geodaten (POIs, Touren, Baustellen)
    - Validierung & Transformation
 
 ### Architektur-Integration
 
 ```typescript
-// Plugin registriert API-Bedarf
-// In plugins/weather/core/index.ts
+-studio/-studio/ Plugin registriert API-Bedarf
+-studio/-studio/ In plugins-studio/weather-studio/core-studio/index.ts
 export const weatherPlugin: Plugin = {
   id: 'weather',
   register(ctx) {
-    // API-Endpoint deklarieren
+    -studio/-studio/ API-Endpoint deklarieren
     ctx.apiManager.registerExternalAPI({
       id: 'openweather',
       type: 'REST',
-      baseUrl: 'https://api.openweathermap.org/data/2.5',
+      baseUrl: 'https:-studio/-studio/api.openweathermap.org-studio/data-studio/2.5',
       auth: { type: 'apiKey', key: 'OPENWEATHER_API_KEY' },
       rateLimits: { requests: 60, perMinute: true },
     });
 
-    // Webhook für externe Updates
+    -studio/-studio/ Webhook für externe Updates
     ctx.apiManager.registerWebhook({
       id: 'weather-alert',
-      url: '/webhooks/weather/alert',
+      url: '-studio/webhooks-studio/weather-studio/alert',
       events: ['weather.severe_alert'],
       handler: handleWeatherAlert,
     });
@@ -768,55 +768,55 @@ export const weatherPlugin: Plugin = {
 
 | Anforderungsdokument | Plugin-Paket | Beschreibung |
 |---------------------|--------------|-------------|
-| `News.md` | `plugins/news` | Nachrichten mit Kategorien, Bilder, Vorschau |
-| `Events.md` | `plugins/events` | Veranstaltungen, Kalender, Buchungen |
-| `POIs.md` | `plugins/pois` | Points of Interest, Karten, Öffnungszeiten |
-| `Touren.md` | `plugins/tours` | Wander-/Radtouren, GPX, Wegpunkte |
-| `Medienverwaltung.md` | `plugins/media` | Bilder, Videos, Dokumente, Alt-Texte |
-| `Benutzer.md` | `plugins/users-roles` | Benutzer, Rollen, Rechte, SSO |
+| `News.md` | `plugins-studio/news` | Nachrichten mit Kategorien, Bilder, Vorschau |
+| `Events.md` | `plugins-studio/events` | Veranstaltungen, Kalender, Buchungen |
+| `POIs.md` | `plugins-studio/pois` | Points of Interest, Karten, Öffnungszeiten |
+| `Touren.md` | `plugins-studio/tours` | Wander--studio/Radtouren, GPX, Wegpunkte |
+| `Medienverwaltung.md` | `plugins-studio/media` | Bilder, Videos, Dokumente, Alt-Texte |
+| `Benutzer.md` | `plugins-studio/users-roles` | Benutzer, Rollen, Rechte, SSO |
 
 ### Kommunal-Module
 
 | Anforderungsdokument | Plugin-Paket | Beschreibung |
 |---------------------|--------------|-------------|
-| `Abfallkalender.md` | `plugins/waste-calendar` | Müllabfuhr-Termine, Erinnerungen |
-| `Maengelmelder.md` | `plugins/defect-reporter` | Schadensmeldungen, Fotos, Status-Tracking |
-| `Baustellen-Verkehrsstoerungen.md` | `plugins/construction-sites` | Baustellen, Sperrungen, Umleitungen |
-| `Buergerbeteiligung.md` | `plugins/public-participation` | Umfragen, Voting, Kommentare |
-| `Umfrage-Tool.md` | `plugins/survey-tool` | Umfragen erstellen, Auswertung |
-| `Fristenmelder.md` | `plugins/deadline-reminder` | Fristen, Termine, Push-Notifications |
+| `Abfallkalender.md` | `plugins-studio/waste-calendar` | Müllabfuhr-Termine, Erinnerungen |
+| `Maengelmelder.md` | `plugins-studio/defect-reporter` | Schadensmeldungen, Fotos, Status-Tracking |
+| `Baustellen-Verkehrsstoerungen.md` | `plugins-studio/construction-sites` | Baustellen, Sperrungen, Umleitungen |
+| `Buergerbeteiligung.md` | `plugins-studio/public-participation` | Umfragen, Voting, Kommentare |
+| `Umfrage-Tool.md` | `plugins-studio/survey-tool` | Umfragen erstellen, Auswertung |
+| `Fristenmelder.md` | `plugins-studio/deadline-reminder` | Fristen, Termine, Push-Notifications |
 
 ### Content & Widgets
 
 | Anforderungsdokument | Plugin-Paket | Beschreibung |
 |---------------------|--------------|-------------|
-| `Content-Widget.md` | `plugins/content-widget` | Freie HTML/Markdown-Blöcke |
-| `Bilderslider.md` | `plugins/image-slider` | Bildergalerien, Karussell |
-| `Event-Widget.md` | `plugins/event-widget` | Event-Teaser, Filter |
-| `Dashboard-mit-Widget-Store.md` | `plugins/dashboard` | Widgets, Analytics, KPIs |
+| `Content-Widget.md` | `plugins-studio/content-widget` | Freie HTML-studio/Markdown-Blöcke |
+| `Bilderslider.md` | `plugins-studio/image-slider` | Bildergalerien, Karussell |
+| `Event-Widget.md` | `plugins-studio/event-widget` | Event-Teaser, Filter |
+| `Dashboard-mit-Widget-Store.md` | `plugins-studio/dashboard` | Widgets, Analytics, KPIs |
 
 ### Mobilität & Services
 
 | Anforderungsdokument | Plugin-Paket | Beschreibung |
 |---------------------|--------------|-------------|
-| `Parken.md` | `plugins/parking` | Parkplätze, Verfügbarkeit, Reservierung |
-| `Car-Angebote.md` | `plugins/car-sharing` | Carsharing-Standorte, Verfügbarkeit |
-| `Bikesharing-Angebote.md` | `plugins/bike-sharing` | Leihfahrräder, Stationen |
-| `Wetter.md` | `plugins/weather` | Wettervorhersage, Unwetterwarnungen |
+| `Parken.md` | `plugins-studio/parking` | Parkplätze, Verfügbarkeit, Reservierung |
+| `Car-Angebote.md` | `plugins-studio/car-sharing` | Carsharing-Standorte, Verfügbarkeit |
+| `Bikesharing-Angebote.md` | `plugins-studio/bike-sharing` | Leihfahrräder, Stationen |
+| `Wetter.md` | `plugins-studio/weather` | Wettervorhersage, Unwetterwarnungen |
 
 ### KI & Erweitert (Milestone 9)
 
 | Anforderungsdokument | Plugin-Paket | Beschreibung |
 |---------------------|--------------|-------------|
-| `KI.md` | `plugins/ai-assistant` | Content-KI, Alt-Text, Übersetzung |
-| `Chatbot-Integration.md` | `plugins/chatbot` | LLM-basierter Chatbot für Bürger |
+| `KI.md` | `plugins-studio/ai-assistant` | Content-KI, Alt-Text, Übersetzung |
+| `Chatbot-Integration.md` | `plugins-studio/chatbot` | LLM-basierter Chatbot für Bürger |
 
 ### System-Module
 
 | Anforderungsdokument | Plugin-Paket | Beschreibung |
 |---------------------|--------------|-------------|
-| `Hilfe.md` | `plugins/help-support` | Hilfe, Doku, Ticketsystem |
-| `Intro.md` | `plugins/onboarding` | Onboarding-Tour, Tooltips |
+| `Hilfe.md` | `plugins-studio/help-support` | Hilfe, Doku, Ticketsystem |
+| `Intro.md` | `plugins-studio/onboarding` | Onboarding-Tour, Tooltips |
 
 **Hinweis:** Nicht alle 60+ Module sind hier aufgeführt. Das Mapping folgt dem gleichen Prinzip.
 
@@ -824,7 +824,7 @@ export const weatherPlugin: Plugin = {
 
 ## Theme-Editor & App-Design: Architektur-Details
 
-### `packages/theme-engine` – Technische Umsetzung
+### `packages-studio/theme-engine` – Technische Umsetzung
 
 #### Theme-Schema (JSON)
 
@@ -850,9 +850,9 @@ export const weatherPlugin: Plugin = {
     "containerWidth": "1200px"
   },
   "branding": {
-    "logo": "/media/logo.svg",
-    "favicon": "/media/favicon.ico",
-    "splashScreen": "/media/splash.png"
+    "logo": "-studio/media-studio/logo.svg",
+    "favicon": "-studio/media-studio/favicon.ico",
+    "splashScreen": "-studio/media-studio/splash.png"
   },
   "components": {
     "button": {
@@ -866,7 +866,7 @@ export const weatherPlugin: Plugin = {
 #### CSS Variables Generator
 
 ```typescript
-// packages/theme-engine/src/generator.ts
+-studio/-studio/ packages-studio/theme-engine-studio/src-studio/generator.ts
 export function generateCSSVariables(theme: Theme): string {
   return `
     :root {
@@ -874,7 +874,7 @@ export function generateCSSVariables(theme: Theme): string {
       --color-secondary: ${theme.colors.secondary};
       --font-family: ${theme.typography.fontFamily};
       --spacing-unit: ${theme.spacing.unit};
-      /* ... */
+      -studio/* ... *-studio/
     }
   `;
 }
@@ -883,38 +883,38 @@ export function generateCSSVariables(theme: Theme): string {
 #### Theme-Editor UI (React)
 
 ```typescript
-// apps/cms-admin/src/pages/ThemeEditor.tsx
-import { ThemeEngine } from '@cms/theme-engine';
-import { ThemePreview } from '@cms/ui-react';
+-studio/-studio/ apps-studio/cms-admin-studio/src-studio/pages-studio/ThemeEditor.tsx
+import { ThemeEngine } from '@cms-studio/theme-engine';
+import { ThemePreview } from '@cms-studio/ui-react';
 
 export function ThemeEditorPage() {
   const [theme, setTheme] = useState<Theme>(currentTheme);
 
   return (
     <Split>
-      <ThemeEditorForm theme={theme} onChange={setTheme} />
-      <ThemePreview theme={theme} />
-    </Split>
+      <ThemeEditorForm theme={theme} onChange={setTheme} -studio/>
+      <ThemePreview theme={theme} -studio/>
+    <-studio/Split>
   );
 }
 ```
 
-### `packages/app-config` – App-Konfiguration
+### `packages-studio/app-config` – App-Konfiguration
 
 #### Instanz-Konfiguration (Multi-Tenancy)
 
 ```typescript
-// packages/app-config/src/types.ts
+-studio/-studio/ packages-studio/app-config-studio/src-studio/types.ts
 export interface InstanceConfig {
   id: string;
   name: string;
   domain: string;
-  theme: string; // Theme-ID
+  theme: string; -studio/-studio/ Theme-ID
   locale: string;
   availableLocales: string[];
   modules: {
-    enabled: string[]; // Plugin-IDs
-    config: Record<string, unknown>; // Plugin-spezifische Config
+    enabled: string[]; -studio/-studio/ Plugin-IDs
+    config: Record<string, unknown>; -studio/-studio/ Plugin-spezifische Config
   };
   features: {
     userGeneratedContent: boolean;
@@ -925,7 +925,7 @@ export interface InstanceConfig {
     host: string;
     port: number;
     user: string;
-    // ...
+    -studio/-studio/ ...
   };
 }
 ```
@@ -933,7 +933,7 @@ export interface InstanceConfig {
 #### UI: Instanz-Manager
 
 - Admin-Bereich: "Instanzen" oder "Apps"
-- Liste aller Mandanten/Apps
+- Liste aller Mandanten-studio/Apps
 - Pro Instanz:
   - Allgemeine Einstellungen (Name, Logo, Sprachen)
   - Theme-Auswahl
@@ -942,6 +942,6 @@ export interface InstanceConfig {
   - Feature-Flags
 
 **Integration mit Theme-Editor:**
-- Theme-Editor erstellt/bearbeitet Themes
+- Theme-Editor erstellt-studio/bearbeitet Themes
 - Instanz-Manager weist Themes zu
 - Mobile App lädt Theme-Config via GraphQL beim App-Start
