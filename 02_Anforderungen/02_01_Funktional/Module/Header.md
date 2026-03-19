@@ -49,4 +49,6 @@
 
 ## Notizen aus Vorarbeit
 
-Platzhalter: Anforderungen für Header-Design, Logoeinbindung, Navigation und responsives Verhalten.
+- Der Header unterstützt einen sichtbaren Sprachwechsel zwischen Deutsch und Englisch.
+- Die Auswahl muss persistent gespeichert werden und sowohl Labels als auch Navigations- und Status-Texte der Shell umschalten.
+- Responsives Verhalten und Barrierefreiheit des Schalters sind Bestandteil des Moduls.
