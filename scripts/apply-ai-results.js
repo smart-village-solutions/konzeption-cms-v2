@@ -38,7 +38,9 @@ async function applyResults(resultsFile) {
     }
 
     for (const decision of decisions) {
-      const { requirementId, action, relevance, reasoning } = decision;
+      const { requirementId, relevance, reasoning } = decision;
+      // Support both `action` (API format) and `decision` (copilot-review format)
+      const action = decision.action || decision.decision;
 
       if (action === 'CONFIRM') {
         updates.push({
